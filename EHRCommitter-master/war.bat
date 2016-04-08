@@ -1,1 +1,0 @@
-grails war target/committer.war

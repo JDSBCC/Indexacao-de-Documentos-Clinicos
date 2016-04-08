@@ -1,1 +1,0 @@
-h:\putty\pscp -i "C:\Documents and Settings\pab\.ssh\default.ppk" "C:\Documents and Settings\pab\My Documents\GitHub\EhrCommitter\target\committer.war" 56567cfa0c1e6617d20000b6@committer-ehrserver.rhcloud.com:app-root/dependencies/jbossews/webapps
