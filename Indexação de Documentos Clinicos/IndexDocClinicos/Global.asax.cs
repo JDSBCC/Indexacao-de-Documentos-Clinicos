@@ -48,18 +48,18 @@ namespace IndexDocClinicos
                     /*byte[] buffer = (byte[])dataReader["file_stream"];
                     File.WriteAllBytes("C:\\Users\\Joaogcorreia\\Desktop\\foo.pdf", buffer);*/
 
-                    using (MemoryStream stream = new MemoryStream((byte[])dataReader["file_stream"]))
+                    /*using (MemoryStream stream = new MemoryStream((byte[])dataReader["file_stream"]))
                     {
                         var solr = ServiceLocator.Current.GetInstance<ISolrOperations<Contribution>>();
                         ExtractParameters extract = new ExtractParameters(stream, "doc1", dataReader["nome_original"] + "")
                         {
                             ExtractOnly = true,
                             ExtractFormat = ExtractFormat.Text/*,
-                            StreamType = "application/pdf"*/
+                            StreamType = "application/pdf"
                         };
                         var response = solr.Extract(extract);
                         Debug.WriteLine("\n+++++++++++++++++++++++++++++++ " + response.Content);
-                    }
+                    }*/
 
                 }
                 dataReader.Close();
