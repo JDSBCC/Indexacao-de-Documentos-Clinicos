@@ -1,0 +1,47 @@
+<dataConfig>
+	<dataSource type="JdbcDataSource" 
+			driver="com.mysql.jdbc.Driver"
+			url="jdbc:mysql://localhost:3306/ehrserver" 
+			user="root" 
+			password="12345"/>
+	<document>
+		<entity name="contribution"
+				pk="id"
+				query="SELECT cont.id, cont.ehr_id, ci.id as comp_id 
+				FROM contribution cont, version v, composition_index ci 
+				WHERE cont.id=v.contribution_id AND v.data_id=ci.id AND ci.last_version=1"
+				deltaQuery="SELECT c.id FROM contribution c, audit_details ad  WHERE c.contrib_audit=ad.id AND ad.time_committed>'${dih.last_index_time}'"
+			deltaImportQuery="SELECT cont.id, cont.ehr_id, ci.id 
+			FROM contribution cont, version v, composition_index ci 
+			WHERE cont.id=v.contribution_id AND v.data_id=ci.id AND ci.last_version=1 AND ci.id='${dih.delta.id}'">
+			<field column="id" name="id"/>
+			<field column="ehr_id" name="ehr_id"/>
+			<field column="comp_id" name="comp_id"/>
+
+			<entity name="data_value_index"
+					query="SELECT id, archetype_id, template_id 
+					FROM data_value_index 
+					WHERE owner_id='${contribution.comp_id}'">
+				<field column="id" name="id"/>
+				<field column="archetype_id" name="archetype_id"/>
+				<field column="template_id" name="template_id"/>
+
+				<entity name="dv_text_index"	 
+						query="SELECT value 
+						FROM dv_text_index 
+						WHERE id='${data_value_index.id}'">
+					<field column="value" name="value"/>
+				</entity>
+			</entity>
+
+			<entity name="person"
+					query="SELECT first_name, last_name, dob 
+					FROM ehr, patient_proxy pp, person p 
+					WHERE ehr.subject_id=pp.id AND pp.value=p.uid AND ehr.id='${contribution.ehr_id}'">
+				<field column="first_name" name="first_name"/>
+				<field column="last_name" name="last_name"/>
+				<field column="dob" name="dob"/>
+			</entity>
+		</entity>
+	</document>
+</dataConfig>

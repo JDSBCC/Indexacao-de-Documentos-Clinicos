@@ -1,0 +1,18 @@
+<dataConfig>
+	<dataSource type="JdbcDataSource" 
+			driver="com.mysql.jdbc.Driver"
+			url="jdbc:mysql://localhost:3306/ehrserver" 
+			user="root" 
+			password="12345"/>
+	<document>
+		<entity name="doc"
+				pk="id"
+				query="select * from er_ficheiro where elemento_id=13706193">
+			<field column="id" name="id"/>
+			<field column="ehr_id" name="ehr_id"/>
+			<field column="comp_id" name="comp_id"/>
+
+			
+		</entity>
+	</document>
+</dataConfig>
