@@ -1,18 +1,15 @@
 <dataConfig>
-	<dataSource type="JdbcDataSource" 
-			driver="com.mysql.jdbc.Driver"
-			url="jdbc:mysql://localhost:3306/ehrserver" 
-			user="root" 
-			password="12345"/>
+	<dataSource name="jdbc" 
+			driver="oracle.jdbc.OracleDriver" 
+			url="jdbc:oracle:thin:@10.84.5.13:1521/EVFDEV" 
+			user="eresults_v2" 
+			password="eresults_v2"/>
 	<document>
 		<entity name="doc"
-				pk="id"
+				pk="elemento_id"
 				query="select * from er_ficheiro where elemento_id=13706193">
-			<field column="id" name="id"/>
-			<field column="ehr_id" name="ehr_id"/>
-			<field column="comp_id" name="comp_id"/>
-
-			
+			<field column="elemento_id" name="elemento_id"/>
+			<field column="text" name="FILE_STREAM"/>
 		</entity>
 	</document>
 </dataConfig>

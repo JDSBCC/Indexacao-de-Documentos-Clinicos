@@ -27,6 +27,8 @@ namespace IndexDocClinicos
 
             var connection = new SolrConnection("http://localhost:8983/solr/ehr");
             Startup.Init<Contribution>(connection);
+            var connection2 = new SolrConnection("http://localhost:8983/solr/doc");
+            Startup.Init<Document>(connection2);
             AddInitialDocumentsFromDatabase();
             Testing();
         }
@@ -50,16 +52,24 @@ namespace IndexDocClinicos
 
                     /*using (MemoryStream stream = new MemoryStream((byte[])dataReader["file_stream"]))
                     {
-                        var solr = ServiceLocator.Current.GetInstance<ISolrOperations<Contribution>>();
+                        ISolrOperations<Document> solr = ServiceLocator.Current.GetInstance<ISolrOperations<Document>>();
                         ExtractParameters extract = new ExtractParameters(stream, "doc1", dataReader["nome_original"] + "")
                         {
                             ExtractOnly = true,
-                            ExtractFormat = ExtractFormat.Text/*,
-                            StreamType = "application/pdf"
+                            ExtractFormat = ExtractFormat.Text
                         };
                         var response = solr.Extract(extract);
                         Debug.WriteLine("\n+++++++++++++++++++++++++++++++ " + response.Content);
                     }*/
+
+                    ISolrOperations<Document> solr = ServiceLocator.Current.GetInstance<ISolrOperations<Document>>();
+                    using (var file = File.OpenRead("C:\\Users\\Joaogcorreia\\Desktop\\foo.pdf")) {
+                        var response = solr.Extract(new ExtractParameters(file, "some_document_id") {
+                            ExtractOnly = true,
+                            ExtractFormat = ExtractFormat.Text,
+                        });
+                        Console.WriteLine(response.Content);
+                    }
 
                 }
                 dataReader.Close();
