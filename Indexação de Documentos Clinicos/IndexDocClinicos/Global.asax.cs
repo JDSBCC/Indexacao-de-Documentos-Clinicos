@@ -43,34 +43,30 @@ namespace IndexDocClinicos
                 conn.ConnectionString = "Data Source=(DESCRIPTION= (ADDRESS= (PROTOCOL=TCP)(Host=10.84.5.13)(Port=1521))(CONNECT_DATA= (SID=EVFDEV)));User Id=eresults_v2;Password=eresults_v2";
                 conn.Open();
 
-                OracleCommand cmd = new OracleCommand("select * from er_ficheiro where elemento_id=13706193", conn);
+                OracleCommand cmd = new OracleCommand("select * from er_ficheiro where elemento_id>13706193 AND elemento_id<13806193", conn);
                 dataReader = cmd.ExecuteReader();
                 while (dataReader.Read())
                 {
-                    /*byte[] buffer = (byte[])dataReader["file_stream"];
-                    File.WriteAllBytes("C:\\Users\\Joaogcorreia\\Desktop\\foo.pdf", buffer);*/
-
-                    /*using (MemoryStream stream = new MemoryStream((byte[])dataReader["file_stream"]))
+                    using (MemoryStream stream = new MemoryStream((byte[])dataReader["file_stream"]))
                     {
                         ISolrOperations<Document> solr = ServiceLocator.Current.GetInstance<ISolrOperations<Document>>();
-                        ExtractParameters extract = new ExtractParameters(stream, "doc1", dataReader["nome_original"] + "")
+                        ExtractParameters extract = new ExtractParameters(stream, dataReader["elemento_id"]+"", dataReader["nome_original"] + "")
                         {
                             ExtractOnly = true,
                             ExtractFormat = ExtractFormat.Text
                         };
                         var response = solr.Extract(extract);
-                        Debug.WriteLine("\n+++++++++++++++++++++++++++++++ " + response.Content);
-                    }*/
+                        //Debug.WriteLine("\n+++++++++++++++++++++++++++++++ " + response.Content);
 
-                    ISolrOperations<Document> solr = ServiceLocator.Current.GetInstance<ISolrOperations<Document>>();
-                    using (var file = File.OpenRead("C:\\Users\\Joaogcorreia\\Desktop\\foo.pdf")) {
-                        var response = solr.Extract(new ExtractParameters(file, "some_document_id") {
-                            ExtractOnly = true,
-                            ExtractFormat = ExtractFormat.Text,
+                        solr.Add(new Document
+                        {
+                            Elemento_id = Convert.ToInt32(dataReader["elemento_id"]),
+                            Value = response.Content.Replace("\n","")
                         });
-                        Console.WriteLine(response.Content);
+                        solr.Commit();
+                        solr.BuildSpellCheckDictionary();
+                        stream.Close();
                     }
-
                 }
                 dataReader.Close();
             }catch(OracleException e){

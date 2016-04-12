@@ -9,7 +9,7 @@ namespace IndexDocClinicos.Models
         [SolrUniqueKey("elemento_id")]
         public int Elemento_id { get; set; }
 
-        [SolrField("text")]
-        public int Text { get; set; }
+        [SolrField("value")]
+        public string Value { get; set; }
     }
 }

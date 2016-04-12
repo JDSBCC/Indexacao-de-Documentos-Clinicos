@@ -1,11 +1,10 @@
 <config>
 	<luceneMatchVersion>5.5.0</luceneMatchVersion>
 
-	<lib dir="../../../dist/" regex=".*\.jar" />
 	<lib dir="../../../contrib/dataimporthandler/lib" regex=".*\.jar" />
 	<lib dir="../../../dist/" regex="solr-dataimporthandler-.*\.jar" />
-	<lib dir="${solr.install.dir:../../../..}/contrib/extraction/lib" regex=".*\.jar" />
-	<lib dir="${solr.install.dir:../../../..}/dist/" regex="solr-cell-\d.*\.jar" />
+	<lib dir="../../../contrib/extraction/lib" regex=".*\.jar" />
+	<lib dir="../../../dist/" regex="solr-cell-\d.*\.jar" />
 	
 	<filterCache class="solr.FastLRUCache"
                  size="512"
