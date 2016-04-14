@@ -216,6 +216,34 @@ class RegistrosController {
          "estatura":                      "/content[archetype_id=openEHR-EHR-OBSERVATION.height.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0004]/value",           // DvQuantity
          "estatura_mag":                  "/content[archetype_id=openEHR-EHR-OBSERVATION.height.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0004]/value/magnitude", // DvQuantity.magnitude
          "estatura_units":                "/content[archetype_id=openEHR-EHR-OBSERVATION.height.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0004]/value/units"      // DvQuantity.units
+      ],
+	  
+	  "create_registro_demographic": // Las paths son absolutas con respescto a la composition y contienen las rutas absolutas a cada arquetipo que se tenga un slot.
+      [
+         "presion_sistolica":             "/content[archetype_id=openEHR-EHR-OBSERVATION.blood_pressure.v1]/data[at0001]/events[at0006]/data[at0003]/items[at0004]/value", // Se necesita para pedir la restriccion de units (la path de units no funciona con arch.node()
+         "presion_sistolica_mag":         "/content[archetype_id=openEHR-EHR-OBSERVATION.blood_pressure.v1]/data[at0001]/events[at0006]/data[at0003]/items[at0004]/value/magnitude", // DvQuantity.magnitude
+         "presion_sistolica_units":       "/content[archetype_id=openEHR-EHR-OBSERVATION.blood_pressure.v1]/data[at0001]/events[at0006]/data[at0003]/items[at0004]/value/units",     // DvQuantity.units
+         
+         "presion_diastolica":            "/content[archetype_id=openEHR-EHR-OBSERVATION.blood_pressure.v1]/data[at0001]/events[at0006]/data[at0003]/items[at0005]/value",           // DvQuantity
+         "presion_diastolica_mag":        "/content[archetype_id=openEHR-EHR-OBSERVATION.blood_pressure.v1]/data[at0001]/events[at0006]/data[at0003]/items[at0005]/value/magnitude", // DvQuantity.magnitude
+         "presion_diastolica_units":      "/content[archetype_id=openEHR-EHR-OBSERVATION.blood_pressure.v1]/data[at0001]/events[at0006]/data[at0003]/items[at0005]/value/units",     // DvQuantity.units
+         
+         "temperatura":                   "/content[archetype_id=openEHR-EHR-OBSERVATION.body_temperature.v1]/data[at0002]/events[at0003]/data[at0001]/items[at0004]/value",           // DvQuantity
+         "temperatura_mag":               "/content[archetype_id=openEHR-EHR-OBSERVATION.body_temperature.v1]/data[at0002]/events[at0003]/data[at0001]/items[at0004]/value/magnitude", // DvQuantity.magnitude
+         "temperatura_units":             "/content[archetype_id=openEHR-EHR-OBSERVATION.body_temperature.v1]/data[at0002]/events[at0003]/data[at0001]/items[at0004]/value/units",     // DvQuantity.units
+         
+         "frecuencia_cardiaca_name":      "/content[archetype_id=openEHR-EHR-OBSERVATION.pulse.v1]/data[at0002]/events[at0003]/data[at0001]/items[at0004]/name/defining_code/code_string", // DvCodedText.defining_code.code_string
+         "frecuencia_cardiaca":           "/content[archetype_id=openEHR-EHR-OBSERVATION.pulse.v1]/data[at0002]/events[at0003]/data[at0001]/items[at0004]",           // ELEMENT
+         "frecuencia_cardiaca_mag":       "/content[archetype_id=openEHR-EHR-OBSERVATION.pulse.v1]/data[at0002]/events[at0003]/data[at0001]/items[at0004]/value/magnitude", // DvQuantity.magnitude
+         "frecuencia_cardiaca_units":     "/content[archetype_id=openEHR-EHR-OBSERVATION.pulse.v1]/data[at0002]/events[at0003]/data[at0001]/items[at0004]/value/units",     // DvQuantity.units
+         
+         "frecuencia_respiratoria":       "/content[archetype_id=openEHR-EHR-OBSERVATION.respiration.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0004]/value",           // DvQuantity
+         "frecuencia_respiratoria_mag":   "/content[archetype_id=openEHR-EHR-OBSERVATION.respiration.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0004]/value/magnitude", // DvQuantity.magnitude
+         "frecuencia_respiratoria_units": "/content[archetype_id=openEHR-EHR-OBSERVATION.respiration.v1]/data[at0001]/events[at0002]/data[at0003]/items[at0004]/value/units",     // DvQuantity.units
+         
+         "peso":                          "/content[archetype_id=openEHR-EHR-OBSERVATION.body_weight.v1]/data[at0002]/events[at0003]/data[at0001]/items[at0004]/value",           // DvQuantity
+         "peso_mag":                      "/content[archetype_id=openEHR-EHR-OBSERVATION.body_weight.v1]/data[at0002]/events[at0003]/data[at0001]/items[at0004]/value/magnitude", // DvQuantity.magnitude
+         "peso_units":                    "/content[archetype_id=openEHR-EHR-OBSERVATION.body_weight.v1]/data[at0002]/events[at0003]/data[at0001]/items[at0004]/value/units"     // DvQuantity.units
       ]
    ]
    
@@ -386,6 +414,7 @@ class RegistrosController {
          }
          else
          {
+			println bind_data
             println "newdoc saved ok"
          }
          
@@ -402,6 +431,7 @@ class RegistrosController {
          }
          else
          {
+			println bind_data
             println "newdoc saved ok"
          }
          
