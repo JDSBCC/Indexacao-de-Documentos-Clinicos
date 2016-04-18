@@ -27,10 +27,10 @@ namespace IndexDocClinicos
 
             var connection = new SolrConnection("http://localhost:8983/solr/ehr");
             Startup.Init<Contribution>(connection);
-            var connection2 = new SolrConnection("http://localhost:8983/solr/doc");
-            Startup.Init<Document>(connection2);
+            //var connection2 = new SolrConnection("http://localhost:8983/solr/doc");
+            //Startup.Init<Document>(connection2);
             AddInitialDocumentsFromDatabase();
-            Testing();
+            //Testing();
         }
 
         private void Testing()
