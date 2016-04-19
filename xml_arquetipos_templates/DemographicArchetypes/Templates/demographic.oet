@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
+  <id>96ce74ab-c1d1-4c3e-9cc0-8368b1c0e41e</id>
+  <name>demographic</name>
+  <description>
+    <lifecycle_state>Initial</lifecycle_state>
+    <details>
+      <purpose />
+      <use />
+      <misuse />
+    </details>
+    <other_details>
+      <item>
+        <key>MetaDataSet:Sample Set </key>
+        <value>Template metadata sample set </value>
+      </item>
+      <item>
+        <key>Acknowledgements</key>
+        <value />
+      </item>
+      <item>
+        <key>Business Process Level</key>
+        <value />
+      </item>
+      <item>
+        <key>Care setting</key>
+        <value />
+      </item>
+      <item>
+        <key>Client group</key>
+        <value />
+      </item>
+      <item>
+        <key>Clinical Record Element</key>
+        <value />
+      </item>
+      <item>
+        <key>Copyright</key>
+        <value />
+      </item>
+      <item>
+        <key>Issues</key>
+        <value />
+      </item>
+      <item>
+        <key>Owner</key>
+        <value />
+      </item>
+      <item>
+        <key>Sign off</key>
+        <value />
+      </item>
+      <item>
+        <key>Speciality</key>
+        <value />
+      </item>
+      <item>
+        <key>User roles</key>
+        <value />
+      </item>
+    </other_details>
+  </description>
+  <definition xsi:type="COMPOSITION" archetype_id="openEHR-EHR-COMPOSITION.demographic.v0" concept_name="Demographic">
+    <Content xsi:type="ADMIN_ENTRY" archetype_id="openEHR-EHR-ADMIN_ENTRY.demographic.v0" concept_name="Demographic" path="/content[at0001]">
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.individual_personal.v1" concept_name="Individual's personal demographics" path="/data[at0001]/items[at0002]">
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.person_name.v1" concept_name="Person name" path="/items[at0013]" />
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.address.v1" concept_name="Address" path="/items[at0014]" />
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.telecom_details.v1" concept_name="Telecom details" path="/items[at0015]" />
+      </Items>
+    </Content>
+    <Context />
+  </definition>
+</template>

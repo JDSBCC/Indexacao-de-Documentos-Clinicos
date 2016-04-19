@@ -1,0 +1,59 @@
+archetype (adl_version=1.4)
+	openEHR-EHR-ADMIN_ENTRY.demographic.v0
+
+concept
+	[at0000]	-- Demographic
+language
+	original_language = <[ISO_639-1::pt]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["pt"] = <
+			language = <[ISO_639-1::pt]>
+			purpose = <"">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"7E291CE38B3B72E3047BA44A4112A860">
+	>
+
+definition
+	ADMIN_ENTRY[at0000] matches {	-- Demographic
+		data matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0002] occurrences matches {0..*} matches {	-- Patient
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["pt"] = <
+			items = <
+				["at0000"] = <
+					text = <"Demographic">
+					description = <"Admin entry for demographic patient information.">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Patient">
+					description = <"*">
+				>
+			>
+		>
+	>

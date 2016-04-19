@@ -1,0 +1,56 @@
+archetype (adl_version=1.4)
+	openEHR-EHR-COMPOSITION.demographic.v0
+
+concept
+	[at0000]	-- Demographic
+language
+	original_language = <[ISO_639-1::pt]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["pt"] = <
+			language = <[ISO_639-1::pt]>
+			purpose = <"">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"AFCF2E970D06B897A054CADA05A4734D">
+	>
+
+definition
+	COMPOSITION[at0000] matches {	-- Demographic
+		category matches {
+			DV_CODED_TEXT matches {
+				defining_code matches {[openehr::433]}
+			}
+		}
+		content cardinality matches {0..*; unordered} matches {
+			allow_archetype ENTRY[at0001] occurrences matches {0..*} matches {	-- Patient
+				include
+					archetype_id/value matches {/.*/}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["pt"] = <
+			items = <
+				["at0000"] = <
+					text = <"Demographic">
+					description = <"Patients demographic information.">
+				>
+				["at0001"] = <
+					text = <"Patient">
+					description = <"*">
+				>
+			>
+		>
+	>

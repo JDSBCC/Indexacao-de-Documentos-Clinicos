@@ -1,0 +1,160 @@
+archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.patient.v0
+
+concept
+	[at0000]	-- Patient
+language
+	original_language = <[ISO_639-1::pt]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["pt"] = <
+			language = <[ISO_639-1::pt]>
+			purpose = <"">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"DED211BD13EAD08F1A25D5C907EE9D2C">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Patient
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0015] occurrences matches {0..1} matches {	-- Número beneficiário
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0012] occurrences matches {0..1} matches {	-- Data nascimento
+				value matches {
+					DV_DATE_TIME matches {*}
+				}
+			}
+			ELEMENT[at0003] occurrences matches {0..1} matches {	-- Nome
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0004] occurrences matches {0..1} matches {	-- Número contribuinte
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0005] occurrences matches {0..1} matches {	-- Morada
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0006] occurrences matches {0..1} matches {	-- Localidade
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0007] occurrences matches {0..1} matches {	-- Código postal
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0008] occurrences matches {0..1} matches {	-- Telefone 1
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0009] occurrences matches {0..1} matches {	-- Telefone 2
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0010] occurrences matches {0..1} matches {	-- Fax
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0011] occurrences matches {0..1} matches {	-- Cartão cidadão
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0013] occurrences matches {0..1} matches {	-- Sexo
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0014] occurrences matches {0..1} matches {	-- Nº cartão serviço nacional de saúde
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["pt"] = <
+			items = <
+				["at0000"] = <
+					text = <"Patient">
+					description = <"Patient information">
+				>
+				["at0003"] = <
+					text = <"Nome">
+					description = <"*">
+				>
+				["at0004"] = <
+					text = <"Número contribuinte">
+					description = <"*">
+				>
+				["at0005"] = <
+					text = <"Morada">
+					description = <"*">
+				>
+				["at0006"] = <
+					text = <"Localidade">
+					description = <"*">
+				>
+				["at0007"] = <
+					text = <"Código postal">
+					description = <"*">
+				>
+				["at0008"] = <
+					text = <"Telefone 1">
+					description = <"*">
+				>
+				["at0009"] = <
+					text = <"Telefone 2">
+					description = <"*">
+				>
+				["at0010"] = <
+					text = <"Fax">
+					description = <"*">
+				>
+				["at0011"] = <
+					text = <"Cartão cidadão">
+					description = <"*">
+				>
+				["at0012"] = <
+					text = <"Data nascimento">
+					description = <"*">
+				>
+				["at0013"] = <
+					text = <"Sexo">
+					description = <"*">
+				>
+				["at0014"] = <
+					text = <"Nº cartão serviço nacional de saúde">
+					description = <"*">
+				>
+				["at0015"] = <
+					text = <"Número beneficiário">
+					description = <"*">
+				>
+			>
+		>
+	>

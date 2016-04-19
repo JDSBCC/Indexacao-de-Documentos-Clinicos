@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<versions xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<version xsi:type="ORIGINAL_VERSION">
+		<contribution>
+			<id xsi:type="HIER_OBJECT_ID">
+				<value>ce9303d9-7e41-4830-b31d-c741918953e5</value>
+			</id>
+			<namespace>EHR::COMMON</namespace>
+			<type>CONTRIBUTION</type>
+		</contribution>
+		<commit_audit>
+			<system_id>CABOLABS_EHR</system_id>
+			<committer xsi:type="PARTY_IDENTIFIED">
+				<external_ref>
+					<id xsi:type="HIER_OBJECT_ID">
+						<value>cc193f71-f5fe-438a-87f9-81ecb302eede</value>
+					</id>
+					<namespace>DEMOGRAPHIC</namespace>
+					<type>PERSON</type>
+				</external_ref>
+				<name>Dr. House</name>
+			</committer>
+			<time_committed>
+				<value>20140901T233114,065-0300</value>
+			</time_committed>
+			<change_type>
+				<value>creation</value>
+				<defining_code>
+					<terminology_id>
+						<value>openehr</value>
+					</terminology_id>
+					<code_string>249</code_string>
+				</defining_code>
+			</change_type>
+		</commit_audit>
+		<uid>
+			<value>c13c378e-75d6-46bd-9d05-2f8591826d9b</value>
+		</uid>
+		<data xsi:type="COMPOSITION" archetype_node_id="openEHR-EHR-COMPOSITION.demographic.v0">
+			<name>
+				<value>Demographic Information</value>
+			</name>
+			<archetype_details>
+				<archetype_id>
+					<value>openEHR-EHR-COMPOSITION.demographic.v0</value>
+				</archetype_id>
+				<template_id>
+					<value>866b80a1-15d2-429d-80cd-afab23cd70a1</value>
+				</template_id>
+				<rm_version>1.0.2</rm_version>
+			</archetype_details>
+			<language>
+				<terminology_id>
+					<value>ISO_639-1</value>
+				</terminology_id>
+				<code_string>pt</code_string>
+			</language>
+			<territory>
+				<terminology_id>
+					<value>ISO_3166-1</value>
+				</terminology_id>
+				<code_string>UY</code_string>
+			</territory>
+			<category>
+				<value>event</value>
+				<defining_code>
+					<terminology_id>
+						<value>openehr</value>
+					</terminology_id>
+					<code_string>443</code_string>
+				</defining_code>
+			</category>
+			<composer xsi:type="PARTY_IDENTIFIED">
+				<external_ref>
+					<id xsi:type="HIER_OBJECT_ID">
+						<value>cc193f71-f5fe-438a-87f9-81ecb302eede</value>
+					</id>
+					<namespace>DEMOGRAPHIC</namespace>
+					<type>PERSON</type>
+				</external_ref>
+				<name>Dr. House</name>
+			</composer>
+			<context>
+				<start_time>
+					<value>20160113T144434,417-0300</value>
+				</start_time>
+				<setting>
+					<value>Hospital Montevideo</value>
+					<defining_code>
+						<terminology_id>
+							<value>openehr</value>
+						</terminology_id>
+						<code_string>229</code_string>
+					</defining_code>
+				</setting>
+			</context>
+			<content xsi:type="ADMIN_ENTRY" archetype_node_id="openEHR-EHR-ADMIN_ENTRY.demographic.v0">
+				<name>
+					<value>Patient</value>
+				</name>
+				<language>
+					<terminology_id>
+						<value>ISO_639-1</value>
+					</terminology_id>
+					<code_string>pt</code_string>
+				</language>
+				<encoding>
+					<terminology_id>
+						<value>Unicode</value>
+					</terminology_id>
+					<code_string>UTF-8</code_string>
+				</encoding>
+				<subject xsi:type="PARTY_SELF" />
+				<data xsi:type="ITEM_TREE" archetype_node_id="at0001">
+					<name>
+						<value>Patient data</value>
+					</name>
+					<items archetype_node_id="openEHR-EHR-CLUSTER.individual_personal.v1" xsi:type="CLUSTER">
+						<name>
+							<value>Demographic</value>
+						</name>
+						<uid xsi:type="HIER_OBJECT_ID">
+							<value>c91aefc8-9f4f-4d59-9f22-b3bb112d96dd</value>
+						</uid>
+						<archetype_details>
+							<archetype_id>
+								<value>openEHR-EHR-CLUSTER.individual_personal.v1</value>
+							</archetype_id>
+							<template_id>
+								<value>Demographic</value>
+							</template_id>
+							<rm_version>1.0.2</rm_version>
+						</archetype_details>
+
+						<items archetype_node_id="openEHR-EHR-CLUSTER.person_name.v1" xsi:type="CLUSTER">
+							<name>
+								<value>Name</value>
+							</name>
+							<uid xsi:type="HIER_OBJECT_ID">
+								<value>c91aefc9-9f4f-4d59-9f22-b3bb112d96dd</value>
+							</uid>
+							<archetype_details>
+								<archetype_id>
+									<value>openEHR-EHR-CLUSTER.person_name.v1</value>
+								</archetype_id>
+								<template_id>
+									<value>Demographic</value>
+								</template_id>
+								<rm_version>1.0.2</rm_version>
+							</archetype_details>
+
+							<items archetype_node_id="at0002" xsi:type="CLUSTER">
+								<name>
+									<value>Detailed Name</value>
+								</name>
+								<uid xsi:type="HIER_OBJECT_ID">
+									<value>c91aefc9-9f4f-4d59-9f22-b3bb112d96dd</value>
+								</uid>
+								<archetype_details>
+									<archetype_id>
+										<value>openEHR-EHR-CLUSTER.person_name.v1</value>
+									</archetype_id>
+									<template_id>
+										<value>Demographic</value>
+									</template_id>
+									<rm_version>1.0.2</rm_version>
+								</archetype_details>
+
+								<items archetype_node_id="at0003" xsi:type="ELEMENT">
+									<name>
+										<value>Given name</value>
+									</name>
+									<value xsi:type="DV_TEXT">
+										<value>Joao</value>
+									</value>
+								</items>
+
+								<items archetype_node_id="at0005" xsi:type="ELEMENT">
+									<name>
+										<value>Family name</value>
+									</name>
+									<value xsi:type="DV_TEXT">
+										<value>Correia</value>
+									</value>
+								</items>
+							</items>
+						</items>
+
+						<items archetype_node_id="at0007" xsi:type="ELEMENT">
+							<name>
+								<value>Date of birth</value>
+							</name>
+							<value xsi:type="DV_DATE_TIME">
+								<value>20140901T233114,065-0300</value>
+							</value>
+						</items>
+
+						<items archetype_node_id="at0017" xsi:type="ELEMENT">
+							<name>
+								<value>Sex</value>
+							</name>
+							<value xsi:type="DV_CODED_TEXT">
+								<value>Male</value>
+								<defining_code>
+									<terminology_id>
+										<value>local</value>
+									</terminology_id>
+									<code_string>at0020</code_string>
+								</defining_code>
+							</value>
+						</items>
+						
+						<items archetype_node_id="openEHR-EHR-CLUSTER.address.v1" xsi:type="CLUSTER">
+							<name>
+								<value>Address details</value>
+							</name>
+							<uid xsi:type="HIER_OBJECT_ID">
+								<value>c91aefc9-9f4f-4d59-9f22-b3bb112d96dd</value>
+							</uid>
+							<archetype_details>
+								<archetype_id>
+									<value>openEHR-EHR-CLUSTER.address.v1</value>
+								</archetype_id>
+								<template_id>
+									<value>Demographic</value>
+								</template_id>
+								<rm_version>1.0.2</rm_version>
+							</archetype_details>
+
+							<items archetype_node_id="at0001" xsi:type="CLUSTER">
+								<name>
+									<value>Address details</value>
+								</name>
+								<uid xsi:type="HIER_OBJECT_ID">
+									<value>c91aefc9-9f4f-4d59-9f22-b3bb112d96dd</value>
+								</uid>
+								<archetype_details>
+									<archetype_id>
+										<value>openEHR-EHR-CLUSTER.address.v1</value>
+									</archetype_id>
+									<template_id>
+										<value>Demographic</value>
+									</template_id>
+									<rm_version>1.0.2</rm_version>
+								</archetype_details>
+
+								<items archetype_node_id="at0003" xsi:type="CLUSTER">
+									<name>
+										<value>Address details</value>
+									</name>
+									<uid xsi:type="HIER_OBJECT_ID">
+										<value>c91aefc9-9f4f-4d59-9f22-b3bb112d96dd</value>
+									</uid>
+									<archetype_details>
+										<archetype_id>
+											<value>openEHR-EHR-CLUSTER.address.v1</value>
+										</archetype_id>
+										<template_id>
+											<value>Demographic</value>
+										</template_id>
+										<rm_version>1.0.2</rm_version>
+									</archetype_details>
+
+									<items archetype_node_id="at0005" xsi:type="ELEMENT">
+										<name>
+											<value>Property number</value>
+										</name>
+										<value xsi:type="DV_TEXT">
+											<value>680</value>
+										</value>
+									</items>
+
+									<items archetype_node_id="at0009" xsi:type="ELEMENT">
+										<name>
+											<value>Address</value>
+										</name>
+										<value xsi:type="DV_TEXT">
+											<value>Rua S.Lázaro</value>
+										</value>
+									</items>
+
+									<items archetype_node_id="at0004" xsi:type="ELEMENT">
+										<name>
+											<value>Post code</value>
+										</name>
+										<value xsi:type="DV_TEXT">
+											<value>4445-206 Alfena</value>
+										</value>
+									</items>
+								</items>
+							</items>
+						</items>
+
+					</items>
+				</data>
+			</content>
+		</data>
+		<lifecycle_state>
+			<value>completed</value>
+			<defining_code>
+				<terminology_id>
+					<value>openehr</value>
+				</terminology_id>
+				<code_string>532</code_string>
+			</defining_code>
+		</lifecycle_state>
+	</version>
+</versions>

@@ -34,19 +34,19 @@
   <uid>
     <value>c13c378e-75d6-46bd-9d05-2f8591826d9b</value>
   </uid>
-  <data archetype_node_id="openEHR-EHR-COMPOSITION.testcompo.v1" xsi:type="COMPOSITION">
+  <data archetype_node_id="openEHR-EHR-COMPOSITION.demographic.v0" xsi:type="COMPOSITION">
     <name>
-      <value>Test compo</value>
+      <value>Demographic Information</value>
     </name>
     <uid xsi:type="HIER_OBJECT_ID">
-      <value>dfdebe83-67b1-4c0a-b9b3-905cee1aab63</value>
+      <value>c7d95bb2-cbdb-48d4-9c6b-eed665e51b9e</value>
     </uid>
     <archetype_details>
       <archetype_id>
-        <value>openEHR-EHR-COMPOSITION.testcompo.v1</value>
+        <value>openEHR-EHR-COMPOSITION.demographic.v0</value>
       </archetype_id>
       <template_id>
-        <value>Test template</value>
+        <value>866b80a1-15d2-429d-80cd-afab23cd70a1</value>
       </template_id>
       <rm_version>1.0.2</rm_version>
     </archetype_details>
@@ -54,7 +54,7 @@
       <terminology_id>
         <value>ISO_639-1</value>
       </terminology_id>
-      <code_string>es</code_string>
+      <code_string>pt</code_string>
     </language>
     <territory>
       <terminology_id>
@@ -95,7 +95,7 @@
         </defining_code>
       </setting>
     </context>
-    <content archetype_node_id="openEHR-EHR-ADMIN_ENTRY.patient.v1" xsi:type="ADMIN_ENTRY">
+    <content archetype_node_id="openEHR-EHR-ADMIN_ENTRY.demographic.v0" xsi:type="ADMIN_ENTRY">
       <name>
         <value>Patient</value>
       </name>
@@ -103,7 +103,7 @@
         <terminology_id>
           <value>ISO_639-1</value>
         </terminology_id>
-        <code_string>es</code_string>
+        <code_string>pt</code_string>
       </language>
       <encoding>
         <terminology_id>
@@ -116,160 +116,125 @@
         <name>
           <value>Patient data</value>
         </name>
-        <items archetype_node_id="openEHR-EHR-CLUSTER.individual_personal.v1" xsi:type="CLUSTER">
+        <items archetype_node_id="openEHR-EHR-CLUSTER.patient.v0" xsi:type="CLUSTER">
           <name>
-            <value>Demographic</value>
+            <value>Patient</value>
           </name>
           <uid xsi:type="HIER_OBJECT_ID">
             <value>c91aefc8-9f4f-4d59-9f22-b3bb112d96dd</value>
           </uid>
           <archetype_details>
             <archetype_id>
-              <value>openEHR-EHR-CLUSTER.individual_personal.v1</value>
+              <value>openEHR-EHR-CLUSTER.patient.v0</value>
             </archetype_id>
             <template_id>
               <value>Demographic</value>
             </template_id>
             <rm_version>1.0.2</rm_version>
           </archetype_details>
-          <items archetype_node_id="at0013" xsi:type="CLUSTER">
+          <items archetype_node_id="at0003" xsi:type="ELEMENT">
             <name>
-              <value>Name</value>
-            </name>
-            <uid xsi:type="HIER_OBJECT_ID">
-              <value>c91aefc9-9f4f-4d59-9f22-b3bb112d96dd</value>
-            </uid>
-            <archetype_details>
-              <archetype_id>
-                <value>openEHR-EHR-CLUSTER.person_name.v1</value>
-              </archetype_id>
-              <template_id>
-                <value>Demographic</value>
-              </template_id>
-              <rm_version>1.0.2</rm_version>
-            </archetype_details>
-            <items archetype_node_id="at0003" xsi:type="ELEMENT">
-              <name>
-                <value>GivenName</value>
-              </name>
-              <value xsi:type="DV_TEXT">
-                <value>ssdfgsdfgsdgfsdfgsdfgsdfggsd</value>
-              </value>
-            </items>
-            <items archetype_node_id="at0005" xsi:type="ELEMENT">
-              <name>
-                <value>FamilyName</value>
-              </name>
-              <value xsi:type="DV_TEXT">
-                <value>ssdfgsdfgsdgfsdfgsdfgsdfggsd</value>
-              </value>
-            </items>
-          </items>
-          <items archetype_node_id="at0016" xsi:type="ELEMENT">
-            <name>
-              <value>Identifier</value>
+              <value>Nome</value>
             </name>
             <value xsi:type="DV_TEXT">
-              <value>ssdfgsdfgsdgfsdfgsdfgsdfggsd</value>
+              <value>João de Sá Balão Calisto Correia</value>
             </value>
           </items>
-          <items archetype_node_id="at0007" xsi:type="ELEMENT">
+          <items archetype_node_id="at0012" xsi:type="ELEMENT">
             <name>
-              <value>DateOfBirth</value>
+              <value>Data de nascimento</value>
             </name>
             <value xsi:type="DV_DATE_TIME">
               <value>20140901T233114,065-0300</value>
             </value>
           </items>
-          <items archetype_node_id="at0017" xsi:type="ELEMENT">
+          <items archetype_node_id="at0013" xsi:type="ELEMENT">
             <name>
-              <value>Sex</value>
+              <value>Sexo</value>
             </name>
             <value xsi:type="DV_TEXT">
-              <value>Male</value>
+              <value>Masculino</value>
             </value>
           </items>
-          <items archetype_node_id="at0014" xsi:type="CLUSTER">
+          <items archetype_node_id="at0005" xsi:type="ELEMENT">
             <name>
-              <value>AddressDetails</value>
+              <value>Morada</value>
             </name>
-            <uid xsi:type="HIER_OBJECT_ID">
-              <value>c91aefc9-9f4f-4d59-9f22-b3bb112d96dd</value>
-            </uid>
-            <archetype_details>
-              <archetype_id>
-                <value>openEHR-EHR-CLUSTER.address.v1</value>
-              </archetype_id>
-              <template_id>
-                <value>Demographic</value>
-              </template_id>
-              <rm_version>1.0.2</rm_version>
-            </archetype_details>
-            <items archetype_node_id="at0005" xsi:type="ELEMENT">
-              <name>
-                <value>PropertyNumber</value>
-              </name>
-              <value xsi:type="DV_TEXT">
-                <value>ssdfgsdfgsdgfsdfgsdfgsdfggsd</value>
-              </value>
-            </items>
-            <items archetype_node_id="at0009" xsi:type="ELEMENT">
-              <name>
-                <value>AddressLine</value>
-              </name>
-              <value xsi:type="DV_TEXT">
-                <value>ssdfgsdfgsdgfsdfgsdfgsdfggsd</value>
-              </value>
-            </items>
-            <items archetype_node_id="at0004" xsi:type="ELEMENT">
-              <name>
-                <value>PostCode</value>
-              </name>
-              <value xsi:type="DV_TEXT">
-                <value>ssdfgsdfgsdgfsdfgsdfgsdfggsd</value>
-              </value>
-            </items>
+            <value xsi:type="DV_TEXT">
+              <value>Rua de S.Lázaro 680</value>
+            </value>
           </items>
-          <items archetype_node_id="at0015" xsi:type="CLUSTER">
+          <items archetype_node_id="at0007" xsi:type="ELEMENT">
             <name>
-              <value>TelecomDetails</value>
+              <value>Código Postal</value>
             </name>
-            <uid xsi:type="HIER_OBJECT_ID">
-              <value>c91aefc9-9f4f-4d59-9f22-b3bb112d96dd</value>
-            </uid>
-            <archetype_details>
-              <archetype_id>
-                <value>openEHR-EHR-CLUSTER.telecom_details.v1</value>
-              </archetype_id>
-              <template_id>
-                <value>Demographic</value>
-              </template_id>
-              <rm_version>1.0.2</rm_version>
-            </archetype_details>
-            <items archetype_node_id="at0005" xsi:type="ELEMENT">
-              <name>
-                <value>CountryCode</value>
-              </name>
-              <value xsi:type="DV_TEXT">
-                <value>ssdfgsdfgsdgfsdfgsdfgsdfggsd</value>
-              </value>
-            </items>
-            <items archetype_node_id="at0007" xsi:type="ELEMENT">
-              <name>
-                <value>Number</value>
-              </name>
-              <value xsi:type="DV_TEXT">
-                <value>922005910</value>
-              </value>
-            </items>
-            <items archetype_node_id="at0009" xsi:type="ELEMENT">
-              <name>
-                <value>EmailAddress</value>
-              </name>
-              <value xsi:type="DV_TEXT">
-                <value>ssdfgsdfgsdgfsdfgsdfgsdfggsd</value>
-              </value>
-            </items>
+            <value xsi:type="DV_TEXT">
+              <value>4445-206</value>
+            </value>
+          </items>
+          <items archetype_node_id="at0006" xsi:type="ELEMENT">
+            <name>
+              <value>Localidade</value>
+            </name>
+            <value xsi:type="DV_TEXT">
+              <value>Alfena</value>
+            </value>
+          </items>
+          <items archetype_node_id="at0008" xsi:type="ELEMENT">
+            <name>
+              <value>Telefone 1</value>
+            </name>
+            <value xsi:type="DV_TEXT">
+              <value>922005910</value>
+            </value>
+          </items>
+          <items archetype_node_id="at0009" xsi:type="ELEMENT">
+            <name>
+              <value>Telefone 2</value>
+            </name>
+            <value xsi:type="DV_TEXT">
+              <value>913604552</value>
+            </value>
+          </items>
+          <items archetype_node_id="at0010" xsi:type="ELEMENT">
+            <name>
+              <value>Fax</value>
+            </name>
+            <value xsi:type="DV_TEXT">
+              <value>229690594</value>
+            </value>
+          </items>
+          <items archetype_node_id="at0011" xsi:type="ELEMENT">
+            <name>
+              <value>Cartão cidadão</value>
+            </name>
+            <value xsi:type="DV_TEXT">
+              <value>21321312213</value>
+            </value>
+          </items>
+          <items archetype_node_id="at0004" xsi:type="ELEMENT">
+            <name>
+              <value>Nº Contribuinte</value>
+            </name>
+            <value xsi:type="DV_TEXT">
+              <value>206994600</value>
+            </value>
+          </items>
+          <items archetype_node_id="at0015" xsi:type="ELEMENT">
+            <name>
+              <value>Nº Beneficiário</value>
+            </name>
+            <value xsi:type="DV_TEXT">
+              <value>432543523</value>
+            </value>
+          </items>
+          <items archetype_node_id="at0005" xsi:type="ELEMENT">
+            <name>
+              <value>Nº Serviço Nacional Saúde</value>
+            </name>
+            <value xsi:type="DV_TEXT">
+              <value>24524353425345</value>
+            </value>
           </items>
         </items>
       </data>
