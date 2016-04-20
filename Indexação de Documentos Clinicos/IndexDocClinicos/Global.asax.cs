@@ -1,4 +1,5 @@
-﻿using IndexDocClinicos.Models;
+﻿using IndexDocClinicos.Classes;
+using IndexDocClinicos.Models;
 using Microsoft.Practices.ServiceLocation;
 using MySql.Data.MySqlClient;
 using Oracle.ManagedDataAccess.Client;
@@ -29,6 +30,8 @@ namespace IndexDocClinicos
             Startup.Init<Contribution>(connection);
             //var connection2 = new SolrConnection("http://localhost:8983/solr/doc");
             //Startup.Init<Document>(connection2);
+            EHRimport ehrInfo = new EHRimport();
+            ehrInfo.importPatients();
             AddInitialDocumentsFromDatabase();
             //Testing();
         }
