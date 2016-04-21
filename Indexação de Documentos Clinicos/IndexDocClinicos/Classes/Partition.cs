@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Web;
 
-namespace IndexDocClinicos.Models
+namespace IndexDocClinicos.Classes
 {
     public static class Partition
     {

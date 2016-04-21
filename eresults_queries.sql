@@ -34,5 +34,8 @@ select visita_id from gr_visita_documento where documento_id = 728745
 select b.doente, (select codigo from er_tipo_doente d where d.tipo_doente_id = b.tipo_doente_id) t_doente, a.*, c.*
 from gr_entidade a 
 join gr_doente c on a.entidade_id = c.entidade_id
-join gr_doente_local b on a.entidade_id = b.entidade_id;
-where a.entidade_id = 208348;
+join gr_doente_local b on a.entidade_id = b.entidade_id
+where a.entidade_id = 188532;
+
+select * from ER_SEXO;
+select * from ER_INSTITUICAO;
