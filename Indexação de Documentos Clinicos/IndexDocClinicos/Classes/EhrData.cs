@@ -5,9 +5,13 @@ using Oracle.ManagedDataAccess.Client;
 using SolrNet;
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Text;
 using System.Web;
 
 namespace IndexDocClinicos.Classes
@@ -129,34 +133,40 @@ namespace IndexDocClinicos.Classes
             }
         }
 
-        public void createPersons()//use request not insert
+        public void createPersons()
         {
-
-            try
-            {
-                connMySQL.Open();
-
                 foreach (Patient patient in patients)
                 {
+
                     string[] names = patient.Nome.Split(' ');
-                    MySqlCommand cmd = new MySqlCommand("INSERT INTO `ehrserver`.`person` (`version`, `deleted`, `dob`, `first_name`, `id_code`, `id_type`," +
-                                                            "`last_name`, `organization_uid`, `role`, `sex`, `uid`) VALUES (" +
-                                                            "'0', '0', '" + patient.Data_Nasc + "', '" + names[0] + "', '28634932-0', 'DNI', '" + names[names.Length - 1] + "', " +
-                                                            "'" + organization.Uid + "', 'pat', 'M', '" + Guid.NewGuid().ToString() + "');", connMySQL);
-                    dataReaderMySQL = cmd.ExecuteReader();
-                    dataReaderMySQL.Close();
+                    var request = (HttpWebRequest)WebRequest.Create("http://localhost:8090/ehr/rest/createPerson");
+                    request.Headers.Add("Authorization", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiZXh0cmFkYXRhIjp7Im9yZ2FuaXphdGlvbiI6IjEyMzQifSwiaXNzdWVkX2F0IjoiMjAxNi0wNC0xOFQwMjo1Mjo1Ni4yMzFaIn0=.wZ8412Kagg3iYtuuvfd8wrVLrLNxv+1SLuyKkI3J5Wo=");
+                    request.Accept = "application/json";
+                    /*request.UseDefaultCredentials = true;
+                    request.PreAuthenticate = true;
+                    request.Credentials = CredentialCache.DefaultCredentials;*/
+
+                    string tempUrl = "firstName=" + names[0];
+                    tempUrl += "&lastName=" + names[names.Length - 1];
+                    tempUrl += "&dob=" + patient.Data_Nasc;
+                    tempUrl += "&role=pat";
+                    tempUrl += "&sex=" + "M";
+                    tempUrl += "&organizationUid=" + organization.Uid;
+                    var data = Encoding.ASCII.GetBytes(tempUrl);
+
+                    request.Method = "POST";
+                    request.ContentType = "application/x-www-form-urlencoded";
+                    request.ContentLength = data.Length;
+
+                    using (var stream = request.GetRequestStream())
+                    {
+                        stream.Write(data, 0, data.Length);
+                    }
+
+                    var response = (HttpWebResponse)request.GetResponse();
+
+                    var responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
                 }
-            }
-            catch (MySqlException ex)
-            {
-            }
-            finally
-            {
-                if (connMySQL != null)
-                {
-                    connMySQL.Close();
-                }
-            }
         }
 
     }
