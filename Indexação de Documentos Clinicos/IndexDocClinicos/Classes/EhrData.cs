@@ -139,12 +139,9 @@ namespace IndexDocClinicos.Classes
                 {
 
                     string[] names = patient.Nome.Split(' ');
-                    var request = (HttpWebRequest)WebRequest.Create("http://localhost:8090/ehr/rest/createPerson");
-                    request.Headers.Add("Authorization", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiZXh0cmFkYXRhIjp7Im9yZ2FuaXphdGlvbiI6IjEyMzQifSwiaXNzdWVkX2F0IjoiMjAxNi0wNC0xOFQwMjo1Mjo1Ni4yMzFaIn0=.wZ8412Kagg3iYtuuvfd8wrVLrLNxv+1SLuyKkI3J5Wo=");
+                    HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://localhost:8090/ehr/rest/createPerson");
+                    request.Headers.Add("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiZXh0cmFkYXRhIjp7Im9yZ2FuaXphdGlvbiI6IjY2NjYifSwiaXNzdWVkX2F0IjoiMjAxNi0wNC0yMlQxMzo0ODoyOS40ODRaIn0=.Fztrd8LR/FkBY2CJLjnl/qYYYjz1/vr4g01e8yTad/0=");
                     request.Accept = "application/json";
-                    /*request.UseDefaultCredentials = true;
-                    request.PreAuthenticate = true;
-                    request.Credentials = CredentialCache.DefaultCredentials;*/
 
                     string tempUrl = "firstName=" + names[0];
                     tempUrl += "&lastName=" + names[names.Length - 1];
@@ -161,8 +158,8 @@ namespace IndexDocClinicos.Classes
                     using (var stream = request.GetRequestStream())
                     {
                         stream.Write(data, 0, data.Length);
+                        stream.Close();
                     }
-
                     var response = (HttpWebResponse)request.GetResponse();
 
                     var responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
