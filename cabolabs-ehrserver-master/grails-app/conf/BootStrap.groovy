@@ -106,9 +106,7 @@ class BootStrap {
      if (Organization.count() == 0)
      {
         // Sample organizations
-        organizations << new Organization(name: 'Hospital de Clinicas', number: '1234')
-        organizations << new Organization(name: 'Clinica del Tratamiento del Dolor', number: '6666')
-        organizations << new Organization(name: 'Cirugia Estetica', number: '5555')
+        organizations << new Organization(name: 'EVF', number: '2222')
         
         organizations.each {
            it.save(failOnError:true, flush:true)
@@ -178,13 +176,9 @@ class BootStrap {
      }
      if (User.count() == 0)
      {
-        def adminUser = new User(username: 'admin', email: 'pablo.pazos@cabolabs.com',  password: 'admin')
-        adminUser.organizations = [organizations[0], organizations[1]]
+        def adminUser = new User(username: 'admin', email: 'joo_correia@hotmail.com',  password: 'admin')
+        adminUser.organizations = [organizations[0]]
         adminUser.save(failOnError: true,  flush: true)
-        
-        def orgManUser = new User(username: 'orgman', email: 'pablo.swp+orgman@gmail.com',  password: 'orgman')
-        orgManUser.organizations = [organizations[0], organizations[1]]
-        orgManUser.save(failOnError: true,  flush: true)
         
         //UserRole.create( godlikeUser, (Role.findByAuthority('ROLE_ADMIN')), true )
         //UserRole.create( godlikeUser, (Role.findByAuthority('ROLE_ORG_MANAGER')), true )
@@ -193,7 +187,6 @@ class BootStrap {
         //UserRole.create( godlikeUser, (Role.findByAuthority('ROLE_USER')), true )
         
         UserRole.create( adminUser, (Role.findByAuthority('ROLE_ADMIN')), true )
-        UserRole.create( orgManUser, (Role.findByAuthority('ROLE_ORG_MANAGER')), true )
      }
 
      //****** SECURITY *******

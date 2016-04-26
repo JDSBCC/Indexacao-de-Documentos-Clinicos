@@ -32,9 +32,6 @@ namespace IndexDocClinicos
             //Startup.Init<Document>(connection2);
 
             EhrData ehrInfo = new EhrData();
-            ehrInfo.createOrganization();
-            ehrInfo.importPatients();
-            ehrInfo.createPersons();
 
             AddInitialDocumentsFromDatabase();
             //Testing();
@@ -114,27 +111,6 @@ namespace IndexDocClinicos
                             });
                     });
                 }
-                    /*foreach (var doc in partition)
-                    {
-                        ThreadPool.QueueUserWorkItem(y =>
-                        {
-                            var captured = doc;
-                            solr.Add(new Contribution
-                            {
-                                Id = Convert.ToInt32(doc["id"]),
-                                Ehr_id = Convert.ToInt32(doc["ehr_id"]),
-                                Archetype_id = ((List<object>)doc["archetype_id"]).Cast<string>().ToList(),
-                                Template_id = doc["template_id"] + "",
-                                Value = ((List<object>)doc["value"]).Cast<string>().ToList(),
-                                First_name = doc["first_name"] + "",
-                                Last_name = doc["last_name"] + "",
-                                Dob = Convert.ToDateTime(doc["dob"])
-                            });
-                            cd.Signal();
-                        });
-                    }
-                }
-                cd.Wait();*/
 
                 solr.Commit();
                 solr.BuildSpellCheckDictionary();

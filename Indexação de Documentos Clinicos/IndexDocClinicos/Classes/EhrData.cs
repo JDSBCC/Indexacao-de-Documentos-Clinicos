@@ -24,40 +24,51 @@ namespace IndexDocClinicos.Classes
         private MySqlConnection connMySQL = null;
         private MySqlDataReader dataReaderMySQL = null;
 
+        private string token = "";
         private Organization organization;//organization
         private List<Patient> patients;//patients
 
         public EhrData()
         {
+            //start connections to dbs
+            connOracle = new OracleConnection();
+            connOracle.ConnectionString = "Data Source=(DESCRIPTION= (ADDRESS= (PROTOCOL=TCP)(Host=10.84.5.13)(Port=1521))(CONNECT_DATA= (SID=EVFDEV)));User Id=eresults_v2;Password=eresults_v2";
+            connMySQL = new MySqlConnection("server=localhost;port=3306;database=ehrserver;userid=root;password=12345;");
+
+            //init variables
             organization = new Organization
             {
                 Version = 0,
                 Name = "EVF",
-                Number = "EVF",
-                Uid = Guid.NewGuid().ToString()
+                Number = "2222",
+                Uid = getOrganizationUid()/*Guid.NewGuid().ToString()*/
             };
             patients = new List<Patient>();
 
-
-            connOracle = new OracleConnection();
-            connOracle.ConnectionString = "Data Source=(DESCRIPTION= (ADDRESS= (PROTOCOL=TCP)(Host=10.84.5.13)(Port=1521))(CONNECT_DATA= (SID=EVFDEV)));User Id=eresults_v2;Password=eresults_v2";
-
-            connMySQL = new MySqlConnection("server=localhost;port=3306;database=ehrserver;userid=root;password=12345;");
+            //TODO criar organização e utilizador aqui e nao no bootstrap
+            login();//login to get token
+            importPatients();//select data from dabase and store it on patients
+            createPersonsPatients();//commit persons to ehr
         }
 
-        public void createOrganization()
+        public string getOrganizationUid()
         {
+            string uid = "";
             try
             {
                 connMySQL.Open();
-                MySqlCommand cmd = new MySqlCommand(@"INSERT INTO `ehrserver`.`organization` (`version`, `name`, `number`, `uid`) VALUES 
-                                                    ('" + organization.Version + "', '" + organization.Name + "', '" + organization.Number
-                                                        + "', '" + organization.Uid + "');", connMySQL);
+
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM ehrserver.organization where number=2222", connMySQL);
                 dataReaderMySQL = cmd.ExecuteReader();
+                while (dataReaderMySQL.Read())
+                {
+                    uid = dataReaderMySQL["uid"]+"";
+                }
                 dataReaderMySQL.Close();
             }
-            catch (MySqlException ex)
+            catch (OracleException e)
             {
+                Debug.Write("Error something: {0}", e.ToString());
             }
             finally
             {
@@ -66,6 +77,16 @@ namespace IndexDocClinicos.Classes
                     connMySQL.Close();
                 }
             }
+            return uid;
+        }
+
+        public void login()
+        {
+            string tempUrl = "username=admin";
+            tempUrl += "&password=admin";
+            tempUrl += "&organization=2222";
+            Request.Post("http://localhost:8090/ehr/rest/login", tempUrl);
+            token = Request.data["token"].ToString();
         }
 
         public void importPatients()
@@ -133,37 +154,21 @@ namespace IndexDocClinicos.Classes
             }
         }
 
-        public void createPersons()
+        public void createPersonsPatients()
         {
-                foreach (Patient patient in patients)
-                {
-
-                    string[] names = patient.Nome.Split(' ');
-                    HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://localhost:8090/ehr/rest/createPerson");
-                    request.Headers.Add("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiZXh0cmFkYXRhIjp7Im9yZ2FuaXphdGlvbiI6IjY2NjYifSwiaXNzdWVkX2F0IjoiMjAxNi0wNC0yMlQxMzo0ODoyOS40ODRaIn0=.Fztrd8LR/FkBY2CJLjnl/qYYYjz1/vr4g01e8yTad/0=");
-                    request.Accept = "application/json";
-
-                    string tempUrl = "firstName=" + names[0];
-                    tempUrl += "&lastName=" + names[names.Length - 1];
-                    tempUrl += "&dob=" + patient.Data_Nasc;
-                    tempUrl += "&role=pat";
-                    tempUrl += "&sex=" + "M";
-                    tempUrl += "&organizationUid=" + organization.Uid;
-                    var data = Encoding.ASCII.GetBytes(tempUrl);
-
-                    request.Method = "POST";
-                    request.ContentType = "application/x-www-form-urlencoded";
-                    request.ContentLength = data.Length;
-
-                    using (var stream = request.GetRequestStream())
-                    {
-                        stream.Write(data, 0, data.Length);
-                        stream.Close();
-                    }
-                    var response = (HttpWebResponse)request.GetResponse();
-
-                    var responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
-                }
+            foreach (Patient patient in patients)
+            {
+                string[] names = patient.Nome.Split(' ');
+                string tempUrl = "firstName=" + names[0];
+                tempUrl += "&lastName=" + names[names.Length - 1];
+                tempUrl += "&dob=" + patient.Data_Nasc.ToString("yyyyMMdd");
+                tempUrl += "&role=pat";
+                tempUrl += "&sex=" + "M";
+                tempUrl += "&format";
+                tempUrl += "&createEhr=true";
+                tempUrl += "&organizationUid=" + organization.Uid;
+                Request.Post("http://localhost:8090/ehr/rest/createPerson", tempUrl, token, "application/json");
+            }
         }
 
     }
