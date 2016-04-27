@@ -7,6 +7,10 @@ namespace IndexDocClinicos.Models
 {
     public class Patient
     {
+        public string Uid { get; set; }
+
+        public int Doente { get; set; }
+
         public int Entidade_id { get; set; }
 
         public string Nome { get; set; }

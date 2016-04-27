@@ -98,6 +98,14 @@ namespace IndexDocClinicos
                 {
                     Parallel.ForEach(partition, (doc) =>
                     {
+                        Debug.WriteLine(doc["id"]);
+                        Debug.WriteLine(doc["ehr_id"]);
+                        Debug.WriteLine(doc["archetype_id"]);
+                        Debug.WriteLine(doc["template_id"]);
+                        Debug.WriteLine(doc["value"]);
+                        Debug.WriteLine(doc["first_name"]);
+                        Debug.WriteLine(doc["last_name"]);
+                        Debug.WriteLine(doc["dob"]);
                         solr.Add(new Contribution
                             {
                                 Id = Convert.ToInt32(doc["id"]),

@@ -12,7 +12,9 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Web;
+using System.Xml;
 
 namespace IndexDocClinicos.Classes
 {
@@ -27,6 +29,9 @@ namespace IndexDocClinicos.Classes
         private string token = "";
         private Organization organization;//organization
         private List<Patient> patients;//patients
+        private List<Dictionary<string, string>> map_list = new List<Dictionary<string, string>>();
+
+        //private String []keys = { "",""};
 
         public EhrData()
         {
@@ -46,9 +51,28 @@ namespace IndexDocClinicos.Classes
             patients = new List<Patient>();
 
             //TODO criar organização e utilizador aqui e nao no bootstrap
+            Debug.WriteLine("Loging in...");
             login();//login to get token
+
+            Debug.WriteLine("Importing patients...");
             importPatients();//select data from dabase and store it on patients
-            createPersonsPatients();//commit persons to ehr
+
+            Debug.WriteLine("Committing patients to ehr...");
+            commitPersonsPatients();//commit persons to ehr
+
+            Debug.WriteLine("Initializing information to fill xml...");
+            fillData();//create a string with file information (xml with data)
+
+            Debug.WriteLine("Filling xml...");
+            commitDocument();
+        }
+
+        public string getEhrUidForSubject(string patientUid){
+            string tempUrl = "format=json";
+            tempUrl += "&subjectUid=" + patientUid;
+            Request.Get("http://localhost:8090/ehr/rest/ehrForSubject", tempUrl, token);
+            //Debug.WriteLine(Request.data["uid"]);
+            return Request.data["uid"]+"";
         }
 
         public string getOrganizationUid()
@@ -96,10 +120,11 @@ namespace IndexDocClinicos.Classes
             {
                 connOracle.Open();
 
-                OracleCommand cmd = new OracleCommand("select b.doente, (select codigo from er_tipo_doente d where d.tipo_doente_id = b.tipo_doente_id) t_doente, a.*, c.* " +
+                OracleCommand cmd = new OracleCommand("select b.doente, (select codigo from er_tipo_doente d where d.tipo_doente_id = b.tipo_doente_id) t_doente, a.*, c.*, s.sigla " +
                                                         "from gr_entidade a " +
                                                         "join gr_doente c on a.entidade_id = c.entidade_id " +
-                                                        "join gr_doente_local b on a.entidade_id = b.entidade_id", connOracle);
+                                                        "join gr_doente_local b on a.entidade_id = b.entidade_id " +
+                                                        "left outer join er_sexo s on c.sexo_id = s.sexo_id", connOracle);
                 dataReaderOracle = cmd.ExecuteReader();
                 while (dataReaderOracle.Read())
                 {
@@ -110,6 +135,7 @@ namespace IndexDocClinicos.Classes
 
                         Patient patient = new Patient
                         {
+                            Doente = Convert.ToInt32(dataReaderOracle["DOENTE"]),
                             Entidade_id = Convert.ToInt32(dataReaderOracle["ENTIDADE_ID"]),
                             Nome = dataReaderOracle["NOME"] + "",
                             Morada = dataReaderOracle["MORADA"] + "",
@@ -118,7 +144,8 @@ namespace IndexDocClinicos.Classes
                             N_Beneficiario = dataReaderOracle["N_BENEF"] + "",
                             N_Cartao_Cidadao = dataReaderOracle["N_BI"] + "",
                             Data_Nasc = Convert.ToDateTime(dataReaderOracle["DATA_NASC"]),
-                            Sexo = dataReaderOracle["SEXO_ID"] + ""
+                            Sexo = dataReaderOracle["SIGLA"] + "",
+                            Uid = Guid.NewGuid().ToString()
                         };
 
                         if (!Convert.IsDBNull(dataReaderOracle["N_CONTRIBUINTE"]))
@@ -134,7 +161,7 @@ namespace IndexDocClinicos.Classes
 
                         patients.Add(patient);
                     }
-                    if (row >= 2000)//REMOVE: just for testing
+                    if (row >= 100)//REMOVE: just for testing
                     {
                         break;
                     }
@@ -154,7 +181,7 @@ namespace IndexDocClinicos.Classes
             }
         }
 
-        public void createPersonsPatients()
+        public void commitPersonsPatients()
         {
             foreach (Patient patient in patients)
             {
@@ -163,11 +190,66 @@ namespace IndexDocClinicos.Classes
                 tempUrl += "&lastName=" + names[names.Length - 1];
                 tempUrl += "&dob=" + patient.Data_Nasc.ToString("yyyyMMdd");
                 tempUrl += "&role=pat";
-                tempUrl += "&sex=" + "M";
+                tempUrl += "&sex=" + patient.Sexo;
                 tempUrl += "&format";
                 tempUrl += "&createEhr=true";
                 tempUrl += "&organizationUid=" + organization.Uid;
+                tempUrl += "&uid=" + patient.Uid;
                 Request.Post("http://localhost:8090/ehr/rest/createPerson", tempUrl, token, "application/json");
+            }
+        }
+
+        public void fillData()
+        {
+
+            foreach(Patient patient in patients){
+                map_list.Add(new Dictionary<string, string>());
+                map_list[map_list.Count-1].Add("CONTRIBUTION", Guid.NewGuid().ToString());
+                map_list[map_list.Count-1].Add("COMMITTER_NAME", "João Correia");
+                map_list[map_list.Count-1].Add("TIME_COMMITTED", DateTime.Now.ToString("yyyyMMdd"));
+                map_list[map_list.Count-1].Add("VERSION_ID", Guid.NewGuid().ToString());
+                map_list[map_list.Count-1].Add("COMPOSITION", Guid.NewGuid().ToString());
+                map_list[map_list.Count-1].Add("COMPOSER_NAME", "João Correia");
+                map_list[map_list.Count-1].Add("COMPOSITION_DATE", DateTime.Now.ToString("yyyyMMdd"));
+                map_list[map_list.Count-1].Add("NAME", patient.Nome);
+                map_list[map_list.Count-1].Add("DOB", patient.Data_Nasc.ToString("yyyyMMdd"));
+                map_list[map_list.Count-1].Add("SEX", patient.Sexo);
+                map_list[map_list.Count-1].Add("ADDRESS", patient.Morada);
+                map_list[map_list.Count-1].Add("POST_CODE", patient.Codigo_Postal);
+                map_list[map_list.Count-1].Add("LOCAL", patient.Localidade);
+                map_list[map_list.Count-1].Add("TELEPHONE1", patient.Telefone1+"");
+                map_list[map_list.Count-1].Add("TELEPHONE2", patient.Telefone2+"");
+                map_list[map_list.Count-1].Add("FAX", patient.Fax+"");
+                map_list[map_list.Count-1].Add("CC", patient.N_Cartao_Cidadao);
+                map_list[map_list.Count-1].Add("CONTR", patient.N_Contribuinte+"");
+                map_list[map_list.Count-1].Add("BENEF", patient.N_Beneficiario);
+                map_list[map_list.Count-1].Add("SNS", patient.N_Servico_Nacional_Saude+"");
+                map_list[map_list.Count-1].Add("uid", patient.Uid);
+            }
+        }
+
+        public void commitDocument()
+        {
+            foreach (Dictionary<string, string> patient in map_list)
+            {
+                string text = System.IO.File.ReadAllText("C:\\Users\\Joaogcorreia\\Desktop\\EHR + Solr + IndexDocClinicos\\Indexacao-de-Documentos-Clinicos\\xml_arquetipos_templates\\demographic_patient (right).xml");
+                foreach (var item in patient)
+                {
+                    string pattern = @"\[\[:::"+item.Key+@":::\]\]";
+                    Regex rgx = new Regex(pattern);
+                    string result = rgx.Replace(text, item.Value);
+                    text = result;
+                }
+                Debug.WriteLine(text);
+
+                //Post
+                string tempUrl = "ehrUid=" + getEhrUidForSubject(patient["uid"]);
+                tempUrl += "&auditSystemId=popo";
+                tempUrl += "&auditCommitter=Joao";
+                Request.Post("http://localhost:8090/ehr/rest/commit", tempUrl, token, "application/json", text);
+
+
+                break;
             }
         }
 
