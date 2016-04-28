@@ -44,3 +44,14 @@ join gr_doente_local b on a.entidade_id = b.entidade_id;
 
 select * from ER_SEXO;
 select * from ER_INSTITUICAO;
+
+
+select d.documento_id 
+from er_ficheiro f, er_elemento e, er_documento d 
+where d.documento_id=e.documento_id and e.elemento_id=13707193 and e.cod_versao=f.cod_versao
+group by d.documento_id;
+
+select b.doente, a.entidade_id
+from gr_entidade a  
+join gr_doente c on a.entidade_id = c.entidade_id
+join gr_doente_local b on a.entidade_id = b.entidade_id;

@@ -28,13 +28,13 @@ namespace IndexDocClinicos
 
             var connection = new SolrConnection("http://localhost:8983/solr/ehr");
             Startup.Init<Contribution>(connection);
-            //var connection2 = new SolrConnection("http://localhost:8983/solr/doc");
-            //Startup.Init<Document>(connection2);
+            var connection2 = new SolrConnection("http://localhost:8983/solr/doc");
+            Startup.Init<Document>(connection2);
 
-            EhrData ehrInfo = new EhrData();
+            //EhrData ehrInfo = new EhrData();
 
-            AddInitialDocumentsFromDatabase();
-            //Testing();
+            //AddInitialDocumentsFromDatabase();
+            Testing();
         }
 
         private void Testing()
@@ -47,7 +47,7 @@ namespace IndexDocClinicos
                 conn.ConnectionString = "Data Source=(DESCRIPTION= (ADDRESS= (PROTOCOL=TCP)(Host=10.84.5.13)(Port=1521))(CONNECT_DATA= (SID=EVFDEV)));User Id=eresults_v2;Password=eresults_v2";
                 conn.Open();
 
-                OracleCommand cmd = new OracleCommand("select * from er_ficheiro where elemento_id>13706193 AND elemento_id<13806193", conn);
+                OracleCommand cmd = new OracleCommand("select * from er_ficheiro where elemento_id>13706193 AND elemento_id<13707193", conn);
                 dataReader = cmd.ExecuteReader();
                 while (dataReader.Read())
                 {
@@ -98,7 +98,7 @@ namespace IndexDocClinicos
 
                     if (!addToSolr(docs, solr))
                     {
-                        Debug.WriteLine("################KeyNotFoundException#################");
+                        //Debug.WriteLine("################KeyNotFoundException#################");
                         docs.Clear();
                         Thread.Sleep(10000);
                         docs = QueryingEHR();

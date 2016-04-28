@@ -3,7 +3,7 @@
 	<version xsi:type="ORIGINAL_VERSION">
 		<contribution>
 			<id xsi:type="HIER_OBJECT_ID">
-				<value>ce9303d9-7e41-4830-b31d-c741918953e5</value>
+				<value>[[:::CONTRIBUTION:::]]</value>
 			</id>
 			<namespace>EHR::COMMON</namespace>
 			<type>CONTRIBUTION</type>
@@ -18,10 +18,10 @@
 					<namespace>DEMOGRAPHIC</namespace>
 					<type>PERSON</type>
 				</external_ref>
-				<name>Dr. House</name>
+				<name>[[:::COMMITTER_NAME:::]]</name>
 			</committer>
 			<time_committed>
-				<value>20140901T233114,065-0300</value>
+				<value>[[:::TIME_COMMITTED:::]]</value>
 			</time_committed>
 			<change_type>
 				<value>creation</value>
@@ -34,18 +34,21 @@
 			</change_type>
 		</commit_audit>
 		<uid>
-			<value>c13c378e-75d6-46bd-9d05-2f8591826d9b</value>
+			<value>[[:::VERSION_ID:::]]</value>
 		</uid>
 		<data xsi:type="COMPOSITION" archetype_node_id="openEHR-EHR-COMPOSITION.demographic.v0">
 			<name>
 				<value>Demographic Information</value>
 			</name>
+			<uid xsi:type="HIER_OBJECT_ID">
+				<value>[[:::COMPOSITION:::]]</value>
+			</uid>
 			<archetype_details>
 				<archetype_id>
 					<value>openEHR-EHR-COMPOSITION.demographic.v0</value>
 				</archetype_id>
 				<template_id>
-					<value>866b80a1-15d2-429d-80cd-afab23cd70a1</value>
+					<value>demographic_patient</value>
 				</template_id>
 				<rm_version>1.0.2</rm_version>
 			</archetype_details>
@@ -78,14 +81,14 @@
 					<namespace>DEMOGRAPHIC</namespace>
 					<type>PERSON</type>
 				</external_ref>
-				<name>Dr. House</name>
+				<name>[[:::COMPOSER_NAME:::]]</name>
 			</composer>
 			<context>
 				<start_time>
-					<value>20160113T144434,417-0300</value>
+					<value>[[:::COMPOSITION_DATE:::]]</value>
 				</start_time>
 				<setting>
-					<value>Hospital Montevideo</value>
+					<value>EVF</value>
 					<defining_code>
 						<terminology_id>
 							<value>openehr</value>
@@ -115,18 +118,6 @@
 					<name>
 						<value>Patient data</value>
 					</name>
-					<uid xsi:type="HIER_OBJECT_ID">
-						<value>c91aefc8-9f4f-4d59-9f22-b3bb112d96dd</value>
-					</uid>
-					<archetype_details>
-						<archetype_id>
-							<value>openEHR-EHR-CLUSTER.patient.v0</value>
-						</archetype_id>
-						<template_id>
-							<value>Demographic</value>
-						</template_id>
-						<rm_version>1.0.2</rm_version>
-					</archetype_details>
 					<items archetype_node_id="openEHR-EHR-CLUSTER.patient.v0" xsi:type="CLUSTER">
 						<name>
 							<value>Patient</value>
@@ -137,7 +128,7 @@
 								<value>Nome</value>
 							</name>
 							<value xsi:type="DV_TEXT">
-								<value>João de Sá Balão Calisto Correia</value>
+								<value>[[:::NAME:::]]</value>
 							</value>
 						</items>
 
@@ -146,7 +137,7 @@
 								<value>Data de nascimento</value>
 							</name>
 							<value xsi:type="DV_DATE_TIME">
-								<value>20140901T233114,065-0300</value>
+								<value>[[:::DOB:::]]</value>
 							</value>
 						</items>
 
@@ -155,7 +146,7 @@
 								<value>Sexo</value>
 							</name>
 							<value xsi:type="DV_TEXT">
-								<value>Masculino</value>
+								<value>[[:::SEX:::]]</value>
 							</value>
 						</items>
 
@@ -164,7 +155,7 @@
 								<value>Morada</value>
 							</name>
 							<value xsi:type="DV_TEXT">
-								<value>Rua de S.Lázaro 680</value>
+								<value>[[:::ADDRESS:::]]</value>
 							</value>
 						</items>
 
@@ -173,7 +164,7 @@
 								<value>Código Postal</value>
 							</name>
 							<value xsi:type="DV_TEXT">
-								<value>4445-206</value>
+								<value>[[:::POST_CODE:::]]</value>
 							</value>
 						</items>
 
@@ -182,7 +173,7 @@
 								<value>Localidade</value>
 							</name>
 							<value xsi:type="DV_TEXT">
-								<value>Alfena</value>
+								<value>[[:::LOCAL:::]]</value>
 							</value>
 						</items>
 
@@ -191,7 +182,7 @@
 								<value>Telefone 1</value>
 							</name>
 							<value xsi:type="DV_TEXT">
-								<value>922005910</value>
+								<value>[[:::TELEPHONE1:::]]</value>
 							</value>
 						</items>
 
@@ -200,7 +191,7 @@
 								<value>Telefone 2</value>
 							</name>
 							<value xsi:type="DV_TEXT">
-								<value>913604552</value>
+								<value>[[:::TELEPHONE2:::]]</value>
 							</value>
 						</items>
 
@@ -209,7 +200,7 @@
 								<value>Fax</value>
 							</name>
 							<value xsi:type="DV_TEXT">
-								<value>229690594</value>
+								<value>[[:::FAX:::]]</value>
 							</value>
 						</items>
 
@@ -218,7 +209,7 @@
 								<value>Cartão cidadão</value>
 							</name>
 							<value xsi:type="DV_TEXT">
-								<value>21321312213</value>
+								<value>[[:::CC:::]]</value>
 							</value>
 						</items>
 
@@ -227,7 +218,7 @@
 								<value>Nº Contribuinte</value>
 							</name>
 							<value xsi:type="DV_TEXT">
-								<value>206994600</value>
+								<value>[[:::CONTR:::]]</value>
 							</value>
 						</items>
 
@@ -236,7 +227,7 @@
 								<value>Nº Beneficiário</value>
 							</name>
 							<value xsi:type="DV_TEXT">
-								<value>432543523</value>
+								<value>[[:::BENEF:::]]</value>
 							</value>
 						</items>
 
@@ -245,7 +236,7 @@
 								<value>Nº Serviço Nacional Saúde</value>
 							</name>
 							<value xsi:type="DV_TEXT">
-								<value>24524353425345</value>
+								<value>[[:::SNS:::]]</value>
 							</value>
 						</items>
 					</items>
