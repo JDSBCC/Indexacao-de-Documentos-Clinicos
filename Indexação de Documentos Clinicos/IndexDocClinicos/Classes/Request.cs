@@ -15,6 +15,7 @@ namespace IndexDocClinicos.Classes
     public class Request
     {
         public static JObject data;
+        public static string dataXML;
 
         public static void Get(string url, string queries, string token)
         {
@@ -94,7 +95,7 @@ namespace IndexDocClinicos.Classes
             var response = (HttpWebResponse)request.GetResponse();
 
             string responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
-            Debug.WriteLine(responseString);
+            dataXML = responseString;
         }
     }
 }

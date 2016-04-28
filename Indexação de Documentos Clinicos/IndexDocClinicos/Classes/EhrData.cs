@@ -55,7 +55,7 @@ namespace IndexDocClinicos.Classes
             login();//login to get token
 
             Debug.WriteLine("Importing patients...");
-            importPatients();//select data from dabase and store it on patients
+            importPatients();//select data from database and store it on patients
 
             Debug.WriteLine("Committing patients to ehr...");
             commitPersonsPatients();//commit persons to ehr
@@ -237,19 +237,26 @@ namespace IndexDocClinicos.Classes
                 {
                     string pattern = @"\[\[:::"+item.Key+@":::\]\]";
                     Regex rgx = new Regex(pattern);
-                    string result = rgx.Replace(text, item.Value);
+                    string result = rgx.Replace(text, item.Value.Equals("")?"0":item.Value);
                     text = result;
                 }
-                Debug.WriteLine(text);
+                //Debug.WriteLine(text);
+
+                /*using (FileStream fs = File.Create("C:\\Users\\Joaogcorreia\\Desktop\\versions_test\\" + patient["VERSION_ID"] + ".xml"))
+                {
+                    Byte[] info = new UTF8Encoding(true).GetBytes(text);
+                    // Add some information to the file.
+                    fs.Write(info, 0, info.Length);
+                }*/
 
                 //Post
                 string tempUrl = "ehrUid=" + getEhrUidForSubject(patient["uid"]);
                 tempUrl += "&auditSystemId=popo";
                 tempUrl += "&auditCommitter=Joao";
                 Request.Post("http://localhost:8090/ehr/rest/commit", tempUrl, token, "application/json", text);
+                Debug.WriteLine(Request.dataXML);
 
-
-                break;
+                //break;
             }
         }
 

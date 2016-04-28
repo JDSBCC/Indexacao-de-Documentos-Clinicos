@@ -93,31 +93,20 @@ namespace IndexDocClinicos
 
                 List<Dictionary<string, object>> docs = QueryingEHR();
 
-                //var cd = new Countdown(docs.Count);
-                foreach (var partition in Partition.PartitionBySize(docs, 2))
+                while (true)
                 {
-                    Parallel.ForEach(partition, (doc) =>
+
+                    if (!addToSolr(docs, solr))
                     {
-                        Debug.WriteLine(doc["id"]);
-                        Debug.WriteLine(doc["ehr_id"]);
-                        Debug.WriteLine(doc["archetype_id"]);
-                        Debug.WriteLine(doc["template_id"]);
-                        Debug.WriteLine(doc["value"]);
-                        Debug.WriteLine(doc["first_name"]);
-                        Debug.WriteLine(doc["last_name"]);
-                        Debug.WriteLine(doc["dob"]);
-                        solr.Add(new Contribution
-                            {
-                                Id = Convert.ToInt32(doc["id"]),
-                                Ehr_id = Convert.ToInt32(doc["ehr_id"]),
-                                Archetype_id = ((List<object>)doc["archetype_id"]).Cast<string>().ToList(),
-                                Template_id = doc["template_id"] + "",
-                                Value = ((List<object>)doc["value"]).Cast<string>().ToList(),
-                                First_name = doc["first_name"] + "",
-                                Last_name = doc["last_name"] + "",
-                                Dob = Convert.ToDateTime(doc["dob"])
-                            });
-                    });
+                        Debug.WriteLine("################KeyNotFoundException#################");
+                        docs.Clear();
+                        Thread.Sleep(10000);
+                        docs = QueryingEHR();
+                    }
+                    else
+                    {
+                        break;
+                    }
                 }
 
                 solr.Commit();
@@ -127,6 +116,36 @@ namespace IndexDocClinicos
             {
                 //throw new Exception(string.Format("Couldn't connect to Solr. Please make sure that Solr is running on '{0}' or change the address in your web.config, then restart the application.", solrURL), e);
             }
+        }
+
+        private bool addToSolr(List<Dictionary<string, object>> docs, ISolrOperations<Contribution> solr)
+        {
+            bool success = true;
+            foreach (var partition in Partition.PartitionBySize(docs, 2))
+            {
+                Parallel.ForEach(partition, (doc) =>
+                {
+                    try
+                    {
+                        solr.Add(new Contribution
+                        {
+                            Id = Convert.ToInt32(doc["id"]),
+                            Ehr_id = Convert.ToInt32(doc["ehr_id"]),
+                            Archetype_id = ((List<object>)doc["archetype_id"]).Cast<string>().ToList(),
+                            Template_id = doc["template_id"] + "",
+                            Value = ((List<object>)doc["value"]).Cast<string>().ToList(),
+                            First_name = doc["first_name"] + "",
+                            Last_name = doc["last_name"] + "",
+                            Dob = Convert.ToDateTime(doc["dob"])
+                        });
+                    }
+                    catch (KeyNotFoundException ex)
+                    {
+                        success = false;
+                    }
+                });
+            }
+            return success;
         }
 
         private List<Dictionary<string, object>> QueryingEHR()
