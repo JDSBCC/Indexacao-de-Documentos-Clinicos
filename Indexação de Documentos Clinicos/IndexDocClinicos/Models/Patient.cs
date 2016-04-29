@@ -37,6 +37,10 @@ namespace IndexDocClinicos.Models
 
         public DateTime Data_Nasc { get; set; }
 
+        public string Sexo_Sigla { get; set; }
+
         public string Sexo { get; set; }
+
+        public string Estado_Civil { get; set; }
     }
 }

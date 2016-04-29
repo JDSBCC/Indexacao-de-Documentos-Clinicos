@@ -31,13 +31,13 @@ namespace IndexDocClinicos
             var connection2 = new SolrConnection("http://localhost:8983/solr/doc");
             Startup.Init<Document>(connection2);
 
-            //EhrData ehrInfo = new EhrData();
+            EhrData ehrInfo = new EhrData();
 
-            //AddInitialDocumentsFromDatabase();
-            Testing();
+            AddEHRToSolr();
+            AddDocToSolr();
         }
 
-        private void Testing()
+        private void AddDocToSolr()
         {
             OracleConnection conn = null;
             OracleDataReader dataReader = null;
@@ -47,7 +47,16 @@ namespace IndexDocClinicos
                 conn.ConnectionString = "Data Source=(DESCRIPTION= (ADDRESS= (PROTOCOL=TCP)(Host=10.84.5.13)(Port=1521))(CONNECT_DATA= (SID=EVFDEV)));User Id=eresults_v2;Password=eresults_v2";
                 conn.Open();
 
-                OracleCommand cmd = new OracleCommand("select * from er_ficheiro where elemento_id>13706193 AND elemento_id<13707193", conn);
+                OracleCommand cmd = new OracleCommand("select ge.entidade_id, dl.doente, f.* from er_ficheiro f "+
+                                                        "join (select elemento_id, max(cod_versao) as max_versao from er_ficheiro group by elemento_id) fic on fic.elemento_id=f.elemento_id "+
+                                                        "left join er_elemento e on e.elemento_id=f.elemento_id "+
+                                                        "left join er_documento d on d.documento_id=e.documento_id "+
+                                                        "left join gr_visita_documento vd on d.documento_id=vd.documento_id "+
+                                                        "left join gr_visita v on vd.visita_id=v.visita_id "+
+                                                        "left join gr_entidade ge on v.entidade_pai_id=ge.entidade_id "+
+                                                        "left join gr_doente_local dl on v.entidade_pai_id=dl.entidade_id "+
+                                                        "where f.elemento_id>13706193 AND f.elemento_id<13707193 and f.cod_versao=fic.max_versao", conn);//REMOVE restriçao de elemento_id
+                                                        //"select * from er_ficheiro where elemento_id>13706193 AND elemento_id<13707193", conn);
                 dataReader = cmd.ExecuteReader();
                 while (dataReader.Read())
                 {
@@ -60,12 +69,14 @@ namespace IndexDocClinicos
                             ExtractFormat = ExtractFormat.Text
                         };
                         var response = solr.Extract(extract);
-                        //Debug.WriteLine("\n+++++++++++++++++++++++++++++++ " + response.Content);
 
                         solr.Add(new Document
                         {
                             Elemento_id = Convert.ToInt32(dataReader["elemento_id"]),
-                            Value = response.Content.Replace("\n","")
+                            Cod_Versao = Convert.ToInt32(dataReader["cod_versao"]),
+                            Value = response.Content.Replace("\n", " "),
+                            Entidade_id = Convert.ToInt32(dataReader["entidade_id"]),
+                            Doente = Convert.ToInt32(dataReader["doente"])
                         });
                         solr.Commit();
                         solr.BuildSpellCheckDictionary();
@@ -83,7 +94,7 @@ namespace IndexDocClinicos
             }
         }
 
-        private void AddInitialDocumentsFromDatabase()
+        private void AddEHRToSolr()
         {
             try
             {

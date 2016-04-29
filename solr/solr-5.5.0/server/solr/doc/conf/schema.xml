@@ -6,11 +6,15 @@
 	<!--<field name="_version_" type="long" indexed="true" stored="true"/>-->
 	<fields>
 		<field name="elemento_id" type="int" indexed="true" stored="true" />
+		<field name="cod_versao" type="int" indexed="true" stored="true" />
 		<field name="value" type="string" indexed="true" stored="true"/>
+		<field name="entidade_id" type="int" indexed="true" stored="true"/>
+		<field name="doente" type="int" indexed="true" stored="true"/>
 		<field name="text" type="text_general" indexed="true" stored="false" multiValued="true" />
 	</fields>
 	
 	<copyField source="elemento_id" dest="text" />
+	<copyField source="cod_versao" dest="text" />
 	<copyField source="value" dest="text" />
 
 	<solrQueryParser defaultOperator="AND" /> 

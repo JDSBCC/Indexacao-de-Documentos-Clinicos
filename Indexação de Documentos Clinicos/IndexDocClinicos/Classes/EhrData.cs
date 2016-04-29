@@ -120,11 +120,12 @@ namespace IndexDocClinicos.Classes
             {
                 connOracle.Open();
 
-                OracleCommand cmd = new OracleCommand("select b.doente, (select codigo from er_tipo_doente d where d.tipo_doente_id = b.tipo_doente_id) t_doente, a.*, c.*, s.sigla " +
+                OracleCommand cmd = new OracleCommand("select b.doente, (select codigo from er_tipo_doente d where d.tipo_doente_id = b.tipo_doente_id) t_doente, a.*, c.*, s.sigla, s.descricao, ec.descricao as estado_civil " +
                                                         "from gr_entidade a " +
                                                         "join gr_doente c on a.entidade_id = c.entidade_id " +
                                                         "join gr_doente_local b on a.entidade_id = b.entidade_id " +
-                                                        "left outer join er_sexo s on c.sexo_id = s.sexo_id", connOracle);
+                                                        "left outer join er_sexo s on c.sexo_id = s.sexo_id " +
+                                                        "left join er_estado_civil ec on ec.estado_civil_id=c.estado_civil_id", connOracle);
                 dataReaderOracle = cmd.ExecuteReader();
                 while (dataReaderOracle.Read())
                 {
@@ -144,7 +145,8 @@ namespace IndexDocClinicos.Classes
                             N_Beneficiario = dataReaderOracle["N_BENEF"] + "",
                             N_Cartao_Cidadao = dataReaderOracle["N_BI"] + "",
                             Data_Nasc = Convert.ToDateTime(dataReaderOracle["DATA_NASC"]),
-                            Sexo = dataReaderOracle["SIGLA"] + "",
+                            Sexo_Sigla = dataReaderOracle["SIGLA"] + "",
+                            Sexo = dataReaderOracle["DESCRICAO"] + "",
                             Uid = Guid.NewGuid().ToString()
                         };
 
@@ -158,6 +160,11 @@ namespace IndexDocClinicos.Classes
                             patient.Fax = Convert.ToDouble(dataReaderOracle["FAX"]);
                         if (!Convert.IsDBNull(dataReaderOracle["N_SNS"]))
                             patient.N_Servico_Nacional_Saude = Convert.ToDouble(dataReaderOracle["N_SNS"]);
+                        if (!Convert.IsDBNull(dataReaderOracle["ESTADO_CIVIL"])) {
+                            patient.Estado_Civil = dataReaderOracle["ESTADO_CIVIL"] + "";
+                        } else {
+                            patient.Estado_Civil = "-";
+                        }
 
                         patients.Add(patient);
                     }
@@ -190,7 +197,7 @@ namespace IndexDocClinicos.Classes
                 tempUrl += "&lastName=" + names[names.Length - 1];
                 tempUrl += "&dob=" + patient.Data_Nasc.ToString("yyyyMMdd");
                 tempUrl += "&role=pat";
-                tempUrl += "&sex=" + patient.Sexo;
+                tempUrl += "&sex=" + patient.Sexo_Sigla;
                 tempUrl += "&format";
                 tempUrl += "&createEhr=true";
                 tempUrl += "&organizationUid=" + organization.Uid;
@@ -224,6 +231,7 @@ namespace IndexDocClinicos.Classes
                 map_list[map_list.Count-1].Add("CONTR", patient.N_Contribuinte+"");
                 map_list[map_list.Count-1].Add("BENEF", patient.N_Beneficiario);
                 map_list[map_list.Count-1].Add("SNS", patient.N_Servico_Nacional_Saude+"");
+                map_list[map_list.Count-1].Add("CIVIL", patient.Estado_Civil+"");
                 map_list[map_list.Count-1].Add("uid", patient.Uid);
             }
         }
@@ -237,7 +245,7 @@ namespace IndexDocClinicos.Classes
                 {
                     string pattern = @"\[\[:::"+item.Key+@":::\]\]";
                     Regex rgx = new Regex(pattern);
-                    string result = rgx.Replace(text, item.Value.Equals("")?"0":item.Value);
+                    string result = rgx.Replace(text, item.Value.Equals("")?"-":item.Value);
                     text = result;
                 }
 

@@ -46,7 +46,7 @@
         function formatItem(item) {
             var d = new Date(item.Dob);
             var date = d.toDateString();
-            var value = '<button type="button"class="list-group-item"><span style="font-weight: bold;">' + item.Elemento_id + '</span><br>' +
+            var value = '<button type="button"class="list-group-item"><span style="font-weight: bold;">' + item.Elemento_id + ' - ' + item.Cod_Versao + '</span><br>' +
                         '<span>contribution: ' + item.Value + '</span></button>';
             return value;
         }
