@@ -1,11 +1,7 @@
 ﻿using IndexDocClinicos.Models;
 using Microsoft.Practices.ServiceLocation;
 using SolrNet;
-using SolrNet.Commands.Parameters;
-using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
 using System.Web.Http;
 
 namespace IndexDocClinicos.Controllers

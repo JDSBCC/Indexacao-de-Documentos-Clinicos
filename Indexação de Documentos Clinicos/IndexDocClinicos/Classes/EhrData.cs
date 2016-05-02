@@ -1,20 +1,10 @@
 ﻿using IndexDocClinicos.Models;
-using Microsoft.Practices.ServiceLocation;
 using MySql.Data.MySqlClient;
 using Oracle.ManagedDataAccess.Client;
-using SolrNet;
 using System;
 using System.Collections.Generic;
-using System.Collections.Specialized;
 using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Web;
-using System.Xml;
 
 namespace IndexDocClinicos.Classes
 {
@@ -33,7 +23,7 @@ namespace IndexDocClinicos.Classes
 
         //private String []keys = { "",""};
 
-        public EhrData()
+        public EhrData(List<Patient> patients)
         {
             //start connections to dbs
             connOracle = new OracleConnection();
@@ -48,14 +38,11 @@ namespace IndexDocClinicos.Classes
                 Number = "2222",
                 Uid = getOrganizationUid()/*Guid.NewGuid().ToString()*/
             };
-            patients = new List<Patient>();
+            this.patients = patients;//UPDATE não deve ser feita esta igualdade
 
             //TODO criar organização e utilizador aqui e nao no bootstrap
             Debug.WriteLine("Loging in...");
             login();//login to get token
-
-            Debug.WriteLine("Importing patients...");
-            importPatients();//select data from database and store it on patients
 
             Debug.WriteLine("Committing patients to ehr...");
             commitPersonsPatients();//commit persons to ehr
@@ -111,81 +98,6 @@ namespace IndexDocClinicos.Classes
             tempUrl += "&organization=2222";
             Request.Post("http://localhost:8090/ehr/rest/login", tempUrl);
             token = Request.data["token"].ToString();
-        }
-
-        public void importPatients()
-        {
-            int row = 0;
-            try
-            {
-                connOracle.Open();
-
-                OracleCommand cmd = new OracleCommand("select b.doente, (select codigo from er_tipo_doente d where d.tipo_doente_id = b.tipo_doente_id) t_doente, a.*, c.*, s.sigla, s.descricao, ec.descricao as estado_civil " +
-                                                        "from gr_entidade a " +
-                                                        "join gr_doente c on a.entidade_id = c.entidade_id " +
-                                                        "join gr_doente_local b on a.entidade_id = b.entidade_id " +
-                                                        "left outer join er_sexo s on c.sexo_id = s.sexo_id " +
-                                                        "left join er_estado_civil ec on ec.estado_civil_id=c.estado_civil_id", connOracle);
-                dataReaderOracle = cmd.ExecuteReader();
-                while (dataReaderOracle.Read())
-                {
-                    row++;
-                    if (row != 177237)
-                    {
-                        Debug.Write("[" + row + "] = " + dataReaderOracle["DOENTE"] + " - " + dataReaderOracle["ENTIDADE_ID"] + " - " + dataReaderOracle["NOME"] + " \n");
-
-                        Patient patient = new Patient
-                        {
-                            Doente = Convert.ToInt32(dataReaderOracle["DOENTE"]),
-                            Entidade_id = Convert.ToInt32(dataReaderOracle["ENTIDADE_ID"]),
-                            Nome = dataReaderOracle["NOME"] + "",
-                            Morada = dataReaderOracle["MORADA"] + "",
-                            Localidade = dataReaderOracle["LOCALIDADE"] + "",
-                            Codigo_Postal = dataReaderOracle["CODIGO_POSTAL"] + "",
-                            N_Beneficiario = dataReaderOracle["N_BENEF"] + "",
-                            N_Cartao_Cidadao = dataReaderOracle["N_BI"] + "",
-                            Data_Nasc = Convert.ToDateTime(dataReaderOracle["DATA_NASC"]),
-                            Sexo_Sigla = dataReaderOracle["SIGLA"] + "",
-                            Sexo = dataReaderOracle["DESCRICAO"] + "",
-                            Uid = Guid.NewGuid().ToString()
-                        };
-
-                        if (!Convert.IsDBNull(dataReaderOracle["N_CONTRIBUINTE"]))
-                            patient.N_Contribuinte = Convert.ToInt32(dataReaderOracle["N_CONTRIBUINTE"]);
-                        if (!Convert.IsDBNull(dataReaderOracle["TELEFONE1"]))
-                            patient.Telefone1 = Convert.ToDouble(dataReaderOracle["TELEFONE1"]);
-                        if (!Convert.IsDBNull(dataReaderOracle["TELEFONE2"]))
-                            patient.Telefone2 = Convert.ToDouble(dataReaderOracle["TELEFONE2"]);
-                        if (!Convert.IsDBNull(dataReaderOracle["FAX"]))
-                            patient.Fax = Convert.ToDouble(dataReaderOracle["FAX"]);
-                        if (!Convert.IsDBNull(dataReaderOracle["N_SNS"]))
-                            patient.N_Servico_Nacional_Saude = Convert.ToDouble(dataReaderOracle["N_SNS"]);
-                        if (!Convert.IsDBNull(dataReaderOracle["ESTADO_CIVIL"])) {
-                            patient.Estado_Civil = dataReaderOracle["ESTADO_CIVIL"] + "";
-                        } else {
-                            patient.Estado_Civil = "-";
-                        }
-
-                        patients.Add(patient);
-                    }
-                    if (row >= 100)//REMOVE: just for testing
-                    {
-                        break;
-                    }
-                }
-                dataReaderOracle.Close();
-            }
-            catch (OracleException e)
-            {
-                Debug.Write("Error something: {0}", e.ToString());
-            }
-            finally
-            {
-                if (connOracle != null)
-                {
-                    connOracle.Close();
-                }
-            }
         }
 
         public void commitPersonsPatients()

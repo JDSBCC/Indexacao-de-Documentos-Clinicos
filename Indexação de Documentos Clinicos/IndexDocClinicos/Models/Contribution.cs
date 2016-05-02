@@ -29,5 +29,20 @@ namespace IndexDocClinicos.Models
 
         [SolrField("dob")]
         public DateTime Dob { get; set; }
+
+        [SolrField("elemento_id")]
+        public int Elemento_id { get; set; }//id do ficheiro
+
+        [SolrField("cod_versao")]
+        public int Cod_Versao { get; set; }//versão do ficheiro
+
+        [SolrField("content")]
+        public string Content { get; set; }//conteúdo do ficheiro
+
+        [SolrField("entidade_id")]
+        public int Entidade_id { get; set; }//nº do paciente
+
+        [SolrField("doente")]
+        public int Doente { get; set; }//nº do doente
     }
 }
