@@ -1,7 +1,11 @@
 ﻿using IndexDocClinicos.Models;
 using Microsoft.Practices.ServiceLocation;
 using SolrNet;
+using SolrNet.Commands.Parameters;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Globalization;
+using System.Text;
 using System.Web.Http;
 
 namespace IndexDocClinicos.Controllers
@@ -12,7 +16,7 @@ namespace IndexDocClinicos.Controllers
         //private const int rows = 2;
 
         [HttpGet]
-        public IEnumerable<Contribution> GetAllContributions()
+        public List<string> GetAllContributions()
         {
             return Query("*:*");
         }
@@ -20,7 +24,7 @@ namespace IndexDocClinicos.Controllers
         [HttpGet]
         public IHttpActionResult GetContribution(string id)
         {
-            IEnumerable<Contribution> cont = Query(id);
+            List<string> cont = Query(id);
             if (cont == null)
             {
                 return NotFound();
@@ -29,26 +33,39 @@ namespace IndexDocClinicos.Controllers
         }
 
         [NonAction]
-        public IEnumerable<Contribution> Query(string text)
+        public List<string> Query(string text)
         {
             var solr = ServiceLocator.Current.GetInstance<ISolrOperations<Contribution>>();
-            return solr.Query(new SolrQuery(text));
-        }
-
-        /*static ISolrQuery Join(string from, string to, string fromIndex, ISolrQuery query) {
-            return new LocalParams { { "type", "join" }, { "from", from }, { "to", to }, { "fromIndex", fromIndex } } + query;
-        }
-
-        public void something()
-        {
-            ISolrReadOnlyOperations<TestDocument> solr = ...;
-            var results = solr.Query(new SolrQueryByField("MyField0", "ValueA"), new QueryOptions {
-                FilterQueries = new[] {
-                    Join(from: "OtherID1", to: "MainID", fromIndex: "Index2", query: new SolrQueryByField("MyField1", "ValueB")),
-                    Join(from: "OtherID2", to: "MainID", fromIndex: "Index3", query: new SolrQueryByField("MyField2", "ValueC")),
+            var results = solr.Query(new SolrQuery(text), new QueryOptions
+            {
+                Highlight = new HighlightingParameters
+                {
+                    Fields = new[] { "content", "value" },
                 }
             });
-        }*/
+
+
+            CultureInfo ci = new CultureInfo("pt-PT");
+            int rIndex = 0;
+            List<string> res = new List<string>();
+            foreach (var searchResult in results.Highlights)
+            {
+                StringBuilder searchResults = new StringBuilder();
+
+                searchResults.Append("<div class='panel panel-default'><div class='panel-body'><b>" + results[rIndex].First_name + " " + results[rIndex].Last_name + 
+                                        " - " + results[rIndex].Dob.ToString("d MMM yyyy", ci) + "</b><br/><small> ");
+
+                foreach (List<string> val in searchResult.Value.Values)
+                {
+                    searchResults.Append(string.Format("{0}<br>", string.Join("... ", val.ToArray())));
+                }
+                searchResults.Append("</small><a href='#' onclick=''>Document</a>&nbsp;&nbsp;<a href='#' onclick=''>Metadata</a></div></div>");
+                res.Add(searchResults.ToString());
+                rIndex++;
+            }
+
+            return res;
+        }
 
         /*[NonAction]
         public IEnumerable<Contribution> QueryPag(string text, int start)//(page-1) * rows + 1

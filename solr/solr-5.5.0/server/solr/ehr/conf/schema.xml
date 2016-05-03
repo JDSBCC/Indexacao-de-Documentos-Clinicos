@@ -17,7 +17,7 @@
 		
 		<field name="elemento_id" type="int" indexed="false" stored="true" />
 		<field name="cod_versao" type="int" indexed="false" stored="true" />
-		<field name="content" type="string" indexed="true" stored="true"/>
+		<field name="content" type="text_general" indexed="true" stored="true"/>
 		<field name="entidade_id" type="int" indexed="false" stored="true"/>
 		<field name="doente" type="int" indexed="false" stored="true"/>
 
@@ -27,7 +27,7 @@
 	<copyField source="value" dest="text" />
 	<copyField source="content" dest="text" />
 
-	<solrQueryParser defaultOperator="AND" /> 
+	<solrQueryParser defaultOperator="OR" /> 
 
 
 	<!-- Dynamic field definitions allow using convention over configuration
