@@ -44,5 +44,8 @@ namespace IndexDocClinicos.Models
 
         [SolrField("doente")]
         public int Doente { get; set; }//nº do doente
+
+        [SolrField("file_stream")]
+        public string File_Stream { get; set; }
     }
 }

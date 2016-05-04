@@ -3,7 +3,6 @@ using Microsoft.Practices.ServiceLocation;
 using SolrNet;
 using SolrNet.Commands.Parameters;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Globalization;
 using System.Text;
 using System.Web.Http;
@@ -15,24 +14,16 @@ namespace IndexDocClinicos.Controllers
 
         //private const int rows = 2;
 
-        [HttpGet]
         public List<string> GetAllContributions()
         {
             return Query("*:*");
         }
 
-        [HttpGet]
-        public IHttpActionResult GetContribution(string id)
+        public List<string> GetContribution(string id)
         {
-            List<string> cont = Query(id);
-            if (cont == null)
-            {
-                return NotFound();
-            }
-            return Ok(cont);
+            return Query(id);
         }
 
-        [NonAction]
         public List<string> Query(string text)
         {
             var solr = ServiceLocator.Current.GetInstance<ISolrOperations<Contribution>>();
@@ -52,20 +43,45 @@ namespace IndexDocClinicos.Controllers
             {
                 StringBuilder searchResults = new StringBuilder();
 
-                searchResults.Append("<div class='panel panel-default'><div class='panel-body'><b>" + results[rIndex].First_name + " " + results[rIndex].Last_name + 
+                searchResults.Append("<div class='panel panel-default'><div class='panel-body'><b>" + results[rIndex].First_name + " " + results[rIndex].Last_name +
                                         " - " + results[rIndex].Dob.ToString("d MMM yyyy", ci) + "</b><br/><small> ");
 
                 foreach (List<string> val in searchResult.Value.Values)
                 {
                     searchResults.Append(string.Format("{0}<br>", string.Join("... ", val.ToArray())));
                 }
-                searchResults.Append("</small><a href='#' onclick=''>Document</a>&nbsp;&nbsp;<a href='#' onclick=''>Metadata</a></div></div>");
+                searchResults.Append("</small><a href='' onclick='getFile();'>Documento</a>&nbsp;-&nbsp;<a href='' onclick=''>Informação Demográfica</a></div></div>");
                 res.Add(searchResults.ToString());
                 rIndex++;
             }
 
             return res;
         }
+
+        /*[HttpGet]
+        public string GetFile(string id)
+        {
+            /*var solr = ServiceLocator.Current.GetInstance<ISolrOperations<Contribution>>();
+            var results = solr.Query(new SolrQuery(id), new QueryOptions
+            {
+                Fields = new[] { "elemento_id", "cod_versao" }
+            });
+
+            Debug.WriteLine(results[0].Elemento_id);
+            Debug.WriteLine("HERE");
+
+            /*
+            var solr = ServiceLocator.Current.GetInstance<ISolrOperations<Contribution>>();
+            using (MemoryStream stream = new MemoryStream((byte[]) Data.contributions.)
+            {
+                ExtractParameters extract = new ExtractParameters(stream, dataReaderOracle["elemento_id"] + "", dataReaderOracle["nome_original"] + "")
+                {
+                    ExtractOnly = true,
+                    ExtractFormat = ExtractFormat.Text
+                };
+                var response = solr.Extract(extract);
+            return "";
+        }*/
 
         /*[NonAction]
         public IEnumerable<Contribution> QueryPag(string text, int start)//(page-1) * rows + 1

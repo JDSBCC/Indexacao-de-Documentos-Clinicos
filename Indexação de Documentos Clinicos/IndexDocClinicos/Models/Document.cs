@@ -14,5 +14,7 @@ namespace IndexDocClinicos.Models
         public int Entidade_id { get; set; }
 
         public int Doente { get; set; }
+
+        public string File_Stream { get; set; }
     }
 }

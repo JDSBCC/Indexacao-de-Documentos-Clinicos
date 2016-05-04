@@ -1,0 +1,26 @@
+﻿using System.Web.Optimization;
+
+namespace IndexDocClinicos
+{
+    public class BundleConfig
+    {
+        // For more information on Bundling, visit http://go.microsoft.com/fwlink/?LinkId=254725
+        public static void RegisterBundles(BundleCollection bundles)
+        {
+            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
+                        "~/Scripts/bootstrap.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/bootstrapmin").Include(
+                        "~/Scripts/bootstrap.min.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/npm").Include(
+                        "~/Scripts/npm.js"));
+
+            bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/bootstrap.css"));
+
+            bundles.Add(new StyleBundle("~/Content").Include(
+                        "~/Content/bootstrap.min.css",
+                        "~/Content/bootstrap-theme.min.css"));
+        }
+    }
+}

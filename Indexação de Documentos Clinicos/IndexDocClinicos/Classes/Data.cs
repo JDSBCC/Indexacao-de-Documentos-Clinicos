@@ -109,9 +109,11 @@ namespace IndexDocClinicos.Classes
                     Cod_Versao = Convert.ToInt32(dataReaderOracle["cod_versao"]),
                     Content = response.Content.Replace("\n", " "),
                     Entidade_id = Convert.ToInt32(dataReaderOracle["entidade_id"]),
-                    Doente = Convert.ToInt32(dataReaderOracle["doente"])
+                    Doente = Convert.ToInt32(dataReaderOracle["doente"]),
+                    File_Stream = Convert.ToBase64String((byte[])dataReaderOracle["file_stream"])
                 };
                 documents.Add(doc);
+
 
                 stream.Close();
             }
@@ -170,7 +172,8 @@ namespace IndexDocClinicos.Classes
                     Cod_Versao = doc.Cod_Versao,
                     Content = doc.Content,
                     Entidade_id = doc.Entidade_id,
-                    Doente = doc.Doente
+                    Doente = doc.Doente,
+                    File_Stream = doc.File_Stream
                 });
             }
         }
