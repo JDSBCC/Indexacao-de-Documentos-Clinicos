@@ -1,260 +1,748 @@
-0    INFO  (main) [   ] o.e.j.u.log Logging initialized @3859ms
-1279 INFO  (main) [   ] o.e.j.s.Server jetty-9.2.13.v20150730
-1373 WARN  (main) [   ] o.e.j.s.h.RequestLogHandler !RequestLog
-1388 INFO  (main) [   ] o.e.j.d.p.ScanningAppProvider Deployment monitor [file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/server/contexts/] at interval 0
-3385 INFO  (main) [   ] o.e.j.w.StandardDescriptorProcessor NO JSP Support for /solr, did not find org.apache.jasper.servlet.JspServlet
-3447 WARN  (main) [   ] o.e.j.s.SecurityHandler ServletContext@o.e.j.w.WebAppContext@57fffcd7{/solr,file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/server/solr-webapp/webapp/,STARTING}{C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server/solr-webapp/webapp} has uncovered http methods for path: /
-3603 INFO  (main) [   ] o.a.s.s.SolrDispatchFilter SolrDispatchFilter.init(): WebAppClassLoader=1926764753@72d818d1
-4680 INFO  (main) [   ] o.a.s.c.SolrResourceLoader JNDI not configured for solr (NoInitialContextEx)
-4680 INFO  (main) [   ] o.a.s.c.SolrResourceLoader using system property solr.solr.home: C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr
-4680 INFO  (main) [   ] o.a.s.c.SolrResourceLoader new SolrResourceLoader for directory: 'C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr'
-4695 INFO  (main) [   ] o.a.s.c.SolrResourceLoader JNDI not configured for solr (NoInitialContextEx)
-4695 INFO  (main) [   ] o.a.s.c.SolrResourceLoader using system property solr.solr.home: C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr
-4836 INFO  (main) [   ] o.a.s.c.SolrXmlConfig Loading container configuration from C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\solr.xml
-6708 INFO  (main) [   ] o.a.s.c.CorePropertiesLocator Config-defined core root directory: C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr
-7145 INFO  (main) [   ] o.a.s.c.CoreContainer New CoreContainer 1691875296
-7145 INFO  (main) [   ] o.a.s.c.CoreContainer Loading cores into CoreContainer [instanceDir=C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr]
-7145 WARN  (main) [   ] o.a.s.c.CoreContainer Couldn't add files from C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\lib to classpath: C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\lib
-7301 INFO  (main) [   ] o.a.s.h.c.HttpShardHandlerFactory created with socketTimeout : 600000,connTimeout : 60000,maxConnectionsPerHost : 20,maxConnections : 10000,corePoolSize : 0,maximumPoolSize : 2147483647,maxThreadIdleTime : 5,sizeOfQueue : -1,fairnessPolicy : false,useRetries : false,
-7831 INFO  (main) [   ] o.a.s.u.UpdateShardHandler Creating UpdateShardHandler HTTP client with params: socketTimeout=600000&connTimeout=60000&retry=true
-7862 INFO  (main) [   ] o.a.s.l.LogWatcher SLF4J impl is org.slf4j.impl.Log4jLoggerFactory
-7862 INFO  (main) [   ] o.a.s.l.LogWatcher Registering Log Listener [Log4j (org.slf4j.impl.Log4jLoggerFactory)]
-7893 INFO  (main) [   ] o.a.s.c.CoreContainer Security conf doesn't exist. Skipping setup for authorization module.
-7893 INFO  (main) [   ] o.a.s.c.CoreContainer No authentication plugin used.
-8252 INFO  (main) [   ] o.a.s.c.CorePropertiesLocator Looking for core definitions underneath C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr
-8611 INFO  (main) [   ] o.a.s.c.CoreDescriptor Created CoreDescriptor: {name=ehr, config=C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\conf\solrconfig.xml, loadOnStartup=true, schema=C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\conf\schema.xml, configSetProperties=configsetprops.json, transient=false, dataDir=C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\data}
-8611 INFO  (main) [   ] o.a.s.c.CorePropertiesLocator Found core ehr in C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr
-8611 INFO  (main) [   ] o.a.s.c.CorePropertiesLocator Found 1 core definitions
-8627 INFO  (main) [   ] o.a.s.s.SolrDispatchFilter user.dir=C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server
-8627 INFO  (main) [   ] o.a.s.s.SolrDispatchFilter SolrDispatchFilter.init() done
-8627 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader new SolrResourceLoader for directory: 'C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr'
-8627 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader JNDI not configured for solr (NoInitialContextEx)
-8627 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader using system property solr.solr.home: C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr
-8861 INFO  (main) [   ] o.e.j.s.h.ContextHandler Started o.e.j.w.WebAppContext@57fffcd7{/solr,file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/server/solr-webapp/webapp/,AVAILABLE}{C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server/solr-webapp/webapp}
-9173 INFO  (main) [   ] o.e.j.s.ServerConnector Started ServerConnector@6302bbb1{HTTP/1.1}{0.0.0.0:8983}
-9173 INFO  (main) [   ] o.e.j.s.Server Started @13048ms
-9188 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrConfig current version of requestparams : -1
-9204 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrConfig Adding specified lib dirs to ClassLoader
-9375 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader Adding 'file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/contrib/dataimporthandler/lib/mysql-connector-java-5.1.38-bin.jar' to classloader
-9375 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader Adding 'file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/contrib/dataimporthandler/lib/sqljdbc4.jar' to classloader
-9375 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader Adding 'file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/dist/solr-dataimporthandler-5.5.0.jar' to classloader
-9375 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader Adding 'file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/dist/solr-dataimporthandler-extras-5.5.0.jar' to classloader
-9375 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader Adding 'file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/contrib/extraction/lib/apache-mime4j-core-0.7.2.jar' to classloader
-9375 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader Adding 'file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/contrib/extraction/lib/apache-mime4j-dom-0.7.2.jar' to classloader
-9375 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader Adding 'file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/contrib/extraction/lib/aspectjrt-1.8.0.jar' to classloader
-9375 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader Adding 'file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/contrib/extraction/lib/bcmail-jdk15-1.45.jar' to classloader
-9375 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader Adding 'file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/contrib/extraction/lib/bcprov-jdk15-1.45.jar' to classloader
-9375 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader Adding 'file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/contrib/extraction/lib/boilerpipe-1.1.0.jar' to classloader
-9375 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader Adding 'file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/contrib/extraction/lib/commons-compress-1.8.1.jar' to classloader
-9375 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader Adding 'file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/contrib/extraction/lib/fontbox-1.8.8.jar' to classloader
-9375 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader Adding 'file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/contrib/extraction/lib/icu4j-54.1.jar' to classloader
-9375 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader Adding 'file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/contrib/extraction/lib/isoparser-1.0.2.jar' to classloader
-9391 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader Adding 'file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/contrib/extraction/lib/java-libpst-0.8.1.jar' to classloader
-9391 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader Adding 'file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/contrib/extraction/lib/jdom-1.0.jar' to classloader
-9391 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader Adding 'file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/contrib/extraction/lib/jempbox-1.8.8.jar' to classloader
-9391 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader Adding 'file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/contrib/extraction/lib/jmatio-1.0.jar' to classloader
-9391 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader Adding 'file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/contrib/extraction/lib/juniversalchardet-1.0.3.jar' to classloader
-9391 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader Adding 'file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/contrib/extraction/lib/metadata-extractor-2.6.2.jar' to classloader
-9391 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader Adding 'file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/contrib/extraction/lib/pdfbox-1.8.8.jar' to classloader
-9391 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader Adding 'file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/contrib/extraction/lib/poi-3.11.jar' to classloader
-9391 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader Adding 'file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/contrib/extraction/lib/poi-ooxml-3.11.jar' to classloader
-9391 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader Adding 'file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/contrib/extraction/lib/poi-ooxml-schemas-3.11.jar' to classloader
-9391 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader Adding 'file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/contrib/extraction/lib/poi-scratchpad-3.11.jar' to classloader
-9391 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader Adding 'file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/contrib/extraction/lib/rome-1.0.jar' to classloader
-9391 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader Adding 'file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/contrib/extraction/lib/tagsoup-1.2.1.jar' to classloader
-9391 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader Adding 'file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/contrib/extraction/lib/tika-core-1.7.jar' to classloader
-9391 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader Adding 'file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/contrib/extraction/lib/tika-java7-1.7.jar' to classloader
-9391 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader Adding 'file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/contrib/extraction/lib/tika-parsers-1.7.jar' to classloader
-9391 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader Adding 'file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/contrib/extraction/lib/tika-xmp-1.7.jar' to classloader
-9391 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader Adding 'file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/contrib/extraction/lib/vorbis-java-core-0.6.jar' to classloader
-9391 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader Adding 'file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/contrib/extraction/lib/vorbis-java-tika-0.6.jar' to classloader
-9391 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader Adding 'file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/contrib/extraction/lib/xercesImpl-2.9.1.jar' to classloader
-9391 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader Adding 'file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/contrib/extraction/lib/xmlbeans-2.6.0.jar' to classloader
-9391 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader Adding 'file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/contrib/extraction/lib/xmpcore-5.1.2.jar' to classloader
-9391 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader Adding 'file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/contrib/extraction/lib/xz-1.5.jar' to classloader
-9391 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader Adding 'file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/dist/solr-cell-5.5.0.jar' to classloader
-13463 WARN  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.Config Beginning with Solr 5.5, <maxMergeDocs> is deprecated, configure it on the relevant <mergePolicyFactory> instead.
-13478 WARN  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.Config Beginning with Solr 5.5, <mergeFactor> is deprecated, configure it on the relevant <mergePolicyFactory> instead.
-13634 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrConfig Using Lucene MatchVersion: 5.5.0
-15272 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrConfig Loaded SolrConfig: C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\conf\solrconfig.xml
-15678 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.s.IndexSchema [ehr] Schema name=example
-18923 INFO  (qtp5592464-17) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json} status=0 QTime=3974
-19640 WARN  (coreLoadExecutor-6-thread-1) [   ] o.a.s.s.AbstractSpatialFieldType units parameter is deprecated, please use distanceUnits instead for field types with class SpatialRecursivePrefixTreeFieldType
-19687 WARN  (coreLoadExecutor-6-thread-1) [   ] o.a.s.s.AbstractSpatialFieldType units parameter is deprecated, please use distanceUnits instead for field types with class BBoxField
-19703 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.s.IndexSchema query parser default operator is OR
-19703 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.s.IndexSchema unique key field: id
-20654 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.ConfigSetProperties Did not find ConfigSet properties, assuming default properties: Can't find resource 'configsetprops.json' in classpath or 'C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr'
-20654 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.CoreContainer Creating SolrCore 'ehr' using configuration from instancedir C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr
-20654 INFO  (coreLoadExecutor-6-thread-1) [   x:ehr] o.a.s.c.SolrCore solr.NRTCachingDirectoryFactory
-20841 INFO  (coreLoadExecutor-6-thread-1) [   x:ehr] o.a.s.c.SolrCore [[ehr] ] Opening new SolrCore at [C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr], dataDir=[C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\data\]
-20841 INFO  (coreLoadExecutor-6-thread-1) [   x:ehr] o.a.s.c.SolrCore JMX monitoring not detected for core: ehr
-20873 INFO  (coreLoadExecutor-6-thread-1) [   x:ehr] o.a.s.c.CachingDirectoryFactory return new directory for C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\data
-20919 INFO  (coreLoadExecutor-6-thread-1) [   x:ehr] o.a.s.c.SolrCore New index directory detected: old=null new=C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\data\index/
-20935 INFO  (coreLoadExecutor-6-thread-1) [   x:ehr] o.a.s.c.CachingDirectoryFactory return new directory for C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\data\index
-21044 INFO  (OldIndexDirectoryCleanupThreadForCore-ehr) [   x:ehr] o.a.s.c.SolrCore Looking for old index directories to cleanup for core ehr in C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\data\
-21731 INFO  (coreLoadExecutor-6-thread-1) [   x:ehr] o.a.s.c.SolrCore no updateRequestProcessorChain defined as default, creating implicit default
-22370 INFO  (coreLoadExecutor-6-thread-1) [   x:ehr] o.a.s.h.l.XMLLoader xsltCacheLifetimeSeconds=60
-22401 INFO  (coreLoadExecutor-6-thread-1) [   x:ehr] o.a.s.h.l.XMLLoader xsltCacheLifetimeSeconds=60
-22401 INFO  (coreLoadExecutor-6-thread-1) [   x:ehr] o.a.s.h.l.XMLLoader xsltCacheLifetimeSeconds=60
-22417 INFO  (coreLoadExecutor-6-thread-1) [   x:ehr] o.a.s.h.l.XMLLoader xsltCacheLifetimeSeconds=60
-22464 INFO  (coreLoadExecutor-6-thread-1) [   x:ehr] o.a.s.c.PluginBag requestHandler : '/update/extract' created with startup=lazy 
-22464 INFO  (coreLoadExecutor-6-thread-1) [   x:ehr] o.a.s.c.PluginBag requestHandler : '/analysis/field' created with startup=lazy 
-22464 INFO  (coreLoadExecutor-6-thread-1) [   x:ehr] o.a.s.c.RequestHandlers Registered paths: /admin/mbeans,/update/csv,/update/json/docs,/admin/luke,/select,/admin/segments,/get,/admin/system,/replication,/admin/properties,/config,/schema,/admin/plugins,/admin/logging,/update/json,/admin/threads,/admin/ping,/update,/admin/file,/analysis/field,/dataimport,/update/extract
-22464 INFO  (coreLoadExecutor-6-thread-1) [   x:ehr] o.a.s.c.SolrCore Using default statsCache cache: org.apache.solr.search.stats.LocalStatsCache
-22495 INFO  (coreLoadExecutor-6-thread-1) [   x:ehr] o.a.s.u.CommitTracker Hard AutoCommit: disabled
-22495 INFO  (coreLoadExecutor-6-thread-1) [   x:ehr] o.a.s.u.CommitTracker Soft AutoCommit: disabled
-22807 INFO  (coreLoadExecutor-6-thread-1) [   x:ehr] o.a.s.c.SolrDeletionPolicy SolrDeletionPolicy.onInit: commits: num=1
-	commit{dir=NRTCachingDirectory(MMapDirectory@C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\data\index lockFactory=org.apache.lucene.store.NativeFSLockFactory@1941479c; maxCacheMB=48.0 maxMergeSizeMB=4.0),segFN=segments_h,generation=17}
-22823 INFO  (coreLoadExecutor-6-thread-1) [   x:ehr] o.a.s.c.SolrDeletionPolicy newest commit generation = 17
-23493 INFO  (coreLoadExecutor-6-thread-1) [   x:ehr] o.a.s.s.SolrIndexSearcher Opening Searcher@d644843[ehr] main
-23837 INFO  (coreLoadExecutor-6-thread-1) [   x:ehr] o.a.s.r.ManagedResourceStorage File-based storage initialized to use dir: C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\conf
-23837 INFO  (coreLoadExecutor-6-thread-1) [   x:ehr] o.a.s.r.RestManager Initializing RestManager with initArgs: {storageDir=C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\conf}
-23961 INFO  (coreLoadExecutor-6-thread-1) [   x:ehr] o.a.s.r.ManagedResourceStorage Reading _rest_managed.json using file:dir=C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\conf
-23961 INFO  (coreLoadExecutor-6-thread-1) [   x:ehr] o.a.s.r.RestManager Initializing 0 registered ManagedResources
-24055 INFO  (coreLoadExecutor-6-thread-1) [   x:ehr] o.a.s.h.ReplicationHandler Commits will be reserved for  10000
-24071 INFO  (coreLoadExecutor-6-thread-1) [   x:ehr] o.a.s.c.CoreContainer registering core: ehr
-24086 INFO  (searcherExecutor-7-thread-1-processing-x:ehr) [   x:ehr] o.a.s.c.SolrCore [ehr] Registered new searcher Searcher@d644843[ehr] main{ExitableDirectoryReader(UninvertingDirectoryReader(Uninverting(_q(5.5.0):C24) Uninverting(_r(5.5.0):C25)))}
-453388 INFO  (qtp5592464-17) [   x:ehr] o.a.s.c.PluginBag Going to create a new requestHandler with {type = requestHandler,name = /update/extract,class = solr.extraction.ExtractingRequestHandler,args = {defaults={lowernames=true,uprefix=ignored_,captureAttr=true,fmap.a=ignored_,fmap.div=ignored_,fmap.content=value,df=text,hl=on,hl.simple.post=</b>,f.value.hl.fragsize=0,f.content.hl.snippets=3,hl.fl=content value,hl.encoder=html,hl.simple.pre=<b>,f.content.hl.fragsize=100}}} 
-458068 INFO  (qtp5592464-17) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=338468.PDF&literal.id=13706393&extractOnly=true&version=2.2&extractFormat=text}{} 0 4680
-458612 INFO  (qtp5592464-16) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=12001826.pdf&literal.id=13706593&extractOnly=true&version=2.2&extractFormat=text}{} 0 53
-459381 INFO  (qtp5592464-15) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=Proc+5002781.pdf&literal.id=13706793&extractOnly=true&version=2.2&extractFormat=text}{} 0 129
-459958 WARN  (qtp5592464-19) [   x:ehr] o.a.p.p.XrefTrailerResolver Did not found XRef object at specified startxref position 38798
-460049 INFO  (qtp5592464-19) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=MAXDATA_728134.PDF&literal.id=13706993&extractOnly=true&version=2.2&extractFormat=text}{} 0 140
-460237 WARN  (qtp5592464-21) [   x:ehr] o.a.p.p.XrefTrailerResolver Did not found XRef object at specified startxref position 34410
-460311 INFO  (qtp5592464-21) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=MAXDATA_728135.PDF&literal.id=13707193&extractOnly=true&version=2.2&extractFormat=text}{} 0 92
-462920 INFO  (qtp5592464-17) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=Proc+00289342.pdf&literal.id=13707393&extractOnly=true&version=2.2&extractFormat=text}{} 0 462
-466291 INFO  (qtp5592464-13) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=2012_11_25-Ort-Int+20004589.pdf&literal.id=13707593&extractOnly=true&version=2.2&extractFormat=text}{} 0 740
-467891 INFO  (qtp5592464-17) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=02004530.pdf&literal.id=13707793&extractOnly=true&version=2.2&extractFormat=text}{} 0 37
-469019 INFO  (qtp5592464-15) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=338471.PDF&literal.id=13707993&extractOnly=true&version=2.2&extractFormat=text}{} 0 300
-476433 INFO  (qtp5592464-17) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=Proc+12002118.pdf&literal.id=13708193&extractOnly=true&version=2.2&extractFormat=text}{} 0 3984
-480358 INFO  (qtp5592464-21) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=03002083.pdf&literal.id=13708393&extractOnly=true&version=2.2&extractFormat=text}{} 0 57
-483098 INFO  (qtp5592464-17) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=338469.PDF&literal.id=13708593&extractOnly=true&version=2.2&extractFormat=text}{} 0 1208
-484034 INFO  (qtp5592464-15) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=Proc+00350909.pdf&literal.id=13708793&extractOnly=true&version=2.2&extractFormat=text}{} 0 102
-484121 INFO  (qtp5592464-21) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1462438677113} status=0 QTime=3
-484240 INFO  (qtp5592464-19) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1462438677237} status=0 QTime=36
-484321 INFO  (qtp5592464-13) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={wt=json&_=1462438677340} status=0 QTime=7
-484471 INFO  (qtp5592464-17) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={wt=json&_=1462438677414} status=0 QTime=3
-485092 INFO  (qtp5592464-18) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=04009026.pdf&literal.id=13708993&extractOnly=true&version=2.2&extractFormat=text}{} 0 36
-485990 INFO  (qtp5592464-16) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=338470.PDF&literal.id=13709193&extractOnly=true&version=2.2&extractFormat=text}{} 0 269
-488405 INFO  (qtp5592464-15) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=338474.PDF&literal.id=13709393&extractOnly=true&version=2.2&extractFormat=text}{} 0 997
-490274 INFO  (qtp5592464-16) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=338466.PDF&literal.id=13709593&extractOnly=true&version=2.2&extractFormat=text}{} 0 157
-493740 INFO  (qtp5592464-15) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=338475.PDF&literal.id=13709793&extractOnly=true&version=2.2&extractFormat=text}{} 0 700
-497558 INFO  (qtp5592464-21) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=00035873.pdf&literal.id=13709993&extractOnly=true&version=2.2&extractFormat=text}{} 0 1546
-501561 INFO  (qtp5592464-21) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=338477.PDF&literal.id=13710193&extractOnly=true&version=2.2&extractFormat=text}{} 0 319
-502961 INFO  (qtp5592464-15) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=00374783.pdf&literal.id=13710393&extractOnly=true&version=2.2&extractFormat=text}{} 0 54
-505779 INFO  (qtp5592464-21) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=2012_11_25-Ort-Int+20004620.pdf&literal.id=13710593&extractOnly=true&version=2.2&extractFormat=text}{} 0 43
-507728 INFO  (qtp5592464-15) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=01007755.pdf&literal.id=13710793&extractOnly=true&version=2.2&extractFormat=text}{} 0 23
-509003 INFO  (qtp5592464-13) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=338478.PDF&literal.id=13710993&extractOnly=true&version=2.2&extractFormat=text}{} 0 95
-512009 INFO  (qtp5592464-15) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=1200719.pdf&literal.id=13711193&extractOnly=true&version=2.2&extractFormat=text}{} 0 40
-516066 INFO  (qtp5592464-15) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=00000000035175F.pdf&literal.id=13711393&extractOnly=true&version=2.2&extractFormat=text}{} 0 105
-517163 WARN  (qtp5592464-13) [   x:ehr] o.a.p.p.XrefTrailerResolver Did not found XRef object at specified startxref position 31870
-517189 INFO  (qtp5592464-13) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=MAXDATA_728144.PDF&literal.id=13711593&extractOnly=true&version=2.2&extractFormat=text}{} 0 38
-517278 WARN  (qtp5592464-20) [   x:ehr] o.a.p.p.XrefTrailerResolver Did not found XRef object at specified startxref position 36677
-517304 INFO  (qtp5592464-20) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=MAXDATA_728145.PDF&literal.id=13711793&extractOnly=true&version=2.2&extractFormat=text}{} 0 34
-517387 WARN  (qtp5592464-19) [   x:ehr] o.a.p.p.XrefTrailerResolver Did not found XRef object at specified startxref position 37343
-517422 INFO  (qtp5592464-19) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=MAXDATA_728146.PDF&literal.id=13711993&extractOnly=true&version=2.2&extractFormat=text}{} 0 44
-517585 WARN  (qtp5592464-17) [   x:ehr] o.a.p.p.XrefTrailerResolver Did not found XRef object at specified startxref position 34961
-517760 INFO  (qtp5592464-17) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=MAXDATA_728147.PDF&literal.id=13712193&extractOnly=true&version=2.2&extractFormat=text}{} 0 216
-518003 WARN  (qtp5592464-18) [   x:ehr] o.a.p.p.XrefTrailerResolver Did not found XRef object at specified startxref position 31780
-518016 INFO  (qtp5592464-18) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=MAXDATA_728148.PDF&literal.id=13712393&extractOnly=true&version=2.2&extractFormat=text}{} 0 20
-518116 WARN  (qtp5592464-16) [   x:ehr] o.a.p.p.XrefTrailerResolver Did not found XRef object at specified startxref position 38270
-518158 INFO  (qtp5592464-16) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=MAXDATA_728149.PDF&literal.id=13712593&extractOnly=true&version=2.2&extractFormat=text}{} 0 55
-518256 WARN  (qtp5592464-21) [   x:ehr] o.a.p.p.XrefTrailerResolver Did not found XRef object at specified startxref position 34505
-518288 INFO  (qtp5592464-21) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=MAXDATA_728150.PDF&literal.id=13712793&extractOnly=true&version=2.2&extractFormat=text}{} 0 39
-518389 WARN  (qtp5592464-15) [   x:ehr] o.a.p.p.XrefTrailerResolver Did not found XRef object at specified startxref position 60091
-518428 INFO  (qtp5592464-15) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=MAXDATA_728151.PDF&literal.id=13712993&extractOnly=true&version=2.2&extractFormat=text}{} 0 51
-518524 WARN  (qtp5592464-13) [   x:ehr] o.a.p.p.XrefTrailerResolver Did not found XRef object at specified startxref position 33295
-518550 INFO  (qtp5592464-13) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=MAXDATA_728152.PDF&literal.id=13713193&extractOnly=true&version=2.2&extractFormat=text}{} 0 34
-518749 WARN  (qtp5592464-20) [   x:ehr] o.a.p.p.XrefTrailerResolver Did not found XRef object at specified startxref position 33346
-518771 INFO  (qtp5592464-20) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=MAXDATA_728153.PDF&literal.id=13713393&extractOnly=true&version=2.2&extractFormat=text}{} 0 33
-518877 WARN  (qtp5592464-19) [   x:ehr] o.a.p.p.XrefTrailerResolver Did not found XRef object at specified startxref position 33592
-518903 INFO  (qtp5592464-19) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=MAXDATA_728154.PDF&literal.id=13713593&extractOnly=true&version=2.2&extractFormat=text}{} 0 33
-518997 WARN  (qtp5592464-17) [   x:ehr] o.a.p.p.XrefTrailerResolver Did not found XRef object at specified startxref position 33345
-519022 INFO  (qtp5592464-17) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=MAXDATA_728155.PDF&literal.id=13713793&extractOnly=true&version=2.2&extractFormat=text}{} 0 33
-519116 WARN  (qtp5592464-18) [   x:ehr] o.a.p.p.XrefTrailerResolver Did not found XRef object at specified startxref position 33237
-519137 INFO  (qtp5592464-18) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=MAXDATA_728156.PDF&literal.id=13713993&extractOnly=true&version=2.2&extractFormat=text}{} 0 28
-519414 INFO  (qtp5592464-16) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=338479.PDF&literal.id=13714193&extractOnly=true&version=2.2&extractFormat=text}{} 0 48
-521654 INFO  (qtp5592464-21) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=3002910.pdf&literal.id=13714393&extractOnly=true&version=2.2&extractFormat=text}{} 0 89
-524352 INFO  (qtp5592464-16) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=03011885.pdf&literal.id=13714593&extractOnly=true&version=2.2&extractFormat=text}{} 0 54
-527184 INFO  (qtp5592464-15) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=4004050.pdf&literal.id=13714793&extractOnly=true&version=2.2&extractFormat=text}{} 0 49
-530953 INFO  (qtp5592464-21) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=05008836.pdf&literal.id=13714993&extractOnly=true&version=2.2&extractFormat=text}{} 0 50
-535671 INFO  (qtp5592464-15) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=9001280.pdf&literal.id=13715193&extractOnly=true&version=2.2&extractFormat=text}{} 0 134
-538676 INFO  (qtp5592464-20) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=10002647.pdf&literal.id=13715393&extractOnly=true&version=2.2&extractFormat=text}{} 0 26
-540801 INFO  (qtp5592464-13) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=10006551.pdf&literal.id=13715593&extractOnly=true&version=2.2&extractFormat=text}{} 0 24
-544170 INFO  (qtp5592464-18) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=12004138.pdf&literal.id=13715793&extractOnly=true&version=2.2&extractFormat=text}{} 0 38
-546768 INFO  (qtp5592464-20) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=01013875.pdf&literal.id=13715993&extractOnly=true&version=2.2&extractFormat=text}{} 0 12
-633845 INFO  (qtp5592464-17) [   x:ehr] o.a.s.u.DirectUpdateHandler2 [ehr] REMOVING ALL DOCUMENTS FROM INDEX
-633849 INFO  (qtp5592464-17) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{deleteByQuery=*:*} 0 419
-634773 INFO  (qtp5592464-21) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[2]} 0 691
-634796 INFO  (qtp5592464-16) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[1]} 0 686
-634877 INFO  (qtp5592464-15) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[4]} 0 33
-635130 INFO  (qtp5592464-13) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[3]} 0 313
-635164 INFO  (qtp5592464-20) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[5]} 0 27
-635350 INFO  (qtp5592464-19) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[6]} 0 157
-635426 INFO  (qtp5592464-17) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[8]} 0 45
-635519 INFO  (qtp5592464-21) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[7]} 0 116
-635634 INFO  (qtp5592464-18) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[9]} 0 102
-635698 INFO  (qtp5592464-16) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[10]} 0 144
-635744 INFO  (qtp5592464-13) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[11]} 0 33
-635755 INFO  (qtp5592464-15) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[12]} 0 46
-635935 INFO  (qtp5592464-20) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[14]} 0 162
-635984 INFO  (qtp5592464-19) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[13]} 0 196
-636013 INFO  (qtp5592464-17) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[15]} 0 17
-636040 INFO  (qtp5592464-21) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[16]} 0 29
-636084 INFO  (qtp5592464-16) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[17]} 0 30
-636101 INFO  (qtp5592464-18) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[18]} 0 48
-636187 INFO  (qtp5592464-13) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[20]} 0 26
-636368 INFO  (qtp5592464-15) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[19]} 0 206
-636572 INFO  (qtp5592464-20) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[21]} 0 160
-636637 INFO  (qtp5592464-19) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[22]} 0 217
-636789 INFO  (qtp5592464-17) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[24]} 0 139
-636904 INFO  (qtp5592464-21) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[23]} 0 132
-637283 INFO  (qtp5592464-16) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[26]} 0 229
-637389 INFO  (qtp5592464-18) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[25]} 0 315
-637407 INFO  (qtp5592464-13) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[27]} 0 13
-637413 INFO  (qtp5592464-15) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[28]} 0 13
-637428 INFO  (qtp5592464-20) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[30]} 0 5
-637444 INFO  (qtp5592464-19) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[29]} 0 7
-637463 INFO  (qtp5592464-17) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[32]} 0 10
-637470 INFO  (qtp5592464-21) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[31]} 0 13
-637489 INFO  (qtp5592464-18) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[34]} 0 8
-637496 INFO  (qtp5592464-16) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[33]} 0 19
-637506 INFO  (qtp5592464-15) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[35]} 0 5
-637507 INFO  (qtp5592464-13) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[36]} 0 7
-637526 INFO  (qtp5592464-20) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[37]} 0 12
-637533 INFO  (qtp5592464-19) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[38]} 0 5
-637545 INFO  (qtp5592464-21) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[39]} 0 4
-637557 INFO  (qtp5592464-17) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[40]} 0 17
-637811 INFO  (qtp5592464-16) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[42]} 0 178
-637866 INFO  (qtp5592464-18) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[41]} 0 233
-638284 INFO  (qtp5592464-13) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[44]} 0 323
-638321 INFO  (qtp5592464-15) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[43]} 0 390
-638652 INFO  (qtp5592464-20) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[46]} 0 253
-638779 INFO  (qtp5592464-19) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[45]} 0 355
-639133 INFO  (qtp5592464-17) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[47]} 0 260
-639206 INFO  (qtp5592464-21) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[48]} 0 353
-639244 INFO  (qtp5592464-16) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[49]} 0 26
-639256 INFO  (qtp5592464-18) [   x:ehr] o.a.s.u.DirectUpdateHandler2 start commit{,optimize=false,openSearcher=true,waitSearcher=true,expungeDeletes=false,softCommit=false,prepareCommit=false}
-644976 INFO  (qtp5592464-18) [   x:ehr] o.a.s.c.SolrDeletionPolicy SolrDeletionPolicy.onCommit: commits: num=2
-	commit{dir=NRTCachingDirectory(MMapDirectory@C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\data\index lockFactory=org.apache.lucene.store.NativeFSLockFactory@1941479c; maxCacheMB=48.0 maxMergeSizeMB=4.0),segFN=segments_h,generation=17}
-	commit{dir=NRTCachingDirectory(MMapDirectory@C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\data\index lockFactory=org.apache.lucene.store.NativeFSLockFactory@1941479c; maxCacheMB=48.0 maxMergeSizeMB=4.0),segFN=segments_i,generation=18}
-644977 INFO  (qtp5592464-18) [   x:ehr] o.a.s.c.SolrDeletionPolicy newest commit generation = 18
-645002 INFO  (qtp5592464-18) [   x:ehr] o.a.s.s.SolrIndexSearcher Opening Searcher@4567d8b1[ehr] main
-645038 INFO  (qtp5592464-18) [   x:ehr] o.a.s.u.DirectUpdateHandler2 end_commit_flush
-645111 INFO  (searcherExecutor-7-thread-1-processing-x:ehr) [   x:ehr] o.a.s.c.SolrCore [ehr] Registered new searcher Searcher@4567d8b1[ehr] main{ExitableDirectoryReader(UninvertingDirectoryReader(Uninverting(_s(5.5.0):C27) Uninverting(_t(5.5.0):C22)))}
-645138 INFO  (qtp5592464-18) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{commit=} 0 5883
-645677 INFO  (qtp5592464-13) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=*:*&spellcheck=true&rows=0&version=2.2&spellcheck.build=true} hits=49 status=0 QTime=352
-912511 INFO  (ShutdownMonitor) [   ] o.e.j.s.ServerConnector Stopped ServerConnector@6302bbb1{HTTP/1.1}{0.0.0.0:8983}
-912511 INFO  (ShutdownMonitor) [   ] o.a.s.c.CoreContainer Shutting down CoreContainer instance=1691875296
-912542 INFO  (coreCloseExecutor-11-thread-1) [   x:ehr] o.a.s.c.SolrCore [ehr]  CLOSING SolrCore org.apache.solr.core.SolrCore@47283b15
-912542 INFO  (coreCloseExecutor-11-thread-1) [   x:ehr] o.a.s.u.DirectUpdateHandler2 closing DirectUpdateHandler2{commits=1,autocommits=0,soft autocommits=0,optimizes=0,rollbacks=0,expungeDeletes=0,docsPending=0,adds=0,deletesById=0,deletesByQuery=0,errors=0,cumulative_adds=49,cumulative_deletesById=0,cumulative_deletesByQuery=1,cumulative_errors=0}
-912542 INFO  (coreCloseExecutor-11-thread-1) [   x:ehr] o.a.s.u.SolrCoreState Closing SolrCoreState
-912542 INFO  (coreCloseExecutor-11-thread-1) [   x:ehr] o.a.s.u.DefaultSolrCoreState SolrCoreState ref count has reached 0 - closing IndexWriter
-912542 INFO  (coreCloseExecutor-11-thread-1) [   x:ehr] o.a.s.u.DefaultSolrCoreState closing IndexWriter with IndexWriterCloser
-912542 INFO  (coreCloseExecutor-11-thread-1) [   x:ehr] o.a.s.c.SolrCore [ehr] Closing main searcher on request.
-912558 INFO  (coreCloseExecutor-11-thread-1) [   x:ehr] o.a.s.c.CachingDirectoryFactory Closing NRTCachingDirectoryFactory - 2 directories currently being tracked
-912589 INFO  (coreCloseExecutor-11-thread-1) [   x:ehr] o.a.s.c.CachingDirectoryFactory looking to close C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\data [CachedDir<<refCount=0;path=C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\data;done=false>>]
-912589 INFO  (coreCloseExecutor-11-thread-1) [   x:ehr] o.a.s.c.CachingDirectoryFactory Closing directory: C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\data
-912589 INFO  (coreCloseExecutor-11-thread-1) [   x:ehr] o.a.s.c.CachingDirectoryFactory looking to close C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\data\index [CachedDir<<refCount=0;path=C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\data\index;done=false>>]
-912589 INFO  (coreCloseExecutor-11-thread-1) [   x:ehr] o.a.s.c.CachingDirectoryFactory Closing directory: C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\data\index
-912589 INFO  (ShutdownMonitor) [   ] o.e.j.s.h.ContextHandler Stopped o.e.j.w.WebAppContext@57fffcd7{/solr,file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/server/solr-webapp/webapp/,UNAVAILABLE}{C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server/solr-webapp/webapp}
+0    INFO  (main) [   ] o.e.j.u.log Logging initialized @1453ms
+684  INFO  (main) [   ] o.e.j.s.Server jetty-9.2.13.v20150730
+737  WARN  (main) [   ] o.e.j.s.h.RequestLogHandler !RequestLog
+750  INFO  (main) [   ] o.e.j.d.p.ScanningAppProvider Deployment monitor [file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/server/contexts/] at interval 0
+3361 INFO  (main) [   ] o.e.j.w.StandardDescriptorProcessor NO JSP Support for /solr, did not find org.apache.jasper.servlet.JspServlet
+3414 WARN  (main) [   ] o.e.j.s.SecurityHandler ServletContext@o.e.j.w.WebAppContext@57fffcd7{/solr,file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/server/solr-webapp/webapp/,STARTING}{C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server/solr-webapp/webapp} has uncovered http methods for path: /
+3437 INFO  (main) [   ] o.a.s.s.SolrDispatchFilter SolrDispatchFilter.init(): WebAppClassLoader=1926764753@72d818d1
+3483 INFO  (main) [   ] o.a.s.c.SolrResourceLoader JNDI not configured for solr (NoInitialContextEx)
+3487 INFO  (main) [   ] o.a.s.c.SolrResourceLoader using system property solr.solr.home: C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr
+3491 INFO  (main) [   ] o.a.s.c.SolrResourceLoader new SolrResourceLoader for directory: 'C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr'
+3492 INFO  (main) [   ] o.a.s.c.SolrResourceLoader JNDI not configured for solr (NoInitialContextEx)
+3492 INFO  (main) [   ] o.a.s.c.SolrResourceLoader using system property solr.solr.home: C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr
+3526 INFO  (main) [   ] o.a.s.c.SolrXmlConfig Loading container configuration from C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\solr.xml
+3757 INFO  (main) [   ] o.a.s.c.CorePropertiesLocator Config-defined core root directory: C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr
+3837 INFO  (main) [   ] o.a.s.c.CoreContainer New CoreContainer 1691875296
+3837 INFO  (main) [   ] o.a.s.c.CoreContainer Loading cores into CoreContainer [instanceDir=C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr]
+3839 WARN  (main) [   ] o.a.s.c.CoreContainer Couldn't add files from C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\lib to classpath: C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\lib
+3868 INFO  (main) [   ] o.a.s.h.c.HttpShardHandlerFactory created with socketTimeout : 600000,connTimeout : 60000,maxConnectionsPerHost : 20,maxConnections : 10000,corePoolSize : 0,maximumPoolSize : 2147483647,maxThreadIdleTime : 5,sizeOfQueue : -1,fairnessPolicy : false,useRetries : false,
+5185 INFO  (main) [   ] o.a.s.u.UpdateShardHandler Creating UpdateShardHandler HTTP client with params: socketTimeout=600000&connTimeout=60000&retry=true
+5193 INFO  (main) [   ] o.a.s.l.LogWatcher SLF4J impl is org.slf4j.impl.Log4jLoggerFactory
+5196 INFO  (main) [   ] o.a.s.l.LogWatcher Registering Log Listener [Log4j (org.slf4j.impl.Log4jLoggerFactory)]
+5201 INFO  (main) [   ] o.a.s.c.CoreContainer Security conf doesn't exist. Skipping setup for authorization module.
+5202 INFO  (main) [   ] o.a.s.c.CoreContainer No authentication plugin used.
+5547 INFO  (main) [   ] o.a.s.c.CorePropertiesLocator Looking for core definitions underneath C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr
+5707 INFO  (main) [   ] o.a.s.c.CoreDescriptor Created CoreDescriptor: {name=ehr, config=C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\conf\solrconfig.xml, loadOnStartup=true, schema=C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\conf\schema.xml, configSetProperties=configsetprops.json, transient=false, dataDir=C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\data}
+5707 INFO  (main) [   ] o.a.s.c.CorePropertiesLocator Found core ehr in C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr
+5709 INFO  (main) [   ] o.a.s.c.CorePropertiesLocator Found 1 core definitions
+5771 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader new SolrResourceLoader for directory: 'C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr'
+5773 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader JNDI not configured for solr (NoInitialContextEx)
+5773 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader using system property solr.solr.home: C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr
+5877 INFO  (main) [   ] o.a.s.s.SolrDispatchFilter user.dir=C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server
+5877 INFO  (main) [   ] o.a.s.s.SolrDispatchFilter SolrDispatchFilter.init() done
+5929 INFO  (main) [   ] o.e.j.s.h.ContextHandler Started o.e.j.w.WebAppContext@57fffcd7{/solr,file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/server/solr-webapp/webapp/,AVAILABLE}{C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server/solr-webapp/webapp}
+6020 INFO  (main) [   ] o.e.j.s.ServerConnector Started ServerConnector@6302bbb1{HTTP/1.1}{0.0.0.0:8983}
+6020 INFO  (main) [   ] o.e.j.s.Server Started @7491ms
+6110 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrConfig current version of requestparams : -1
+6123 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrConfig Adding specified lib dirs to ClassLoader
+6196 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader Adding 'file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/contrib/dataimporthandler/lib/mysql-connector-java-5.1.38-bin.jar' to classloader
+6197 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader Adding 'file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/contrib/dataimporthandler/lib/sqljdbc4.jar' to classloader
+6198 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader Adding 'file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/dist/solr-dataimporthandler-5.5.0.jar' to classloader
+6201 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader Adding 'file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/dist/solr-dataimporthandler-extras-5.5.0.jar' to classloader
+6201 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader Adding 'file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/contrib/extraction/lib/apache-mime4j-core-0.7.2.jar' to classloader
+6202 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader Adding 'file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/contrib/extraction/lib/apache-mime4j-dom-0.7.2.jar' to classloader
+6203 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader Adding 'file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/contrib/extraction/lib/aspectjrt-1.8.0.jar' to classloader
+6203 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader Adding 'file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/contrib/extraction/lib/bcmail-jdk15-1.45.jar' to classloader
+6204 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader Adding 'file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/contrib/extraction/lib/bcprov-jdk15-1.45.jar' to classloader
+6204 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader Adding 'file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/contrib/extraction/lib/boilerpipe-1.1.0.jar' to classloader
+6205 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader Adding 'file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/contrib/extraction/lib/commons-compress-1.8.1.jar' to classloader
+6227 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader Adding 'file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/contrib/extraction/lib/fontbox-1.8.8.jar' to classloader
+6228 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader Adding 'file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/contrib/extraction/lib/icu4j-54.1.jar' to classloader
+6228 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader Adding 'file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/contrib/extraction/lib/isoparser-1.0.2.jar' to classloader
+6233 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader Adding 'file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/contrib/extraction/lib/java-libpst-0.8.1.jar' to classloader
+6234 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader Adding 'file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/contrib/extraction/lib/jdom-1.0.jar' to classloader
+6234 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader Adding 'file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/contrib/extraction/lib/jempbox-1.8.8.jar' to classloader
+6234 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader Adding 'file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/contrib/extraction/lib/jmatio-1.0.jar' to classloader
+6234 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader Adding 'file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/contrib/extraction/lib/juniversalchardet-1.0.3.jar' to classloader
+6235 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader Adding 'file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/contrib/extraction/lib/metadata-extractor-2.6.2.jar' to classloader
+6236 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader Adding 'file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/contrib/extraction/lib/pdfbox-1.8.8.jar' to classloader
+6237 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader Adding 'file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/contrib/extraction/lib/poi-3.11.jar' to classloader
+6237 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader Adding 'file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/contrib/extraction/lib/poi-ooxml-3.11.jar' to classloader
+6238 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader Adding 'file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/contrib/extraction/lib/poi-ooxml-schemas-3.11.jar' to classloader
+6238 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader Adding 'file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/contrib/extraction/lib/poi-scratchpad-3.11.jar' to classloader
+6238 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader Adding 'file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/contrib/extraction/lib/rome-1.0.jar' to classloader
+6238 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader Adding 'file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/contrib/extraction/lib/tagsoup-1.2.1.jar' to classloader
+6240 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader Adding 'file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/contrib/extraction/lib/tika-core-1.7.jar' to classloader
+6241 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader Adding 'file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/contrib/extraction/lib/tika-java7-1.7.jar' to classloader
+6241 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader Adding 'file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/contrib/extraction/lib/tika-parsers-1.7.jar' to classloader
+6241 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader Adding 'file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/contrib/extraction/lib/tika-xmp-1.7.jar' to classloader
+6241 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader Adding 'file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/contrib/extraction/lib/vorbis-java-core-0.6.jar' to classloader
+6241 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader Adding 'file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/contrib/extraction/lib/vorbis-java-tika-0.6.jar' to classloader
+6242 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader Adding 'file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/contrib/extraction/lib/xercesImpl-2.9.1.jar' to classloader
+6242 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader Adding 'file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/contrib/extraction/lib/xmlbeans-2.6.0.jar' to classloader
+6242 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader Adding 'file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/contrib/extraction/lib/xmpcore-5.1.2.jar' to classloader
+6242 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader Adding 'file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/contrib/extraction/lib/xz-1.5.jar' to classloader
+6242 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrResourceLoader Adding 'file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/dist/solr-cell-5.5.0.jar' to classloader
+7377 WARN  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.Config Beginning with Solr 5.5, <maxMergeDocs> is deprecated, configure it on the relevant <mergePolicyFactory> instead.
+7378 WARN  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.Config Beginning with Solr 5.5, <mergeFactor> is deprecated, configure it on the relevant <mergePolicyFactory> instead.
+7393 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrConfig Using Lucene MatchVersion: 5.5.0
+7821 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.SolrConfig Loaded SolrConfig: C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\conf\solrconfig.xml
+8104 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.s.IndexSchema [ehr] Schema name=example
+9278 INFO  (qtp5592464-21) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json} status=0 QTime=1957
+10034 WARN  (coreLoadExecutor-6-thread-1) [   ] o.a.s.s.AbstractSpatialFieldType units parameter is deprecated, please use distanceUnits instead for field types with class SpatialRecursivePrefixTreeFieldType
+10045 WARN  (coreLoadExecutor-6-thread-1) [   ] o.a.s.s.AbstractSpatialFieldType units parameter is deprecated, please use distanceUnits instead for field types with class BBoxField
+10062 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.s.IndexSchema query parser default operator is OR
+10095 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.s.IndexSchema unique key field: id
+10631 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.ConfigSetProperties Did not find ConfigSet properties, assuming default properties: Can't find resource 'configsetprops.json' in classpath or 'C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr'
+10632 INFO  (coreLoadExecutor-6-thread-1) [   ] o.a.s.c.CoreContainer Creating SolrCore 'ehr' using configuration from instancedir C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr
+10647 INFO  (coreLoadExecutor-6-thread-1) [   x:ehr] o.a.s.c.SolrCore solr.NRTCachingDirectoryFactory
+10677 INFO  (coreLoadExecutor-6-thread-1) [   x:ehr] o.a.s.c.SolrCore [[ehr] ] Opening new SolrCore at [C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr], dataDir=[C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\data\]
+10678 INFO  (coreLoadExecutor-6-thread-1) [   x:ehr] o.a.s.c.SolrCore JMX monitoring not detected for core: ehr
+10708 INFO  (coreLoadExecutor-6-thread-1) [   x:ehr] o.a.s.c.CachingDirectoryFactory return new directory for C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\data
+10711 INFO  (coreLoadExecutor-6-thread-1) [   x:ehr] o.a.s.c.SolrCore New index directory detected: old=null new=C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\data\index/
+10714 INFO  (coreLoadExecutor-6-thread-1) [   x:ehr] o.a.s.c.CachingDirectoryFactory return new directory for C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\data\index
+10870 INFO  (OldIndexDirectoryCleanupThreadForCore-ehr) [   x:ehr] o.a.s.c.SolrCore Looking for old index directories to cleanup for core ehr in C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\data\
+11113 INFO  (coreLoadExecutor-6-thread-1) [   x:ehr] o.a.s.c.SolrCore no updateRequestProcessorChain defined as default, creating implicit default
+11203 INFO  (coreLoadExecutor-6-thread-1) [   x:ehr] o.a.s.h.l.XMLLoader xsltCacheLifetimeSeconds=60
+11211 INFO  (coreLoadExecutor-6-thread-1) [   x:ehr] o.a.s.h.l.XMLLoader xsltCacheLifetimeSeconds=60
+11214 INFO  (coreLoadExecutor-6-thread-1) [   x:ehr] o.a.s.h.l.XMLLoader xsltCacheLifetimeSeconds=60
+11216 INFO  (coreLoadExecutor-6-thread-1) [   x:ehr] o.a.s.h.l.XMLLoader xsltCacheLifetimeSeconds=60
+11280 INFO  (coreLoadExecutor-6-thread-1) [   x:ehr] o.a.s.c.PluginBag requestHandler : '/update/extract' created with startup=lazy 
+11280 INFO  (coreLoadExecutor-6-thread-1) [   x:ehr] o.a.s.c.PluginBag requestHandler : '/analysis/field' created with startup=lazy 
+11281 INFO  (coreLoadExecutor-6-thread-1) [   x:ehr] o.a.s.c.RequestHandlers Registered paths: /admin/mbeans,/update/csv,/update/json/docs,/admin/luke,/select,/admin/segments,/get,/admin/system,/replication,/admin/properties,/config,/schema,/admin/plugins,/admin/logging,/update/json,/admin/threads,/admin/ping,/update,/admin/file,/analysis/field,/dataimport,/update/extract
+11283 INFO  (coreLoadExecutor-6-thread-1) [   x:ehr] o.a.s.c.SolrCore Using default statsCache cache: org.apache.solr.search.stats.LocalStatsCache
+11304 INFO  (coreLoadExecutor-6-thread-1) [   x:ehr] o.a.s.u.CommitTracker Hard AutoCommit: disabled
+11304 INFO  (coreLoadExecutor-6-thread-1) [   x:ehr] o.a.s.u.CommitTracker Soft AutoCommit: disabled
+11445 INFO  (coreLoadExecutor-6-thread-1) [   x:ehr] o.a.s.c.SolrDeletionPolicy SolrDeletionPolicy.onInit: commits: num=1
+	commit{dir=NRTCachingDirectory(MMapDirectory@C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\data\index lockFactory=org.apache.lucene.store.NativeFSLockFactory@1d2fc89c; maxCacheMB=48.0 maxMergeSizeMB=4.0),segFN=segments_r,generation=27}
+11447 INFO  (coreLoadExecutor-6-thread-1) [   x:ehr] o.a.s.c.SolrDeletionPolicy newest commit generation = 27
+11532 INFO  (coreLoadExecutor-6-thread-1) [   x:ehr] o.a.s.s.SolrIndexSearcher Opening Searcher@11de0d4c[ehr] main
+11569 INFO  (coreLoadExecutor-6-thread-1) [   x:ehr] o.a.s.r.ManagedResourceStorage File-based storage initialized to use dir: C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\conf
+11569 INFO  (coreLoadExecutor-6-thread-1) [   x:ehr] o.a.s.r.RestManager Initializing RestManager with initArgs: {storageDir=C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\conf}
+11592 INFO  (coreLoadExecutor-6-thread-1) [   x:ehr] o.a.s.r.ManagedResourceStorage Reading _rest_managed.json using file:dir=C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\conf
+11593 INFO  (coreLoadExecutor-6-thread-1) [   x:ehr] o.a.s.r.RestManager Initializing 0 registered ManagedResources
+11626 INFO  (coreLoadExecutor-6-thread-1) [   x:ehr] o.a.s.h.ReplicationHandler Commits will be reserved for  10000
+11645 INFO  (coreLoadExecutor-6-thread-1) [   x:ehr] o.a.s.c.CoreContainer registering core: ehr
+11776 INFO  (searcherExecutor-7-thread-1-processing-x:ehr) [   x:ehr] o.a.s.c.SolrCore [ehr] Registered new searcher Searcher@11de0d4c[ehr] main{ExitableDirectoryReader(UninvertingDirectoryReader(Uninverting(_19(5.5.0):C4)))}
+22704 INFO  (qtp5592464-21) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=franca&hl=true&hl.fl=content,value&rows=100000000&version=2.2} hits=1 status=0 QTime=275
+24407 INFO  (qtp5592464-19) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=((elemento_id:13706393)+AND+(cod_versao:1))&rows=100000000&version=2.2} hits=0 status=0 QTime=19
+63017 INFO  (qtp5592464-19) [   x:ehr] o.a.s.c.PluginBag Going to create a new requestHandler with {type = requestHandler,name = /update/extract,class = solr.extraction.ExtractingRequestHandler,args = {defaults={lowernames=true,uprefix=ignored_,captureAttr=true,fmap.a=ignored_,fmap.div=ignored_,fmap.content=value,df=text,hl=on,hl.simple.post=</b>,f.value.hl.fragsize=0,f.content.hl.snippets=3,hl.fl=content value,hl.encoder=html,hl.simple.pre=<b>,f.content.hl.fragsize=100}}} 
+66788 INFO  (qtp5592464-19) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=338468.PDF&literal.id=13706393&extractOnly=true&version=2.2&extractFormat=text}{} 0 3771
+67453 INFO  (qtp5592464-21) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=12001826.pdf&literal.id=13706593&extractOnly=true&version=2.2&extractFormat=text}{} 0 152
+68311 INFO  (qtp5592464-16) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=Proc+5002781.pdf&literal.id=13706793&extractOnly=true&version=2.2&extractFormat=text}{} 0 229
+68926 WARN  (qtp5592464-14) [   x:ehr] o.a.p.p.XrefTrailerResolver Did not found XRef object at specified startxref position 38798
+69179 INFO  (qtp5592464-14) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=MAXDATA_728134.PDF&literal.id=13706993&extractOnly=true&version=2.2&extractFormat=text}{} 0 279
+104880 INFO  (qtp5592464-15) [   x:ehr] o.a.s.u.DirectUpdateHandler2 [ehr] REMOVING ALL DOCUMENTS FROM INDEX
+104883 INFO  (qtp5592464-15) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{deleteByQuery=*:*} 0 88
+105255 INFO  (qtp5592464-17) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[307]} 0 284
+105260 INFO  (qtp5592464-13) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[308]} 0 314
+105506 INFO  (qtp5592464-18) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[309]} 0 214
+105554 INFO  (qtp5592464-19) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[310]} 0 163
+105577 INFO  (qtp5592464-21) [   x:ehr] o.a.s.u.DirectUpdateHandler2 start commit{,optimize=false,openSearcher=true,waitSearcher=true,expungeDeletes=false,softCommit=false,prepareCommit=false}
+105852 INFO  (qtp5592464-21) [   x:ehr] o.a.s.c.SolrDeletionPolicy SolrDeletionPolicy.onCommit: commits: num=2
+	commit{dir=NRTCachingDirectory(MMapDirectory@C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\data\index lockFactory=org.apache.lucene.store.NativeFSLockFactory@1d2fc89c; maxCacheMB=48.0 maxMergeSizeMB=4.0),segFN=segments_r,generation=27}
+	commit{dir=NRTCachingDirectory(MMapDirectory@C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\data\index lockFactory=org.apache.lucene.store.NativeFSLockFactory@1d2fc89c; maxCacheMB=48.0 maxMergeSizeMB=4.0),segFN=segments_s,generation=28}
+105852 INFO  (qtp5592464-21) [   x:ehr] o.a.s.c.SolrDeletionPolicy newest commit generation = 28
+105873 INFO  (qtp5592464-21) [   x:ehr] o.a.s.s.SolrIndexSearcher Opening Searcher@3945145[ehr] main
+105878 INFO  (searcherExecutor-7-thread-1-processing-x:ehr) [   x:ehr] o.a.s.c.SolrCore [ehr] Registered new searcher Searcher@3945145[ehr] main{ExitableDirectoryReader(UninvertingDirectoryReader(Uninverting(_1a(5.5.0):C3) Uninverting(_1b(5.5.0):C1)))}
+105887 INFO  (qtp5592464-21) [   x:ehr] o.a.s.u.DirectUpdateHandler2 end_commit_flush
+105888 INFO  (qtp5592464-21) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{commit=} 0 314
+106016 INFO  (qtp5592464-16) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=*:*&spellcheck=true&rows=0&version=2.2&spellcheck.build=true} hits=4 status=0 QTime=3
+129678 INFO  (qtp5592464-15) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=franca&hl=true&hl.fl=content,value&rows=100000000&version=2.2} hits=1 status=0 QTime=51
+132040 INFO  (qtp5592464-14) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=((elemento_id:13706393)+AND+(cod_versao:1))&rows=100000000&version=2.2} hits=1 status=0 QTime=60
+170853 INFO  (qtp5592464-21) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=338468.PDF&literal.id=13706393&extractOnly=true&version=2.2&extractFormat=text}{} 0 222
+171477 INFO  (qtp5592464-14) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=12001826.pdf&literal.id=13706593&extractOnly=true&version=2.2&extractFormat=text}{} 0 80
+172483 INFO  (qtp5592464-15) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=Proc+5002781.pdf&literal.id=13706793&extractOnly=true&version=2.2&extractFormat=text}{} 0 37
+172982 WARN  (qtp5592464-17) [   x:ehr] o.a.p.p.XrefTrailerResolver Did not found XRef object at specified startxref position 38798
+173055 INFO  (qtp5592464-17) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=MAXDATA_728134.PDF&literal.id=13706993&extractOnly=true&version=2.2&extractFormat=text}{} 0 90
+194385 INFO  (qtp5592464-13) [   x:ehr] o.a.s.u.DirectUpdateHandler2 [ehr] REMOVING ALL DOCUMENTS FROM INDEX
+194387 INFO  (qtp5592464-13) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{deleteByQuery=*:*} 0 2
+194518 INFO  (qtp5592464-18) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[312]} 0 59
+194561 INFO  (qtp5592464-19) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[311]} 0 88
+194634 INFO  (qtp5592464-19) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[314]} 0 54
+194702 INFO  (qtp5592464-21) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[313]} 0 58
+194713 INFO  (qtp5592464-16) [   x:ehr] o.a.s.u.DirectUpdateHandler2 start commit{,optimize=false,openSearcher=true,waitSearcher=true,expungeDeletes=false,softCommit=false,prepareCommit=false}
+194842 INFO  (qtp5592464-16) [   x:ehr] o.a.s.c.SolrDeletionPolicy SolrDeletionPolicy.onCommit: commits: num=2
+	commit{dir=NRTCachingDirectory(MMapDirectory@C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\data\index lockFactory=org.apache.lucene.store.NativeFSLockFactory@1d2fc89c; maxCacheMB=48.0 maxMergeSizeMB=4.0),segFN=segments_s,generation=28}
+	commit{dir=NRTCachingDirectory(MMapDirectory@C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\data\index lockFactory=org.apache.lucene.store.NativeFSLockFactory@1d2fc89c; maxCacheMB=48.0 maxMergeSizeMB=4.0),segFN=segments_t,generation=29}
+194843 INFO  (qtp5592464-16) [   x:ehr] o.a.s.c.SolrDeletionPolicy newest commit generation = 29
+194855 INFO  (qtp5592464-16) [   x:ehr] o.a.s.s.SolrIndexSearcher Opening Searcher@76355006[ehr] main
+194857 INFO  (searcherExecutor-7-thread-1-processing-x:ehr) [   x:ehr] o.a.s.c.SolrCore [ehr] Registered new searcher Searcher@76355006[ehr] main{ExitableDirectoryReader(UninvertingDirectoryReader(Uninverting(_1c(5.5.0):C4)))}
+194871 INFO  (qtp5592464-16) [   x:ehr] o.a.s.u.DirectUpdateHandler2 end_commit_flush
+194872 INFO  (qtp5592464-16) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{commit=} 0 160
+194988 INFO  (qtp5592464-14) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=*:*&spellcheck=true&rows=0&version=2.2&spellcheck.build=true} hits=4 status=0 QTime=1
+215014 INFO  (qtp5592464-15) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=franca&hl=true&hl.fl=content,value&rows=100000000&version=2.2} hits=1 status=0 QTime=20
+217478 INFO  (qtp5592464-17) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=((elemento_id:13706393)+AND+(cod_versao:1))&rows=100000000&version=2.2} hits=1 status=0 QTime=60
+311863 INFO  (qtp5592464-13) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=338468.PDF&literal.id=13706393&extractOnly=true&version=2.2&extractFormat=text}{} 0 172
+312772 INFO  (qtp5592464-18) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=12001826.pdf&literal.id=13706593&extractOnly=true&version=2.2&extractFormat=text}{} 0 15
+313471 INFO  (qtp5592464-19) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=Proc+5002781.pdf&literal.id=13706793&extractOnly=true&version=2.2&extractFormat=text}{} 0 68
+314125 WARN  (qtp5592464-21) [   x:ehr] o.a.p.p.XrefTrailerResolver Did not found XRef object at specified startxref position 38798
+314259 INFO  (qtp5592464-21) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=MAXDATA_728134.PDF&literal.id=13706993&extractOnly=true&version=2.2&extractFormat=text}{} 0 143
+364921 INFO  (qtp5592464-14) [   x:ehr] o.a.s.u.DirectUpdateHandler2 [ehr] REMOVING ALL DOCUMENTS FROM INDEX
+364922 INFO  (qtp5592464-14) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{deleteByQuery=*:*} 0 2
+365030 INFO  (qtp5592464-15) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[316]} 0 37
+365080 INFO  (qtp5592464-17) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[315]} 0 68
+365165 INFO  (qtp5592464-18) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[318]} 0 42
+365179 INFO  (qtp5592464-13) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[317]} 0 77
+365190 INFO  (qtp5592464-19) [   x:ehr] o.a.s.u.DirectUpdateHandler2 start commit{,optimize=false,openSearcher=true,waitSearcher=true,expungeDeletes=false,softCommit=false,prepareCommit=false}
+365690 INFO  (qtp5592464-19) [   x:ehr] o.a.s.c.SolrDeletionPolicy SolrDeletionPolicy.onCommit: commits: num=2
+	commit{dir=NRTCachingDirectory(MMapDirectory@C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\data\index lockFactory=org.apache.lucene.store.NativeFSLockFactory@1d2fc89c; maxCacheMB=48.0 maxMergeSizeMB=4.0),segFN=segments_t,generation=29}
+	commit{dir=NRTCachingDirectory(MMapDirectory@C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\data\index lockFactory=org.apache.lucene.store.NativeFSLockFactory@1d2fc89c; maxCacheMB=48.0 maxMergeSizeMB=4.0),segFN=segments_u,generation=30}
+365690 INFO  (qtp5592464-19) [   x:ehr] o.a.s.c.SolrDeletionPolicy newest commit generation = 30
+365706 INFO  (qtp5592464-19) [   x:ehr] o.a.s.s.SolrIndexSearcher Opening Searcher@676f7931[ehr] main
+365707 INFO  (searcherExecutor-7-thread-1-processing-x:ehr) [   x:ehr] o.a.s.c.SolrCore [ehr] Registered new searcher Searcher@676f7931[ehr] main{ExitableDirectoryReader(UninvertingDirectoryReader(Uninverting(_1d(5.5.0):C3) Uninverting(_1e(5.5.0):C1)))}
+365716 INFO  (qtp5592464-19) [   x:ehr] o.a.s.u.DirectUpdateHandler2 end_commit_flush
+365716 INFO  (qtp5592464-19) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{commit=} 0 528
+365845 INFO  (qtp5592464-21) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=*:*&spellcheck=true&rows=0&version=2.2&spellcheck.build=true} hits=4 status=0 QTime=1
+384838 INFO  (qtp5592464-16) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=franca&hl=true&hl.fl=content,value&rows=100000000&version=2.2} hits=1 status=0 QTime=148
+387030 INFO  (qtp5592464-14) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=((elemento_id:13706393)+AND+(cod_versao:1))&rows=100000000&version=2.2} hits=1 status=0 QTime=23
+398710 INFO  (qtp5592464-16) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=franca&hl=true&hl.fl=content,value&rows=100000000&version=2.2} hits=1 status=0 QTime=25
+400532 INFO  (qtp5592464-19) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=((elemento_id:13706393)+AND+(cod_versao:1))&rows=100000000&version=2.2} hits=1 status=0 QTime=111
+4826135 INFO  (qtp5592464-21) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=franca&hl=true&hl.fl=content,value&rows=100000000&version=2.2} hits=1 status=0 QTime=13
+4828778 INFO  (qtp5592464-16) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=((elemento_id:13706393)+AND+(cod_versao:1))&rows=100000000&version=2.2} hits=1 status=0 QTime=29
+4839696 INFO  (qtp5592464-15) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=franca&hl=true&hl.fl=content,value&rows=100000000&version=2.2} hits=1 status=0 QTime=30
+4841705 INFO  (qtp5592464-14) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=((elemento_id:13706393)+AND+(cod_versao:1))&rows=100000000&version=2.2} hits=1 status=0 QTime=136
+4892053 INFO  (qtp5592464-15) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=franca&hl=true&hl.fl=content,value&rows=100000000&version=2.2} hits=1 status=0 QTime=32
+4894428 INFO  (qtp5592464-17) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=((elemento_id:13706393)+AND+(cod_versao:1))&rows=100000000&version=2.2} hits=1 status=0 QTime=20
+4925239 INFO  (qtp5592464-18) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=338468.PDF&literal.id=13706393&extractOnly=true&version=2.2&extractFormat=text}{} 0 170
+4925594 INFO  (qtp5592464-13) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=12001826.pdf&literal.id=13706593&extractOnly=true&version=2.2&extractFormat=text}{} 0 11
+4926032 INFO  (qtp5592464-19) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=Proc+5002781.pdf&literal.id=13706793&extractOnly=true&version=2.2&extractFormat=text}{} 0 13
+4926399 WARN  (qtp5592464-14) [   x:ehr] o.a.p.p.XrefTrailerResolver Did not found XRef object at specified startxref position 38798
+4926499 INFO  (qtp5592464-14) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=MAXDATA_728134.PDF&literal.id=13706993&extractOnly=true&version=2.2&extractFormat=text}{} 0 107
+4961723 INFO  (qtp5592464-16) [   x:ehr] o.a.s.u.DirectUpdateHandler2 [ehr] REMOVING ALL DOCUMENTS FROM INDEX
+4961724 INFO  (qtp5592464-16) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{deleteByQuery=*:*} 0 2
+4961872 INFO  (qtp5592464-15) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[320]} 0 29
+4961889 INFO  (qtp5592464-17) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[319]} 0 39
+4961964 INFO  (qtp5592464-18) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[322]} 0 24
+4962016 INFO  (qtp5592464-13) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[321]} 0 45
+4962044 INFO  (qtp5592464-19) [   x:ehr] o.a.s.u.DirectUpdateHandler2 start commit{,optimize=false,openSearcher=true,waitSearcher=true,expungeDeletes=false,softCommit=false,prepareCommit=false}
+4962164 INFO  (qtp5592464-19) [   x:ehr] o.a.s.c.SolrDeletionPolicy SolrDeletionPolicy.onCommit: commits: num=2
+	commit{dir=NRTCachingDirectory(MMapDirectory@C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\data\index lockFactory=org.apache.lucene.store.NativeFSLockFactory@1d2fc89c; maxCacheMB=48.0 maxMergeSizeMB=4.0),segFN=segments_u,generation=30}
+	commit{dir=NRTCachingDirectory(MMapDirectory@C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\data\index lockFactory=org.apache.lucene.store.NativeFSLockFactory@1d2fc89c; maxCacheMB=48.0 maxMergeSizeMB=4.0),segFN=segments_v,generation=31}
+4962165 INFO  (qtp5592464-19) [   x:ehr] o.a.s.c.SolrDeletionPolicy newest commit generation = 31
+4962182 INFO  (qtp5592464-19) [   x:ehr] o.a.s.s.SolrIndexSearcher Opening Searcher@7452f11d[ehr] main
+4962183 INFO  (qtp5592464-19) [   x:ehr] o.a.s.u.DirectUpdateHandler2 end_commit_flush
+4962184 INFO  (searcherExecutor-7-thread-1-processing-x:ehr) [   x:ehr] o.a.s.c.SolrCore [ehr] Registered new searcher Searcher@7452f11d[ehr] main{ExitableDirectoryReader(UninvertingDirectoryReader(Uninverting(_1f(5.5.0):C4)))}
+4962199 INFO  (qtp5592464-19) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{commit=} 0 169
+4962314 INFO  (qtp5592464-21) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=*:*&spellcheck=true&rows=0&version=2.2&spellcheck.build=true} hits=4 status=0 QTime=1
+5006186 INFO  (qtp5592464-14) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=franca&hl=true&hl.fl=content,value&rows=100000000&version=2.2} hits=1 status=0 QTime=7
+5026488 INFO  (qtp5592464-16) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=((elemento_id:13706393)+AND+(cod_versao:1))&rows=100000000&version=2.2} hits=1 status=0 QTime=8
+5082098 INFO  (qtp5592464-21) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=*:*&hl=true&hl.fl=content,value&rows=100000000&version=2.2} hits=4 status=0 QTime=26
+5086490 INFO  (qtp5592464-16) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=franca&hl=true&hl.fl=content,value&rows=100000000&version=2.2} hits=1 status=0 QTime=25
+5099906 INFO  (qtp5592464-14) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=telmo+franca&hl=true&hl.fl=content,value&rows=100000000&version=2.2} hits=1 status=0 QTime=21
+5116231 INFO  (qtp5592464-16) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=franca&hl=true&hl.fl=content,value&rows=100000000&version=2.2} hits=1 status=0 QTime=9
+5117802 INFO  (qtp5592464-14) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=((elemento_id:13706393)+AND+(cod_versao:1))&rows=100000000&version=2.2} hits=1 status=0 QTime=9
+5209053 INFO  (qtp5592464-15) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=338468.PDF&literal.id=13706393&extractOnly=true&version=2.2&extractFormat=text}{} 0 146
+5209470 INFO  (qtp5592464-17) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=12001826.pdf&literal.id=13706593&extractOnly=true&version=2.2&extractFormat=text}{} 0 16
+5209935 INFO  (qtp5592464-18) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=Proc+5002781.pdf&literal.id=13706793&extractOnly=true&version=2.2&extractFormat=text}{} 0 20
+5210382 WARN  (qtp5592464-13) [   x:ehr] o.a.p.p.XrefTrailerResolver Did not found XRef object at specified startxref position 38798
+5210434 INFO  (qtp5592464-13) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=MAXDATA_728134.PDF&literal.id=13706993&extractOnly=true&version=2.2&extractFormat=text}{} 0 59
+5231453 INFO  (qtp5592464-19) [   x:ehr] o.a.s.u.DirectUpdateHandler2 [ehr] REMOVING ALL DOCUMENTS FROM INDEX
+5231454 INFO  (qtp5592464-19) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{deleteByQuery=*:*} 0 1
+5231642 INFO  (qtp5592464-16) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[323]} 0 37
+5231654 INFO  (qtp5592464-21) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[324]} 0 60
+5231671 INFO  (qtp5592464-14) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[326]} 0 11
+5231734 INFO  (qtp5592464-15) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[325]} 0 39
+5231743 INFO  (qtp5592464-17) [   x:ehr] o.a.s.u.DirectUpdateHandler2 start commit{,optimize=false,openSearcher=true,waitSearcher=true,expungeDeletes=false,softCommit=false,prepareCommit=false}
+5231873 INFO  (qtp5592464-17) [   x:ehr] o.a.s.c.SolrDeletionPolicy SolrDeletionPolicy.onCommit: commits: num=2
+	commit{dir=NRTCachingDirectory(MMapDirectory@C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\data\index lockFactory=org.apache.lucene.store.NativeFSLockFactory@1d2fc89c; maxCacheMB=48.0 maxMergeSizeMB=4.0),segFN=segments_v,generation=31}
+	commit{dir=NRTCachingDirectory(MMapDirectory@C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\data\index lockFactory=org.apache.lucene.store.NativeFSLockFactory@1d2fc89c; maxCacheMB=48.0 maxMergeSizeMB=4.0),segFN=segments_w,generation=32}
+5231874 INFO  (qtp5592464-17) [   x:ehr] o.a.s.c.SolrDeletionPolicy newest commit generation = 32
+5231886 INFO  (qtp5592464-17) [   x:ehr] o.a.s.s.SolrIndexSearcher Opening Searcher@2721613[ehr] main
+5231888 INFO  (searcherExecutor-7-thread-1-processing-x:ehr) [   x:ehr] o.a.s.c.SolrCore [ehr] Registered new searcher Searcher@2721613[ehr] main{ExitableDirectoryReader(UninvertingDirectoryReader(Uninverting(_1h(5.5.0):C3) Uninverting(_1g(5.5.0):C1)))}
+5231890 INFO  (qtp5592464-17) [   x:ehr] o.a.s.u.DirectUpdateHandler2 end_commit_flush
+5231900 INFO  (qtp5592464-17) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{commit=} 0 158
+5232008 INFO  (qtp5592464-18) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=*:*&spellcheck=true&rows=0&version=2.2&spellcheck.build=true} hits=4 status=0 QTime=1
+5261284 INFO  (qtp5592464-19) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=franca&hl=true&hl.fl=content,value&rows=100000000&version=2.2} hits=1 status=0 QTime=8
+5269784 INFO  (qtp5592464-13) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=((elemento_id:13706393)+AND+(cod_versao:1))&rows=100000000&version=2.2} hits=1 status=0 QTime=10
+5398322 INFO  (qtp5592464-13) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=338468.PDF&literal.id=13706393&extractOnly=true&version=2.2&extractFormat=text}{} 0 105
+5398701 INFO  (qtp5592464-19) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=12001826.pdf&literal.id=13706593&extractOnly=true&version=2.2&extractFormat=text}{} 0 12
+5399184 INFO  (qtp5592464-21) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=Proc+5002781.pdf&literal.id=13706793&extractOnly=true&version=2.2&extractFormat=text}{} 0 17
+5399614 WARN  (qtp5592464-14) [   x:ehr] o.a.p.p.XrefTrailerResolver Did not found XRef object at specified startxref position 38798
+5399659 INFO  (qtp5592464-14) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=MAXDATA_728134.PDF&literal.id=13706993&extractOnly=true&version=2.2&extractFormat=text}{} 0 53
+5451623 INFO  (qtp5592464-15) [   x:ehr] o.a.s.u.DirectUpdateHandler2 [ehr] REMOVING ALL DOCUMENTS FROM INDEX
+5451625 INFO  (qtp5592464-15) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{deleteByQuery=*:*} 0 5
+5451820 INFO  (qtp5592464-17) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[328]} 0 115
+5451861 INFO  (qtp5592464-18) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[327]} 0 150
+5451981 INFO  (qtp5592464-19) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[330]} 0 74
+5452031 INFO  (qtp5592464-13) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[329]} 0 126
+5452045 INFO  (qtp5592464-21) [   x:ehr] o.a.s.u.DirectUpdateHandler2 start commit{,optimize=false,openSearcher=true,waitSearcher=true,expungeDeletes=false,softCommit=false,prepareCommit=false}
+5452111 INFO  (qtp5592464-21) [   x:ehr] o.a.s.c.SolrDeletionPolicy SolrDeletionPolicy.onCommit: commits: num=2
+	commit{dir=NRTCachingDirectory(MMapDirectory@C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\data\index lockFactory=org.apache.lucene.store.NativeFSLockFactory@1d2fc89c; maxCacheMB=48.0 maxMergeSizeMB=4.0),segFN=segments_w,generation=32}
+	commit{dir=NRTCachingDirectory(MMapDirectory@C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\data\index lockFactory=org.apache.lucene.store.NativeFSLockFactory@1d2fc89c; maxCacheMB=48.0 maxMergeSizeMB=4.0),segFN=segments_x,generation=33}
+5452112 INFO  (qtp5592464-21) [   x:ehr] o.a.s.c.SolrDeletionPolicy newest commit generation = 33
+5452119 INFO  (qtp5592464-21) [   x:ehr] o.a.s.s.SolrIndexSearcher Opening Searcher@668dcbd2[ehr] main
+5452120 INFO  (qtp5592464-21) [   x:ehr] o.a.s.u.DirectUpdateHandler2 end_commit_flush
+5452121 INFO  (searcherExecutor-7-thread-1-processing-x:ehr) [   x:ehr] o.a.s.c.SolrCore [ehr] Registered new searcher Searcher@668dcbd2[ehr] main{ExitableDirectoryReader(UninvertingDirectoryReader(Uninverting(_1i(5.5.0):C4)))}
+5452136 INFO  (qtp5592464-21) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{commit=} 0 91
+5452267 INFO  (qtp5592464-14) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=*:*&spellcheck=true&rows=0&version=2.2&spellcheck.build=true} hits=4 status=0 QTime=1
+5468076 INFO  (qtp5592464-16) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=franca&hl=true&hl.fl=content,value&rows=100000000&version=2.2} hits=1 status=0 QTime=6
+5471861 INFO  (qtp5592464-18) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=((elemento_id:13706393)+AND+(cod_versao:1))&fl=file_stream&rows=100000000&version=2.2} hits=1 status=0 QTime=12
+6783570 INFO  (qtp5592464-15) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=338468.PDF&literal.id=13706393&extractOnly=true&version=2.2&extractFormat=text}{} 0 95
+6784378 INFO  (qtp5592464-18) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=12001826.pdf&literal.id=13706593&extractOnly=true&version=2.2&extractFormat=text}{} 0 16
+6784923 INFO  (qtp5592464-19) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=Proc+5002781.pdf&literal.id=13706793&extractOnly=true&version=2.2&extractFormat=text}{} 0 31
+6785504 WARN  (qtp5592464-17) [   x:ehr] o.a.p.p.XrefTrailerResolver Did not found XRef object at specified startxref position 38798
+6785743 INFO  (qtp5592464-17) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=MAXDATA_728134.PDF&literal.id=13706993&extractOnly=true&version=2.2&extractFormat=text}{} 0 314
+6849344 INFO  (qtp5592464-19) [   x:ehr] o.a.s.u.DirectUpdateHandler2 [ehr] REMOVING ALL DOCUMENTS FROM INDEX
+6849344 INFO  (qtp5592464-19) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{deleteByQuery=*:*} 0 2
+6849447 INFO  (qtp5592464-17) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[332]} 0 34
+6849466 INFO  (qtp5592464-13) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[331]} 0 47
+6849591 INFO  (qtp5592464-21) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[334]} 0 119
+6849648 INFO  (qtp5592464-14) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[333]} 0 51
+6849661 INFO  (qtp5592464-16) [   x:ehr] o.a.s.u.DirectUpdateHandler2 start commit{,optimize=false,openSearcher=true,waitSearcher=true,expungeDeletes=false,softCommit=false,prepareCommit=false}
+6849873 INFO  (qtp5592464-16) [   x:ehr] o.a.s.c.SolrDeletionPolicy SolrDeletionPolicy.onCommit: commits: num=2
+	commit{dir=NRTCachingDirectory(MMapDirectory@C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\data\index lockFactory=org.apache.lucene.store.NativeFSLockFactory@1d2fc89c; maxCacheMB=48.0 maxMergeSizeMB=4.0),segFN=segments_x,generation=33}
+	commit{dir=NRTCachingDirectory(MMapDirectory@C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\data\index lockFactory=org.apache.lucene.store.NativeFSLockFactory@1d2fc89c; maxCacheMB=48.0 maxMergeSizeMB=4.0),segFN=segments_y,generation=34}
+6849874 INFO  (qtp5592464-16) [   x:ehr] o.a.s.c.SolrDeletionPolicy newest commit generation = 34
+6849885 INFO  (qtp5592464-16) [   x:ehr] o.a.s.s.SolrIndexSearcher Opening Searcher@322e8cbe[ehr] main
+6849887 INFO  (searcherExecutor-7-thread-1-processing-x:ehr) [   x:ehr] o.a.s.c.SolrCore [ehr] Registered new searcher Searcher@322e8cbe[ehr] main{ExitableDirectoryReader(UninvertingDirectoryReader(Uninverting(_1j(5.5.0):C4)))}
+6849896 INFO  (qtp5592464-16) [   x:ehr] o.a.s.u.DirectUpdateHandler2 end_commit_flush
+6849902 INFO  (qtp5592464-16) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{commit=} 0 245
+6850021 INFO  (qtp5592464-15) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=*:*&spellcheck=true&rows=0&version=2.2&spellcheck.build=true} hits=4 status=0 QTime=6
+6882834 INFO  (qtp5592464-19) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=franca&hl=true&hl.fl=content,value&rows=100000000&version=2.2} hits=1 status=0 QTime=6
+6885150 INFO  (qtp5592464-19) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=((elemento_id:13706393)+AND+(cod_versao:1))&fl=file_stream&rows=100000000&version=2.2} hits=1 status=0 QTime=7
+7327191 INFO  (qtp5592464-18) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=franca&hl=true&hl.fl=content,value&rows=100000000&version=2.2} hits=1 status=0 QTime=9
+7694808 INFO  (qtp5592464-14) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=338468.PDF&literal.id=13706393&extractOnly=true&version=2.2&extractFormat=text}{} 0 105
+7695918 INFO  (qtp5592464-18) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=12001826.pdf&literal.id=13706593&extractOnly=true&version=2.2&extractFormat=text}{} 0 171
+7696656 INFO  (qtp5592464-13) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=Proc+5002781.pdf&literal.id=13706793&extractOnly=true&version=2.2&extractFormat=text}{} 0 14
+7697320 WARN  (qtp5592464-17) [   x:ehr] o.a.p.p.XrefTrailerResolver Did not found XRef object at specified startxref position 38798
+7697363 INFO  (qtp5592464-17) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=MAXDATA_728134.PDF&literal.id=13706993&extractOnly=true&version=2.2&extractFormat=text}{} 0 53
+7741870 INFO  (qtp5592464-17) [   x:ehr] o.a.s.u.DirectUpdateHandler2 [ehr] REMOVING ALL DOCUMENTS FROM INDEX
+7741871 INFO  (qtp5592464-17) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{deleteByQuery=*:*} 0 3
+7742095 INFO  (qtp5592464-14) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[335]} 0 113
+7742111 INFO  (qtp5592464-21) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[336]} 0 28
+7742132 INFO  (qtp5592464-16) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[338]} 0 16
+7742179 INFO  (qtp5592464-19) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[337]} 0 41
+7742194 INFO  (qtp5592464-15) [   x:ehr] o.a.s.u.DirectUpdateHandler2 start commit{,optimize=false,openSearcher=true,waitSearcher=true,expungeDeletes=false,softCommit=false,prepareCommit=false}
+7742364 INFO  (qtp5592464-15) [   x:ehr] o.a.s.c.SolrDeletionPolicy SolrDeletionPolicy.onCommit: commits: num=2
+	commit{dir=NRTCachingDirectory(MMapDirectory@C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\data\index lockFactory=org.apache.lucene.store.NativeFSLockFactory@1d2fc89c; maxCacheMB=48.0 maxMergeSizeMB=4.0),segFN=segments_y,generation=34}
+	commit{dir=NRTCachingDirectory(MMapDirectory@C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\data\index lockFactory=org.apache.lucene.store.NativeFSLockFactory@1d2fc89c; maxCacheMB=48.0 maxMergeSizeMB=4.0),segFN=segments_z,generation=35}
+7742364 INFO  (qtp5592464-15) [   x:ehr] o.a.s.c.SolrDeletionPolicy newest commit generation = 35
+7742373 INFO  (qtp5592464-15) [   x:ehr] o.a.s.s.SolrIndexSearcher Opening Searcher@750e79f3[ehr] main
+7742374 INFO  (searcherExecutor-7-thread-1-processing-x:ehr) [   x:ehr] o.a.s.c.SolrCore [ehr] Registered new searcher Searcher@750e79f3[ehr] main{ExitableDirectoryReader(UninvertingDirectoryReader(Uninverting(_1k(5.5.0):C4)))}
+7742377 INFO  (qtp5592464-15) [   x:ehr] o.a.s.u.DirectUpdateHandler2 end_commit_flush
+7742382 INFO  (qtp5592464-15) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{commit=} 0 190
+7742492 INFO  (qtp5592464-18) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=*:*&spellcheck=true&rows=0&version=2.2&spellcheck.build=true} hits=4 status=0 QTime=0
+8233329 INFO  (qtp5592464-13) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=338468.PDF&literal.id=13706393&extractOnly=true&version=2.2&extractFormat=text}{} 0 104
+8233734 INFO  (qtp5592464-14) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=12001826.pdf&literal.id=13706593&extractOnly=true&version=2.2&extractFormat=text}{} 0 17
+8234463 INFO  (qtp5592464-17) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=Proc+5002781.pdf&literal.id=13706793&extractOnly=true&version=2.2&extractFormat=text}{} 0 21
+8234857 WARN  (qtp5592464-21) [   x:ehr] o.a.p.p.XrefTrailerResolver Did not found XRef object at specified startxref position 38798
+8234907 INFO  (qtp5592464-21) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=MAXDATA_728134.PDF&literal.id=13706993&extractOnly=true&version=2.2&extractFormat=text}{} 0 57
+8286479 INFO  (qtp5592464-16) [   x:ehr] o.a.s.u.DirectUpdateHandler2 [ehr] REMOVING ALL DOCUMENTS FROM INDEX
+8286480 INFO  (qtp5592464-16) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{deleteByQuery=*:*} 0 2
+8286687 INFO  (qtp5592464-15) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[340]} 0 139
+8286722 INFO  (qtp5592464-18) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[339]} 0 59
+8286837 INFO  (qtp5592464-14) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[341]} 0 51
+8286845 INFO  (qtp5592464-13) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[342]} 0 95
+8286858 INFO  (qtp5592464-17) [   x:ehr] o.a.s.u.DirectUpdateHandler2 start commit{,optimize=false,openSearcher=true,waitSearcher=true,expungeDeletes=false,softCommit=false,prepareCommit=false}
+8287142 INFO  (qtp5592464-17) [   x:ehr] o.a.s.c.SolrDeletionPolicy SolrDeletionPolicy.onCommit: commits: num=2
+	commit{dir=NRTCachingDirectory(MMapDirectory@C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\data\index lockFactory=org.apache.lucene.store.NativeFSLockFactory@1d2fc89c; maxCacheMB=48.0 maxMergeSizeMB=4.0),segFN=segments_z,generation=35}
+	commit{dir=NRTCachingDirectory(MMapDirectory@C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\data\index lockFactory=org.apache.lucene.store.NativeFSLockFactory@1d2fc89c; maxCacheMB=48.0 maxMergeSizeMB=4.0),segFN=segments_10,generation=36}
+8287143 INFO  (qtp5592464-17) [   x:ehr] o.a.s.c.SolrDeletionPolicy newest commit generation = 36
+8287159 INFO  (qtp5592464-17) [   x:ehr] o.a.s.s.SolrIndexSearcher Opening Searcher@16dfd2ef[ehr] main
+8287159 INFO  (qtp5592464-17) [   x:ehr] o.a.s.u.DirectUpdateHandler2 end_commit_flush
+8287160 INFO  (searcherExecutor-7-thread-1-processing-x:ehr) [   x:ehr] o.a.s.c.SolrCore [ehr] Registered new searcher Searcher@16dfd2ef[ehr] main{ExitableDirectoryReader(UninvertingDirectoryReader(Uninverting(_1l(5.5.0):C3) Uninverting(_1m(5.5.0):C1)))}
+8287168 INFO  (qtp5592464-17) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{commit=} 0 312
+8287281 INFO  (qtp5592464-21) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=*:*&spellcheck=true&rows=0&version=2.2&spellcheck.build=true} hits=4 status=0 QTime=1
+8364510 INFO  (qtp5592464-15) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=338468.PDF&literal.id=13706393&extractOnly=true&version=2.2&extractFormat=text}{} 0 667
+8365360 INFO  (qtp5592464-18) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=12001826.pdf&literal.id=13706593&extractOnly=true&version=2.2&extractFormat=text}{} 0 10
+8365980 INFO  (qtp5592464-14) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=Proc+5002781.pdf&literal.id=13706793&extractOnly=true&version=2.2&extractFormat=text}{} 0 16
+8366968 WARN  (qtp5592464-17) [   x:ehr] o.a.p.p.XrefTrailerResolver Did not found XRef object at specified startxref position 38798
+8367042 INFO  (qtp5592464-17) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=MAXDATA_728134.PDF&literal.id=13706993&extractOnly=true&version=2.2&extractFormat=text}{} 0 82
+8418227 INFO  (qtp5592464-19) [   x:ehr] o.a.s.u.DirectUpdateHandler2 [ehr] REMOVING ALL DOCUMENTS FROM INDEX
+8418228 INFO  (qtp5592464-19) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{deleteByQuery=*:*} 0 3
+8418400 INFO  (qtp5592464-15) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[344]} 0 26
+8418420 INFO  (qtp5592464-18) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[343]} 0 45
+8418445 INFO  (qtp5592464-14) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[346]} 0 20
+8418507 INFO  (qtp5592464-13) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[345]} 0 54
+8418517 INFO  (qtp5592464-17) [   x:ehr] o.a.s.u.DirectUpdateHandler2 start commit{,optimize=false,openSearcher=true,waitSearcher=true,expungeDeletes=false,softCommit=false,prepareCommit=false}
+8418675 INFO  (qtp5592464-17) [   x:ehr] o.a.s.c.SolrDeletionPolicy SolrDeletionPolicy.onCommit: commits: num=2
+	commit{dir=NRTCachingDirectory(MMapDirectory@C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\data\index lockFactory=org.apache.lucene.store.NativeFSLockFactory@1d2fc89c; maxCacheMB=48.0 maxMergeSizeMB=4.0),segFN=segments_10,generation=36}
+	commit{dir=NRTCachingDirectory(MMapDirectory@C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\data\index lockFactory=org.apache.lucene.store.NativeFSLockFactory@1d2fc89c; maxCacheMB=48.0 maxMergeSizeMB=4.0),segFN=segments_11,generation=37}
+8418675 INFO  (qtp5592464-17) [   x:ehr] o.a.s.c.SolrDeletionPolicy newest commit generation = 37
+8418683 INFO  (qtp5592464-17) [   x:ehr] o.a.s.s.SolrIndexSearcher Opening Searcher@67230e2e[ehr] main
+8418683 INFO  (qtp5592464-17) [   x:ehr] o.a.s.u.DirectUpdateHandler2 end_commit_flush
+8418684 INFO  (searcherExecutor-7-thread-1-processing-x:ehr) [   x:ehr] o.a.s.c.SolrCore [ehr] Registered new searcher Searcher@67230e2e[ehr] main{ExitableDirectoryReader(UninvertingDirectoryReader(Uninverting(_1n(5.5.0):C4)))}
+8418702 INFO  (qtp5592464-17) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{commit=} 0 186
+8418844 INFO  (qtp5592464-21) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=*:*&spellcheck=true&rows=0&version=2.2&spellcheck.build=true} hits=4 status=0 QTime=1
+8448932 INFO  (qtp5592464-16) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=franca&hl=true&hl.fl=content,value&rows=100000000&version=2.2} hits=1 status=0 QTime=34
+9295377 INFO  (qtp5592464-19) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=338468.PDF&literal.id=13706393&extractOnly=true&version=2.2&extractFormat=text}{} 0 109
+9295764 INFO  (qtp5592464-18) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=12001826.pdf&literal.id=13706593&extractOnly=true&version=2.2&extractFormat=text}{} 0 15
+9296639 INFO  (qtp5592464-15) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=Proc+5002781.pdf&literal.id=13706793&extractOnly=true&version=2.2&extractFormat=text}{} 0 104
+9297041 WARN  (qtp5592464-14) [   x:ehr] o.a.p.p.XrefTrailerResolver Did not found XRef object at specified startxref position 38798
+9297072 INFO  (qtp5592464-14) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=MAXDATA_728134.PDF&literal.id=13706993&extractOnly=true&version=2.2&extractFormat=text}{} 0 37
+9318475 INFO  (qtp5592464-13) [   x:ehr] o.a.s.u.DirectUpdateHandler2 [ehr] REMOVING ALL DOCUMENTS FROM INDEX
+9318476 INFO  (qtp5592464-13) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{deleteByQuery=*:*} 0 1
+9318650 INFO  (qtp5592464-17) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[348]} 0 25
+9318671 INFO  (qtp5592464-16) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[347]} 0 43
+9318757 INFO  (qtp5592464-21) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[350]} 0 78
+9318849 INFO  (qtp5592464-19) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[349]} 0 90
+9318864 INFO  (qtp5592464-18) [   x:ehr] o.a.s.u.DirectUpdateHandler2 start commit{,optimize=false,openSearcher=true,waitSearcher=true,expungeDeletes=false,softCommit=false,prepareCommit=false}
+9319043 INFO  (qtp5592464-18) [   x:ehr] o.a.s.c.SolrDeletionPolicy SolrDeletionPolicy.onCommit: commits: num=2
+	commit{dir=NRTCachingDirectory(MMapDirectory@C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\data\index lockFactory=org.apache.lucene.store.NativeFSLockFactory@1d2fc89c; maxCacheMB=48.0 maxMergeSizeMB=4.0),segFN=segments_11,generation=37}
+	commit{dir=NRTCachingDirectory(MMapDirectory@C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\data\index lockFactory=org.apache.lucene.store.NativeFSLockFactory@1d2fc89c; maxCacheMB=48.0 maxMergeSizeMB=4.0),segFN=segments_12,generation=38}
+9319044 INFO  (qtp5592464-18) [   x:ehr] o.a.s.c.SolrDeletionPolicy newest commit generation = 38
+9319055 INFO  (qtp5592464-18) [   x:ehr] o.a.s.s.SolrIndexSearcher Opening Searcher@5d7104ac[ehr] main
+9319056 INFO  (searcherExecutor-7-thread-1-processing-x:ehr) [   x:ehr] o.a.s.c.SolrCore [ehr] Registered new searcher Searcher@5d7104ac[ehr] main{ExitableDirectoryReader(UninvertingDirectoryReader(Uninverting(_1o(5.5.0):C4)))}
+9319059 INFO  (qtp5592464-18) [   x:ehr] o.a.s.u.DirectUpdateHandler2 end_commit_flush
+9319064 INFO  (qtp5592464-18) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{commit=} 0 200
+9319208 INFO  (qtp5592464-15) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=*:*&spellcheck=true&rows=0&version=2.2&spellcheck.build=true} hits=4 status=0 QTime=1
+10171692 INFO  (qtp5592464-14) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=338468.PDF&literal.id=13706393&extractOnly=true&version=2.2&extractFormat=text}{} 0 64
+10172474 INFO  (qtp5592464-16) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=12001826.pdf&literal.id=13706593&extractOnly=true&version=2.2&extractFormat=text}{} 0 9
+10172976 INFO  (qtp5592464-21) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=Proc+5002781.pdf&literal.id=13706793&extractOnly=true&version=2.2&extractFormat=text}{} 0 32
+10173420 WARN  (qtp5592464-17) [   x:ehr] o.a.p.p.XrefTrailerResolver Did not found XRef object at specified startxref position 38798
+10173470 INFO  (qtp5592464-17) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=MAXDATA_728134.PDF&literal.id=13706993&extractOnly=true&version=2.2&extractFormat=text}{} 0 56
+10218024 INFO  (qtp5592464-21) [   x:ehr] o.a.s.u.DirectUpdateHandler2 [ehr] REMOVING ALL DOCUMENTS FROM INDEX
+10218024 INFO  (qtp5592464-21) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{deleteByQuery=*:*} 0 2
+10218124 INFO  (qtp5592464-17) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[352]} 0 28
+10218176 INFO  (qtp5592464-13) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[351]} 0 65
+10218237 INFO  (qtp5592464-18) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[354]} 0 14
+10218277 INFO  (qtp5592464-19) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[353]} 0 45
+10218303 INFO  (qtp5592464-15) [   x:ehr] o.a.s.u.DirectUpdateHandler2 start commit{,optimize=false,openSearcher=true,waitSearcher=true,expungeDeletes=false,softCommit=false,prepareCommit=false}
+10218368 INFO  (qtp5592464-15) [   x:ehr] o.a.s.c.SolrDeletionPolicy SolrDeletionPolicy.onCommit: commits: num=2
+	commit{dir=NRTCachingDirectory(MMapDirectory@C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\data\index lockFactory=org.apache.lucene.store.NativeFSLockFactory@1d2fc89c; maxCacheMB=48.0 maxMergeSizeMB=4.0),segFN=segments_12,generation=38}
+	commit{dir=NRTCachingDirectory(MMapDirectory@C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\data\index lockFactory=org.apache.lucene.store.NativeFSLockFactory@1d2fc89c; maxCacheMB=48.0 maxMergeSizeMB=4.0),segFN=segments_13,generation=39}
+10218369 INFO  (qtp5592464-15) [   x:ehr] o.a.s.c.SolrDeletionPolicy newest commit generation = 39
+10218380 INFO  (qtp5592464-15) [   x:ehr] o.a.s.s.SolrIndexSearcher Opening Searcher@64c3f7de[ehr] main
+10218382 INFO  (qtp5592464-15) [   x:ehr] o.a.s.u.DirectUpdateHandler2 end_commit_flush
+10218382 INFO  (searcherExecutor-7-thread-1-processing-x:ehr) [   x:ehr] o.a.s.c.SolrCore [ehr] Registered new searcher Searcher@64c3f7de[ehr] main{ExitableDirectoryReader(UninvertingDirectoryReader(Uninverting(_1p(5.5.0):C4)))}
+10218399 INFO  (qtp5592464-15) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{commit=} 0 112
+10218514 INFO  (qtp5592464-14) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=*:*&spellcheck=true&rows=0&version=2.2&spellcheck.build=true} hits=4 status=0 QTime=4
+10277817 INFO  (qtp5592464-21) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=franca&hl=true&hl.fl=content,value&rows=100000000&version=2.2} hits=1 status=0 QTime=6
+10301529 INFO  (qtp5592464-16) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=franca&hl=true&hl.fl=content,value&rows=100000000&version=2.2} hits=1 status=0 QTime=29
+10353609 INFO  (qtp5592464-17) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=franca&hl=true&hl.fl=content,value&rows=100000000&version=2.2} hits=1 status=0 QTime=10
+10388696 INFO  (qtp5592464-21) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=franca&hl=true&hl.fl=content,value&rows=100000000&version=2.2} hits=1 status=0 QTime=21
+10412240 INFO  (qtp5592464-13) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=franca&hl=true&hl.fl=content,value&rows=100000000&version=2.2} hits=1 status=0 QTime=8
+10592845 INFO  (qtp5592464-18) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=338468.PDF&literal.id=13706393&extractOnly=true&version=2.2&extractFormat=text}{} 0 62
+10593266 INFO  (qtp5592464-19) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=12001826.pdf&literal.id=13706593&extractOnly=true&version=2.2&extractFormat=text}{} 0 36
+10593827 INFO  (qtp5592464-21) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=Proc+5002781.pdf&literal.id=13706793&extractOnly=true&version=2.2&extractFormat=text}{} 0 59
+10594174 WARN  (qtp5592464-13) [   x:ehr] o.a.p.p.XrefTrailerResolver Did not found XRef object at specified startxref position 38798
+10594234 INFO  (qtp5592464-13) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=MAXDATA_728134.PDF&literal.id=13706993&extractOnly=true&version=2.2&extractFormat=text}{} 0 66
+10639620 INFO  (qtp5592464-18) [   x:ehr] o.a.s.u.DirectUpdateHandler2 [ehr] REMOVING ALL DOCUMENTS FROM INDEX
+10639621 INFO  (qtp5592464-18) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{deleteByQuery=*:*} 0 1
+10639716 INFO  (qtp5592464-19) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[356]} 0 26
+10639739 INFO  (qtp5592464-14) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[355]} 0 43
+10639819 INFO  (qtp5592464-15) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[358]} 0 9
+10639869 INFO  (qtp5592464-16) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[357]} 0 41
+10639899 INFO  (qtp5592464-17) [   x:ehr] o.a.s.u.DirectUpdateHandler2 start commit{,optimize=false,openSearcher=true,waitSearcher=true,expungeDeletes=false,softCommit=false,prepareCommit=false}
+10640118 INFO  (qtp5592464-17) [   x:ehr] o.a.s.c.SolrDeletionPolicy SolrDeletionPolicy.onCommit: commits: num=2
+	commit{dir=NRTCachingDirectory(MMapDirectory@C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\data\index lockFactory=org.apache.lucene.store.NativeFSLockFactory@1d2fc89c; maxCacheMB=48.0 maxMergeSizeMB=4.0),segFN=segments_13,generation=39}
+	commit{dir=NRTCachingDirectory(MMapDirectory@C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\data\index lockFactory=org.apache.lucene.store.NativeFSLockFactory@1d2fc89c; maxCacheMB=48.0 maxMergeSizeMB=4.0),segFN=segments_14,generation=40}
+10640118 INFO  (qtp5592464-17) [   x:ehr] o.a.s.c.SolrDeletionPolicy newest commit generation = 40
+10640129 INFO  (qtp5592464-17) [   x:ehr] o.a.s.s.SolrIndexSearcher Opening Searcher@3db9b4f6[ehr] main
+10640129 INFO  (qtp5592464-17) [   x:ehr] o.a.s.u.DirectUpdateHandler2 end_commit_flush
+10640130 INFO  (searcherExecutor-7-thread-1-processing-x:ehr) [   x:ehr] o.a.s.c.SolrCore [ehr] Registered new searcher Searcher@3db9b4f6[ehr] main{ExitableDirectoryReader(UninvertingDirectoryReader(Uninverting(_1q(5.5.0):C4)))}
+10640159 INFO  (qtp5592464-17) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{commit=} 0 281
+10640274 INFO  (qtp5592464-21) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=*:*&spellcheck=true&rows=0&version=2.2&spellcheck.build=true} hits=4 status=0 QTime=1
+10666872 INFO  (qtp5592464-13) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=franca&hl=true&hl.fl=content,value&rows=100000000&version=2.2} hits=1 status=0 QTime=29
+10986752 INFO  (qtp5592464-13) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=franca&hl=true&hl.fl=content,value&rows=100000000&version=2.2} hits=1 status=0 QTime=12
+11025811 INFO  (qtp5592464-13) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=franca&hl=true&hl.fl=content,value&rows=100000000&version=2.2} hits=1 status=0 QTime=6
+11069008 INFO  (qtp5592464-18) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=franca&hl=true&hl.fl=content,value&rows=100000000&version=2.2} hits=1 status=0 QTime=8
+11192761 INFO  (qtp5592464-18) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=franca&hl=true&hl.fl=content,value&rows=100000000&version=2.2} hits=1 status=0 QTime=7
+11829655 INFO  (qtp5592464-14) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/cores params={indexInfo=false&wt=json&_=1462458442808} status=0 QTime=248
+11830506 INFO  (qtp5592464-15) [   ] o.a.s.s.HttpSolrCall [admin] webapp=null path=/admin/info/system params={wt=json&_=1462458443194} status=0 QTime=729
+11830684 INFO  (qtp5592464-13) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/admin/file params={file=admin-extra.menu-top.html&contentType=text/html;charset%3Dutf-8&_=1462458444031} status=0 QTime=29
+11830781 INFO  (qtp5592464-18) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/admin/file params={file=admin-extra.menu-bottom.html&contentType=text/html;charset%3Dutf-8&_=1462458444033} status=0 QTime=5
+11831280 INFO  (qtp5592464-21) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/admin/file params={file=admin-extra.html&_=1462458444589} status=0 QTime=8
+11831471 INFO  (qtp5592464-14) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/admin/luke params={show=index&numTerms=0&wt=json&_=1462458444568} status=0 QTime=251
+11831693 INFO  (qtp5592464-17) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/admin/system params={wt=json&_=1462458444585} status=0 QTime=413
+11831698 INFO  (qtp5592464-16) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/replication params={wt=json&command=details&_=1462458444582} status=0 QTime=462
+11831699 INFO  (qtp5592464-15) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/admin/ping params={action=status&wt=json&_=1462458444593} status=503 QTime=418
+11859225 INFO  (qtp5592464-13) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=338468.PDF&literal.id=13706393&extractOnly=true&version=2.2&extractFormat=text}{} 0 145
+11859788 INFO  (qtp5592464-19) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=12001826.pdf&literal.id=13706593&extractOnly=true&version=2.2&extractFormat=text}{} 0 27
+11860536 INFO  (qtp5592464-21) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=Proc+5002781.pdf&literal.id=13706793&extractOnly=true&version=2.2&extractFormat=text}{} 0 77
+11861073 WARN  (qtp5592464-14) [   x:ehr] o.a.p.p.XrefTrailerResolver Did not found XRef object at specified startxref position 38798
+11861124 INFO  (qtp5592464-14) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=MAXDATA_728134.PDF&literal.id=13706993&extractOnly=true&version=2.2&extractFormat=text}{} 0 62
+11884101 INFO  (qtp5592464-15) [   x:ehr] o.a.s.u.DirectUpdateHandler2 [ehr] REMOVING ALL DOCUMENTS FROM INDEX
+11884102 INFO  (qtp5592464-15) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{deleteByQuery=*:*} 0 2
+11884291 INFO  (qtp5592464-18) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[360]} 0 118
+11884311 INFO  (qtp5592464-13) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[359]} 0 59
+11884350 INFO  (qtp5592464-19) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[362]} 0 35
+11884626 INFO  (qtp5592464-21) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[361]} 0 281
+11884634 INFO  (qtp5592464-14) [   x:ehr] o.a.s.u.DirectUpdateHandler2 start commit{,optimize=false,openSearcher=true,waitSearcher=true,expungeDeletes=false,softCommit=false,prepareCommit=false}
+11884954 INFO  (qtp5592464-14) [   x:ehr] o.a.s.c.SolrDeletionPolicy SolrDeletionPolicy.onCommit: commits: num=2
+	commit{dir=NRTCachingDirectory(MMapDirectory@C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\data\index lockFactory=org.apache.lucene.store.NativeFSLockFactory@1d2fc89c; maxCacheMB=48.0 maxMergeSizeMB=4.0),segFN=segments_14,generation=40}
+	commit{dir=NRTCachingDirectory(MMapDirectory@C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\data\index lockFactory=org.apache.lucene.store.NativeFSLockFactory@1d2fc89c; maxCacheMB=48.0 maxMergeSizeMB=4.0),segFN=segments_15,generation=41}
+11884954 INFO  (qtp5592464-14) [   x:ehr] o.a.s.c.SolrDeletionPolicy newest commit generation = 41
+11884967 INFO  (qtp5592464-14) [   x:ehr] o.a.s.s.SolrIndexSearcher Opening Searcher@1aaa578e[ehr] main
+11884968 INFO  (qtp5592464-14) [   x:ehr] o.a.s.u.DirectUpdateHandler2 end_commit_flush
+11884968 INFO  (searcherExecutor-7-thread-1-processing-x:ehr) [   x:ehr] o.a.s.c.SolrCore [ehr] Registered new searcher Searcher@1aaa578e[ehr] main{ExitableDirectoryReader(UninvertingDirectoryReader(Uninverting(_1r(5.5.0):C4)))}
+11884986 INFO  (qtp5592464-14) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{commit=} 0 352
+11885108 INFO  (qtp5592464-16) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=*:*&spellcheck=true&rows=0&version=2.2&spellcheck.build=true} hits=4 status=0 QTime=2
+11932609 INFO  (qtp5592464-15) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=franca&hl=true&hl.fl=content,value&rows=100000000&version=2.2} hits=1 status=0 QTime=5
+11936898 INFO  (qtp5592464-15) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=*:*&hl=true&hl.fl=content,value&rows=100000000&version=2.2} hits=4 status=0 QTime=13
+11942951 INFO  (qtp5592464-18) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=telmo&hl=true&hl.fl=content,value&rows=100000000&version=2.2} hits=1 status=0 QTime=8
+11947773 INFO  (qtp5592464-18) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=franca&hl=true&hl.fl=content,value&rows=100000000&version=2.2} hits=1 status=0 QTime=6
+11978237 INFO  (qtp5592464-13) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=franca&hl=true&hl.fl=content,value&rows=100000000&version=2.2} hits=1 status=0 QTime=6
+12083588 INFO  (qtp5592464-19) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=franca&hl=true&hl.fl=content,value&rows=100000000&version=2.2} hits=1 status=0 QTime=13
+12164891 INFO  (qtp5592464-16) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=franca&hl=true&hl.fl=content,value&rows=100000000&version=2.2} hits=1 status=0 QTime=11
+12260204 INFO  (qtp5592464-15) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=franca&hl=true&hl.fl=content,value&rows=100000000&version=2.2} hits=1 status=0 QTime=5
+12269447 INFO  (qtp5592464-21) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=franca&hl=true&hl.fl=content,value&rows=100000000&version=2.2} hits=1 status=0 QTime=10
+12300933 INFO  (qtp5592464-18) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=franca&hl=true&hl.fl=content,value&rows=100000000&version=2.2} hits=1 status=0 QTime=7
+12346984 INFO  (qtp5592464-13) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=franca&hl=true&hl.fl=content,value&rows=100000000&version=2.2} hits=1 status=0 QTime=6
+12379169 INFO  (qtp5592464-21) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=franca&hl=true&hl.fl=content,value&rows=100000000&version=2.2} hits=1 status=0 QTime=5
+12480552 INFO  (qtp5592464-18) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=franca&hl=true&hl.fl=content,value&rows=100000000&version=2.2} hits=1 status=0 QTime=29
+12576235 INFO  (qtp5592464-19) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=*:*&hl=true&hl.fl=content,value&rows=100000000&version=2.2} hits=4 status=0 QTime=11
+12630354 INFO  (qtp5592464-17) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=franca&hl=true&hl.fl=content,value&rows=100000000&version=2.2} hits=1 status=0 QTime=5
+13248425 INFO  (qtp5592464-21) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=338468.PDF&literal.id=13706393&extractOnly=true&version=2.2&extractFormat=text}{} 0 290
+13249150 INFO  (qtp5592464-14) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=12001826.pdf&literal.id=13706593&extractOnly=true&version=2.2&extractFormat=text}{} 0 7
+13250281 INFO  (qtp5592464-15) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=Proc+5002781.pdf&literal.id=13706793&extractOnly=true&version=2.2&extractFormat=text}{} 0 22
+13250821 WARN  (qtp5592464-13) [   x:ehr] o.a.p.p.XrefTrailerResolver Did not found XRef object at specified startxref position 38798
+13250853 INFO  (qtp5592464-13) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=MAXDATA_728134.PDF&literal.id=13706993&extractOnly=true&version=2.2&extractFormat=text}{} 0 38
+13288267 INFO  (qtp5592464-21) [   x:ehr] o.a.s.u.DirectUpdateHandler2 [ehr] REMOVING ALL DOCUMENTS FROM INDEX
+13288279 INFO  (qtp5592464-21) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{deleteByQuery=*:*} 0 13
+13288409 INFO  (qtp5592464-16) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[364]} 0 30
+13288441 INFO  (qtp5592464-14) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[363]} 0 65
+13288575 INFO  (qtp5592464-15) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[366]} 0 12
+13288615 INFO  (qtp5592464-17) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[365]} 0 51
+13288624 INFO  (qtp5592464-18) [   x:ehr] o.a.s.u.DirectUpdateHandler2 start commit{,optimize=false,openSearcher=true,waitSearcher=true,expungeDeletes=false,softCommit=false,prepareCommit=false}
+13288715 INFO  (qtp5592464-18) [   x:ehr] o.a.s.c.SolrDeletionPolicy SolrDeletionPolicy.onCommit: commits: num=2
+	commit{dir=NRTCachingDirectory(MMapDirectory@C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\data\index lockFactory=org.apache.lucene.store.NativeFSLockFactory@1d2fc89c; maxCacheMB=48.0 maxMergeSizeMB=4.0),segFN=segments_15,generation=41}
+	commit{dir=NRTCachingDirectory(MMapDirectory@C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\data\index lockFactory=org.apache.lucene.store.NativeFSLockFactory@1d2fc89c; maxCacheMB=48.0 maxMergeSizeMB=4.0),segFN=segments_16,generation=42}
+13288715 INFO  (qtp5592464-18) [   x:ehr] o.a.s.c.SolrDeletionPolicy newest commit generation = 42
+13288730 INFO  (qtp5592464-18) [   x:ehr] o.a.s.s.SolrIndexSearcher Opening Searcher@777e3cae[ehr] main
+13288763 INFO  (qtp5592464-18) [   x:ehr] o.a.s.u.DirectUpdateHandler2 end_commit_flush
+13288764 INFO  (searcherExecutor-7-thread-1-processing-x:ehr) [   x:ehr] o.a.s.c.SolrCore [ehr] Registered new searcher Searcher@777e3cae[ehr] main{ExitableDirectoryReader(UninvertingDirectoryReader(Uninverting(_1s(5.5.0):C4)))}
+13288776 INFO  (qtp5592464-18) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{commit=} 0 153
+13288916 INFO  (qtp5592464-13) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=*:*&spellcheck=true&rows=0&version=2.2&spellcheck.build=true} hits=4 status=0 QTime=0
+13307060 INFO  (qtp5592464-21) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=franca&hl=true&hl.fl=content,value&rows=100000000&version=2.2} hits=1 status=0 QTime=9
+13547915 INFO  (qtp5592464-16) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=franca&hl=true&hl.fl=content,value&rows=100000000&version=2.2} hits=1 status=0 QTime=6
+14033801 INFO  (qtp5592464-15) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=franca&hl=true&hl.fl=content,value&rows=100000000&version=2.2} hits=1 status=0 QTime=5
+14806248 INFO  (qtp5592464-19) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=franca&hl=true&hl.fl=content,value&rows=100000000&version=2.2} hits=1 status=0 QTime=6
+15115206 INFO  (qtp5592464-19) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=338468.PDF&literal.id=13706393&extractOnly=true&version=2.2&extractFormat=text}{} 0 120
+15115622 INFO  (qtp5592464-21) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=12001826.pdf&literal.id=13706593&extractOnly=true&version=2.2&extractFormat=text}{} 0 27
+15116582 INFO  (qtp5592464-16) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=Proc+5002781.pdf&literal.id=13706793&extractOnly=true&version=2.2&extractFormat=text}{} 0 16
+15116959 WARN  (qtp5592464-14) [   x:ehr] o.a.p.p.XrefTrailerResolver Did not found XRef object at specified startxref position 38798
+15116991 INFO  (qtp5592464-14) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=MAXDATA_728134.PDF&literal.id=13706993&extractOnly=true&version=2.2&extractFormat=text}{} 0 39
+15178160 INFO  (qtp5592464-13) [   x:ehr] o.a.s.u.DirectUpdateHandler2 [ehr] REMOVING ALL DOCUMENTS FROM INDEX
+15178161 INFO  (qtp5592464-13) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{deleteByQuery=*:*} 0 2
+15178267 INFO  (qtp5592464-17) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[368]} 0 39
+15178274 INFO  (qtp5592464-15) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[367]} 0 44
+15178415 INFO  (qtp5592464-19) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[370]} 0 134
+15178447 INFO  (qtp5592464-16) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[369]} 0 43
+15178455 INFO  (qtp5592464-21) [   x:ehr] o.a.s.u.DirectUpdateHandler2 start commit{,optimize=false,openSearcher=true,waitSearcher=true,expungeDeletes=false,softCommit=false,prepareCommit=false}
+15178729 INFO  (qtp5592464-21) [   x:ehr] o.a.s.c.SolrDeletionPolicy SolrDeletionPolicy.onCommit: commits: num=2
+	commit{dir=NRTCachingDirectory(MMapDirectory@C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\data\index lockFactory=org.apache.lucene.store.NativeFSLockFactory@1d2fc89c; maxCacheMB=48.0 maxMergeSizeMB=4.0),segFN=segments_16,generation=42}
+	commit{dir=NRTCachingDirectory(MMapDirectory@C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\data\index lockFactory=org.apache.lucene.store.NativeFSLockFactory@1d2fc89c; maxCacheMB=48.0 maxMergeSizeMB=4.0),segFN=segments_17,generation=43}
+15178729 INFO  (qtp5592464-21) [   x:ehr] o.a.s.c.SolrDeletionPolicy newest commit generation = 43
+15178743 INFO  (qtp5592464-21) [   x:ehr] o.a.s.s.SolrIndexSearcher Opening Searcher@2d731c2f[ehr] main
+15178748 INFO  (searcherExecutor-7-thread-1-processing-x:ehr) [   x:ehr] o.a.s.c.SolrCore [ehr] Registered new searcher Searcher@2d731c2f[ehr] main{ExitableDirectoryReader(UninvertingDirectoryReader(Uninverting(_1t(5.5.0):C1) Uninverting(_1u(5.5.0):C3)))}
+15178762 INFO  (qtp5592464-21) [   x:ehr] o.a.s.u.DirectUpdateHandler2 end_commit_flush
+15178773 INFO  (qtp5592464-21) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{commit=} 0 319
+15178901 INFO  (qtp5592464-14) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=*:*&spellcheck=true&rows=0&version=2.2&spellcheck.build=true} hits=4 status=0 QTime=1
+15245172 INFO  (qtp5592464-17) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=franca&hl=true&hl.fl=content,value&rows=100000000&version=2.2} hits=1 status=0 QTime=22
+15287672 INFO  (qtp5592464-15) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=franca&hl=true&hl.fl=content,value&rows=100000000&version=2.2} hits=1 status=0 QTime=10
+15396406 INFO  (qtp5592464-15) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=franca&hl=true&hl.fl=content,value&rows=100000000&version=2.2} hits=1 status=0 QTime=8
+15848072 INFO  (qtp5592464-19) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=franca&hl=true&hl.fl=content,value&rows=100000000&version=2.2} hits=1 status=0 QTime=10
+15883695 INFO  (qtp5592464-16) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=franca&hl=true&hl.fl=content,value&rows=100000000&version=2.2} hits=1 status=0 QTime=6
+15993697 INFO  (qtp5592464-16) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=franca&hl=true&hl.fl=content,value&rows=100000000&version=2.2} hits=1 status=0 QTime=5
+16010250 INFO  (qtp5592464-18) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=franca&hl=true&hl.fl=content,value&rows=100000000&version=2.2} hits=1 status=0 QTime=4
+16114277 INFO  (qtp5592464-18) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=338468.PDF&literal.id=13706393&extractOnly=true&version=2.2&extractFormat=text}{} 0 89
+16114970 INFO  (qtp5592464-17) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=12001826.pdf&literal.id=13706593&extractOnly=true&version=2.2&extractFormat=text}{} 0 21
+16115990 INFO  (qtp5592464-15) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=Proc+5002781.pdf&literal.id=13706793&extractOnly=true&version=2.2&extractFormat=text}{} 0 77
+16116762 WARN  (qtp5592464-19) [   x:ehr] o.a.p.p.XrefTrailerResolver Did not found XRef object at specified startxref position 38798
+16116833 INFO  (qtp5592464-19) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=MAXDATA_728134.PDF&literal.id=13706993&extractOnly=true&version=2.2&extractFormat=text}{} 0 79
+16166548 INFO  (qtp5592464-19) [   x:ehr] o.a.s.u.DirectUpdateHandler2 [ehr] REMOVING ALL DOCUMENTS FROM INDEX
+16166549 INFO  (qtp5592464-19) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{deleteByQuery=*:*} 0 2
+16166714 INFO  (qtp5592464-16) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[371]} 0 45
+16166757 INFO  (qtp5592464-14) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[372]} 0 34
+16166768 INFO  (qtp5592464-21) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[374]} 0 6
+16166848 INFO  (qtp5592464-18) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[373]} 0 30
+16166856 INFO  (qtp5592464-17) [   x:ehr] o.a.s.u.DirectUpdateHandler2 start commit{,optimize=false,openSearcher=true,waitSearcher=true,expungeDeletes=false,softCommit=false,prepareCommit=false}
+16167101 INFO  (qtp5592464-17) [   x:ehr] o.a.s.c.SolrDeletionPolicy SolrDeletionPolicy.onCommit: commits: num=2
+	commit{dir=NRTCachingDirectory(MMapDirectory@C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\data\index lockFactory=org.apache.lucene.store.NativeFSLockFactory@1d2fc89c; maxCacheMB=48.0 maxMergeSizeMB=4.0),segFN=segments_17,generation=43}
+	commit{dir=NRTCachingDirectory(MMapDirectory@C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\data\index lockFactory=org.apache.lucene.store.NativeFSLockFactory@1d2fc89c; maxCacheMB=48.0 maxMergeSizeMB=4.0),segFN=segments_18,generation=44}
+16167101 INFO  (qtp5592464-17) [   x:ehr] o.a.s.c.SolrDeletionPolicy newest commit generation = 44
+16167109 INFO  (qtp5592464-17) [   x:ehr] o.a.s.s.SolrIndexSearcher Opening Searcher@f080f97[ehr] main
+16167110 INFO  (qtp5592464-17) [   x:ehr] o.a.s.u.DirectUpdateHandler2 end_commit_flush
+16167111 INFO  (searcherExecutor-7-thread-1-processing-x:ehr) [   x:ehr] o.a.s.c.SolrCore [ehr] Registered new searcher Searcher@f080f97[ehr] main{ExitableDirectoryReader(UninvertingDirectoryReader(Uninverting(_1v(5.5.0):C4)))}
+16167180 INFO  (qtp5592464-17) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{commit=} 0 323
+16167290 INFO  (qtp5592464-13) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=*:*&spellcheck=true&rows=0&version=2.2&spellcheck.build=true} hits=4 status=0 QTime=0
+16352995 INFO  (qtp5592464-15) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=franca&hl=true&hl.fl=content,value&rows=100000000&version=2.2} hits=1 status=0 QTime=5
+16772850 INFO  (qtp5592464-15) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=338468.PDF&literal.id=13706393&extractOnly=true&version=2.2&extractFormat=text}{} 0 87
+16773348 INFO  (qtp5592464-19) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=12001826.pdf&literal.id=13706593&extractOnly=true&version=2.2&extractFormat=text}{} 0 7
+16774017 INFO  (qtp5592464-16) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=Proc+5002781.pdf&literal.id=13706793&extractOnly=true&version=2.2&extractFormat=text}{} 0 11
+16774617 WARN  (qtp5592464-14) [   x:ehr] o.a.p.p.XrefTrailerResolver Did not found XRef object at specified startxref position 38798
+16774683 INFO  (qtp5592464-14) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=MAXDATA_728134.PDF&literal.id=13706993&extractOnly=true&version=2.2&extractFormat=text}{} 0 71
+16795771 INFO  (qtp5592464-21) [   x:ehr] o.a.s.u.DirectUpdateHandler2 [ehr] REMOVING ALL DOCUMENTS FROM INDEX
+16795772 INFO  (qtp5592464-21) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{deleteByQuery=*:*} 0 1
+16795938 INFO  (qtp5592464-18) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[375]} 0 32
+16795944 INFO  (qtp5592464-17) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[376]} 0 27
+16795975 INFO  (qtp5592464-13) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[378]} 0 12
+16796017 INFO  (qtp5592464-15) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[377]} 0 29
+16796024 INFO  (qtp5592464-19) [   x:ehr] o.a.s.u.DirectUpdateHandler2 start commit{,optimize=false,openSearcher=true,waitSearcher=true,expungeDeletes=false,softCommit=false,prepareCommit=false}
+16796318 INFO  (qtp5592464-19) [   x:ehr] o.a.s.c.SolrDeletionPolicy SolrDeletionPolicy.onCommit: commits: num=2
+	commit{dir=NRTCachingDirectory(MMapDirectory@C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\data\index lockFactory=org.apache.lucene.store.NativeFSLockFactory@1d2fc89c; maxCacheMB=48.0 maxMergeSizeMB=4.0),segFN=segments_18,generation=44}
+	commit{dir=NRTCachingDirectory(MMapDirectory@C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\data\index lockFactory=org.apache.lucene.store.NativeFSLockFactory@1d2fc89c; maxCacheMB=48.0 maxMergeSizeMB=4.0),segFN=segments_19,generation=45}
+16796318 INFO  (qtp5592464-19) [   x:ehr] o.a.s.c.SolrDeletionPolicy newest commit generation = 45
+16796333 INFO  (qtp5592464-19) [   x:ehr] o.a.s.s.SolrIndexSearcher Opening Searcher@2f4c16e5[ehr] main
+16796334 INFO  (qtp5592464-19) [   x:ehr] o.a.s.u.DirectUpdateHandler2 end_commit_flush
+16796335 INFO  (searcherExecutor-7-thread-1-processing-x:ehr) [   x:ehr] o.a.s.c.SolrCore [ehr] Registered new searcher Searcher@2f4c16e5[ehr] main{ExitableDirectoryReader(UninvertingDirectoryReader(Uninverting(_1x(5.5.0):C3) Uninverting(_1w(5.5.0):C1)))}
+16796344 INFO  (qtp5592464-19) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{commit=} 0 320
+16796461 INFO  (qtp5592464-16) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=*:*&spellcheck=true&rows=0&version=2.2&spellcheck.build=true} hits=4 status=0 QTime=1
+16808376 INFO  (qtp5592464-14) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=franca&hl=true&hl.fl=content,value&rows=100000000&version=2.2} hits=1 status=0 QTime=6
+16815575 INFO  (qtp5592464-21) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=((elemento_id:13706393)+AND+(cod_versao:1))&fl=file_stream&rows=100000000&version=2.2} hits=1 status=0 QTime=143
+16887931 INFO  (qtp5592464-14) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=338468.PDF&literal.id=13706393&extractOnly=true&version=2.2&extractFormat=text}{} 0 120
+16888885 INFO  (qtp5592464-17) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=12001826.pdf&literal.id=13706593&extractOnly=true&version=2.2&extractFormat=text}{} 0 7
+16889428 INFO  (qtp5592464-18) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=Proc+5002781.pdf&literal.id=13706793&extractOnly=true&version=2.2&extractFormat=text}{} 0 11
+16890050 WARN  (qtp5592464-13) [   x:ehr] o.a.p.p.XrefTrailerResolver Did not found XRef object at specified startxref position 38798
+16890089 INFO  (qtp5592464-13) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=MAXDATA_728134.PDF&literal.id=13706993&extractOnly=true&version=2.2&extractFormat=text}{} 0 131
+16931289 INFO  (qtp5592464-16) [   x:ehr] o.a.s.u.DirectUpdateHandler2 [ehr] REMOVING ALL DOCUMENTS FROM INDEX
+16931290 INFO  (qtp5592464-16) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{deleteByQuery=*:*} 0 2
+16931464 INFO  (qtp5592464-19) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[380]} 0 37
+16931540 INFO  (qtp5592464-14) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[379]} 0 99
+16931551 INFO  (qtp5592464-21) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[382]} 0 7
+16931585 INFO  (qtp5592464-17) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[381]} 0 30
+16931596 INFO  (qtp5592464-18) [   x:ehr] o.a.s.u.DirectUpdateHandler2 start commit{,optimize=false,openSearcher=true,waitSearcher=true,expungeDeletes=false,softCommit=false,prepareCommit=false}
+16931806 INFO  (qtp5592464-18) [   x:ehr] o.a.s.c.SolrDeletionPolicy SolrDeletionPolicy.onCommit: commits: num=2
+	commit{dir=NRTCachingDirectory(MMapDirectory@C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\data\index lockFactory=org.apache.lucene.store.NativeFSLockFactory@1d2fc89c; maxCacheMB=48.0 maxMergeSizeMB=4.0),segFN=segments_19,generation=45}
+	commit{dir=NRTCachingDirectory(MMapDirectory@C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\data\index lockFactory=org.apache.lucene.store.NativeFSLockFactory@1d2fc89c; maxCacheMB=48.0 maxMergeSizeMB=4.0),segFN=segments_1a,generation=46}
+16931806 INFO  (qtp5592464-18) [   x:ehr] o.a.s.c.SolrDeletionPolicy newest commit generation = 46
+16931823 INFO  (qtp5592464-18) [   x:ehr] o.a.s.s.SolrIndexSearcher Opening Searcher@447d2f70[ehr] main
+16931827 INFO  (qtp5592464-18) [   x:ehr] o.a.s.u.DirectUpdateHandler2 end_commit_flush
+16931830 INFO  (searcherExecutor-7-thread-1-processing-x:ehr) [   x:ehr] o.a.s.c.SolrCore [ehr] Registered new searcher Searcher@447d2f70[ehr] main{ExitableDirectoryReader(UninvertingDirectoryReader(Uninverting(_1y(5.5.0):C4)))}
+16931861 INFO  (qtp5592464-18) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{commit=} 0 265
+16931985 INFO  (qtp5592464-13) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=*:*&spellcheck=true&rows=0&version=2.2&spellcheck.build=true} hits=4 status=0 QTime=0
+16943942 INFO  (qtp5592464-15) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=franca&hl=true&hl.fl=content,value&rows=100000000&version=2.2} hits=1 status=0 QTime=5
+16945715 INFO  (qtp5592464-16) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=((elemento_id:13706393)+AND+(cod_versao:1))&fl=file_stream&rows=100000000&version=2.2} hits=1 status=0 QTime=5
+16955351 INFO  (qtp5592464-16) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=franca&hl=true&hl.fl=content,value&rows=100000000&version=2.2} hits=1 status=0 QTime=28
+17059349 INFO  (qtp5592464-14) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=338468.PDF&literal.id=13706393&extractOnly=true&version=2.2&extractFormat=text}{} 0 56
+17059835 INFO  (qtp5592464-19) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=12001826.pdf&literal.id=13706593&extractOnly=true&version=2.2&extractFormat=text}{} 0 8
+17060964 INFO  (qtp5592464-21) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=Proc+5002781.pdf&literal.id=13706793&extractOnly=true&version=2.2&extractFormat=text}{} 0 32
+17061489 WARN  (qtp5592464-17) [   x:ehr] o.a.p.p.XrefTrailerResolver Did not found XRef object at specified startxref position 38798
+17061520 INFO  (qtp5592464-17) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=MAXDATA_728134.PDF&literal.id=13706993&extractOnly=true&version=2.2&extractFormat=text}{} 0 37
+17061631 WARN  (qtp5592464-18) [   x:ehr] o.a.p.p.XrefTrailerResolver Did not found XRef object at specified startxref position 34410
+17061651 INFO  (qtp5592464-18) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=MAXDATA_728135.PDF&literal.id=13707193&extractOnly=true&version=2.2&extractFormat=text}{} 0 50
+17062440 INFO  (qtp5592464-15) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=Proc+00289342.pdf&literal.id=13707393&extractOnly=true&version=2.2&extractFormat=text}{} 0 21
+17064234 INFO  (qtp5592464-14) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=2012_11_25-Ort-Int+20004589.pdf&literal.id=13707593&extractOnly=true&version=2.2&extractFormat=text}{} 0 32
+17065663 INFO  (qtp5592464-21) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=02004530.pdf&literal.id=13707793&extractOnly=true&version=2.2&extractFormat=text}{} 0 100
+17066718 INFO  (qtp5592464-18) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=338471.PDF&literal.id=13707993&extractOnly=true&version=2.2&extractFormat=text}{} 0 176
+17068394 INFO  (qtp5592464-14) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=Proc+12002118.pdf&literal.id=13708193&extractOnly=true&version=2.2&extractFormat=text}{} 0 27
+17069482 INFO  (qtp5592464-19) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=03002083.pdf&literal.id=13708393&extractOnly=true&version=2.2&extractFormat=text}{} 0 42
+17069964 INFO  (qtp5592464-21) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=338469.PDF&literal.id=13708593&extractOnly=true&version=2.2&extractFormat=text}{} 0 48
+17072094 INFO  (qtp5592464-15) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=Proc+00350909.pdf&literal.id=13708793&extractOnly=true&version=2.2&extractFormat=text}{} 0 18
+17072942 INFO  (qtp5592464-16) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=04009026.pdf&literal.id=13708993&extractOnly=true&version=2.2&extractFormat=text}{} 0 13
+17073945 INFO  (qtp5592464-14) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=338470.PDF&literal.id=13709193&extractOnly=true&version=2.2&extractFormat=text}{} 0 642
+17074314 INFO  (qtp5592464-19) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=338474.PDF&literal.id=13709393&extractOnly=true&version=2.2&extractFormat=text}{} 0 51
+17074689 INFO  (qtp5592464-21) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=338466.PDF&literal.id=13709593&extractOnly=true&version=2.2&extractFormat=text}{} 0 40
+17075264 INFO  (qtp5592464-17) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=338475.PDF&literal.id=13709793&extractOnly=true&version=2.2&extractFormat=text}{} 0 43
+17076391 INFO  (qtp5592464-18) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=00035873.pdf&literal.id=13709993&extractOnly=true&version=2.2&extractFormat=text}{} 0 23
+17077468 INFO  (qtp5592464-16) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=338477.PDF&literal.id=13710193&extractOnly=true&version=2.2&extractFormat=text}{} 0 41
+17078458 INFO  (qtp5592464-14) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=00374783.pdf&literal.id=13710393&extractOnly=true&version=2.2&extractFormat=text}{} 0 30
+17079946 INFO  (qtp5592464-17) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=2012_11_25-Ort-Int+20004620.pdf&literal.id=13710593&extractOnly=true&version=2.2&extractFormat=text}{} 0 27
+17081529 INFO  (qtp5592464-13) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=01007755.pdf&literal.id=13710793&extractOnly=true&version=2.2&extractFormat=text}{} 0 19
+17082672 INFO  (qtp5592464-14) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=338478.PDF&literal.id=13710993&extractOnly=true&version=2.2&extractFormat=text}{} 0 71
+17084714 INFO  (qtp5592464-21) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=1200719.pdf&literal.id=13711193&extractOnly=true&version=2.2&extractFormat=text}{} 0 36
+17087713 INFO  (qtp5592464-14) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=00000000035175F.pdf&literal.id=13711393&extractOnly=true&version=2.2&extractFormat=text}{} 0 156
+17088759 WARN  (qtp5592464-19) [   x:ehr] o.a.p.p.XrefTrailerResolver Did not found XRef object at specified startxref position 31870
+17088783 INFO  (qtp5592464-19) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=MAXDATA_728144.PDF&literal.id=13711593&extractOnly=true&version=2.2&extractFormat=text}{} 0 31
+17088974 WARN  (qtp5592464-21) [   x:ehr] o.a.p.p.XrefTrailerResolver Did not found XRef object at specified startxref position 36677
+17089002 INFO  (qtp5592464-21) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=MAXDATA_728145.PDF&literal.id=13711793&extractOnly=true&version=2.2&extractFormat=text}{} 0 51
+17089117 WARN  (qtp5592464-17) [   x:ehr] o.a.p.p.XrefTrailerResolver Did not found XRef object at specified startxref position 37343
+17089196 INFO  (qtp5592464-17) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=MAXDATA_728146.PDF&literal.id=13711993&extractOnly=true&version=2.2&extractFormat=text}{} 0 86
+17089278 WARN  (qtp5592464-18) [   x:ehr] o.a.p.p.XrefTrailerResolver Did not found XRef object at specified startxref position 34961
+17089302 INFO  (qtp5592464-18) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=MAXDATA_728147.PDF&literal.id=13712193&extractOnly=true&version=2.2&extractFormat=text}{} 0 30
+17089553 WARN  (qtp5592464-13) [   x:ehr] o.a.p.p.XrefTrailerResolver Did not found XRef object at specified startxref position 31780
+17089566 INFO  (qtp5592464-13) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=MAXDATA_728148.PDF&literal.id=13712393&extractOnly=true&version=2.2&extractFormat=text}{} 0 22
+17089703 WARN  (qtp5592464-15) [   x:ehr] o.a.p.p.XrefTrailerResolver Did not found XRef object at specified startxref position 38270
+17089732 INFO  (qtp5592464-15) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=MAXDATA_728149.PDF&literal.id=13712593&extractOnly=true&version=2.2&extractFormat=text}{} 0 37
+17089807 WARN  (qtp5592464-16) [   x:ehr] o.a.p.p.XrefTrailerResolver Did not found XRef object at specified startxref position 34505
+17089827 INFO  (qtp5592464-16) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=MAXDATA_728150.PDF&literal.id=13712793&extractOnly=true&version=2.2&extractFormat=text}{} 0 26
+17089943 WARN  (qtp5592464-14) [   x:ehr] o.a.p.p.XrefTrailerResolver Did not found XRef object at specified startxref position 60091
+17089974 INFO  (qtp5592464-14) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=MAXDATA_728151.PDF&literal.id=13712993&extractOnly=true&version=2.2&extractFormat=text}{} 0 39
+17090144 WARN  (qtp5592464-19) [   x:ehr] o.a.p.p.XrefTrailerResolver Did not found XRef object at specified startxref position 33295
+17090160 INFO  (qtp5592464-19) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=MAXDATA_728152.PDF&literal.id=13713193&extractOnly=true&version=2.2&extractFormat=text}{} 0 21
+17090247 WARN  (qtp5592464-21) [   x:ehr] o.a.p.p.XrefTrailerResolver Did not found XRef object at specified startxref position 33346
+17090265 INFO  (qtp5592464-21) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=MAXDATA_728153.PDF&literal.id=13713393&extractOnly=true&version=2.2&extractFormat=text}{} 0 24
+17090347 WARN  (qtp5592464-17) [   x:ehr] o.a.p.p.XrefTrailerResolver Did not found XRef object at specified startxref position 33592
+17090363 INFO  (qtp5592464-17) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=MAXDATA_728154.PDF&literal.id=13713593&extractOnly=true&version=2.2&extractFormat=text}{} 0 22
+17090439 WARN  (qtp5592464-18) [   x:ehr] o.a.p.p.XrefTrailerResolver Did not found XRef object at specified startxref position 33345
+17090457 INFO  (qtp5592464-18) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=MAXDATA_728155.PDF&literal.id=13713793&extractOnly=true&version=2.2&extractFormat=text}{} 0 25
+17090547 WARN  (qtp5592464-13) [   x:ehr] o.a.p.p.XrefTrailerResolver Did not found XRef object at specified startxref position 33237
+17090564 INFO  (qtp5592464-13) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=MAXDATA_728156.PDF&literal.id=13713993&extractOnly=true&version=2.2&extractFormat=text}{} 0 23
+17090725 INFO  (qtp5592464-15) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=338479.PDF&literal.id=13714193&extractOnly=true&version=2.2&extractFormat=text}{} 0 35
+17092617 INFO  (qtp5592464-16) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=3002910.pdf&literal.id=13714393&extractOnly=true&version=2.2&extractFormat=text}{} 0 38
+17095441 INFO  (qtp5592464-18) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=03011885.pdf&literal.id=13714593&extractOnly=true&version=2.2&extractFormat=text}{} 0 23
+17098058 INFO  (qtp5592464-14) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=4004050.pdf&literal.id=13714793&extractOnly=true&version=2.2&extractFormat=text}{} 0 28
+17102098 INFO  (qtp5592464-16) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=05008836.pdf&literal.id=13714993&extractOnly=true&version=2.2&extractFormat=text}{} 0 33
+17105877 INFO  (qtp5592464-16) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=9001280.pdf&literal.id=13715193&extractOnly=true&version=2.2&extractFormat=text}{} 0 45
+17108580 INFO  (qtp5592464-19) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=10002647.pdf&literal.id=13715393&extractOnly=true&version=2.2&extractFormat=text}{} 0 75
+17110320 INFO  (qtp5592464-17) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=10006551.pdf&literal.id=13715593&extractOnly=true&version=2.2&extractFormat=text}{} 0 34
+17114046 INFO  (qtp5592464-21) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=12004138.pdf&literal.id=13715793&extractOnly=true&version=2.2&extractFormat=text}{} 0 41
+17116013 INFO  (qtp5592464-14) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update/extract params={resource.name=01013875.pdf&literal.id=13715993&extractOnly=true&version=2.2&extractFormat=text}{} 0 9
+17170150 INFO  (qtp5592464-18) [   x:ehr] o.a.s.u.DirectUpdateHandler2 [ehr] REMOVING ALL DOCUMENTS FROM INDEX
+17170150 INFO  (qtp5592464-18) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{deleteByQuery=*:*} 0 2
+17170237 INFO  (qtp5592464-15) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[384]} 0 18
+17170252 INFO  (qtp5592464-13) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[383]} 0 35
+17170279 INFO  (qtp5592464-16) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[386]} 0 15
+17170327 INFO  (qtp5592464-14) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[385]} 0 51
+17170341 INFO  (qtp5592464-19) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[387]} 0 7
+17170412 INFO  (qtp5592464-21) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[388]} 0 57
+17170487 INFO  (qtp5592464-17) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[390]} 0 53
+17170556 INFO  (qtp5592464-18) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[389]} 0 107
+17170599 INFO  (qtp5592464-15) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[391]} 0 33
+17170655 INFO  (qtp5592464-13) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[392]} 0 70
+17170699 INFO  (qtp5592464-14) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[394]} 0 29
+17170719 INFO  (qtp5592464-16) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[393]} 0 51
+17170797 INFO  (qtp5592464-21) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[396]} 0 36
+17170877 INFO  (qtp5592464-19) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[395]} 0 123
+17170932 INFO  (qtp5592464-18) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[398]} 0 43
+17170965 INFO  (qtp5592464-17) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[397]} 0 82
+17171000 INFO  (qtp5592464-15) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[399]} 0 28
+17171026 INFO  (qtp5592464-13) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[400]} 0 34
+17171070 INFO  (qtp5592464-14) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[402]} 0 22
+17171196 INFO  (qtp5592464-16) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[401]} 0 118
+17171463 INFO  (qtp5592464-21) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[403]} 0 200
+17171480 INFO  (qtp5592464-19) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[404]} 0 209
+17171552 INFO  (qtp5592464-18) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[406]} 0 60
+17171746 INFO  (qtp5592464-17) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[405]} 0 224
+17172084 INFO  (qtp5592464-15) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[408]} 0 190
+17172342 INFO  (qtp5592464-13) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[407]} 0 299
+17172355 INFO  (qtp5592464-14) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[409]} 0 10
+17172359 INFO  (qtp5592464-16) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[410]} 0 14
+17172378 INFO  (qtp5592464-19) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[412]} 0 6
+17172384 INFO  (qtp5592464-21) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[411]} 0 13
+17173002 INFO  (qtp5592464-18) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[414]} 0 614
+17173068 INFO  (qtp5592464-17) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[413]} 0 676
+17173089 INFO  (qtp5592464-15) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[415]} 0 8
+17173098 INFO  (qtp5592464-13) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[416]} 0 14
+17173112 INFO  (qtp5592464-14) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[417]} 0 6
+17173118 INFO  (qtp5592464-16) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[418]} 0 11
+17173135 INFO  (qtp5592464-21) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[420]} 0 13
+17173146 INFO  (qtp5592464-19) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[419]} 0 24
+17173166 INFO  (qtp5592464-18) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[422]} 0 11
+17173190 INFO  (qtp5592464-17) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[421]} 0 7
+17173410 INFO  (qtp5592464-15) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[424]} 0 171
+17173636 INFO  (qtp5592464-13) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[423]} 0 323
+17174207 INFO  (qtp5592464-14) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[425]} 0 494
+17174315 INFO  (qtp5592464-16) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[426]} 0 557
+17174926 INFO  (qtp5592464-21) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[428]} 0 526
+17175088 INFO  (qtp5592464-19) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[427]} 0 650
+17175269 INFO  (qtp5592464-18) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[429]} 0 142
+17175701 INFO  (qtp5592464-17) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[430]} 0 524
+17175752 INFO  (qtp5592464-15) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{add=[431]} 0 38
+17175792 INFO  (qtp5592464-13) [   x:ehr] o.a.s.u.DirectUpdateHandler2 start commit{,optimize=false,openSearcher=true,waitSearcher=true,expungeDeletes=false,softCommit=false,prepareCommit=false}
+17179456 INFO  (qtp5592464-13) [   x:ehr] o.a.s.c.SolrDeletionPolicy SolrDeletionPolicy.onCommit: commits: num=2
+	commit{dir=NRTCachingDirectory(MMapDirectory@C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\data\index lockFactory=org.apache.lucene.store.NativeFSLockFactory@1d2fc89c; maxCacheMB=48.0 maxMergeSizeMB=4.0),segFN=segments_1a,generation=46}
+	commit{dir=NRTCachingDirectory(MMapDirectory@C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\data\index lockFactory=org.apache.lucene.store.NativeFSLockFactory@1d2fc89c; maxCacheMB=48.0 maxMergeSizeMB=4.0),segFN=segments_1b,generation=47}
+17179456 INFO  (qtp5592464-13) [   x:ehr] o.a.s.c.SolrDeletionPolicy newest commit generation = 47
+17179470 INFO  (qtp5592464-13) [   x:ehr] o.a.s.s.SolrIndexSearcher Opening Searcher@52f03ecc[ehr] main
+17179471 INFO  (qtp5592464-13) [   x:ehr] o.a.s.u.DirectUpdateHandler2 end_commit_flush
+17179471 INFO  (searcherExecutor-7-thread-1-processing-x:ehr) [   x:ehr] o.a.s.c.SolrCore [ehr] Registered new searcher Searcher@52f03ecc[ehr] main{ExitableDirectoryReader(UninvertingDirectoryReader(Uninverting(_1z(5.5.0):C21) Uninverting(_20(5.5.0):C28)))}
+17179483 INFO  (qtp5592464-13) [   x:ehr] o.a.s.u.p.LogUpdateProcessorFactory [ehr]  webapp=/solr path=/update params={version=2.2}{commit=} 0 3691
+17179590 INFO  (qtp5592464-21) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=*:*&spellcheck=true&rows=0&version=2.2&spellcheck.build=true} hits=49 status=0 QTime=0
+17199267 INFO  (qtp5592464-16) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=telmo&hl=true&hl.fl=content,value&rows=100000000&version=2.2} hits=1 status=0 QTime=5
+17203490 INFO  (qtp5592464-14) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=franca&hl=true&hl.fl=content,value&rows=100000000&version=2.2} hits=12 status=0 QTime=54
+17208575 INFO  (qtp5592464-14) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=((elemento_id:13707393)+AND+(cod_versao:1))&fl=file_stream&rows=100000000&version=2.2} hits=1 status=0 QTime=64
+17225939 INFO  (qtp5592464-14) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=franca&hl=true&hl.fl=content,value&rows=100000000&version=2.2} hits=12 status=0 QTime=43
+17232472 INFO  (qtp5592464-16) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=((elemento_id:13708993)+AND+(cod_versao:1))&fl=file_stream&rows=100000000&version=2.2} hits=1 status=0 QTime=5
+17246622 INFO  (qtp5592464-16) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=franca&hl=true&hl.fl=content,value&rows=100000000&version=2.2} hits=12 status=0 QTime=85
+17249957 INFO  (qtp5592464-19) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=((elemento_id:13708593)+AND+(cod_versao:1))&fl=file_stream&rows=100000000&version=2.2} hits=1 status=0 QTime=28
+17250092 INFO  (qtp5592464-18) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=((elemento_id:13708593)+AND+(cod_versao:1))&fl=file_stream&rows=100000000&version=2.2} hits=1 status=0 QTime=11
+17306931 INFO  (qtp5592464-13) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=franca&hl=true&hl.fl=content,value&rows=100000000&version=2.2} hits=12 status=0 QTime=64
+17308596 INFO  (qtp5592464-21) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=((elemento_id:13707393)+AND+(cod_versao:1))&fl=file_stream&rows=100000000&version=2.2} hits=1 status=0 QTime=8
+17313863 INFO  (qtp5592464-19) [   x:ehr] o.a.s.c.S.Request [ehr]  webapp=/solr path=/select params={q=franca&hl=true&hl.fl=content,value&rows=100000000&version=2.2} hits=12 status=0 QTime=63
+17418533 INFO  (ShutdownMonitor) [   ] o.e.j.s.ServerConnector Stopped ServerConnector@6302bbb1{HTTP/1.1}{0.0.0.0:8983}
+17418743 INFO  (ShutdownMonitor) [   ] o.a.s.c.CoreContainer Shutting down CoreContainer instance=1691875296
+17418954 INFO  (coreCloseExecutor-11-thread-1) [   x:ehr] o.a.s.c.SolrCore [ehr]  CLOSING SolrCore org.apache.solr.core.SolrCore@65a4404f
+17419105 INFO  (coreCloseExecutor-11-thread-1) [   x:ehr] o.a.s.u.DirectUpdateHandler2 closing DirectUpdateHandler2{commits=20,autocommits=0,soft autocommits=0,optimizes=0,rollbacks=0,expungeDeletes=0,docsPending=0,adds=0,deletesById=0,deletesByQuery=0,errors=0,cumulative_adds=125,cumulative_deletesById=0,cumulative_deletesByQuery=20,cumulative_errors=0}
+17419105 INFO  (coreCloseExecutor-11-thread-1) [   x:ehr] o.a.s.u.SolrCoreState Closing SolrCoreState
+17419130 INFO  (coreCloseExecutor-11-thread-1) [   x:ehr] o.a.s.u.DefaultSolrCoreState SolrCoreState ref count has reached 0 - closing IndexWriter
+17419130 INFO  (coreCloseExecutor-11-thread-1) [   x:ehr] o.a.s.u.DefaultSolrCoreState closing IndexWriter with IndexWriterCloser
+17419573 INFO  (coreCloseExecutor-11-thread-1) [   x:ehr] o.a.s.c.SolrCore [ehr] Closing main searcher on request.
+17419690 INFO  (coreCloseExecutor-11-thread-1) [   x:ehr] o.a.s.c.CachingDirectoryFactory Closing NRTCachingDirectoryFactory - 2 directories currently being tracked
+17419753 INFO  (coreCloseExecutor-11-thread-1) [   x:ehr] o.a.s.c.CachingDirectoryFactory looking to close C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\data [CachedDir<<refCount=0;path=C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\data;done=false>>]
+17419753 INFO  (coreCloseExecutor-11-thread-1) [   x:ehr] o.a.s.c.CachingDirectoryFactory Closing directory: C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\data
+17419754 INFO  (coreCloseExecutor-11-thread-1) [   x:ehr] o.a.s.c.CachingDirectoryFactory looking to close C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\data\index [CachedDir<<refCount=0;path=C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\data\index;done=false>>]
+17419754 INFO  (coreCloseExecutor-11-thread-1) [   x:ehr] o.a.s.c.CachingDirectoryFactory Closing directory: C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server\solr\ehr\data\index
+17420659 INFO  (ShutdownMonitor) [   ] o.e.j.s.h.ContextHandler Stopped o.e.j.w.WebAppContext@57fffcd7{/solr,file:/C:/Users/Joaogcorreia/Desktop/EHR%20+%20Solr%20+%20IndexDocClinicos/Indexacao-de-Documentos-Clinicos/solr/solr-5.5.0/server/solr-webapp/webapp/,UNAVAILABLE}{C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\solr\solr-5.5.0\server/solr-webapp/webapp}

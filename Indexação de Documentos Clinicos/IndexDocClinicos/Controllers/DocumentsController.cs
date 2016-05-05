@@ -10,17 +10,18 @@ namespace IndexDocClinicos.Controllers
     public class DocumentsController : ApiController
     {
 
-        public string GetFile(string id)
+        public string  GetFile(string id)
         {
-            string[] elems = id.Split(' ');
+            string[] elems = id.Split('_');
+
             var solr = ServiceLocator.Current.GetInstance<ISolrOperations<Contribution>>();
-            var results = solr.Query(new SolrQueryByField("element_id", elems[0]));//UPDATE da erro
+            var results = solr.Query(new SolrQueryByField("elemento_id", elems[0]) && new SolrQueryByField("cod_versao", elems[1]), new QueryOptions
+            {
+                Fields = new[] { "file_stream" }
+            });
 
-            Debug.WriteLine(results[0].Elemento_id);
-            Debug.WriteLine(results[0].Cod_Versao);
             Debug.WriteLine(results[0].File_Stream);
-
-            return "";
+            return results[0].File_Stream;
         }
     }
 }

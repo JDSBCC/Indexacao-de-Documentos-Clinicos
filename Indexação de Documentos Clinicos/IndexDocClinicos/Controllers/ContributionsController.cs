@@ -14,17 +14,17 @@ namespace IndexDocClinicos.Controllers
 
         //private const int rows = 2;
 
-        public List<string> GetAllContributions()
+        public List<Dictionary<string, string>> GetAllContributions()
         {
             return Query("*:*");
         }
 
-        public List<string> GetContribution(string id)
+        public List<Dictionary<string, string>> GetContribution(string id)
         {
             return Query(id);
         }
 
-        public List<string> Query(string text)
+        public List<Dictionary<string, string>> Query(string text)
         {
             var solr = ServiceLocator.Current.GetInstance<ISolrOperations<Contribution>>();
             var results = solr.Query(new SolrQuery(text), new QueryOptions
@@ -38,51 +38,28 @@ namespace IndexDocClinicos.Controllers
 
             CultureInfo ci = new CultureInfo("pt-PT");
             int rIndex = 0;
-            List<string> res = new List<string>();
+            List<Dictionary<string, string>> res = new List<Dictionary<string, string>>();
             foreach (var searchResult in results.Highlights)
             {
                 StringBuilder searchResults = new StringBuilder();
-
-                searchResults.Append("<div id='"+results[rIndex].Elemento_id + "_"+results[rIndex].Cod_Versao+"' class='panel panel-default'><div class='panel-body'>"+
-                                        "<b>" + results[rIndex].First_name + " " + results[rIndex].Last_name +
-                                        " - " + results[rIndex].Dob.ToString("d MMM yyyy", ci) + "</b><br/><small> ");
 
                 foreach (List<string> val in searchResult.Value.Values)
                 {
                     searchResults.Append(string.Format("{0}<br>", string.Join("... ", val.ToArray())));
                 }
-                searchResults.Append("</small><a href='' onclick='getFile();'>Documento</a>&nbsp;-&nbsp;<a href='' onclick=''>Informação Demográfica</a></div></div>");
-                res.Add(searchResults.ToString());
+                res.Add(new Dictionary<string, string>());
+                res[res.Count - 1].Add("elemento_id", results[rIndex].Elemento_id+"");
+                res[res.Count - 1].Add("cod_versao", results[rIndex].Cod_Versao+"");
+                res[res.Count - 1].Add("first_name", results[rIndex].First_name);
+                res[res.Count - 1].Add("last_name", results[rIndex].Last_name);
+                res[res.Count - 1].Add("dob", results[rIndex].Dob.ToString("d MMM yyyy", ci));
+                res[res.Count - 1].Add("text", searchResults.ToString());
+
                 rIndex++;
             }
 
             return res;
         }
-
-        /*[HttpGet]
-        public string GetFile(string id)
-        {
-            /*var solr = ServiceLocator.Current.GetInstance<ISolrOperations<Contribution>>();
-            var results = solr.Query(new SolrQuery(id), new QueryOptions
-            {
-                Fields = new[] { "elemento_id", "cod_versao" }
-            });
-
-            Debug.WriteLine(results[0].Elemento_id);
-            Debug.WriteLine("HERE");
-
-            /*
-            var solr = ServiceLocator.Current.GetInstance<ISolrOperations<Contribution>>();
-            using (MemoryStream stream = new MemoryStream((byte[]) Data.contributions.)
-            {
-                ExtractParameters extract = new ExtractParameters(stream, dataReaderOracle["elemento_id"] + "", dataReaderOracle["nome_original"] + "")
-                {
-                    ExtractOnly = true,
-                    ExtractFormat = ExtractFormat.Text
-                };
-                var response = solr.Extract(extract);
-            return "";
-        }*/
 
         /*[NonAction]
         public IEnumerable<Contribution> QueryPag(string text, int start)//(page-1) * rows + 1

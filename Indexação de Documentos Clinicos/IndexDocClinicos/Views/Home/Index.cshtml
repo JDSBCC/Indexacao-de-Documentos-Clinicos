@@ -28,26 +28,26 @@
 
     <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.2.2.min.js"></script>
     <script>
-        var uri = 'api/contributions';
 
         function formatItem(item) {
-            var d = new Date(item.Dob);
-            var date = d.toDateString();
-            var value = '<button type="button"class="list-group-item"><span style="font-weight: bold;">' + item.First_name + " " + item.Last_name + ' - ' + item.Dob + '</span><br>' +
-                        '<span>metadata: ' + item.Value + '</span><br>' +
-                        '<span>document: ' + item.Content + '</span></button>';
+            var value = "<div class='panel panel-default'><div class='panel-body'>" +
+                        "<b>" + item["first_name"] + " " + item["last_name"] +
+                        " - " + item["dob"] + "</b><br/><small> "+ item["text"] +
+                        "</small><a href='/Home/GetDoc/" + item["elemento_id"] + "_" + item["cod_versao"] + "'>Documento</a>&nbsp;-&nbsp;<a href='' onclick=''>Informação Demográfica</a></div></div>";
             return value;
         }
 
         function find() {
+            var uri = 'api/contributions';
             var val = $('#contId').val();
 
             $.getJSON(uri + '/' + val)
                 .done(function (data) {
+                    contributions = data;
                     $('#contribution').text("");
                     $.each(data, function (key, item) {
                         // Add a list item for the product.
-                        $('#contribution').append(item);
+                        $('#contribution').append(formatItem(item));
                     });
                 })
                 .fail(function (jqXHR, textStatus, err) {
@@ -56,15 +56,15 @@
         }
 
         function getFile() {
-            var url = 'api/documents';
-            var val = "13706593 1";
+            var uri = 'api/documents';
+            var val = $("#link").closest("div.panel-default").attr("id");
+            var final_url = "@Url.Action("GetDoc", "HomeController", new { id="key"})";
+            final_url = final_url.replace("key", val);
+            alert(final_url);
 
-            $.getJSON(url + '/' + val)
-                .done(function (data) {
-                    $.each(data, function (key, item) {
-                        
-                    });
-                })
+            $.get(final_url, null, function (data) {
+                alert(data);
+            });
         }
     </script>
 </div>
