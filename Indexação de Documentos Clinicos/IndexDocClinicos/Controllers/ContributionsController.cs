@@ -43,7 +43,8 @@ namespace IndexDocClinicos.Controllers
             {
                 StringBuilder searchResults = new StringBuilder();
 
-                searchResults.Append("<div class='panel panel-default'><div class='panel-body'><b>" + results[rIndex].First_name + " " + results[rIndex].Last_name +
+                searchResults.Append("<div id='"+results[rIndex].Elemento_id + "_"+results[rIndex].Cod_Versao+"' class='panel panel-default'><div class='panel-body'>"+
+                                        "<b>" + results[rIndex].First_name + " " + results[rIndex].Last_name +
                                         " - " + results[rIndex].Dob.ToString("d MMM yyyy", ci) + "</b><br/><small> ");
 
                 foreach (List<string> val in searchResult.Value.Values)
