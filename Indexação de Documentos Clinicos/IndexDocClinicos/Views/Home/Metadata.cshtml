@@ -1,0 +1,68 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="body">
+    <div class="container-fluid">
+        <hr>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>@ViewData["Nome"]</h2>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    
+                    <p><b>Sexo:</b> @ViewData["Sexo"] </p>
+
+                    <p><b>Data de nascimento:</b> @ViewData["Data de nascimento"] </p>
+
+                    <p><b>Morada:</b> @ViewData["Morada"] </p>
+
+                    <p><b>Código Postal:</b> @ViewData["Código Postal"] </p> 
+
+                    <p><b>Localidade:</b> @ViewData["Localidade"] </p>
+            
+                    @if(!ViewData["Telefone 1"].Equals("-"))
+                    {
+                        <p><b>Telefone 1:</b> @ViewData["Telefone 1"] </p>
+                    }
+
+                    @if(!ViewData["Telefone 2"].Equals("-"))
+                    {
+                        <p><b>Telefone 2:</b> @ViewData["Telefone 2"] </p>
+                    }
+
+                    @if(!ViewData["Fax"].Equals("-"))
+                    {
+                        <p><b>Fax:</b> @ViewData["Fax"] </p>
+                    }
+
+                    <p><b>Cartão cidadão:</b> @ViewData["Cartão cidadão"] </p>
+
+                    @if(!ViewData["Nº Contribuinte"].Equals("-"))
+                    {
+                        <p><b>Nº Contribuinte:</b> @ViewData["Nº Contribuinte"] </p>
+                    }
+
+                    <p><b>Nº Beneficiário:</b> @ViewData["Nº Beneficiário"] </p>
+
+                    @if(!ViewData["Nº Serviço Nacional Saúde"].Equals("-"))
+                    {
+                        <p><b>Nº Serviço Nacional Saúde:</b> @ViewData["Nº Serviço Nacional Saúde"] </p>
+                    }
+
+                    @if (!ViewData["Estado Civil"].Equals("-"))
+                    {
+                        <p><b>Estado Civil:</b> @ViewData["Estado Civil"] </p>
+                    }
+                </div>
+            </div>
+        </div>
+        <hr>
+    </div>
+</div>

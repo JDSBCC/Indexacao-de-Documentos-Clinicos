@@ -5,7 +5,7 @@ Select * from er_documento;
 select * from er_elemento where documento_id = 728745; -- where documento_id  = '';
 --select * from er_tipo_elemento;
 select * from er_ficheiro where elemento_id>13706193 AND elemento_id<13808193;
-select * from er_ficheiro where elemento_id=13706593;
+select * from er_ficheiro where elemento_id=13706393;
 
 --documents with more than 1 element
 select ed.documento_id 

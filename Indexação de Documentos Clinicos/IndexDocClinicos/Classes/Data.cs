@@ -192,6 +192,7 @@ namespace IndexDocClinicos.Classes
                     contributions[i].Ehr_id = Convert.ToInt32(docs[i + value]["ehr_id"]);
                     contributions[i].Archetype_id = ((List<object>)docs[i + value]["archetype_id"]).Cast<string>().ToList();
                     contributions[i].Template_id = docs[i + value]["template_id"] + "";
+                    contributions[i].Uid = docs[i + value]["uid"] + "";
                     contributions[i].Value = ((List<object>)docs[i + value]["value"]).Cast<string>().ToList();
                     contributions[i].First_name = docs[i + value]["first_name"] + "";
                     contributions[i].Last_name = docs[i + value]["last_name"] + "";
@@ -272,7 +273,7 @@ namespace IndexDocClinicos.Classes
 
                 //contribution
                 List<int> id = new List<int>();
-                MySqlCommand cmd1 = new MySqlCommand("SELECT cont.id, cont.ehr_id, ci.id as comp_id " +
+                MySqlCommand cmd1 = new MySqlCommand("SELECT cont.id, cont.ehr_id, v.uid, ci.id as comp_id " +
                                                     "FROM contribution cont, version v, composition_index ci " +
                                                     "WHERE cont.id=v.contribution_id AND v.data_id=ci.id AND ci.last_version=1", connMySQL);
                 dataReaderMySQL = cmd1.ExecuteReader();
@@ -281,6 +282,7 @@ namespace IndexDocClinicos.Classes
                     Dictionary<string, object> dict = new Dictionary<string, object>();
                     dict.Add("id", dataReaderMySQL["id"]);
                     dict.Add("ehr_id", dataReaderMySQL["ehr_id"]);
+                    dict.Add("uid", dataReaderMySQL["uid"]);
                     id.Add(Convert.ToInt32(dataReaderMySQL["comp_id"]));
                     docs.Add(dict);
                 }

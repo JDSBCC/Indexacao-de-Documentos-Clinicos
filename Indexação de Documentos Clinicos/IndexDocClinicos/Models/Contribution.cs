@@ -18,6 +18,9 @@ namespace IndexDocClinicos.Models
         [SolrField("template_id")]
         public string Template_id { get; set; }
 
+        [SolrField("uid")]
+        public string Uid { get; set; }//version uid
+
         [SolrField("value")]
         public List<string> Value { get; set; }
 

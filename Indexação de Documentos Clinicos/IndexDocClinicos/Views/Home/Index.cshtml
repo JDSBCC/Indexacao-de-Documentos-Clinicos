@@ -8,9 +8,9 @@
                     </div>
                     <div class="col-md-12">
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Search for..." id="contId" />
+                            <input type="text" class="form-control" placeholder="Procurar por..." id="contId" />
                             <span class="input-group-btn">
-                                <button class="btn btn-default" type="button" value="Search" onclick="find();">Search</button>
+                                <button id="searchBtn" class="btn btn-default" type="button" value="Search" onclick="find();">Procurar</button>
                             </span>
                         </div>
                     </div>
@@ -28,12 +28,22 @@
 
     <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.2.2.min.js"></script>
     <script>
+        $(document).ready(function () {
+            find();
+
+            $("#contId").keypress(function (event) {
+                if (event.keyCode == 13) {
+                    $("#searchBtn").click();
+                }
+            });
+        });
 
         function formatItem(item) {
             var value = "<div class='panel panel-default'><div class='panel-body'>" +
                         "<b>" + item["first_name"] + " " + item["last_name"] +
                         " - " + item["dob"] + "</b><br/><small> "+ item["text"] +
-                        "</small><a href='/Home/GetDoc/" + item["elemento_id"] + "_" + item["cod_versao"] + "'>Documento</a>&nbsp;-&nbsp;<a href='' onclick=''>Informação Demográfica</a></div></div>";
+                        "</small><a href='/Home/Document/" + item["elemento_id"] + "_" + item["cod_versao"] + "'>Documento</a>&nbsp;-&nbsp;" +
+                        "<a href='/Home/Metadata/" + item["uid"] + "'>Informação Demográfica</a></div></div>";
             return value;
         }
 
@@ -43,28 +53,14 @@
 
             $.getJSON(uri + '/' + val)
                 .done(function (data) {
-                    contributions = data;
                     $('#contribution').text("");
                     $.each(data, function (key, item) {
-                        // Add a list item for the product.
                         $('#contribution').append(formatItem(item));
                     });
                 })
                 .fail(function (jqXHR, textStatus, err) {
                     $('#contribution').text('Error: ' + err);
                 });
-        }
-
-        function getFile() {
-            var uri = 'api/documents';
-            var val = $("#link").closest("div.panel-default").attr("id");
-            var final_url = "@Url.Action("GetDoc", "HomeController", new { id="key"})";
-            final_url = final_url.replace("key", val);
-            alert(final_url);
-
-            $.get(final_url, null, function (data) {
-                alert(data);
-            });
         }
     </script>
 </div>
