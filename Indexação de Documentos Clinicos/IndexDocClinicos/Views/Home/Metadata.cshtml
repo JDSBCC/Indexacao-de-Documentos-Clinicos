@@ -19,7 +19,7 @@
                     
                     <p><b>Sexo:</b> @ViewData["Sexo"] </p>
 
-                    <p><b>Data de nascimento:</b> @ViewData["Data de nascimento"] </p>
+                    <p><b>Data de nascimento:</b> @DateTime.ParseExact(ViewData["Data de nascimento"]+"", "yyyyMMdd", System.Globalization.CultureInfo.InvariantCulture).ToString("d MMMM yyyy", new System.Globalization.CultureInfo("pt-PT")) </p>
 
                     <p><b>Morada:</b> @ViewData["Morada"] </p>
 

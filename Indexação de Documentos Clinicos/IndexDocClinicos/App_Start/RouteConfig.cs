@@ -13,6 +13,12 @@ namespace IndexDocClinicos
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            /*routes.MapRoute(
+                name: "Pagination",
+                url: "{controller}/{action}/{query}/{startIndex}",
+                defaults: new { controller = "Home", action = "Index", startIndex = 0, pageSize = 20 }
+            );*/
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

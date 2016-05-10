@@ -20,10 +20,17 @@
         <div class="container" style="padding-top: 150px;">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="list-group" id="contribution" />
+                    <div class="list-group" id="contribution"/>
                 </div>
             </div>
         </div>
+        <ul class="pagination">
+          <li><a href="#">1</a></li>
+          <li><a href="#">2</a></li>
+          <li><a href="#">3</a></li>
+          <li><a href="#">4</a></li>
+          <li><a href="#">5</a></li>
+        </ul>
     </div>
 
     <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.2.2.min.js"></script>
@@ -38,29 +45,16 @@
             });
         });
 
-        function formatItem(item) {
-            var value = "<div class='panel panel-default'><div class='panel-body'>" +
-                        "<b>" + item["first_name"] + " " + item["last_name"] +
-                        " - " + item["dob"] + "</b><br/><small> "+ item["text"] +
-                        "</small><a href='/Home/Document/" + item["elemento_id"] + "_" + item["cod_versao"] + "'>Documento</a>&nbsp;-&nbsp;" +
-                        "<a href='/Home/Metadata/" + item["uid"] + "'>Informação Demográfica</a></div></div>";
-            return value;
-        }
-
         function find() {
-            var uri = 'api/contributions';
-            var val = $('#contId').val();
-
-            $.getJSON(uri + '/' + val)
-                .done(function (data) {
-                    $('#contribution').text("");
-                    $.each(data, function (key, item) {
-                        $('#contribution').append(formatItem(item));
-                    });
-                })
-                .fail(function (jqXHR, textStatus, err) {
-                    $('#contribution').text('Error: ' + err);
-                });
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("Search","Home")',
+                data: {id: $('#contId').val()},
+                datatype: "html",
+                success: function (data) { 
+                    $('#contribution').html(data);
+                }
+            });
         }
     </script>
 </div>

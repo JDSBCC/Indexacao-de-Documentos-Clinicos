@@ -17,18 +17,18 @@ namespace IndexDocClinicos.Controllers
 
         public List<Dictionary<string, string>> GetAllContributions()
         {
-            return Query("*:*");
+            return Query(SolrQuery.All);
         }
 
         public List<Dictionary<string, string>> GetContribution(string id)
         {
-            return Query(id);
+            return Query(/*new SolrQueryByField("content", id) || new SolrQueryByField("value", id)*/ new SolrQuery(id.Equals("") ? "*:*" : id));
         }
 
-        public List<Dictionary<string, string>> Query(string text)
+        public List<Dictionary<string, string>> Query(ISolrQuery query)
         {
             var solr = ServiceLocator.Current.GetInstance<ISolrOperations<Contribution>>();
-            var results = solr.Query(new SolrQuery(text), new QueryOptions
+            var results = solr.Query(query, new QueryOptions
             {
                 Highlight = new HighlightingParameters
                 {
@@ -36,10 +36,14 @@ namespace IndexDocClinicos.Controllers
                 }
             });
 
+            return FormatData(results);
+        }
 
+        public List<Dictionary<string, string>> FormatData(SolrQueryResults<Contribution> results)
+        {
+            List<Dictionary<string, string>> res = new List<Dictionary<string, string>>();
             CultureInfo ci = new CultureInfo("pt-PT");
             int rIndex = 0;
-            List<Dictionary<string, string>> res = new List<Dictionary<string, string>>();
             foreach (var searchResult in results.Highlights)
             {
                 StringBuilder searchResults = new StringBuilder();
@@ -49,12 +53,11 @@ namespace IndexDocClinicos.Controllers
                     searchResults.Append(string.Format("{0}<br>", string.Join("... ", val.ToArray())));
                 }
                 res.Add(new Dictionary<string, string>());
-                res[res.Count - 1].Add("elemento_id", results[rIndex].Elemento_id+"");
-                res[res.Count - 1].Add("cod_versao", results[rIndex].Cod_Versao + "");
+                res[res.Count - 1].Add("document_id", results[rIndex].Elemento_id + "_" + results[rIndex].Cod_Versao);
                 res[res.Count - 1].Add("uid", results[rIndex].Uid + "");
                 res[res.Count - 1].Add("first_name", results[rIndex].First_name);
                 res[res.Count - 1].Add("last_name", results[rIndex].Last_name);
-                res[res.Count - 1].Add("dob", results[rIndex].Dob.ToString("d MMM yyyy", ci));
+                res[res.Count - 1].Add("dob", results[rIndex].Dob.ToString("d MMMM yyyy", ci));
                 res[res.Count - 1].Add("text", searchResults.ToString());
 
                 rIndex++;

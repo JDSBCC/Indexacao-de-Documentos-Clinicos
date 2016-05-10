@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
 using System.Web.Mvc;
 using System.Xml;
@@ -14,6 +15,11 @@ namespace IndexDocClinicos.Controllers
             return View();
         }
 
+        public PartialViewResult Search(string id)
+        {
+            ViewBag.contributions = new ContributionsController().GetContribution(id);
+            return PartialView("ResultsPartial");
+        }
 
         public ActionResult Document(string id)
         {
