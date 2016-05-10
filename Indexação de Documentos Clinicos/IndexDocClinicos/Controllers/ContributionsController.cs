@@ -15,14 +15,14 @@ namespace IndexDocClinicos.Controllers
 
         //private const int rows = 2;
 
-        public List<Dictionary<string, string>> GetAllContributions()
+        public List<Dictionary<string, string>> GetContributions()
         {
             return Query(SolrQuery.All);
         }
 
-        public List<Dictionary<string, string>> GetContribution(string id)
+        public List<Dictionary<string, string>> GetContributions(string id)
         {
-            return Query(/*new SolrQueryByField("content", id) || new SolrQueryByField("value", id)*/ new SolrQuery(id.Equals("") ? "*:*" : id));
+            return Query(/*new SolrQueryByField("content", id) || new SolrQueryByField("value", id)*/ new SolrQuery(id));
         }
 
         public List<Dictionary<string, string>> Query(ISolrQuery query)
@@ -33,7 +33,9 @@ namespace IndexDocClinicos.Controllers
                 Highlight = new HighlightingParameters
                 {
                     Fields = new[] { "content", "value" },
-                }
+                },
+                Rows = 10,
+                Start = 0
             });
 
             return FormatData(results);

@@ -1,16 +1,33 @@
-﻿@if (ViewBag.contributions.Count!=0){
-    foreach (var cont in ViewBag.contributions)
-    {
-        <div class='panel panel-default'>
-            <div class='panel-body'>
-                <b>@cont["first_name"] @cont["last_name"] - @cont["dob"]</b><br/>
-                <small> @Html.Raw(cont["text"])</small>
-                @Html.ActionLink("Documento", "Document", "Home", new { id=cont["document_id"]}, null)
-                 - 
-                @Html.ActionLink("Informação Demográfica", "Metadata", "Home", new { id=cont["uid"]}, null)
-            </div>
+﻿<div class="row">
+    <div class="col-md-12">
+        <div class="list-group" id="contribution">
+            @if (ViewBag.contributions.Count!=0){
+                foreach (var cont in ViewBag.contributions)
+                {
+                    <div class='panel panel-default'>
+                        <div class='panel-body'>
+                            <b>@cont["first_name"] @cont["last_name"] - @cont["dob"]</b><br/>
+                            <small> @Html.Raw(cont["text"])</small>
+                            @Html.ActionLink("Documento", "Document", "Home", new { id=cont["document_id"]}, null)
+                                - 
+                            @Html.ActionLink("Informação Demográfica", "Metadata", "Home", new { id=cont["uid"]}, null)
+                        </div>
+                    </div>
+                }
+            }else{
+                <h5>Nenhum resultado encontrado</h5>
+            }
         </div>
-    }
-}else{
-    <h5>Nenhum resultado encontrado</h5>
-}
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <ul class="pagination">
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+        </ul>
+    </div>
+</div>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IndexDocClinicos.Models;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
@@ -17,7 +18,12 @@ namespace IndexDocClinicos.Controllers
 
         public PartialViewResult Search(string id)
         {
-            ViewBag.contributions = new ContributionsController().GetContribution(id);
+            if (id.Equals("")) {
+                ViewBag.contributions = new ContributionsController().GetContributions();
+            } else {
+                ViewBag.contributions = new ContributionsController().GetContributions(id);
+            }
+
             return PartialView("ResultsPartial");
         }
 

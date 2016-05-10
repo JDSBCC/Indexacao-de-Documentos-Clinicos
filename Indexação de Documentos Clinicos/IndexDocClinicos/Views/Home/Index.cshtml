@@ -17,20 +17,7 @@
                 </div>
             </div>
         </nav>
-        <div class="container" style="padding-top: 150px;">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="list-group" id="contribution"/>
-                </div>
-            </div>
-        </div>
-        <ul class="pagination">
-          <li><a href="#">1</a></li>
-          <li><a href="#">2</a></li>
-          <li><a href="#">3</a></li>
-          <li><a href="#">4</a></li>
-          <li><a href="#">5</a></li>
-        </ul>
+        <div id="results" class="container" style="padding-top: 150px;"/>
     </div>
 
     <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.2.2.min.js"></script>
@@ -52,7 +39,7 @@
                 data: {id: $('#contId').val()},
                 datatype: "html",
                 success: function (data) { 
-                    $('#contribution').html(data);
+                    $('#results').html(data);
                 }
             });
         }
