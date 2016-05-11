@@ -11,20 +11,36 @@ namespace IndexDocClinicos.Controllers
 {
     public class HomeController : Controller
     {
+        private SearchView searchModel;
+
+        public HomeController()
+        {
+            searchModel = new SearchView();
+            ViewBag.searchModel = searchModel;
+        }
+
         public ActionResult Index()
         {
+            //ViewBag.TotalResults = 0;
             return View();
         }
 
-        public PartialViewResult Search(string id)
+        public /*PartialViewResult*/ActionResult Search(string id, int page)
         {
-            if (id.Equals("")) {
-                ViewBag.contributions = new ContributionsController().GetContributions();
-            } else {
-                ViewBag.contributions = new ContributionsController().GetContributions(id);
+            
+            searchModel.SearchTerm = id;
+            searchModel.Page = page - 1;
+            List<Dictionary<string, string>> res = new ContributionsController().GetContributions(searchModel.SearchTerm, searchModel.StartPage, searchModel.Rows);
+            searchModel.Results = res;
+            if (res.Count==0)
+            {
+                searchModel.Reset();
+                return View("Index");
             }
+            searchModel.TotalResults = Convert.ToInt32(res[0]["total_num"]);
+            ViewBag.searchModel = searchModel;
 
-            return PartialView("ResultsPartial");
+            return View("Index");/*PartialView("ResultsPartial");*/
         }
 
         public ActionResult Document(string id)

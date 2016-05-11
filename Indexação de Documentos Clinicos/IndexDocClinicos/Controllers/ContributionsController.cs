@@ -15,17 +15,17 @@ namespace IndexDocClinicos.Controllers
 
         //private const int rows = 2;
 
-        public List<Dictionary<string, string>> GetContributions()
+        public List<Dictionary<string, string>> GetContributions(int startPage, int rows)
         {
-            return Query(SolrQuery.All);
+            return Query(SolrQuery.All, startPage, rows);
         }
 
-        public List<Dictionary<string, string>> GetContributions(string id)
+        public List<Dictionary<string, string>> GetContributions(string id, int startPage, int rows)
         {
-            return Query(/*new SolrQueryByField("content", id) || new SolrQueryByField("value", id)*/ new SolrQuery(id));
+            return Query(/*new SolrQueryByField("content", id) || new SolrQueryByField("value", id)*/ new SolrQuery(id), startPage, rows);
         }
 
-        public List<Dictionary<string, string>> Query(ISolrQuery query)
+        public List<Dictionary<string, string>> Query(ISolrQuery query, int startPage, int rows)
         {
             var solr = ServiceLocator.Current.GetInstance<ISolrOperations<Contribution>>();
             var results = solr.Query(query, new QueryOptions
@@ -34,8 +34,8 @@ namespace IndexDocClinicos.Controllers
                 {
                     Fields = new[] { "content", "value" },
                 },
-                Rows = 10,
-                Start = 0
+                Rows = rows,
+                Start = startPage
             });
 
             return FormatData(results);
@@ -61,10 +61,10 @@ namespace IndexDocClinicos.Controllers
                 res[res.Count - 1].Add("last_name", results[rIndex].Last_name);
                 res[res.Count - 1].Add("dob", results[rIndex].Dob.ToString("d MMMM yyyy", ci));
                 res[res.Count - 1].Add("text", searchResults.ToString());
+                res[res.Count - 1].Add("total_num", results.NumFound + "");
 
                 rIndex++;
             }
-
             return res;
         }
 

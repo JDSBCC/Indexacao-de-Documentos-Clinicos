@@ -66,7 +66,7 @@ namespace IndexDocClinicos.Classes
                     "join gr_doente_local dl on v.entidade_pai_id=dl.entidade_id " +
                     "left join er_sexo s on c.sexo_id=s.sexo_id " +
                     "left join er_estado_civil ec on ec.estado_civil_id=c.estado_civil_id " +
-                    "where f.elemento_id>13706193 AND f.elemento_id<13707193", connOracle);//REMOVE restriçao de elemento_id
+                    "where f.elemento_id>13706193 AND f.elemento_id<13708193", connOracle);//REMOVE restriçao de elemento_id
                 dataReaderOracle = cmd.ExecuteReader();
                 while (dataReaderOracle.Read())
                 {
