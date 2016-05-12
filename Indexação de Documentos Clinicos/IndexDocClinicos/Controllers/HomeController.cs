@@ -22,15 +22,15 @@ namespace IndexDocClinicos.Controllers
         public ActionResult Index()
         {
             //ViewBag.TotalResults = 0;
-            return View();
+            return View("Index");
         }
 
-        public /*PartialViewResult*/ActionResult Search(string id, int page)
+        public ActionResult Search(string id, int page)
         {
             
             searchModel.SearchTerm = id;
             searchModel.Page = page - 1;
-            List<Dictionary<string, string>> res = new ContributionsController().GetContributions(searchModel.SearchTerm, searchModel.StartPage, searchModel.Rows);
+            List<Dictionary<string, string>> res = new ContributionsController().GetContributions(searchModel.SearchTerm, searchModel.Start, searchModel.Rows);
             searchModel.Results = res;
             if (res.Count==0)
             {
@@ -40,7 +40,7 @@ namespace IndexDocClinicos.Controllers
             searchModel.TotalResults = Convert.ToInt32(res[0]["total_num"]);
             ViewBag.searchModel = searchModel;
 
-            return View("Index");/*PartialView("ResultsPartial");*/
+            return View("Index");
         }
 
         public ActionResult Document(string id)
