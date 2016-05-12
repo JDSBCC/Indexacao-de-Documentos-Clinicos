@@ -21,7 +21,6 @@ namespace IndexDocClinicos.Controllers
 
         public ActionResult Index()
         {
-            //ViewBag.TotalResults = 0;
             return View("Index");
         }
 

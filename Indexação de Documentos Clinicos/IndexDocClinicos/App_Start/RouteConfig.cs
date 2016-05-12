@@ -18,12 +18,6 @@ namespace IndexDocClinicos
                 url: "{controller}/{action}/{id}/{page}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional, page = UrlParameter.Optional }
             );
-
-            /*routes.MapRoute(
-                name: "Pagination",
-                url: "{controller}/{action}/{id}/{page}",
-                defaults: new { controller = "Home", action = "Index", id = "*:*", page=0 }
-            );*/
         }
     }
 }
