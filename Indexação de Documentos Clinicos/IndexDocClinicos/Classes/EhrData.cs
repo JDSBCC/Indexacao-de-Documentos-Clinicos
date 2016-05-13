@@ -3,6 +3,7 @@ using MySql.Data.MySqlClient;
 using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Diagnostics;
 using System.Text.RegularExpressions;
 
@@ -10,9 +11,6 @@ namespace IndexDocClinicos.Classes
 {
     public class EhrData
     {
-        private OracleConnection connOracle = null;
-        private OracleDataReader dataReaderOracle = null;
-
         private MySqlConnection connMySQL = null;
         private MySqlDataReader dataReaderMySQL = null;
 
@@ -26,9 +24,7 @@ namespace IndexDocClinicos.Classes
         public EhrData(List<Patient> patients)
         {
             //start connections to dbs
-            connOracle = new OracleConnection();
-            connOracle.ConnectionString = "Data Source=(DESCRIPTION= (ADDRESS= (PROTOCOL=TCP)(Host=10.84.5.13)(Port=1521))(CONNECT_DATA= (SID=EVFDEV)));User Id=eresults_v2;Password=eresults_v2";
-            connMySQL = new MySqlConnection("server=localhost;port=3306;database=ehrserver;userid=root;password=12345;");
+            connMySQL = new MySqlConnection(ConfigurationManager.AppSettings["EHR_db"]);
 
             //init variables
             organization = new Organization
@@ -57,7 +53,7 @@ namespace IndexDocClinicos.Classes
         public string getEhrUidForSubject(string patientUid){
             string tempUrl = "format=json";
             tempUrl += "&subjectUid=" + patientUid;
-            Request.Get("http://localhost:8090/ehr/rest/ehrForSubject", tempUrl, token);
+            Request.Get(ConfigurationManager.AppSettings["EHR_rest"] + "/ehrForSubject", tempUrl, token);
             //Debug.WriteLine(Request.data["uid"]);
             return Request.data["uid"]+"";
         }
@@ -96,7 +92,7 @@ namespace IndexDocClinicos.Classes
             string tempUrl = "username=admin";
             tempUrl += "&password=admin";
             tempUrl += "&organization=2222";
-            Request.Post("http://localhost:8090/ehr/rest/login", tempUrl);
+            Request.Post(ConfigurationManager.AppSettings["EHR_rest"] + "/login", tempUrl);
             token = Request.data["token"].ToString();
         }
 
@@ -114,7 +110,7 @@ namespace IndexDocClinicos.Classes
                 tempUrl += "&createEhr=true";
                 tempUrl += "&organizationUid=" + organization.Uid;
                 tempUrl += "&uid=" + patient.Uid;
-                Request.Post("http://localhost:8090/ehr/rest/createPerson", tempUrl, token, "application/json");
+                Request.Post(ConfigurationManager.AppSettings["EHR_rest"] + "/createPerson", tempUrl, token, "application/json");
             }
         }
 
@@ -165,7 +161,7 @@ namespace IndexDocClinicos.Classes
                 string tempUrl = "ehrUid=" + getEhrUidForSubject(patient["uid"]);
                 tempUrl += "&auditSystemId=popo";
                 tempUrl += "&auditCommitter=Joao";
-                Request.Post("http://localhost:8090/ehr/rest/commit", tempUrl, token, "application/json", text);
+                Request.Post(ConfigurationManager.AppSettings["EHR_rest"] + "/commit", tempUrl, token, "application/json", text);
                 //Debug.WriteLine(Request.dataXML);
             }
         }

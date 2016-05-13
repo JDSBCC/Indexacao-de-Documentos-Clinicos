@@ -3,6 +3,7 @@ using Microsoft.Practices.ServiceLocation;
 using SolrNet;
 using SolrNet.Commands.Parameters;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Diagnostics;
 using System.Globalization;
 using System.Text;
@@ -55,7 +56,7 @@ namespace IndexDocClinicos.Controllers
                     searchResults.Append(string.Format("{0}<br>", string.Join("... ", val.ToArray())));
                 }
                 res.Add(new Dictionary<string, string>());
-                res[res.Count - 1].Add("document_id", results[rIndex].Elemento_id + "_" + results[rIndex].Cod_Versao);
+                res[res.Count - 1].Add("documento_url", ConfigurationManager.AppSettings["FileView"] + "elemId=" + results[rIndex].Elemento_id + "&docId=" + results[rIndex].Documento_id);
                 res[res.Count - 1].Add("uid", results[rIndex].Uid + "");
                 res[res.Count - 1].Add("first_name", results[rIndex].First_name);
                 res[res.Count - 1].Add("last_name", results[rIndex].Last_name);

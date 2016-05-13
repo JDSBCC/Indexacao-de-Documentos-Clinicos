@@ -7,14 +7,12 @@ namespace IndexDocClinicos.Models
     {
         public int Elemento_id { get; set; }
 
-        public int Cod_Versao { get; set; }
+        public int Documento_id { get; set; }
 
         public string Content { get; set; }
 
         public int Entidade_id { get; set; }
 
         public int Doente { get; set; }
-
-        public string File_Stream { get; set; }
     }
 }

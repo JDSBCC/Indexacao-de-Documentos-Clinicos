@@ -6,6 +6,7 @@ using SolrNet;
 using SolrNet.Exceptions;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -52,12 +53,11 @@ namespace IndexDocClinicos.Classes
             try
             {
                 connOracle = new OracleConnection();
-                connOracle.ConnectionString = "Data Source=(DESCRIPTION= (ADDRESS= (PROTOCOL=TCP)(Host=10.84.5.13)(Port=1521))(CONNECT_DATA= (SID=EVFDEV)));User Id=eresults_v2;Password=eresults_v2";
+                connOracle.ConnectionString = ConfigurationManager.AppSettings["Eresults_v2_db"];
                 connOracle.Open();
 
-                OracleCommand cmd = new OracleCommand("select f.*, dl.doente, ge.*, c.*, s.sigla, s.descricao, ec.descricao as estado_civil from er_ficheiro f " +
-                    "join (select elemento_id, max(cod_versao) as max_versao from er_ficheiro group by elemento_id) fic on fic.elemento_id=f.elemento_id and fic.max_versao=f.cod_versao " +
-                    "join er_elemento e on e.elemento_id=f.elemento_id " +
+                OracleCommand cmd = new OracleCommand("select d.documento_id, f.*, dl.doente, ge.*, c.*, s.sigla, s.descricao, ec.descricao as estado_civil from er_ficheiro f " +
+                    "join er_elemento e on e.elemento_id=f.elemento_id and e.versao_activa='S' " +
                     "join er_documento d on d.documento_id=e.documento_id " +
                     "join gr_visita_documento vd on d.documento_id=vd.documento_id " +
                     "join gr_visita v on vd.visita_id=v.visita_id " +
@@ -66,7 +66,7 @@ namespace IndexDocClinicos.Classes
                     "join gr_doente_local dl on v.entidade_pai_id=dl.entidade_id " +
                     "left join er_sexo s on c.sexo_id=s.sexo_id " +
                     "left join er_estado_civil ec on ec.estado_civil_id=c.estado_civil_id " +
-                    "where f.elemento_id>13706193 AND f.elemento_id<13708193", connOracle);//REMOVE restriçao de elemento_id
+                    "where f.elemento_id>13706193 AND f.elemento_id<13716193", connOracle);//REMOVE restriçao de elemento_id
                 dataReaderOracle = cmd.ExecuteReader();
                 while (dataReaderOracle.Read())
                 {
@@ -106,11 +106,10 @@ namespace IndexDocClinicos.Classes
                 Document doc = new Document
                 {
                     Elemento_id = Convert.ToInt32(dataReaderOracle["elemento_id"]),
-                    Cod_Versao = Convert.ToInt32(dataReaderOracle["cod_versao"]),
+                    Documento_id = Convert.ToInt32(dataReaderOracle["documento_id"]),
                     Content = response.Content.Replace("\n", " "),
                     Entidade_id = Convert.ToInt32(dataReaderOracle["entidade_id"]),
-                    Doente = Convert.ToInt32(dataReaderOracle["doente"]),
-                    File_Stream = Convert.ToBase64String((byte[])dataReaderOracle["file_stream"])
+                    Doente = Convert.ToInt32(dataReaderOracle["doente"])
                 };
                 documents.Add(doc);
 
@@ -169,11 +168,10 @@ namespace IndexDocClinicos.Classes
                 contributions.Add(new Contribution
                 {
                     Elemento_id = doc.Elemento_id,
-                    Cod_Versao = doc.Cod_Versao,
+                    Documento_id = doc.Documento_id,
                     Content = doc.Content,
                     Entidade_id = doc.Entidade_id,
                     Doente = doc.Doente,
-                    File_Stream = doc.File_Stream
                 });
             }
         }
@@ -263,8 +261,7 @@ namespace IndexDocClinicos.Classes
         {
 
             List<Dictionary<string, object>> docs = new List<Dictionary<string, object>>();
-            string cs = @"server=localhost;port=3306;database=ehrserver;
-            userid=root;password=12345;";
+            string cs = ConfigurationManager.AppSettings["EHR_db"];
 
             try
             {

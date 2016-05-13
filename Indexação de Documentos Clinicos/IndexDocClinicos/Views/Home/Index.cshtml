@@ -10,7 +10,7 @@
                         <div class="input-group">
                             <input type="text" class="form-control" placeholder="Procurar por..." id="contId" value="@ViewBag.searchModel.SearchTerm"/>
                             <span class="input-group-btn">
-                                <button id="searchBtn" class="btn btn-default" type="button" value="Search" onclick="find();">Procurar</button>
+                                <button id="searchBtn" class="btn btn-default" type="button" value="Search" onclick="find(1);">Procurar</button>
                             </span>
                         </div>
                     </div>
@@ -24,25 +24,7 @@
                 </div>
             </div>
             <div class="row">
-                <div id="pagination" class="col-md-12">
-                    @if (ViewBag.searchModel.TotalResults != 0 && ViewBag.searchModel.NumberOfPages > 1)
-                    {
-                        <ul class="pagination">
-                            @{
-                                if (ViewBag.searchModel.Page!=0){
-                                    <li><a class="pg" href="javascript:void(0)" id="@ViewBag.searchModel.PreviousPage" onclick="changePage(@ViewBag.searchModel.PreviousPage);">Anterior</a></li>
-                                }
-                                for (int i = ViewBag.searchModel.StartPage+1; i <= ViewBag.searchModel.LastPage+1; i++)
-                                {
-                                            <li><a class="pg" href="javascript:void(0)" id="@i" onclick="changePage(@i);">@i</a></li>
-                                }
-                                if(ViewBag.searchModel.Page!=ViewBag.searchModel.NumberOfPages-1){
-                                    <li><a class="pg" href="javascript:void(0)" id="@ViewBag.searchModel.NextPage" onclick="changePage(@ViewBag.searchModel.NextPage);">Próximo</a></li>
-                                }
-                            }
-                        </ul>
-                    }
-                </div>
+                <div id="pagination" class="col-md-12">@Html.Partial("PaginationPartial")</div>
             </div>
         </div>
     </div>
@@ -63,22 +45,35 @@
                 });
             });
 
-            function find() {
-                var id = $('#contId').val();
-                if (id != "") {
-                    var actionUrlBase = '@Url.Action("Search", "Home", new { id = "__id__", page = 1 })';
-                    var actionUrl = actionUrlBase.replace("__id__", id);
-                    location.href = actionUrl;
-                } else {
-                    var actionUrlBase = '@Url.Action("Index", "Home")';
-                    location.href = actionUrlBase;
-                }
+            $(window).on('hashchange', function () {
+                var values = window.location.hash.split("/");
+
+                updateResults(values[0].replace("#", ""), values[1]);
+                //updatePagination();
+            });
+
+            function find(pg) {
+                window.location.hash = $('#contId').val() + '/' + pg;
             }
 
-            function changePage(pg) {
-                var actionUrlBase = '@Url.Action("Search", "Home", new { id = ViewBag.searchModel.SearchTerm, page = "__page__" })';
-                var actionUrl = actionUrlBase.replace("__page__", pg);
-                location.href = actionUrl;
+            function updateResults(id, page) {
+                $.ajax({
+                    type: "GET",
+                    url: '@Url.Action("Search","Home")',
+                    data: { id: id, page: page }
+                }).done(function (data) {
+                    $("#contribution").html(data);
+                    updatePagination();
+                });
+            }
+
+            function updatePagination() {
+                $.ajax({
+                    type: "GET",
+                    url: '@Url.Action("Pagination","Home")'
+                }).done(function (data) {
+                    $("#pagination").html(data);
+                });
             }
         </script>
     }

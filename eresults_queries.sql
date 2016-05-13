@@ -61,9 +61,8 @@ left join er_ficheiro f on e.elemento_id=f.elemento_id/*13707193*/;
 
 
 --dá o ficheiro x com a versão mais recente
-select f.*, dl.doente, ge.*, c.*, s.sigla, s.descricao, ec.descricao as estado_civil from er_ficheiro f
-join (select elemento_id, max(cod_versao) as max_versao from er_ficheiro group by elemento_id) fic on fic.elemento_id=f.elemento_id and fic.max_versao=f.cod_versao
-join er_elemento e on e.elemento_id=f.elemento_id
+select d.documento_id, f.*, dl.doente, ge.*, c.*, s.sigla, s.descricao, ec.descricao as estado_civil from er_ficheiro f
+join er_elemento e on e.elemento_id=f.elemento_id and e.versao_activa='S'
 join er_documento d on d.documento_id=e.documento_id
 join gr_visita_documento vd on d.documento_id=vd.documento_id
 join gr_visita v on vd.visita_id=v.visita_id
@@ -72,6 +71,6 @@ join gr_doente c on ge.entidade_id = c.entidade_id
 join gr_doente_local dl on v.entidade_pai_id=dl.entidade_id
 left join er_sexo s on c.sexo_id=s.sexo_id
 left join er_estado_civil ec on ec.estado_civil_id=c.estado_civil_id
-where f.elemento_id>13706193 AND f.elemento_id<13707193;
+where f.elemento_id>13706193 AND f.elemento_id<13717193;
 
 select count(elemento_id) from er_ficheiro;

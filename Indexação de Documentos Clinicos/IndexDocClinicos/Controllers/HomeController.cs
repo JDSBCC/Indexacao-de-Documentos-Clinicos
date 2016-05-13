@@ -11,11 +11,10 @@ namespace IndexDocClinicos.Controllers
 {
     public class HomeController : Controller
     {
-        private SearchView searchModel;
+        private static SearchView searchModel = new SearchView();
 
         public HomeController()
         {
-            searchModel = new SearchView();
             ViewBag.searchModel = searchModel;
         }
 
@@ -24,30 +23,28 @@ namespace IndexDocClinicos.Controllers
             return View("Index");
         }
 
-        public ActionResult Search(string id, int page)
+        public PartialViewResult Search(string id, int page)
         {
-            
             searchModel.SearchTerm = id;
             searchModel.Page = page - 1;
             List<Dictionary<string, string>> res = new ContributionsController().GetContributions(searchModel.SearchTerm, searchModel.Start, searchModel.Rows);
             searchModel.Results = res;
+
             if (res.Count==0)
             {
                 searchModel.Reset();
-                return View("Index");
+                return PartialView("ResultsPartial");
             }
             searchModel.TotalResults = Convert.ToInt32(res[0]["total_num"]);
             ViewBag.searchModel = searchModel;
 
-            return View("Index");
+            return PartialView("ResultsPartial");
         }
 
-        public ActionResult Document(string id)
+        public PartialViewResult Pagination()
         {
-
-            byte[] file = Convert.FromBase64String(new DocumentsController().GetFile(id));
-
-            return File(file, "application/pdf");
+            ViewBag.searchModel = searchModel;
+            return PartialView("PaginationPartial");
         }
 
 

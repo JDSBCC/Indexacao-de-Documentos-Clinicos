@@ -2,6 +2,7 @@
 using IndexDocClinicos.Models;
 using SolrNet;
 using SolrNet.Impl;
+using System.Configuration;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
@@ -16,7 +17,7 @@ namespace IndexDocClinicos
     {
         protected void Application_Start()
         {
-            var connection = new SolrConnection("http://localhost:8983/solr/ehr");
+            var connection = new SolrConnection(ConfigurationManager.AppSettings["SolrCore"]);
             Startup.Init<Contribution>(connection);
 
             new Data();

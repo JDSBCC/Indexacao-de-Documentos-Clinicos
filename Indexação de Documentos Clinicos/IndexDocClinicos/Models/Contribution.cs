@@ -36,8 +36,8 @@ namespace IndexDocClinicos.Models
         [SolrField("elemento_id")]
         public int Elemento_id { get; set; }//id do ficheiro
 
-        [SolrField("cod_versao")]
-        public int Cod_Versao { get; set; }//versão do ficheiro
+        [SolrField("documento_id")]
+        public int Documento_id { get; set; }//nº do doente
 
         [SolrField("content")]
         public string Content { get; set; }//conteúdo do ficheiro
@@ -47,8 +47,5 @@ namespace IndexDocClinicos.Models
 
         [SolrField("doente")]
         public int Doente { get; set; }//nº do doente
-
-        [SolrField("file_stream")]
-        public string File_Stream { get; set; }
     }
 }

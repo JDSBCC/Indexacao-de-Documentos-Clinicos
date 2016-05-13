@@ -8,7 +8,7 @@
                 <div class='panel-body'>
                     <b>@cont["first_name"] @cont["last_name"] - @cont["dob"]</b><br/>
                     <small> @Html.Raw(cont["text"])</small>
-                    @Html.ActionLink("Documento", "Document", "Home", new { id=cont["document_id"]}, null)
+                    <a href="@cont["documento_url"]">Documento</a>
                         - 
                     @Html.ActionLink("Informação Demográfica", "Metadata", "Home", new { id=cont["uid"]}, null)
                 </div>

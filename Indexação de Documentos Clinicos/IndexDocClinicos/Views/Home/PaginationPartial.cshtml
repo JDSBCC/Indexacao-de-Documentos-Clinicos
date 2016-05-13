@@ -1,0 +1,31 @@
+﻿@if (ViewBag.searchModel.TotalResults != 0 && ViewBag.searchModel.NumberOfPages > 1)
+{
+    <ul class="pagination">
+        @{
+            if (ViewBag.searchModel.Page!=0){
+                <li class="page-item">
+                    <a class="page-link pg" href="javascript:void(0)" id="@ViewBag.searchModel.PreviousPage" onclick="find(@ViewBag.searchModel.PreviousPage);" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                    <span class="sr-only">Previous</span>
+                    </a>
+                </li>
+            }
+            for (int i = ViewBag.searchModel.StartPage+1; i <= ViewBag.searchModel.LastPage+1; i++)
+            {
+                if(ViewBag.searchModel.Page+1!=i){
+                    <li><a class="pg" href="javascript:void(0)" id="@i" onclick="find(@i);">@i</a></li>
+                }else{
+                    <li class="active"><a class="pg" id="@i" onclick="find(@i);">@i</a></li>
+                }
+            }
+            if(ViewBag.searchModel.Page!=ViewBag.searchModel.NumberOfPages-1){
+                <li class="page-item">
+                    <a class="page-link pg" href="javascript:void(0)" id="@ViewBag.searchModel.NextPage" onclick="find(@ViewBag.searchModel.NextPage);" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                    <span class="sr-only">Next</span>
+                    </a>
+                </li>
+            }
+        }
+    </ul>
+}

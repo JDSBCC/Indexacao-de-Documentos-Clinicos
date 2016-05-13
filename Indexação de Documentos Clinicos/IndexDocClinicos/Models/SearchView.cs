@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Diagnostics;
 using System.Web;
 
@@ -11,10 +12,10 @@ namespace IndexDocClinicos.Models
         public SearchView()
         {
             Page = 0;
-            Rows = 3;
+            Rows = Convert.ToInt32(ConfigurationManager.AppSettings["ResultsPerPage"]);//3;
             TotalResults = 0;
             SearchTerm = "";
-            PagesNumberLimit = 5;
+            PagesNumberLimit = Convert.ToInt32(ConfigurationManager.AppSettings["LimitOfPages"]);
         }
 
         public string SearchTerm { get; set; }
@@ -47,7 +48,7 @@ namespace IndexDocClinicos.Models
         {
             get
             {
-                return (int)(Math.Round((double)PagesNumberLimit / (double)2));
+                return PagesNumberLimit / 2;
             }
         }
 
@@ -71,14 +72,7 @@ namespace IndexDocClinicos.Models
         {//First page that appears in the page number
             get
             {
-                int pageToReturn = Page - HalfPagesNumberLimit;
-                if (pageToReturn >= 0 && Page + HalfPagesNumberLimit <= NumberOfPages-1)
-                {
-                    return pageToReturn;
-                } else if(pageToReturn<0){
-                    return 0;
-                }
-                return NumberOfPages - PagesNumberLimit;
+                return (Page / PagesNumberLimit)*PagesNumberLimit;
             }
         }
 
@@ -86,16 +80,8 @@ namespace IndexDocClinicos.Models
         {//First page that appears in the page number
             get
             {
-                int pageToReturn = Page + HalfPagesNumberLimit;
-                if (pageToReturn <= NumberOfPages-1 && Page - HalfPagesNumberLimit >= 0)
-                {
-                    return pageToReturn;
-                }
-                else if (pageToReturn > NumberOfPages-1)
-                {
-                    return NumberOfPages-1;
-                }
-                return PagesNumberLimit-1;
+                int var = StartPage + PagesNumberLimit - 1;
+                return var>NumberOfPages-1?NumberOfPages-1:var; 
             }
         }
 
