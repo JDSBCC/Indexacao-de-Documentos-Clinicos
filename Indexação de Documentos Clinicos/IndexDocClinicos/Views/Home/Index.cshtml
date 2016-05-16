@@ -51,23 +51,27 @@
             });
 
             function onhashchange() {
+                $('#contribution').html("");
+                $('#pagination').html("");
                 if (window.location.hash.length != 0) {
                     var values = window.location.hash.split("/");
-                    var id = values[0].replace("#", "");
+                    var id = values[0].replace("#", "").replace("%20", " ");
 
                     $('#contId').val(id);
 
                     updateResults(id, values[1]);
                 } else {
-                    $('#contribution').html("");
-                    $('#pagination').html("");
                     $('#contId').val("");
                 }
             }
 
             function find(pg) {
                 if ($('#contId').val() != "") {
-                    window.location.hash = $('#contId').val() + '/' + pg;
+                    window.location.hash = $('#contId').val().replace(" ", "%20") + '/' + pg;
+
+                    $("html, body").animate({
+                        scrollTop: 0
+                    }, 0);
                 }
             }
 

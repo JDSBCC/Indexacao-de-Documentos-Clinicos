@@ -74,3 +74,7 @@ left join er_estado_civil ec on ec.estado_civil_id=c.estado_civil_id
 where f.elemento_id>13706193 AND f.elemento_id<13717193;
 
 select count(elemento_id) from er_ficheiro;
+
+select * from er_ficheiro f
+join er_elemento e on e.elemento_id=f.elemento_id and e.versao_activa='S'
+join er_documento d on d.documento_id=e.documento_id;

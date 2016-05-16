@@ -21,7 +21,7 @@ namespace IndexDocClinicos.Classes
 
         //private String []keys = { "",""};
 
-        public EhrData(List<Patient> patients)
+        public EhrData()
         {
             //start connections to dbs
             connMySQL = new MySqlConnection(ConfigurationManager.AppSettings["EHR_db"]);
@@ -32,22 +32,16 @@ namespace IndexDocClinicos.Classes
                 Version = 0,
                 Name = "EVF",
                 Number = "2222",
-                Uid = getOrganizationUid()/*Guid.NewGuid().ToString()*/
+                Uid = getOrganizationUid()
             };
-            this.patients = patients;//UPDATE não deve ser feita esta igualdade
+        }
 
-            //TODO criar organização e utilizador aqui e nao no bootstrap
-            Debug.WriteLine("Loging in...");
-            login();//login to get token
-
-            Debug.WriteLine("Committing patients to ehr...");
-            commitPersonsPatients();//commit persons to ehr
-
-            Debug.WriteLine("Initializing information to fill xml...");
-            fillData();//create a string with file information (xml with data)
-
-            Debug.WriteLine("Filling xml...");
-            commitDocument();
+        public void setPatients(List<Patient> patients)
+        {
+            this.patients = new List<Patient>();
+            foreach(var patient in patients){
+                this.patients.Add(patient);
+            }
         }
 
         public string getEhrUidForSubject(string patientUid){
@@ -75,7 +69,7 @@ namespace IndexDocClinicos.Classes
             }
             catch (OracleException e)
             {
-                Debug.Write("Error something: {0}", e.ToString());
+                Debug.Write("Error: {0}", e.ToString());
             }
             finally
             {
@@ -148,7 +142,7 @@ namespace IndexDocClinicos.Classes
         {
             foreach (Dictionary<string, string> patient in map_list)
             {
-                string text = System.IO.File.ReadAllText("C:\\Users\\Joaogcorreia\\Desktop\\EHR + Solr + IndexDocClinicos\\Indexacao-de-Documentos-Clinicos\\xml_arquetipos_templates\\demographic_patient.xml");
+                string text = System.IO.File.ReadAllText(ConfigurationManager.AppSettings["demographic_template"]);
                 foreach (var item in patient)
                 {
                     string pattern = @"\[\[:::"+item.Key+@":::\]\]";

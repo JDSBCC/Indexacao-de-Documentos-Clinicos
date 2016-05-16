@@ -35,20 +35,14 @@ namespace IndexDocClinicos.Classes
             documents = new List<Document>();
             patients = new List<Patient>();
             contributions = new List<Contribution>();
-
-            //querying eresulst to get data
-            Debug.WriteLine("Querying eresults and saving their results...");
-            queryingEresults();
-
-            //commiting data do ehr server
-            EhrData metaInfo = new EhrData(patients);
-
-            //indexing ehr data in solr
-            Debug.WriteLine("Indexing data in solr...");
-            addToSolr();
         }
 
-        private void queryingEresults()
+        public List<Patient> getPatients()
+        {
+            return patients;
+        }
+
+        public void queryingEresults()
         {
             try
             {
@@ -80,7 +74,7 @@ namespace IndexDocClinicos.Classes
             }
             catch (OracleException e)
             {
-                Debug.Write("Error something: {0}", e.ToString());
+                Debug.Write("Error: {0}", e.ToString());
             }
             finally
             {
@@ -120,7 +114,7 @@ namespace IndexDocClinicos.Classes
 
         private void saveMetadataContent()
         {
-            Debug.Write("[PATIENT] = " + dataReaderOracle["DOENTE"] + " - " + dataReaderOracle["ENTIDADE_ID"] + " - " + dataReaderOracle["NOME"] + " \n");
+            //Debug.Write("[PATIENT] = " + dataReaderOracle["DOENTE"] + " - " + dataReaderOracle["ENTIDADE_ID"] + " - " + dataReaderOracle["NOME"] + " \n");
 
             Patient patient = new Patient
             {
@@ -204,7 +198,7 @@ namespace IndexDocClinicos.Classes
             return true;
         }
 
-        private void addToSolr()
+        public void addToSolr()
         {
             List<Dictionary<string, object>> docs = new List<Dictionary<string, object>>();
 
@@ -236,10 +230,9 @@ namespace IndexDocClinicos.Classes
             solr.Delete(SolrQuery.All);
 
             bool success = true;
-            foreach (var partition in Partition.PartitionBySize(contributions, 2))
+            foreach (var partition in Partition.PartitionBySize(contributions, 5))
             {
-                Parallel.ForEach(partition, (contribution) =>
-                {
+                foreach(var contribution in partition) {
                     try
                     {
                         solr.Add(contribution);
@@ -248,11 +241,12 @@ namespace IndexDocClinicos.Classes
                     {
                         success = false;
                     }
-                });
+                }
+                //Parallel.ForEach(partition, (contribution) =>
+                //{});
             }
 
             solr.Commit();
-            solr.BuildSpellCheckDictionary();
 
             return success;
         }
