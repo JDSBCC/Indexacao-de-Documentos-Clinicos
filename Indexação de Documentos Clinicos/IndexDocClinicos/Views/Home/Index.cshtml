@@ -20,11 +20,11 @@
         <div class="container" style="padding-top: 150px;">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="list-group" id="contribution">@Html.Partial("ResultsPartial")</div>
+                    <div class="list-group" id="contribution">@*Html.Partial("ResultsPartial")*@</div>
                 </div>
             </div>
             <div class="row">
-                <div id="pagination" class="col-md-12">@Html.Partial("PaginationPartial")</div>
+                <div id="pagination" class="col-md-12">@*Html.Partial("PaginationPartial")*@</div>
             </div>
         </div>
     </div>
@@ -32,6 +32,7 @@
     @section scripts {
         <script>
             $(document).ready(function () {
+                onhashchange();
                 $("#contId").keypress(function (event) {
                     if (event.keyCode == 13) {
                         $("#searchBtn").click();
@@ -46,14 +47,28 @@
             });
 
             $(window).on('hashchange', function () {
-                var values = window.location.hash.split("/");
-
-                updateResults(values[0].replace("#", ""), values[1]);
-                //updatePagination();
+                onhashchange();
             });
 
+            function onhashchange() {
+                if (window.location.hash.length != 0) {
+                    var values = window.location.hash.split("/");
+                    var id = values[0].replace("#", "");
+
+                    $('#contId').val(id);
+
+                    updateResults(id, values[1]);
+                } else {
+                    $('#contribution').html("");
+                    $('#pagination').html("");
+                    $('#contId').val("");
+                }
+            }
+
             function find(pg) {
-                window.location.hash = $('#contId').val() + '/' + pg;
+                if ($('#contId').val() != "") {
+                    window.location.hash = $('#contId').val() + '/' + pg;
+                }
             }
 
             function updateResults(id, page) {
