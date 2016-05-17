@@ -1,6 +1,7 @@
 ﻿using IndexDocClinicos.Models;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Diagnostics;
 using System.Globalization;
 using System.IO;
@@ -52,7 +53,7 @@ namespace IndexDocClinicos.Controllers
         {//uid of contribution
 
             XmlDocument doc = new XmlDocument();
-            doc.Load(@"C:\Users\Joaogcorreia\Desktop\EHR + Solr + IndexDocClinicos\Indexacao-de-Documentos-Clinicos\cabolabs-ehrserver-master\versions\" + id + ".xml");
+            doc.Load(ConfigurationManager.AppSettings["VersionsFolder"] + "\\" + id + ".xml");
             XmlNodeList nodes = doc.DocumentElement.GetElementsByTagName("items");
             for (int i = 1; i < nodes.Count; i++ )
             {

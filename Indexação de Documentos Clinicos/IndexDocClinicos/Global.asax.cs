@@ -3,13 +3,13 @@ using IndexDocClinicos.Models;
 using Microsoft.Practices.ServiceLocation;
 using Oracle.ManagedDataAccess.Client;
 using SolrNet;
+using SolrNet.Exceptions;
 using SolrNet.Impl;
-using System;
 using System.Configuration;
 using System.Diagnostics;
+using System.Linq;
 using System.Net;
-using System.Net.NetworkInformation;
-using System.Threading;
+using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
@@ -25,7 +25,19 @@ namespace IndexDocClinicos
         protected void Application_Start()
         {
             Stopwatch stopwatch = Stopwatch.StartNew(); //REMOVE
-            ReadIndexAllData();
+            //----------------------------------------
+            Data data = new Data();
+            EhrData ehr_data = new EhrData();
+            if(connectionsWork(ehr_data)){
+                /*var odds = Enumerable.Range(13706193, 13707193).Where(i => i % 500 != 0);
+                Parallel.ForEach(odds, i =>
+                {
+                    Debug.WriteLine("[" + i + "]");
+                    ReadIndexAllData(data, ehr_data, i, 500);
+                });*/
+                ReadIndexAllData(data, ehr_data, 13706193, 13707193);
+            }
+            //----------------------------------------
             stopwatch.Stop();//REMOVE
             Debug.WriteLine("[TIME] = " + stopwatch.ElapsedMilliseconds);//REMOVE
 
@@ -37,36 +49,45 @@ namespace IndexDocClinicos
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
 
-        private void ReadIndexAllData()
+        private bool connectionsWork(EhrData ehr_data)
         {
-            Data data = new Data();
-            EhrData ehr_data = new EhrData();
-
-            //testing connection with eresults
+            //testing eresults connection
             if (!IsServerConnected()) {
                 Debug.WriteLine("Não é possível conectar ao Eresults. Verifique a ligação antes de tentar novamente.");
-                return;
+                return false;
             }
 
-            //testing connection with ehrserver
-            try
-            {
+            //testing ehrserver connection
+            try {
                 Debug.WriteLine("Loging in...");
                 ehr_data.login();//login to get token
-            }catch(WebException){
+            } catch (WebException) {
                 Debug.WriteLine("Não é possível conectar ao EHRserver. Verifique a ligação antes de tentar novamente.");
-                return;
+                return false;
             }
 
+            //testing solr connection
             Debug.WriteLine("Connecting with solr...");
             var connection = new SolrConnection(ConfigurationManager.AppSettings["SolrCore"]);//connect to solrcore
             Startup.Init<Contribution>(connection);
-            ServiceLocator.Current.GetInstance<ISolrOperations<Contribution>>();
+            try {
+                var solr = ServiceLocator.Current.GetInstance<ISolrOperations<Contribution>>();
+                solr.Ping();
+                solr.Delete(SolrQuery.All);//REMOVE
+            } catch (SolrConnectionException) {
+                Debug.WriteLine("Não é possível conectar ao SolrAdmin. Verifique a ligação antes de tentar novamente.");
+                return false;
+            }
+            return true;
+        }
 
+        private void ReadIndexAllData(Data data, EhrData ehr_data, int first, int last)
+        {
             Debug.WriteLine("Querying eresults and saving their results...");
-            data.queryingEresults();//querying eresulst to get data
+            data.queryingEresults(first, last);//querying eresulst to get data
 
             ehr_data.setPatients(data.getPatients());
+            data.clearPatients();
 
             Debug.WriteLine("Committing patients to ehr...");
             ehr_data.commitPersonsPatients();//commit persons to ehr

@@ -29,6 +29,8 @@ namespace IndexDocClinicos.Classes
         private List<Patient> patients;//patients
         private List<Contribution> contributions;
 
+        public static bool isConnectionFree = true;
+
         public Data()
         {
             //initializing data lists
@@ -42,14 +44,28 @@ namespace IndexDocClinicos.Classes
             return patients;
         }
 
-        public void queryingEresults()
+        public void clearPatients()
         {
+            patients.Clear();
+        }
+
+        public void freeMemory()
+        {
+            documents.Clear();
+            contributions.Clear();
+            patients.Clear();
+        }
+
+        public void queryingEresults(int first, int last)
+        {
+            while (!isConnectionFree) ;
+            isConnectionFree = false;
             try
             {
                 connOracle = new OracleConnection();
                 connOracle.ConnectionString = ConfigurationManager.AppSettings["Eresults_v2_db"];
                 connOracle.Open();
-
+                
                 OracleCommand cmd = new OracleCommand("select d.documento_id, f.*, dl.doente, ge.*, c.*, s.sigla, s.descricao, ec.descricao as estado_civil from er_ficheiro f " +
                     "join er_elemento e on e.elemento_id=f.elemento_id and e.versao_activa='S' " +
                     "join er_documento d on d.documento_id=e.documento_id " +
@@ -60,7 +76,7 @@ namespace IndexDocClinicos.Classes
                     "join gr_doente_local dl on v.entidade_pai_id=dl.entidade_id " +
                     "left join er_sexo s on c.sexo_id=s.sexo_id " +
                     "left join er_estado_civil ec on ec.estado_civil_id=c.estado_civil_id " +
-                    "where f.elemento_id>13706193 AND f.elemento_id<13716193", connOracle);//REMOVE restriçao de elemento_id
+                    "where f.elemento_id>"+first+" AND f.elemento_id<"+last, connOracle);//REMOVE restriçao de elemento_id
                 dataReaderOracle = cmd.ExecuteReader();
                 while (dataReaderOracle.Read())
                 {
@@ -81,6 +97,7 @@ namespace IndexDocClinicos.Classes
                 if (connOracle != null)
                 {
                     connOracle.Close();
+                    isConnectionFree = true;
                 }
             }
         }
@@ -114,7 +131,7 @@ namespace IndexDocClinicos.Classes
 
         private void saveMetadataContent()
         {
-            //Debug.Write("[PATIENT] = " + dataReaderOracle["DOENTE"] + " - " + dataReaderOracle["ENTIDADE_ID"] + " - " + dataReaderOracle["NOME"] + " \n");
+            Debug.Write("[PATIENT] = " + dataReaderOracle["DOENTE"] + " - " + dataReaderOracle["ENTIDADE_ID"] + " - " + dataReaderOracle["NOME"] + " \n");
 
             Patient patient = new Patient
             {
@@ -210,7 +227,7 @@ namespace IndexDocClinicos.Classes
                 {
                     //Debug.WriteLine("################KeyNotFoundException#################");
                     docs.Clear();
-                    Thread.Sleep(10000);
+                    Thread.Sleep(5000);
                     docs = QueryingEHR();
                 }
                 else
@@ -221,29 +238,25 @@ namespace IndexDocClinicos.Classes
 
             //commit data to solr
             commitDataSolr(docs);
+            freeMemory();
         }
 
         private bool commitDataSolr(List<Dictionary<string, object>> docs)
         {
 
             solr = ServiceLocator.Current.GetInstance<ISolrOperations<Contribution>>();
-            solr.Delete(SolrQuery.All);
+            //solr.Delete(SolrQuery.All);
 
             bool success = true;
-            foreach (var partition in Partition.PartitionBySize(contributions, 5))
-            {
-                foreach(var contribution in partition) {
-                    try
-                    {
-                        solr.Add(contribution);
-                    }
-                    catch (KeyNotFoundException ex)
-                    {
-                        success = false;
-                    }
+            foreach (var contribution in contributions) {
+                try
+                {
+                    solr.Add(contribution);
                 }
-                //Parallel.ForEach(partition, (contribution) =>
-                //{});
+                catch (KeyNotFoundException ex)
+                {
+                    success = false;
+                }
             }
 
             solr.Commit();
@@ -253,7 +266,8 @@ namespace IndexDocClinicos.Classes
 
         private List<Dictionary<string, object>> QueryingEHR()
         {
-
+            while (!isConnectionFree) ;
+            isConnectionFree = false;
             List<Dictionary<string, object>> docs = new List<Dictionary<string, object>>();
             string cs = ConfigurationManager.AppSettings["EHR_db"];
 
@@ -348,6 +362,7 @@ namespace IndexDocClinicos.Classes
                 if (connMySQL != null)
                 {
                     connMySQL.Close();
+                    isConnectionFree = true;
                 }
             }
             return docs;

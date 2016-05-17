@@ -71,10 +71,11 @@ join gr_doente c on ge.entidade_id = c.entidade_id
 join gr_doente_local dl on v.entidade_pai_id=dl.entidade_id
 left join er_sexo s on c.sexo_id=s.sexo_id
 left join er_estado_civil ec on ec.estado_civil_id=c.estado_civil_id
-where f.elemento_id>13706193 AND f.elemento_id<13717193;
+--where ROWNUM >= 20 and ROWNUM <= 40;
+where f.elemento_id>13706193 AND f.elemento_id<13706693;
 
 select count(elemento_id) from er_ficheiro;
 
-select * from er_ficheiro f
+select count(*) as counter from er_ficheiro f
 join er_elemento e on e.elemento_id=f.elemento_id and e.versao_activa='S'
 join er_documento d on d.documento_id=e.documento_id;
