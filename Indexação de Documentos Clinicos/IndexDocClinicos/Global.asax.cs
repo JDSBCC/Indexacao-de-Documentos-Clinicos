@@ -5,6 +5,7 @@ using Oracle.ManagedDataAccess.Client;
 using SolrNet;
 using SolrNet.Exceptions;
 using SolrNet.Impl;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Diagnostics;
 using System.Linq;
@@ -26,16 +27,21 @@ namespace IndexDocClinicos
         {
             Stopwatch stopwatch = Stopwatch.StartNew(); //REMOVE
             //----------------------------------------
-            Data data = new Data();
-            EhrData ehr_data = new EhrData();
-            if(connectionsWork(ehr_data)){
-                /*var odds = Enumerable.Range(13706193, 13707193).Where(i => i % 500 != 0);
-                Parallel.ForEach(odds, i =>
+            List<Task> tasks = new List<Task>();
+            if(connectionsWork()){
+                for (int i = 13706193; i <= 13716193; i += 500)
                 {
-                    Debug.WriteLine("[" + i + "]");
-                    ReadIndexAllData(data, ehr_data, i, 500);
-                });*/
-                ReadIndexAllData(data, ehr_data, 13706193, 13707193);
+                    /*int index = i;
+                    Task task = Task.Factory.StartNew(() =>
+                    {
+                        ReadIndexAllData(index, index+499);
+                    });
+                    tasks.Add(task);*/
+                    Debug.WriteLine(i);
+                    ReadIndexAllData(i, i + 499);
+                }
+                //Task.WaitAll(tasks.ToArray<Task>());
+                //ReadIndexAllData(13706193, 13716193);
             }
             //----------------------------------------
             stopwatch.Stop();//REMOVE
@@ -49,7 +55,7 @@ namespace IndexDocClinicos
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
 
-        private bool connectionsWork(EhrData ehr_data)
+        private bool connectionsWork()
         {
             //testing eresults connection
             if (!IsServerConnected()) {
@@ -60,7 +66,9 @@ namespace IndexDocClinicos
             //testing ehrserver connection
             try {
                 Debug.WriteLine("Loging in...");
-                ehr_data.login();//login to get token
+                EhrData ehr_Data = new EhrData();
+                ehr_Data.login();//login to get token
+                ehr_Data.setOrganization();//just save the only organization that exists
             } catch (WebException) {
                 Debug.WriteLine("Não é possível conectar ao EHRserver. Verifique a ligação antes de tentar novamente.");
                 return false;
@@ -81,25 +89,33 @@ namespace IndexDocClinicos
             return true;
         }
 
-        private void ReadIndexAllData(Data data, EhrData ehr_data, int first, int last)
+        private void ReadIndexAllData(int first, int last)
         {
-            Debug.WriteLine("Querying eresults and saving their results...");
+            Data data = new Data();
+            EhrData ehr_data = new EhrData();
+
+            Debug.WriteLine("[" + first + "] - Querying eresults and saving their results...");
             data.queryingEresults(first, last);//querying eresulst to get data
 
+            Debug.WriteLine("[" + first + "] - Adding patients to ehr_Data...");
             ehr_data.setPatients(data.getPatients());
-            data.clearPatients();
 
-            Debug.WriteLine("Committing patients to ehr...");
+            Debug.WriteLine("[" + first + "] - Committing patients to ehr...");
             ehr_data.commitPersonsPatients();//commit persons to ehr
 
-            Debug.WriteLine("Initializing information to fill xml...");
+            Debug.WriteLine("[" + first + "] - Initializing information to fill xml...");
             ehr_data.fillData();//create a string with file information (xml with data)
 
-            Debug.WriteLine("Filling xml...");
+            Debug.WriteLine("[" + first + "] - Filling xml...");
             ehr_data.commitDocument();//commit xml in ehr
 
-            Debug.WriteLine("Indexing data in solr...");
+            data.setNumContQuery(ehr_data.getPatientUids());
+
+            Debug.WriteLine("[" + first + "] - Indexing data in solr...");
             data.addToSolr();//indexing ehr data in solr
+
+            ehr_data.freeMemory();
+            data.freeMemory();
         }
 
 

@@ -14,10 +14,11 @@ namespace IndexDocClinicos.Classes
         private MySqlConnection connMySQL = null;
         private MySqlDataReader dataReaderMySQL = null;
 
-        private string token = "";
-        private Organization organization;//organization
+        private static string token = "";
+        private static Organization organization;//organization
         private List<Patient> patients;//patients
         private List<Dictionary<string, string>> map_list;
+        private List<string> patientUids;
 
         //private String []keys = { "",""};
 
@@ -26,7 +27,17 @@ namespace IndexDocClinicos.Classes
             //start connections to dbs
             connMySQL = new MySqlConnection(ConfigurationManager.AppSettings["EHR_db"]);
 
-            //init variables
+            patients = new List<Patient>();
+            map_list = new List<Dictionary<string, string>>();
+            patientUids = new List<string>();
+        }
+
+        public List<string> getPatientUids() {
+            return patientUids;
+        }
+
+        public void setOrganization()
+        {
             organization = new Organization
             {
                 Version = 0,
@@ -34,8 +45,6 @@ namespace IndexDocClinicos.Classes
                 Number = "2222",
                 Uid = getOrganizationUid()
             };
-            patients = new List<Patient>();
-            map_list = new List<Dictionary<string, string>>();
         }
 
         public void setPatients(List<Patient> patients)
@@ -55,6 +64,8 @@ namespace IndexDocClinicos.Classes
 
         public string getOrganizationUid()
         {
+            while (!Data.isConnectionFree) ;
+            Data.isConnectionFree = false;
             string uid = "";
             try
             {
@@ -68,7 +79,7 @@ namespace IndexDocClinicos.Classes
                 }
                 dataReaderMySQL.Close();
             }
-            catch (OracleException e)
+            catch (MySqlException e)
             {
                 Debug.Write("Error: {0}", e.ToString());
             }
@@ -77,6 +88,7 @@ namespace IndexDocClinicos.Classes
                 if (connMySQL != null)
                 {
                     connMySQL.Close();
+                    Data.isConnectionFree = true;
                 }
             }
             return uid;
@@ -135,6 +147,7 @@ namespace IndexDocClinicos.Classes
                 map_list[map_list.Count-1].Add("SNS", patient.N_Servico_Nacional_Saude+"");
                 map_list[map_list.Count-1].Add("CIVIL", patient.Estado_Civil+"");
                 map_list[map_list.Count-1].Add("uid", patient.Uid);
+                patientUids.Add(patient.Uid);
             }
         }
 
@@ -158,13 +171,13 @@ namespace IndexDocClinicos.Classes
                 Request.Post(ConfigurationManager.AppSettings["EHR_rest"] + "/commit", tempUrl, token, "application/json", text);
                 //Debug.WriteLine(Request.dataXML);
             }
-            freeMemory();
         }
 
         public void freeMemory()
         {
             patients.Clear();
             map_list.Clear();
+            patientUids.Clear();
         }
 
     }

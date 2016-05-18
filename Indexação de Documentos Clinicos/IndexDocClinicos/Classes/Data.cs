@@ -30,6 +30,7 @@ namespace IndexDocClinicos.Classes
         private List<Contribution> contributions;
 
         public static bool isConnectionFree = true;
+        private string contQuery = "";
 
         public Data()
         {
@@ -190,24 +191,23 @@ namespace IndexDocClinicos.Classes
         private bool addEHRToContributions(List<Dictionary<string, object>> docs)
         {
             //add ehr data to contributions
+            docs.Clear();
             docs = QueryingEHR();//UPDATE verificar se contributions.Count==docs.Count
-            int value = docs.Count-contributions.Count;//REMOVE so para teste
-
             for (int i = 0; i < contributions.Count; i++)
             {
                 try
                 {
-                    contributions[i].Id = Convert.ToInt32(docs[i+value]["id"]);
-                    contributions[i].Ehr_id = Convert.ToInt32(docs[i + value]["ehr_id"]);
-                    contributions[i].Archetype_id = ((List<object>)docs[i + value]["archetype_id"]).Cast<string>().ToList();
-                    contributions[i].Template_id = docs[i + value]["template_id"] + "";
-                    contributions[i].Uid = docs[i + value]["uid"] + "";
-                    contributions[i].Value = ((List<object>)docs[i + value]["value"]).Cast<string>().ToList();
-                    contributions[i].First_name = docs[i + value]["first_name"] + "";
-                    contributions[i].Last_name = docs[i + value]["last_name"] + "";
-                    contributions[i].Dob = Convert.ToDateTime(docs[i + value]["dob"]);
+                    contributions[i].Id = Convert.ToInt32(docs[i]["id"]);
+                    contributions[i].Ehr_id = Convert.ToInt32(docs[i]["ehr_id"]);
+                    contributions[i].Archetype_id = ((List<object>)docs[i]["archetype_id"]).Cast<string>().ToList();
+                    contributions[i].Template_id = docs[i]["template_id"] + "";
+                    contributions[i].Uid = docs[i]["uid"] + "";
+                    contributions[i].Value = ((List<object>)docs[i]["value"]).Cast<string>().ToList();
+                    contributions[i].First_name = docs[i]["first_name"] + "";
+                    contributions[i].Last_name = docs[i]["last_name"] + "";
+                    contributions[i].Dob = Convert.ToDateTime(docs[i]["dob"]);
                 }
-                catch (KeyNotFoundException ex)
+                catch (KeyNotFoundException)
                 {
                     return false;
                 }
@@ -218,50 +218,35 @@ namespace IndexDocClinicos.Classes
         public void addToSolr()
         {
             List<Dictionary<string, object>> docs = new List<Dictionary<string, object>>();
-
+            
             addDocsToContributions();
 
-            while (true)
-            {
-                if (!addEHRToContributions(docs))
-                {
-                    //Debug.WriteLine("################KeyNotFoundException#################");
-                    docs.Clear();
-                    Thread.Sleep(5000);
-                    docs = QueryingEHR();
-                }
-                else
-                {
-                    break;
-                }
-            }
+            while (!addEHRToContributions(docs)) ;
 
             //commit data to solr
-            commitDataSolr(docs);
-            freeMemory();
+            commitDataSolr();
         }
 
-        private bool commitDataSolr(List<Dictionary<string, object>> docs)
+        private void commitDataSolr()
         {
-
             solr = ServiceLocator.Current.GetInstance<ISolrOperations<Contribution>>();
             //solr.Delete(SolrQuery.All);
-
-            bool success = true;
-            foreach (var contribution in contributions) {
-                try
-                {
-                    solr.Add(contribution);
-                }
-                catch (KeyNotFoundException ex)
-                {
-                    success = false;
-                }
+            foreach (var contribution in contributions)
+            {
+                solr.Add(contribution);
             }
 
             solr.Commit();
+        }
 
-            return success;
+        public void setNumContQuery(List<string> patientsUids)
+        {
+            contQuery = "AND (pp.value='" + patientsUids.First() + "'";
+            foreach (var uid in patientsUids.Skip(1))
+            {
+                contQuery += " or pp.value='" + uid + "'";
+            }
+            contQuery += ")";
         }
 
         private List<Dictionary<string, object>> QueryingEHR()
@@ -269,18 +254,18 @@ namespace IndexDocClinicos.Classes
             while (!isConnectionFree) ;
             isConnectionFree = false;
             List<Dictionary<string, object>> docs = new List<Dictionary<string, object>>();
-            string cs = ConfigurationManager.AppSettings["EHR_db"];
 
             try
             {
-                connMySQL = new MySqlConnection(cs);
+                connMySQL = new MySqlConnection(ConfigurationManager.AppSettings["EHR_db"]);
                 connMySQL.Open();
 
                 //contribution
                 List<int> id = new List<int>();
                 MySqlCommand cmd1 = new MySqlCommand("SELECT cont.id, cont.ehr_id, v.uid, ci.id as comp_id " +
-                                                    "FROM contribution cont, version v, composition_index ci " +
-                                                    "WHERE cont.id=v.contribution_id AND v.data_id=ci.id AND ci.last_version=1", connMySQL);
+                                                    "FROM contribution cont, version v, composition_index ci, patient_proxy pp, ehr e " +
+                                                    "WHERE cont.id=v.contribution_id AND v.data_id=ci.id AND ci.last_version=1 AND cont.ehr_id=e.id AND e.subject_id=pp.id "+
+                                                    contQuery, connMySQL);
                 dataReaderMySQL = cmd1.ExecuteReader();
                 while (dataReaderMySQL.Read())
                 {//for each contribution
@@ -353,9 +338,9 @@ namespace IndexDocClinicos.Classes
                     dataReaderMySQL.Close();
                 }
             }
-            catch (MySql.Data.MySqlClient.MySqlException ex)
+            catch (MySqlException ex)
             {
-                //Debug.Write("Error: {0}", ex.ToString());
+                Debug.Write("Error: {0}", ex.ToString());
             }
             finally
             {
