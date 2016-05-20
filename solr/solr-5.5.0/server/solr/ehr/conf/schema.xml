@@ -5,10 +5,6 @@
 
 	<!--fields from contributions-->
 	<fields>
-		<field name="id" type="int" indexed="true" stored="true" multiValued="false"/>
-		<field name="ehr_id" type="int" indexed="false" stored="true"/>
-		<field name="archetype_id" type="string" indexed="false" stored="true" multiValued="true"/>
-		<field name="template_id" type="string" indexed="false" stored="true"/>
 		<field name="uid" type="string" indexed="true" stored="true"/>
 		<field name="value" type="text_general" indexed="true" stored="true" multiValued="true"/>
 
@@ -33,7 +29,7 @@
 	<solrQueryParser defaultOperator="OR" /> 
 
 	<!--contribution identifier-->
-	<uniqueKey>id</uniqueKey>
+	<uniqueKey>uid</uniqueKey>
 
 	<!--field types-->
 	<fieldType name="string" class="solr.StrField" sortMissingLast="true" />

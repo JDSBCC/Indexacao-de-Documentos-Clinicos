@@ -27,7 +27,6 @@ namespace IndexDocClinicos.Classes
 
         private List<Document> documents;//documents pdf
         private List<Patient> patients;//patients
-        private List<Contribution> contributions;
 
         public static bool isConnectionFree = true;
         private string contQuery = "";
@@ -37,7 +36,6 @@ namespace IndexDocClinicos.Classes
             //initializing data lists
             documents = new List<Document>();
             patients = new List<Patient>();
-            contributions = new List<Contribution>();
         }
 
         public List<Patient> getPatients()
@@ -53,7 +51,6 @@ namespace IndexDocClinicos.Classes
         public void freeMemory()
         {
             documents.Clear();
-            contributions.Clear();
             patients.Clear();
         }
 
@@ -66,7 +63,7 @@ namespace IndexDocClinicos.Classes
                 connOracle = new OracleConnection();
                 connOracle.ConnectionString = ConfigurationManager.AppSettings["Eresults_v2_db"];
                 connOracle.Open();
-                
+
                 OracleCommand cmd = new OracleCommand("select d.documento_id, f.*, dl.doente, ge.*, c.*, s.sigla, s.descricao, ec.descricao as estado_civil from er_ficheiro f " +
                     "join er_elemento e on e.elemento_id=f.elemento_id and e.versao_activa='S' " +
                     "join er_documento d on d.documento_id=e.documento_id " +
@@ -77,7 +74,7 @@ namespace IndexDocClinicos.Classes
                     "join gr_doente_local dl on v.entidade_pai_id=dl.entidade_id " +
                     "left join er_sexo s on c.sexo_id=s.sexo_id " +
                     "left join er_estado_civil ec on ec.estado_civil_id=c.estado_civil_id " +
-                    "where f.elemento_id>"+first+" AND f.elemento_id<"+last, connOracle);//REMOVE restriçao de elemento_id
+                    "where f.elemento_id>=" + first + " AND f.elemento_id<=" + last, connOracle);//REMOVE restriçao de elemento_id
                 dataReaderOracle = cmd.ExecuteReader();
                 while (dataReaderOracle.Read())
                 {
@@ -92,6 +89,9 @@ namespace IndexDocClinicos.Classes
             catch (OracleException e)
             {
                 Debug.Write("Error: {0}", e.ToString());
+                freeMemory();
+                isConnectionFree = true;
+                queryingEresults(first, last);
             }
             finally
             {
@@ -161,82 +161,35 @@ namespace IndexDocClinicos.Classes
             if (!Convert.IsDBNull(dataReaderOracle["N_SNS"]))
                 patient.N_Servico_Nacional_Saude = Convert.ToDouble(dataReaderOracle["N_SNS"]);
             if (!Convert.IsDBNull(dataReaderOracle["ESTADO_CIVIL"]))
-            {
                 patient.Estado_Civil = dataReaderOracle["ESTADO_CIVIL"] + "";
-            }
-            else
-            {
-                patient.Estado_Civil = "-";
-            }
 
             patients.Add(patient);
         }
 
-        private void addDocsToContributions()
+        public void commitDataSolr()
         {
-            //add documents to contributions
-            foreach (Document doc in documents)
-            {
-                contributions.Add(new Contribution
-                {
-                    Elemento_id = doc.Elemento_id,
-                    Documento_id = doc.Documento_id,
-                    Content = doc.Content,
-                    Entidade_id = doc.Entidade_id,
-                    Doente = doc.Doente,
-                });
-            }
-        }
-
-        private bool addEHRToContributions(List<Dictionary<string, object>> docs)
-        {
-            //add ehr data to contributions
-            docs.Clear();
-            docs = QueryingEHR();//UPDATE verificar se contributions.Count==docs.Count
-            for (int i = 0; i < contributions.Count; i++)
-            {
-                try
-                {
-                    contributions[i].Id = Convert.ToInt32(docs[i]["id"]);
-                    contributions[i].Ehr_id = Convert.ToInt32(docs[i]["ehr_id"]);
-                    contributions[i].Archetype_id = ((List<object>)docs[i]["archetype_id"]).Cast<string>().ToList();
-                    contributions[i].Template_id = docs[i]["template_id"] + "";
-                    contributions[i].Uid = docs[i]["uid"] + "";
-                    contributions[i].Value = ((List<object>)docs[i]["value"]).Cast<string>().ToList();
-                    contributions[i].First_name = docs[i]["first_name"] + "";
-                    contributions[i].Last_name = docs[i]["last_name"] + "";
-                    contributions[i].Dob = Convert.ToDateTime(docs[i]["dob"]);
-                }
-                catch (KeyNotFoundException)
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
-
-        public void addToSolr()
-        {
-            List<Dictionary<string, object>> docs = new List<Dictionary<string, object>>();
-            
-            addDocsToContributions();
-
-            while (!addEHRToContributions(docs)) ;
-
-            //commit data to solr
-            commitDataSolr();
-        }
-
-        private void commitDataSolr()
-        {
+            List<Dictionary<string, object>> docs;
+            while ((docs=QueryingEHR())==null) ;
             solr = ServiceLocator.Current.GetInstance<ISolrOperations<Contribution>>();
-            //solr.Delete(SolrQuery.All);
-            foreach (var contribution in contributions)
-            {
-                solr.Add(contribution);
-            }
 
-            solr.Commit();
+            if (documents.Count == docs.Count) {
+                for (int i = 0; i < documents.Count; i++) {
+                    solr.Add(new Contribution
+                    {
+                        Uid = docs[i]["uid"] + "",
+                        Value = (List<string>)docs[i]["value"],
+                        First_name = docs[i]["first_name"] + "",
+                        Last_name = docs[i]["last_name"] + "",
+                        Dob = Convert.ToDateTime(docs[i]["dob"]),
+                        Elemento_id = documents[i].Elemento_id,
+                        Documento_id = documents[i].Documento_id,
+                        Content = documents[i].Content,
+                        Entidade_id = documents[i].Entidade_id,
+                        Doente = documents[i].Doente
+                    });
+                }
+                solr.Commit();
+            }
         }
 
         public void setNumContQuery(List<string> patientsUids)
@@ -253,15 +206,18 @@ namespace IndexDocClinicos.Classes
         {
             while (!isConnectionFree) ;
             isConnectionFree = false;
+
             List<Dictionary<string, object>> docs = new List<Dictionary<string, object>>();
 
             try
             {
                 connMySQL = new MySqlConnection(ConfigurationManager.AppSettings["EHR_db"]);
+                
                 connMySQL.Open();
 
                 //contribution
                 List<int> id = new List<int>();
+                List<int> ehr_id = new List<int>();
                 MySqlCommand cmd1 = new MySqlCommand("SELECT cont.id, cont.ehr_id, v.uid, ci.id as comp_id " +
                                                     "FROM contribution cont, version v, composition_index ci, patient_proxy pp, ehr e " +
                                                     "WHERE cont.id=v.contribution_id AND v.data_id=ci.id AND ci.last_version=1 AND cont.ehr_id=e.id AND e.subject_id=pp.id "+
@@ -270,10 +226,9 @@ namespace IndexDocClinicos.Classes
                 while (dataReaderMySQL.Read())
                 {//for each contribution
                     Dictionary<string, object> dict = new Dictionary<string, object>();
-                    dict.Add("id", dataReaderMySQL["id"]);
-                    dict.Add("ehr_id", dataReaderMySQL["ehr_id"]);
                     dict.Add("uid", dataReaderMySQL["uid"]);
                     id.Add(Convert.ToInt32(dataReaderMySQL["comp_id"]));
+                    ehr_id.Add(Convert.ToInt32(dataReaderMySQL["ehr_id"]));
                     docs.Add(dict);
                 }
                 dataReaderMySQL.Close();
@@ -284,7 +239,7 @@ namespace IndexDocClinicos.Classes
                 {
                     docs[i].Add("archetype_id", new List<object>());
                     data_value_ids.Add(id[i], new List<int>());
-                    string query = "SELECT id, archetype_id, template_id " +
+                    string query = "SELECT id " +
                                 "FROM data_value_index " +
                                 "WHERE owner_id=@id";
                     MySqlCommand cmd2 = new MySqlCommand(query, connMySQL);
@@ -293,8 +248,6 @@ namespace IndexDocClinicos.Classes
                     dataReaderMySQL = cmd2.ExecuteReader();
                     while (dataReaderMySQL.Read())
                     {
-                        ((List<object>)docs[i]["archetype_id"]).Add(dataReaderMySQL["archetype_id"]);
-                        docs[i]["template_id"] = dataReaderMySQL["template_id"];
                         data_value_ids[id[i]].Add(Convert.ToInt32(dataReaderMySQL["id"]));
                     }
                     dataReaderMySQL.Close();
@@ -303,7 +256,15 @@ namespace IndexDocClinicos.Classes
                 //dv_text_index
                 for (int i = 0; i < id.Count; i++)
                 {
-                    docs[i].Add("value", new List<object>());
+                    docs[i].Add("value", new List<string>());
+                    if (data_value_ids[id[i]].Count==0) {
+                        if (connMySQL != null)
+                        {
+                            connMySQL.Close();
+                            isConnectionFree = true;
+                        }
+                        return null;
+                    }
                     for (int j = 0; j < data_value_ids[id[i]].Count; j++)
                     {
                         string query = "SELECT value FROM dv_text_index WHERE id=@id";
@@ -313,7 +274,7 @@ namespace IndexDocClinicos.Classes
                         dataReaderMySQL = cmd3.ExecuteReader();
                         while (dataReaderMySQL.Read())
                         {
-                            ((List<object>)docs[i]["value"]).Add(dataReaderMySQL["value"]);
+                            ((List<string>)docs[i]["value"]).Add(dataReaderMySQL["value"]+"");
                         }
                         dataReaderMySQL.Close();
                     }
@@ -327,7 +288,7 @@ namespace IndexDocClinicos.Classes
                                 "WHERE ehr.subject_id=pp.id AND pp.value=p.uid AND ehr.id=@id";
                     MySqlCommand cmd4 = new MySqlCommand(query, connMySQL);
                     cmd4.Prepare();
-                    cmd4.Parameters.AddWithValue("@id", docs[i]["ehr_id"]);
+                    cmd4.Parameters.AddWithValue("@id", ehr_id[i]);
                     dataReaderMySQL = cmd4.ExecuteReader();
                     while (dataReaderMySQL.Read())
                     {
@@ -341,6 +302,10 @@ namespace IndexDocClinicos.Classes
             catch (MySqlException ex)
             {
                 Debug.Write("Error: {0}", ex.ToString());
+                if (!connMySQL.Ping()) {
+                    isConnectionFree = true;
+                    return QueryingEHR();
+                }
             }
             finally
             {

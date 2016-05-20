@@ -14,8 +14,6 @@ namespace IndexDocClinicos.Controllers
     public class ContributionsController : ApiController
     {
 
-        //private const int rows = 2;
-
         public List<Dictionary<string, string>> GetContributions(int startPage, int rows)
         {
             return Query(SolrQuery.All, startPage, rows);
@@ -23,7 +21,7 @@ namespace IndexDocClinicos.Controllers
 
         public List<Dictionary<string, string>> GetContributions(string id, int startPage, int rows)
         {
-            return Query(/*new SolrQueryByField("content", id) || new SolrQueryByField("value", id)*/ new SolrQuery(id), startPage, rows);
+            return Query(new SolrQuery(id), startPage, rows);
         }
 
         public List<Dictionary<string, string>> Query(ISolrQuery query, int startPage, int rows)
@@ -33,7 +31,7 @@ namespace IndexDocClinicos.Controllers
             {
                 Highlight = new HighlightingParameters
                 {
-                    Fields = new[] { "content", "value" },
+                    Fields = new[] { "content", "value" }
                 },
                 Rows = rows,
                 Start = startPage
@@ -68,15 +66,5 @@ namespace IndexDocClinicos.Controllers
             }
             return res;
         }
-
-        /*[NonAction]
-        public IEnumerable<Contribution> QueryPag(string text, int start)//(page-1) * rows + 1
-        {
-            var solr = ServiceLocator.Current.GetInstance<ISolrOperations<Contribution>>();
-            return solr.Query(text, new QueryOptions{
-                Start = start,
-                Rows = rows
-            });
-        }*/
     }
 }

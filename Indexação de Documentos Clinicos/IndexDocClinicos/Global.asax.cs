@@ -5,6 +5,7 @@ using Oracle.ManagedDataAccess.Client;
 using SolrNet;
 using SolrNet.Exceptions;
 using SolrNet.Impl;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Diagnostics;
@@ -28,19 +29,18 @@ namespace IndexDocClinicos
             Stopwatch stopwatch = Stopwatch.StartNew(); //REMOVE
             //----------------------------------------
             List<Task> tasks = new List<Task>();
+            int chunckSize = Convert.ToInt32(ConfigurationManager.AppSettings["ChunkSize"]);
             if(connectionsWork()){
-                for (int i = 13706193; i <= 13716193; i += 500)
+                for (int i = 13706193; i < 13726193; i += chunckSize)
                 {
-                    /*int index = i;
-                    Task task = Task.Factory.StartNew(() =>
+                    int index = i;
+                    tasks.Add(Task.Factory.StartNew(() =>
                     {
-                        ReadIndexAllData(index, index+499);
-                    });
-                    tasks.Add(task);*/
-                    Debug.WriteLine(i);
-                    ReadIndexAllData(i, i + 499);
+                        ReadIndexAllData(index, index + chunckSize-1);
+                    }));
+                    //ReadIndexAllData(i, i + 999);
                 }
-                //Task.WaitAll(tasks.ToArray<Task>());
+                Task.WaitAll(tasks.ToArray<Task>());
                 //ReadIndexAllData(13706193, 13716193);
             }
             //----------------------------------------
@@ -112,7 +112,7 @@ namespace IndexDocClinicos
             data.setNumContQuery(ehr_data.getPatientUids());
 
             Debug.WriteLine("[" + first + "] - Indexing data in solr...");
-            data.addToSolr();//indexing ehr data in solr
+            data.commitDataSolr();//indexing ehr data in solr
 
             ehr_data.freeMemory();
             data.freeMemory();

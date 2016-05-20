@@ -6,19 +6,8 @@ namespace IndexDocClinicos.Models
 {
     public class Contribution
     {
-        [SolrUniqueKey("id")]
-        public int Id { get; set; }
 
-        [SolrField("ehr_id")]
-        public int Ehr_id { get; set; }
-
-        [SolrField("archetype_id")]
-        public List<string> Archetype_id { get; set; }
-
-        [SolrField("template_id")]
-        public string Template_id { get; set; }
-
-        [SolrField("uid")]
+        [SolrUniqueKey("uid")]
         public string Uid { get; set; }//version uid
 
         [SolrField("value")]
