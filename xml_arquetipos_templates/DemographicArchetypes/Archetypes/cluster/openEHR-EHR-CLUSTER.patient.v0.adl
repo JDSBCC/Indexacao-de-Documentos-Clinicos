@@ -21,7 +21,7 @@ description
 	lifecycle_state = <"0">
 	other_contributors = <>
 	other_details = <
-		["MD5-CAM-1.0.1"] = <"DED211BD13EAD08F1A25D5C907EE9D2C">
+		["MD5-CAM-1.0.1"] = <"B4DD14A08261189B4E8E4F1B056E4604">
 	>
 
 definition
@@ -29,7 +29,7 @@ definition
 		items cardinality matches {1..*; unordered} matches {
 			ELEMENT[at0015] occurrences matches {0..1} matches {	-- Número beneficiário
 				value matches {
-					DV_TEXT matches {*}
+					DV_COUNT matches {*}
 				}
 			}
 			ELEMENT[at0012] occurrences matches {0..1} matches {	-- Data nascimento
@@ -44,7 +44,7 @@ definition
 			}
 			ELEMENT[at0004] occurrences matches {0..1} matches {	-- Número contribuinte
 				value matches {
-					DV_TEXT matches {*}
+					DV_COUNT matches {*}
 				}
 			}
 			ELEMENT[at0005] occurrences matches {0..1} matches {	-- Morada
@@ -64,22 +64,22 @@ definition
 			}
 			ELEMENT[at0008] occurrences matches {0..1} matches {	-- Telefone 1
 				value matches {
-					DV_TEXT matches {*}
+					DV_COUNT matches {*}
 				}
 			}
 			ELEMENT[at0009] occurrences matches {0..1} matches {	-- Telefone 2
 				value matches {
-					DV_TEXT matches {*}
+					DV_COUNT matches {*}
 				}
 			}
 			ELEMENT[at0010] occurrences matches {0..1} matches {	-- Fax
 				value matches {
-					DV_TEXT matches {*}
+					DV_COUNT matches {*}
 				}
 			}
 			ELEMENT[at0011] occurrences matches {0..1} matches {	-- Cartão cidadão
 				value matches {
-					DV_TEXT matches {*}
+					DV_COUNT matches {*}
 				}
 			}
 			ELEMENT[at0013] occurrences matches {0..1} matches {	-- Sexo
@@ -89,7 +89,7 @@ definition
 			}
 			ELEMENT[at0014] occurrences matches {0..1} matches {	-- Nº cartão serviço nacional de saúde
 				value matches {
-					DV_TEXT matches {*}
+					DV_COUNT matches {*}
 				}
 			}
 		}

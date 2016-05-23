@@ -29,11 +29,16 @@ namespace IndexDocClinicos
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/bootstrap.css"));
+            bundles.Add(new ScriptBundle("~/bundles/moment").Include(
+                        "~/Scripts/moment.js"));
 
-            bundles.Add(new StyleBundle("~/Content").Include(
-                        "~/Content/bootstrap.min.css",
-                        "~/Content/bootstrap-theme.min.css"));
+            bundles.Add(new ScriptBundle("~/bundles/datePicker").Include(
+                        "~/Scripts/bootstrap-datetimepicker.js",
+                        "~/Scripts/pt.js"));
+
+            bundles.Add(new StyleBundle("~/Content/css").Include(
+                        "~/Content/bootstrap.css",
+                        "~/Content/bootstrap-datetimepicker.css"));
         }
     }
 }

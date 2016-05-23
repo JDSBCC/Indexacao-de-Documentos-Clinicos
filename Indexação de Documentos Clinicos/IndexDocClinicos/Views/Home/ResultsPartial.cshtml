@@ -1,8 +1,10 @@
-﻿@if (ViewBag.searchModel.Results != null)
+﻿@model IndexDocClinicos.Models.SearchView
+
+@try
 {
-    if (ViewBag.searchModel.Results.Count != 0)
+    if (Model.Results.Count != 0)
     {
-        foreach (var cont in ViewBag.searchModel.Results)
+        foreach (var cont in Model.Results)
         {
             <div class='panel panel-default'>
                 <div class='panel-body'>
@@ -10,11 +12,17 @@
                     <small> @Html.Raw(cont["text"])</small>
                     <a href="@cont["documento_url"]">Documento</a>
                         - 
-                    @Html.ActionLink("Informação Demográfica", "Metadata", "Home", new { id=cont["uid"]}, null)
+                    @Html.ActionLink("Informação Demográfica", "Metadata", "Home", new { id = cont["uid"] }, null)
                 </div>
             </div>
         }
-    }else{
+    }
+    else
+    {
         <h5>Nenhum resultado encontrado</h5>
     }
+}
+catch (NullReferenceException)
+{
+    <h5>Nenhum resultado encontrado</h5>
 }

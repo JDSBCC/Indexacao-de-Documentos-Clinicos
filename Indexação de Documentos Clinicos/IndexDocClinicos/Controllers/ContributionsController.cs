@@ -2,6 +2,7 @@
 using Microsoft.Practices.ServiceLocation;
 using SolrNet;
 using SolrNet.Commands.Parameters;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Diagnostics;
@@ -19,6 +20,12 @@ namespace IndexDocClinicos.Controllers
             return Query(SolrQuery.All, startPage, rows);
         }
 
+        public List<Dictionary<string, string>> GetContributionsByRangeDate(string id, int startPage, int rows)
+        {
+            string[] values = id.Split('_');
+            return Query(new SolrQueryByRange<DateTime>("dates", Convert.ToDateTime(values[1]), Convert.ToDateTime(values[2])) && new SolrQuery(values[0]), startPage, rows);
+        }
+
         public List<Dictionary<string, string>> GetContributions(string id, int startPage, int rows)
         {
             return Query(new SolrQuery(id), startPage, rows);
@@ -31,7 +38,7 @@ namespace IndexDocClinicos.Controllers
             {
                 Highlight = new HighlightingParameters
                 {
-                    Fields = new[] { "content", "value" }
+                    Fields = new[] { "content", "value", "dates" }
                 },
                 Rows = rows,
                 Start = startPage

@@ -31,7 +31,7 @@ namespace IndexDocClinicos
             List<Task> tasks = new List<Task>();
             int chunckSize = Convert.ToInt32(ConfigurationManager.AppSettings["ChunkSize"]);
             if(connectionsWork()){
-                for (int i = 13706193; i < 13726193; i += chunckSize)
+                for (int i = 13706193; i < 13707193; i += chunckSize)
                 {
                     int index = i;
                     tasks.Add(Task.Factory.StartNew(() =>

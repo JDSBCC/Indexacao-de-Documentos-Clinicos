@@ -13,6 +13,9 @@ namespace IndexDocClinicos.Models
         [SolrField("value")]
         public List<string> Value { get; set; }
 
+        [SolrField("dates")]
+        public List<DateTime> Dates { get; set; }
+
         [SolrField("first_name")]
         public string First_name { get; set; }
 

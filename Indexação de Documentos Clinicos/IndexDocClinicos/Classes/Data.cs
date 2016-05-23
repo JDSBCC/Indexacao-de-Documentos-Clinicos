@@ -75,6 +75,7 @@ namespace IndexDocClinicos.Classes
                     "left join er_sexo s on c.sexo_id=s.sexo_id " +
                     "left join er_estado_civil ec on ec.estado_civil_id=c.estado_civil_id " +
                     "where f.elemento_id>=" + first + " AND f.elemento_id<=" + last, connOracle);//REMOVE restriçao de elemento_id
+                cmd.CommandTimeout = 900;
                 dataReaderOracle = cmd.ExecuteReader();
                 while (dataReaderOracle.Read())
                 {
@@ -89,6 +90,9 @@ namespace IndexDocClinicos.Classes
             catch (OracleException e)
             {
                 Debug.Write("Error: {0}", e.ToString());
+                if (connOracle != null) {
+                    connOracle.Close();
+                }
                 freeMemory();
                 isConnectionFree = true;
                 queryingEresults(first, last);
@@ -142,8 +146,8 @@ namespace IndexDocClinicos.Classes
                 Morada = dataReaderOracle["MORADA"] + "",
                 Localidade = dataReaderOracle["LOCALIDADE"] + "",
                 Codigo_Postal = dataReaderOracle["CODIGO_POSTAL"] + "",
-                N_Beneficiario = dataReaderOracle["N_BENEF"] + "",
-                N_Cartao_Cidadao = dataReaderOracle["N_BI"] + "",
+                N_Beneficiario = dataReaderOracle["N_BENEF"]+"",
+                N_Cartao_Cidadao = dataReaderOracle["N_BI"]+"",
                 Data_Nasc = Convert.ToDateTime(dataReaderOracle["DATA_NASC"]),
                 Sexo_Sigla = dataReaderOracle["SIGLA"] + "",
                 Sexo = dataReaderOracle["DESCRICAO"] + "",
@@ -160,8 +164,11 @@ namespace IndexDocClinicos.Classes
                 patient.Fax = Convert.ToDouble(dataReaderOracle["FAX"]);
             if (!Convert.IsDBNull(dataReaderOracle["N_SNS"]))
                 patient.N_Servico_Nacional_Saude = Convert.ToDouble(dataReaderOracle["N_SNS"]);
-            if (!Convert.IsDBNull(dataReaderOracle["ESTADO_CIVIL"]))
+            if (!Convert.IsDBNull(dataReaderOracle["ESTADO_CIVIL"])) {
                 patient.Estado_Civil = dataReaderOracle["ESTADO_CIVIL"] + "";
+            } else {
+                patient.Estado_Civil = "-";
+            }
 
             patients.Add(patient);
         }
@@ -178,6 +185,7 @@ namespace IndexDocClinicos.Classes
                     {
                         Uid = docs[i]["uid"] + "",
                         Value = (List<string>)docs[i]["value"],
+                        Dates = (List<DateTime>)docs[i]["dates"],
                         First_name = docs[i]["first_name"] + "",
                         Last_name = docs[i]["last_name"] + "",
                         Dob = Convert.ToDateTime(docs[i]["dob"]),
@@ -212,7 +220,6 @@ namespace IndexDocClinicos.Classes
             try
             {
                 connMySQL = new MySqlConnection(ConfigurationManager.AppSettings["EHR_db"]);
-                
                 connMySQL.Open();
 
                 //contribution
@@ -222,6 +229,8 @@ namespace IndexDocClinicos.Classes
                                                     "FROM contribution cont, version v, composition_index ci, patient_proxy pp, ehr e " +
                                                     "WHERE cont.id=v.contribution_id AND v.data_id=ci.id AND ci.last_version=1 AND cont.ehr_id=e.id AND e.subject_id=pp.id "+
                                                     contQuery, connMySQL);
+
+                cmd1.CommandTimeout = 900;
                 dataReaderMySQL = cmd1.ExecuteReader();
                 while (dataReaderMySQL.Read())
                 {//for each contribution
@@ -243,6 +252,7 @@ namespace IndexDocClinicos.Classes
                                 "FROM data_value_index " +
                                 "WHERE owner_id=@id";
                     MySqlCommand cmd2 = new MySqlCommand(query, connMySQL);
+                    cmd2.CommandTimeout = 900;
                     cmd2.Prepare();
                     cmd2.Parameters.AddWithValue("@id", id[i]);
                     dataReaderMySQL = cmd2.ExecuteReader();
@@ -258,17 +268,17 @@ namespace IndexDocClinicos.Classes
                 {
                     docs[i].Add("value", new List<string>());
                     if (data_value_ids[id[i]].Count==0) {
-                        if (connMySQL != null)
-                        {
+                        if (connMySQL != null) {
                             connMySQL.Close();
-                            isConnectionFree = true;
                         }
+                        isConnectionFree = true;
                         return null;
                     }
                     for (int j = 0; j < data_value_ids[id[i]].Count; j++)
                     {
                         string query = "SELECT value FROM dv_text_index WHERE id=@id";
                         MySqlCommand cmd3 = new MySqlCommand(query, connMySQL);
+                        cmd3.CommandTimeout = 900;
                         cmd3.Prepare();
                         cmd3.Parameters.AddWithValue("@id", data_value_ids[id[i]][j]);
                         dataReaderMySQL = cmd3.ExecuteReader();
@@ -280,16 +290,37 @@ namespace IndexDocClinicos.Classes
                     }
                 }
 
+                //dv_date_time_index
+                for (int i = 0; i < id.Count; i++)
+                {
+                    docs[i].Add("dates", new List<DateTime>());
+                    for (int j = 0; j < data_value_ids[id[i]].Count; j++)
+                    {
+                        string query = "SELECT value FROM dv_date_time_index WHERE id=@id";
+                        MySqlCommand cmd4 = new MySqlCommand(query, connMySQL);
+                        cmd4.CommandTimeout = 900;
+                        cmd4.Prepare();
+                        cmd4.Parameters.AddWithValue("@id", data_value_ids[id[i]][j]);
+                        dataReaderMySQL = cmd4.ExecuteReader();
+                        while (dataReaderMySQL.Read())
+                        {
+                            ((List<DateTime>)docs[i]["dates"]).Add(Convert.ToDateTime(dataReaderMySQL["value"]));
+                        }
+                        dataReaderMySQL.Close();
+                    }
+                }
+
                 //person
                 for (int i = 0; i < id.Count; i++)
                 {
                     string query = "SELECT first_name, last_name, dob " +
                                 "FROM ehr, patient_proxy pp, person p " +
                                 "WHERE ehr.subject_id=pp.id AND pp.value=p.uid AND ehr.id=@id";
-                    MySqlCommand cmd4 = new MySqlCommand(query, connMySQL);
-                    cmd4.Prepare();
-                    cmd4.Parameters.AddWithValue("@id", ehr_id[i]);
-                    dataReaderMySQL = cmd4.ExecuteReader();
+                    MySqlCommand cmd5 = new MySqlCommand(query, connMySQL);
+                    cmd5.CommandTimeout = 900;
+                    cmd5.Prepare();
+                    cmd5.Parameters.AddWithValue("@id", ehr_id[i]);
+                    dataReaderMySQL = cmd5.ExecuteReader();
                     while (dataReaderMySQL.Read())
                     {
                         docs[i].Add("first_name", dataReaderMySQL["first_name"]);
@@ -302,10 +333,11 @@ namespace IndexDocClinicos.Classes
             catch (MySqlException ex)
             {
                 Debug.Write("Error: {0}", ex.ToString());
-                if (!connMySQL.Ping()) {
-                    isConnectionFree = true;
-                    return QueryingEHR();
+                if (connMySQL != null) {
+                    connMySQL.Close();
                 }
+                isConnectionFree = true;
+                return null;
             }
             finally
             {

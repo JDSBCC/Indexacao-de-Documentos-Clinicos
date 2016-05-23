@@ -1,26 +1,28 @@
-﻿@if (ViewBag.searchModel.TotalResults != 0 && ViewBag.searchModel.NumberOfPages > 1)
+﻿@model IndexDocClinicos.Models.SearchView
+
+@if (Model.TotalResults != 0 && Model.NumberOfPages > 1)
 {
     <ul class="pagination">
         @{
-            if (ViewBag.searchModel.Page!=0){
+            if (Model.Page!=0){
                 <li class="page-item">
-                    <a class="page-link pg" href="javascript:void(0)" id="@ViewBag.searchModel.PreviousPage" onclick="find(@ViewBag.searchModel.PreviousPage);" aria-label="Previous">
+                    <a class="page-link pg" href="javascript:void(0)" id="@Model.PreviousPage" onclick="find(@Model.PreviousPage);" aria-label="Previous">
                     <span aria-hidden="true">&laquo;</span>
                     <span class="sr-only">Previous</span>
                     </a>
                 </li>
             }
-            for (int i = ViewBag.searchModel.StartPage+1; i <= ViewBag.searchModel.LastPage+1; i++)
+            for (int i = Model.StartPage+1; i <= Model.LastPage+1; i++)
             {
-                if(ViewBag.searchModel.Page+1!=i){
+                if(Model.Page+1!=i){
                     <li><a class="pg" href="javascript:void(0)" id="@i" onclick="find(@i);">@i</a></li>
                 }else{
                     <li class="active"><a class="pg" id="@i" onclick="find(@i);">@i</a></li>
                 }
             }
-            if(ViewBag.searchModel.Page!=ViewBag.searchModel.NumberOfPages-1){
+            if(Model.Page!=Model.NumberOfPages-1){
                 <li class="page-item">
-                    <a class="page-link pg" href="javascript:void(0)" id="@ViewBag.searchModel.NextPage" onclick="find(@ViewBag.searchModel.NextPage);" aria-label="Next">
+                    <a class="page-link pg" href="javascript:void(0)" id="@Model.NextPage" onclick="find(@Model.NextPage);" aria-label="Next">
                     <span aria-hidden="true">&raquo;</span>
                     <span class="sr-only">Next</span>
                     </a>

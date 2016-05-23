@@ -82,7 +82,7 @@ namespace IndexDocClinicos.Classes
             request.Accept = accept;
 
             var content = Encoding.UTF8.GetBytes(body);
-
+            
             request.Method = "POST";
             request.ContentType = "text/xml";
             request.ContentLength = content.Length;

@@ -16,7 +16,6 @@ namespace IndexDocClinicos.Controllers
 
         public HomeController()
         {
-            ViewBag.searchModel = searchModel;
         }
 
         public ActionResult Index()
@@ -26,9 +25,15 @@ namespace IndexDocClinicos.Controllers
 
         public PartialViewResult Search(string id, int page)
         {
-            searchModel.SearchTerm = id;
+            string[] values = id.Split('_');
+            searchModel.SearchTerm = values[0];
             searchModel.Page = page - 1;
-            List<Dictionary<string, string>> res = new ContributionsController().GetContributions(searchModel.SearchTerm, searchModel.Start, searchModel.Rows);
+            List<Dictionary<string, string>> res = new List<Dictionary<string, string>>();
+            if (values.Length==1) {
+                res = new ContributionsController().GetContributions(searchModel.SearchTerm, searchModel.Start, searchModel.Rows);
+            } else {
+                res = new ContributionsController().GetContributionsByRangeDate(id, searchModel.Start, searchModel.Rows);
+            }
             searchModel.Results = res;
 
             if (res.Count==0)
@@ -37,15 +42,14 @@ namespace IndexDocClinicos.Controllers
                 return PartialView("ResultsPartial");
             }
             searchModel.TotalResults = Convert.ToInt32(res[0]["total_num"]);
-            ViewBag.searchModel = searchModel;
+            ViewBag.SearchTerm = id;
 
-            return PartialView("ResultsPartial");
+            return PartialView("ResultsPartial", searchModel);
         }
 
         public PartialViewResult Pagination()
         {
-            ViewBag.searchModel = searchModel;
-            return PartialView("PaginationPartial");
+            return PartialView("PaginationPartial", searchModel);
         }
 
 

@@ -20,11 +20,9 @@ namespace IndexDocClinicos.Classes
         private List<Dictionary<string, string>> map_list;
         private List<string> patientUids;
 
-        //private String []keys = { "",""};
-
         public EhrData()
         {
-            //start connections to dbs
+            //start connection with ehr db
             connMySQL = new MySqlConnection(ConfigurationManager.AppSettings["EHR_db"]);
 
             patients = new List<Patient>();
@@ -160,6 +158,7 @@ namespace IndexDocClinicos.Classes
                 {
                     string pattern = @"\[\[:::"+item.Key+@":::\]\]";
                     Regex rgx = new Regex(pattern);
+                    //Debug.WriteLine("[" + item.Key + "] = " + (item.Value.Equals("") ? "999999999" : item.Value));
                     string result = rgx.Replace(text, item.Value.Equals("")?"-":item.Value);
                     text = result;
                 }

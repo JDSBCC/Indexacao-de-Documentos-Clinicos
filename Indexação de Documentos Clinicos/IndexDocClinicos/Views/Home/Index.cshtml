@@ -1,31 +1,35 @@
 ﻿<div id="body">
-    <div class="container-fluid">
-        <nav class="navbar navbar-default navbar-fixed-top">
-            <div class="container" style="padding-bottom: 30px">
+    <nav class="navbar navbar-default navbar-static-top">
+        <div class="container">
+            <div class="form-group">
                 <div class="row">
                     <div class="col-md-12">
                         <h2>Indexação de documentos clínicos</h2>
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-10">
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Procurar por..." id="contId" value="@ViewBag.searchModel.SearchTerm"/>
+                            <input type="text" class="form-control" placeholder="Procurar por..." id="contId" value="@ViewBag.SearchTerm"/>
                             <span class="input-group-btn">
                                 <button id="searchBtn" class="btn btn-default" type="button" value="Search" onclick="find(1);">Procurar</button>
                             </span>
                         </div>
                     </div>
+                    <div class="col-md-2">
+                        <button id="AdvSearchBtn" class="btn btn-default" type="button" value="Search" onclick="toggleAdvSearch();">Pesquisa Avançada</button>
+                    </div>
+                    @Html.Partial("AdvancedSearchPartial")
                 </div>
             </div>
-        </nav>
-        <div class="container" style="padding-top: 150px;">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="list-group" id="contribution">@*Html.Partial("ResultsPartial")*@</div>
-                </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="list-group" id="contribution">@*Html.Partial("ResultsPartial")*@</div>
             </div>
-            <div class="row">
-                <div id="pagination" class="col-md-12">@*Html.Partial("PaginationPartial")*@</div>
-            </div>
+        </div>
+        <div class="row">
+            <div id="pagination" class="col-md-12">@*Html.Partial("PaginationPartial")*@</div>
         </div>
     </div>
 
@@ -55,19 +59,29 @@
                 $('#pagination').html("");
                 if (window.location.hash.length != 0) {
                     var values = window.location.hash.split("/");
-                    var id = values[0].replace("#", "").replace("%20", " ");
+                    var id = values[0].replace("#", "").replace(RegExp("%20", "g"), " ");
 
-                    $('#contId').val(id);
+                    var val = id.split("_");
+
+                    $('#contId').val(val[0]);
+                    $('#dateBox1').val(val[1]);
+                    $('#dateBox2').val(val[2]);
 
                     updateResults(id, values[1]);
                 } else {
                     $('#contId').val("");
+                    $('#dateBox1').val("");
+                    $('#dateBox2').val("");
                 }
             }
 
             function find(pg) {
-                if ($('#contId').val() != "") {
-                    window.location.hash = $('#contId').val().replace(" ", "%20") + '/' + pg;
+                if ($('#contId').val() != "" || ($("#dateBox1").val() != "" && $("#dateBox2").val() != "")) {
+                    if ($("#dateBox1").val() == "" || $("#dateBox2").val() == "") {
+                        window.location.hash = $('#contId').val().replace(RegExp(" ", "g"), "%20") + '/' + pg;
+                    } else {
+                        window.location.hash = $('#contId').val().replace(RegExp(" ", "g"), "%20") + '_' + $("#dateBox1").val().replace(RegExp(" ", "g"), "%20") + '_' + $("#dateBox2").val().replace(RegExp(" ", "g"), "%20") + '/' + pg;
+                    }
 
                     $("html, body").animate({
                         scrollTop: 0
@@ -93,6 +107,31 @@
                 }).done(function (data) {
                     $("#pagination").html(data);
                 });
+            }
+
+
+            $(function () {
+                $('#datetimepicker6').datetimepicker({
+                    locale: 'pt',
+                    format: 'LL',
+                    ignoreReadonly: true
+                });
+                $('#datetimepicker7').datetimepicker({
+                    useCurrent: false,
+                    locale: 'pt',
+                    format: 'LL',
+                    ignoreReadonly: true
+                });
+                $("#datetimepicker6").on("dp.change", function (e) {
+                    $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
+                });
+                $("#datetimepicker7").on("dp.change", function (e) {
+                    $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
+                });
+            });
+
+            function toggleAdvSearch() {
+                $("#AdvSearch").toggle(500);
             }
         </script>
     }
