@@ -6,9 +6,9 @@ namespace IndexDocClinicos.Models
     {
         public string Uid { get; set; }
 
-        public int Doente { get; set; }
+        public string Doente { get; set; }
 
-        public int Entidade_id { get; set; }
+        public string Entidade_id { get; set; }
 
         public string Nome { get; set; }
 
@@ -20,7 +20,7 @@ namespace IndexDocClinicos.Models
 
         public string Codigo_Postal { get; set; }
 
-        public double Telefone1 { get; set; }
+        public double? Telefone1 { get; set; }
 
         public double? Telefone2 { get; set; }
 
@@ -30,7 +30,7 @@ namespace IndexDocClinicos.Models
 
         public string N_Beneficiario { get; set; }
 
-        public string N_Cartao_Cidadao { get; set; }
+        public double? N_Cartao_Cidadao { get; set; }
 
         public DateTime Data_Nasc { get; set; }
 

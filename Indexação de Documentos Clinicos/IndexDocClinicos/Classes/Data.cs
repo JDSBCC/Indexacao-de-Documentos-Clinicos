@@ -63,7 +63,7 @@ namespace IndexDocClinicos.Classes
                 connOracle = new OracleConnection();
                 connOracle.ConnectionString = ConfigurationManager.AppSettings["Eresults_v2_db"];
                 connOracle.Open();
-
+                Debug.WriteLine(connOracle.ConnectionTimeout);
                 OracleCommand cmd = new OracleCommand("select d.documento_id, f.*, dl.doente, ge.*, c.*, s.sigla, s.descricao, ec.descricao as estado_civil from er_ficheiro f " +
                     "join er_elemento e on e.elemento_id=f.elemento_id and e.versao_activa='S' " +
                     "join er_documento d on d.documento_id=e.documento_id " +
@@ -75,7 +75,7 @@ namespace IndexDocClinicos.Classes
                     "left join er_sexo s on c.sexo_id=s.sexo_id " +
                     "left join er_estado_civil ec on ec.estado_civil_id=c.estado_civil_id " +
                     "where f.elemento_id>=" + first + " AND f.elemento_id<=" + last, connOracle);//REMOVE restriçao de elemento_id
-                cmd.CommandTimeout = 900;
+                //cmd.CommandTimeout = 900;
                 dataReaderOracle = cmd.ExecuteReader();
                 while (dataReaderOracle.Read())
                 {
@@ -91,6 +91,14 @@ namespace IndexDocClinicos.Classes
             {
                 Debug.Write("Error: {0}", e.ToString());
                 if (connOracle != null) {
+                    connOracle.Close();
+                }
+                freeMemory();
+                isConnectionFree = true;
+                queryingEresults(first, last);
+            }
+            catch (TimeoutException te) {
+                if (connOracle != null){
                     connOracle.Close();
                 }
                 freeMemory();
@@ -136,18 +144,17 @@ namespace IndexDocClinicos.Classes
 
         private void saveMetadataContent()
         {
-            Debug.Write("[PATIENT] = " + dataReaderOracle["DOENTE"] + " - " + dataReaderOracle["ENTIDADE_ID"] + " - " + dataReaderOracle["NOME"] + " \n");
+            Debug.Write("[PATIENT] = " + dataReaderOracle["DOENTE"] + " - " + dataReaderOracle["ENTIDADE_ID"] + " - " + dataReaderOracle["NOME"] + " - " + dataReaderOracle["DATA_NASC"] + " \n");
 
             Patient patient = new Patient
             {
-                Doente = Convert.ToInt32(dataReaderOracle["DOENTE"]),
-                Entidade_id = Convert.ToInt32(dataReaderOracle["ENTIDADE_ID"]),
+                Doente = dataReaderOracle["DOENTE"]+"",
+                Entidade_id = dataReaderOracle["ENTIDADE_ID"]+"",
                 Nome = dataReaderOracle["NOME"] + "",
                 Morada = dataReaderOracle["MORADA"] + "",
                 Localidade = dataReaderOracle["LOCALIDADE"] + "",
                 Codigo_Postal = dataReaderOracle["CODIGO_POSTAL"] + "",
                 N_Beneficiario = dataReaderOracle["N_BENEF"]+"",
-                N_Cartao_Cidadao = dataReaderOracle["N_BI"]+"",
                 Data_Nasc = Convert.ToDateTime(dataReaderOracle["DATA_NASC"]),
                 Sexo_Sigla = dataReaderOracle["SIGLA"] + "",
                 Sexo = dataReaderOracle["DESCRICAO"] + "",
@@ -164,11 +171,10 @@ namespace IndexDocClinicos.Classes
                 patient.Fax = Convert.ToDouble(dataReaderOracle["FAX"]);
             if (!Convert.IsDBNull(dataReaderOracle["N_SNS"]))
                 patient.N_Servico_Nacional_Saude = Convert.ToDouble(dataReaderOracle["N_SNS"]);
-            if (!Convert.IsDBNull(dataReaderOracle["ESTADO_CIVIL"])) {
+            if (!Convert.IsDBNull(dataReaderOracle["ESTADO_CIVIL"]))
                 patient.Estado_Civil = dataReaderOracle["ESTADO_CIVIL"] + "";
-            } else {
-                patient.Estado_Civil = "-";
-            }
+            if (!Convert.IsDBNull(dataReaderOracle["N_BI"]))
+                patient.N_Cartao_Cidadao = Convert.ToDouble(dataReaderOracle["N_BI"]);
 
             patients.Add(patient);
         }
@@ -230,7 +236,7 @@ namespace IndexDocClinicos.Classes
                                                     "WHERE cont.id=v.contribution_id AND v.data_id=ci.id AND ci.last_version=1 AND cont.ehr_id=e.id AND e.subject_id=pp.id "+
                                                     contQuery, connMySQL);
 
-                cmd1.CommandTimeout = 900;
+                //cmd1.CommandTimeout = 900;
                 dataReaderMySQL = cmd1.ExecuteReader();
                 while (dataReaderMySQL.Read())
                 {//for each contribution
@@ -252,7 +258,7 @@ namespace IndexDocClinicos.Classes
                                 "FROM data_value_index " +
                                 "WHERE owner_id=@id";
                     MySqlCommand cmd2 = new MySqlCommand(query, connMySQL);
-                    cmd2.CommandTimeout = 900;
+                    //cmd2.CommandTimeout = 900;
                     cmd2.Prepare();
                     cmd2.Parameters.AddWithValue("@id", id[i]);
                     dataReaderMySQL = cmd2.ExecuteReader();
@@ -278,7 +284,7 @@ namespace IndexDocClinicos.Classes
                     {
                         string query = "SELECT value FROM dv_text_index WHERE id=@id";
                         MySqlCommand cmd3 = new MySqlCommand(query, connMySQL);
-                        cmd3.CommandTimeout = 900;
+                        //cmd3.CommandTimeout = 900;
                         cmd3.Prepare();
                         cmd3.Parameters.AddWithValue("@id", data_value_ids[id[i]][j]);
                         dataReaderMySQL = cmd3.ExecuteReader();
@@ -298,7 +304,7 @@ namespace IndexDocClinicos.Classes
                     {
                         string query = "SELECT value FROM dv_date_time_index WHERE id=@id";
                         MySqlCommand cmd4 = new MySqlCommand(query, connMySQL);
-                        cmd4.CommandTimeout = 900;
+                        //cmd4.CommandTimeout = 900;
                         cmd4.Prepare();
                         cmd4.Parameters.AddWithValue("@id", data_value_ids[id[i]][j]);
                         dataReaderMySQL = cmd4.ExecuteReader();
@@ -317,7 +323,7 @@ namespace IndexDocClinicos.Classes
                                 "FROM ehr, patient_proxy pp, person p " +
                                 "WHERE ehr.subject_id=pp.id AND pp.value=p.uid AND ehr.id=@id";
                     MySqlCommand cmd5 = new MySqlCommand(query, connMySQL);
-                    cmd5.CommandTimeout = 900;
+                    //cmd5.CommandTimeout = 900;
                     cmd5.Prepare();
                     cmd5.Parameters.AddWithValue("@id", ehr_id[i]);
                     dataReaderMySQL = cmd5.ExecuteReader();
@@ -339,8 +345,13 @@ namespace IndexDocClinicos.Classes
                 isConnectionFree = true;
                 return null;
             }
-            finally
-            {
+            catch (TimeoutException te) {
+                if (connMySQL != null) {
+                    connMySQL.Close();
+                }
+                isConnectionFree = true;
+                return null;
+            } finally {
                 if (connMySQL != null)
                 {
                     connMySQL.Close();

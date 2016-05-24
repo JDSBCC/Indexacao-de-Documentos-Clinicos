@@ -139,9 +139,9 @@ namespace IndexDocClinicos.Classes
                 map_list[map_list.Count-1].Add("TELEPHONE1", patient.Telefone1+"");
                 map_list[map_list.Count-1].Add("TELEPHONE2", patient.Telefone2+"");
                 map_list[map_list.Count-1].Add("FAX", patient.Fax+"");
-                map_list[map_list.Count-1].Add("CC", patient.N_Cartao_Cidadao);
+                map_list[map_list.Count-1].Add("CC", patient.N_Cartao_Cidadao+"");
                 map_list[map_list.Count-1].Add("CONTR", patient.N_Contribuinte+"");
-                map_list[map_list.Count-1].Add("BENEF", patient.N_Beneficiario);
+                map_list[map_list.Count-1].Add("BENEF", patient.N_Beneficiario+"");
                 map_list[map_list.Count-1].Add("SNS", patient.N_Servico_Nacional_Saude+"");
                 map_list[map_list.Count-1].Add("CIVIL", patient.Estado_Civil+"");
                 map_list[map_list.Count-1].Add("uid", patient.Uid);
@@ -159,7 +159,7 @@ namespace IndexDocClinicos.Classes
                     string pattern = @"\[\[:::"+item.Key+@":::\]\]";
                     Regex rgx = new Regex(pattern);
                     //Debug.WriteLine("[" + item.Key + "] = " + (item.Value.Equals("") ? "999999999" : item.Value));
-                    string result = rgx.Replace(text, item.Value.Equals("")?"-":item.Value);
+                    string result = rgx.Replace(text, item.Value.Equals("")?"0":item.Value);
                     text = result;
                 }
 

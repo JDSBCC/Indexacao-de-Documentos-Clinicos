@@ -61,7 +61,11 @@ namespace IndexDocClinicos.Controllers
             XmlNodeList nodes = doc.DocumentElement.GetElementsByTagName("items");
             for (int i = 1; i < nodes.Count; i++ )
             {
-                ViewData[nodes[i]["name"]["value"].InnerText] = nodes[i]["value"]["value"].InnerText;
+                try {
+                    ViewData[nodes[i]["name"]["value"].InnerText] = nodes[i]["value"]["value"].InnerText;
+                } catch (NullReferenceException) {
+                    ViewData[nodes[i]["name"]["value"].InnerText] = nodes[i]["value"]["magnitude"].InnerText;
+                }
             }
 
             return View("Metadata");
