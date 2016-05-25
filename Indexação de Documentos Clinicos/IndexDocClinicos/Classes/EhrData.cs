@@ -115,6 +115,7 @@ namespace IndexDocClinicos.Classes
                 tempUrl += "&createEhr=true";
                 tempUrl += "&organizationUid=" + organization.Uid;
                 tempUrl += "&uid=" + patient.Uid;
+                Debug.WriteLine("------->" + tempUrl);
                 Request.Post(ConfigurationManager.AppSettings["EHR_rest"] + "/createPerson", tempUrl, token, "application/json");
             }
         }

@@ -48,8 +48,11 @@
                     {
                         <p><b>Nº Contribuinte:</b> @ViewData["Nº Contribuinte"] </p>
                     }
-
-                    <p><b>Nº Beneficiário:</b> @ViewData["Nº Beneficiário"] </p>
+                    
+                    @if (!ViewData["Nº Beneficiário"].Equals("0"))
+                    {
+                        <p><b>Nº Beneficiário:</b> @ViewData["Nº Beneficiário"] </p>
+                    }
 
                     @if (!ViewData["Nº Serviço Nacional Saúde"].Equals("0"))
                     {

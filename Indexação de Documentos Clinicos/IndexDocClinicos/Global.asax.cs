@@ -31,17 +31,17 @@ namespace IndexDocClinicos
             List<Task> tasks = new List<Task>();
             int chunckSize = Convert.ToInt32(ConfigurationManager.AppSettings["ChunkSize"]);
             if(connectionsWork()){
-                for (int i = 13706193; i < 13716193; i += chunckSize)
+                for (int i = 13706193; i < 13756193; i += chunckSize)
                 {
-                    int index = i;
+                    /*int index = i;
                     tasks.Add(Task.Factory.StartNew(() =>
                     {
                         ReadIndexAllData(index, index + chunckSize-1);
-                    }));
-                    //ReadIndexAllData(i, i + 999);
+                    }));*/
+                    //ReadIndexAllData(i, i + chunckSize-1);
                 }
-                Task.WaitAll(tasks.ToArray<Task>());
-                //ReadIndexAllData(13706193, 13716193);
+                //Task.WaitAll(tasks.ToArray<Task>());
+                ReadIndexAllData(1004003, 1005520);
             }
             //----------------------------------------
             stopwatch.Stop();//REMOVE
