@@ -54,7 +54,7 @@ namespace IndexDocClinicos.Classes
             patients.Clear();
         }
 
-        public void queryingEresults(int first, int last)
+        public void queryingEresults(string condition)
         {
             while (!isConnectionFree) ;
             isConnectionFree = false;
@@ -73,11 +73,12 @@ namespace IndexDocClinicos.Classes
                     "join gr_doente_local dl on v.entidade_pai_id=dl.entidade_id  and dl.activo='S' " +
                     "left join er_sexo s on c.sexo_id=s.sexo_id " +
                     "left join er_estado_civil ec on ec.estado_civil_id=c.estado_civil_id " +
-                    "where f.elemento_id>=" + first + " AND f.elemento_id<=" + last, connOracle);//REMOVE restriçao de elemento_id
+                    "where " + condition, connOracle);//REMOVE restriçao de elemento_id
                 //cmd.CommandTimeout = 900;
                 dataReaderOracle = cmd.ExecuteReader();
                 while (dataReaderOracle.Read())
                 {
+                    Debug.Write("[PATIENT] = " + dataReaderOracle["elemento_id"] + " - " + dataReaderOracle["documento_id"] + " - " + dataReaderOracle["NOME"] + " - " + dataReaderOracle["DATA_NASC"] + " \n");
                     //save document content in docInfo
                     saveDocContent();
 
@@ -94,7 +95,7 @@ namespace IndexDocClinicos.Classes
                 }
                 freeMemory();
                 isConnectionFree = true;
-                queryingEresults(first, last);
+                queryingEresults(condition);
             }
             catch (TimeoutException te) {
                 if (connOracle != null){
@@ -102,7 +103,7 @@ namespace IndexDocClinicos.Classes
                 }
                 freeMemory();
                 isConnectionFree = true;
-                queryingEresults(first, last);
+                queryingEresults(condition);
             }
             finally
             {
@@ -124,13 +125,18 @@ namespace IndexDocClinicos.Classes
                     ExtractOnly = true,
                     ExtractFormat = ExtractFormat.Text
                 };
-                var response = solr.Extract(extract);
+                string response;
+                try {
+                    response = solr.Extract(extract).Content;
+                } catch (SolrConnectionException) {
+                    response = "";
+                }
 
                 Document doc = new Document
                 {
                     Elemento_id = Convert.ToInt32(dataReaderOracle["elemento_id"]),
                     Documento_id = Convert.ToInt32(dataReaderOracle["documento_id"]),
-                    Content = response.Content.Replace("\n", " "),
+                    Content = response.Replace("\n", " "),
                     Entidade_id = Convert.ToInt32(dataReaderOracle["entidade_id"]),
                     Doente = Convert.ToInt32(dataReaderOracle["doente"])
                 };
@@ -143,23 +149,30 @@ namespace IndexDocClinicos.Classes
 
         private void saveMetadataContent()
         {
-            Debug.Write("[PATIENT] = " + dataReaderOracle["DOENTE"] + " - " + dataReaderOracle["ENTIDADE_ID"] + " - " + dataReaderOracle["NOME"] + " - " + dataReaderOracle["DATA_NASC"] + " \n");
+            //Debug.Write("[PATIENT] = " + dataReaderOracle["elemento_id"] + " - " + dataReaderOracle["documento_id"] + " - " + dataReaderOracle["NOME"] + " - " + dataReaderOracle["DATA_NASC"] + " \n");
 
             Patient patient = new Patient
             {
                 Doente = dataReaderOracle["DOENTE"]+"",
                 Entidade_id = dataReaderOracle["ENTIDADE_ID"]+"",
                 Nome = dataReaderOracle["NOME"] + "",
-                Morada = dataReaderOracle["MORADA"] + "",
-                Localidade = dataReaderOracle["LOCALIDADE"] + "",
-                Codigo_Postal = dataReaderOracle["CODIGO_POSTAL"] + "",
-                N_Beneficiario = dataReaderOracle["N_BENEF"]+"",
-                Data_Nasc = Convert.ToDateTime(dataReaderOracle["DATA_NASC"]),
-                Sexo_Sigla = dataReaderOracle["CODIGO"] + "",
-                Sexo = dataReaderOracle["DESCRICAO"] + "",
                 Uid = Guid.NewGuid().ToString()
             };
 
+            if (!Convert.IsDBNull(dataReaderOracle["MORADA"]))
+                patient.Morada = dataReaderOracle["MORADA"] + "";
+            if (!Convert.IsDBNull(dataReaderOracle["LOCALIDADE"]))
+                patient.Localidade = dataReaderOracle["LOCALIDADE"] + "";
+            if (!Convert.IsDBNull(dataReaderOracle["CODIGO_POSTAL"]))
+                patient.Codigo_Postal = dataReaderOracle["CODIGO_POSTAL"] + "";
+            if (!Convert.IsDBNull(dataReaderOracle["N_BENEF"]))
+                patient.N_Beneficiario = dataReaderOracle["N_BENEF"] + "";
+            if (!Convert.IsDBNull(dataReaderOracle["DATA_NASC"]))
+                patient.Data_Nasc = Convert.ToDateTime(dataReaderOracle["DATA_NASC"] + "");
+            if (!Convert.IsDBNull(dataReaderOracle["CODIGO"]))
+                patient.Sexo_Sigla = dataReaderOracle["CODIGO"] + "";
+            if (!Convert.IsDBNull(dataReaderOracle["DESCRICAO"]))
+                patient.Sexo = dataReaderOracle["DESCRICAO"] + "";
             if (!Convert.IsDBNull(dataReaderOracle["N_CONTRIBUINTE"]))
                 patient.N_Contribuinte = Convert.ToInt32(dataReaderOracle["N_CONTRIBUINTE"]);
             if (!Convert.IsDBNull(dataReaderOracle["TELEFONE1"]))

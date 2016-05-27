@@ -110,7 +110,7 @@ namespace IndexDocClinicos.Classes
                 tempUrl += "&lastName=" + names[names.Length - 1];
                 tempUrl += "&dob=" + patient.Data_Nasc.ToString("yyyyMMdd");
                 tempUrl += "&role=pat";
-                tempUrl += "&sex=" + patient.Sexo_Sigla;
+                tempUrl += "&sex=" + (patient.Sexo_Sigla==null ? "U" : patient.Sexo_Sigla);
                 tempUrl += "&format";
                 tempUrl += "&createEhr=true";
                 tempUrl += "&organizationUid=" + organization.Uid;
@@ -133,10 +133,10 @@ namespace IndexDocClinicos.Classes
                 map_list[map_list.Count-1].Add("COMPOSITION_DATE", DateTime.Now.ToString("yyyyMMdd"));
                 map_list[map_list.Count-1].Add("NAME", patient.Nome);
                 map_list[map_list.Count-1].Add("DOB", patient.Data_Nasc.ToString("yyyyMMdd"));
-                map_list[map_list.Count-1].Add("SEX", patient.Sexo);
-                map_list[map_list.Count-1].Add("ADDRESS", patient.Morada);
-                map_list[map_list.Count-1].Add("POST_CODE", patient.Codigo_Postal);
-                map_list[map_list.Count-1].Add("LOCAL", patient.Localidade);
+                map_list[map_list.Count-1].Add("SEX", patient.Sexo==null?"Indefinido":patient.Sexo);
+                map_list[map_list.Count-1].Add("ADDRESS", patient.Morada==null?"":patient.Morada);
+                map_list[map_list.Count-1].Add("POST_CODE", patient.Codigo_Postal==null?"":patient.Codigo_Postal);
+                map_list[map_list.Count-1].Add("LOCAL", patient.Localidade==null?"":patient.Localidade);
                 map_list[map_list.Count-1].Add("TELEPHONE1", patient.Telefone1+"");
                 map_list[map_list.Count-1].Add("TELEPHONE2", patient.Telefone2+"");
                 map_list[map_list.Count-1].Add("FAX", patient.Fax+"");

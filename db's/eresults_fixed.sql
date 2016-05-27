@@ -9,6 +9,8 @@ join gr_doente c on ge.entidade_id = c.entidade_id
 join gr_doente_local dl on v.entidade_pai_id=dl.entidade_id and dl.activo='S'
 left join er_sexo s on c.sexo_id=s.sexo_id
 left join er_estado_civil ec on ec.estado_civil_id=c.estado_civil_id
+--where (e.elemento_id = 21 AND e.documento_id = 30) OR (e.elemento_id = 1008954 AND e.documento_id = 12127630)
+where ge.nome like 'Maria%'
 where e.elemento_id in (1004004, 1004003);
 
 select * from er_ficheiro where elemento_id=1004003;
@@ -16,3 +18,12 @@ select * from er_sexo;
 select * from gr_doente_local
 
 select * from gr_visita where visita_id in (1491,1492);
+
+select DT_CRI, DT_ACT from er_documento;
+select * from er_elemento;
+
+select documento_id, elemento_id from
+(select documento_id, elemento_id, NVL(DT_ACT, DT_CRI) as final_date from er_elemento)
+where final_date>to_date('20121009010000','YYYYMMDDHHMISS');
+
+select * from er_elemento where DT_ACT is null;
