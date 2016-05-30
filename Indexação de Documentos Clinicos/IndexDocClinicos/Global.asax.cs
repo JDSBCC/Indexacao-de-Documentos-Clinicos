@@ -151,13 +151,16 @@ namespace IndexDocClinicos
                     List<List<int>> ids = new List<List<int>>();
                     getUpdatedDocuments(ids);
 
-                    string conditions = "(e.elemento_id = " + ids[0][1] + " AND e.documento_id = " + ids[0][0] + ")";
-                    foreach (var id in ids) {
-                        conditions += " OR (e.elemento_id = " + id[1] + " AND e.documento_id = " + id[0] + ")";
-                    }
+                    if (ids.Count > 0) {
+                        string conditions = "(e.elemento_id = " + ids[0][1] + " AND e.documento_id = " + ids[0][0] + ")";
+                        foreach (var id in ids)
+                        {
+                            conditions += " OR (e.elemento_id = " + id[1] + " AND e.documento_id = " + id[0] + ")";
+                        }
 
-                    ReadIndexAllData(conditions);
-                    lastUpdate = DateTime.Now;
+                        ReadIndexAllData(conditions);
+                        lastUpdate = DateTime.Now;
+                    }
                 }
             });
         }
@@ -173,7 +176,7 @@ namespace IndexDocClinicos
                 connOracle.Open();
                 OracleCommand cmd = new OracleCommand("select documento_id, elemento_id from " +//UPDATE colocar a data real
                                         "(select documento_id, elemento_id, NVL(DT_ACT, DT_CRI) as final_date from er_elemento) " +
-                                        "where final_date>to_date('20121009010000', 'YYYYMMDDHHMISS')", connOracle);//to_date('20121009','YYYYMMDD') - /*+ lastUpdate.ToString("yyyyMMddHHmmss")*/
+                                        "where final_date>to_date('" + lastUpdate.ToString("yyyyMMddHHmmss") + "', 'YYYYMMDDHHMISS')", connOracle);//to_date('20121009010000', 'YYYYMMDDHHMISS')
 
                 OracleDataReader dataReaderOracle = cmd.ExecuteReader();
                 while (dataReaderOracle.Read())
