@@ -33,7 +33,8 @@ namespace IndexDocClinicos
             List<Task> tasks = new List<Task>();
             int chunckSize = Convert.ToInt32(ConfigurationManager.AppSettings["ChunkSize"]);
             if(connectionsWork()){
-                for (int i = 13706193; i < 13756193; i += chunckSize)
+                int[] id = getMinDocumentId();
+                for (int i = id[0]; i < id[1]; i += chunckSize)
                 {
                     /*int index = i;
                     tasks.Add(Task.Factory.StartNew(() =>
@@ -43,7 +44,7 @@ namespace IndexDocClinicos
                     //ReadIndexAllData("f.elemento_id>=" + i + " AND f.elemento_id<=" + (i + chunckSize - 1));
                 }
                 //Task.WaitAll(tasks.ToArray<Task>());
-                ReadIndexAllData("f.elemento_id>=" + 1004003 + " AND f.elemento_id<=" + 1005520);
+                ReadIndexAllData("d.documento_id>="+id[0]+" AND d.documento_id<="+id[1]);
 
                 lastUpdate = DateTime.Now;
                 runUpdateThread();
@@ -204,6 +205,33 @@ namespace IndexDocClinicos
                     connOracle.Close();
                 }
             }
+        }
+
+        private int [] getMinDocumentId()
+        {
+            OracleConnection connOracle = null;
+            int []id = new int[2];
+            try
+            {
+                connOracle = new OracleConnection();
+                connOracle.ConnectionString = ConfigurationManager.AppSettings["Eresults_v2_db"];
+                connOracle.Open();
+                OracleCommand cmd = new OracleCommand("SELECT MIN(documento_id) as min_id, MAX(documento_id) as max_id from er_documento", connOracle);
+
+                OracleDataReader dataReaderOracle = cmd.ExecuteReader();
+                while (dataReaderOracle.Read())
+                {
+                    id[0] = Convert.ToInt32(dataReaderOracle["min_id"]);
+                    id[1] = Convert.ToInt32(dataReaderOracle["max_id"]);
+                }
+                dataReaderOracle.Close();
+            } catch (OracleException) { }
+            finally {
+                if (connOracle != null) {
+                    connOracle.Close();
+                }
+            }
+            return id;
         }
     }
 }
