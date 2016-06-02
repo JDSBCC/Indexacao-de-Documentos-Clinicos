@@ -11,7 +11,6 @@ namespace IndexDocClinicos.Classes
 {
     public class EhrData
     {
-        private MySqlConnection connMySQL = null;
         private MySqlDataReader dataReaderMySQL = null;
 
         private static string token = "";
@@ -22,8 +21,6 @@ namespace IndexDocClinicos.Classes
 
         public EhrData()
         {
-            //start connection with ehr db
-            connMySQL = new MySqlConnection(ConfigurationManager.AppSettings["EHR_db"]);
 
             patients = new List<Patient>();
             map_list = new List<Dictionary<string, string>>();
@@ -62,14 +59,12 @@ namespace IndexDocClinicos.Classes
 
         public string getOrganizationUid()
         {
-            while (!Data.isConnectionFree) ;
-            Data.isConnectionFree = false;
             string uid = "";
             try
             {
-                connMySQL.Open();
+                Connection.openMySQL();
 
-                MySqlCommand cmd = new MySqlCommand("SELECT * FROM ehrserver.organization where number=2222", connMySQL);
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM ehrserver.organization where number=2222", Connection.getMySQLCon());
                 dataReaderMySQL = cmd.ExecuteReader();
                 while (dataReaderMySQL.Read())
                 {
@@ -83,11 +78,7 @@ namespace IndexDocClinicos.Classes
             }
             finally
             {
-                if (connMySQL != null)
-                {
-                    connMySQL.Close();
-                    Data.isConnectionFree = true;
-                }
+                Connection.closeMySQL();
             }
             return uid;
         }

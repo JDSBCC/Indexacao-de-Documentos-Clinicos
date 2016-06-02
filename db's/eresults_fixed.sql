@@ -9,7 +9,9 @@ join gr_doente c on ge.entidade_id = c.entidade_id
 join gr_doente_local dl on v.entidade_pai_id=dl.entidade_id and dl.activo='S'
 left join er_sexo s on c.sexo_id=s.sexo_id
 left join er_estado_civil ec on ec.estado_civil_id=c.estado_civil_id
+where rownum>=10 AND rownum<=1000;
 --where (e.elemento_id = 21 AND e.documento_id = 30) OR (e.elemento_id = 1008954 AND e.documento_id = 12127630)
+where d.documento_id>=30 AND d.documento_id<=530
 where ge.nome like 'Maria%'
 where e.elemento_id in (1004004, 1004003);
 
@@ -27,3 +29,7 @@ select documento_id, elemento_id from
 where final_date>to_date('20121009010000','YYYYMMDDHHMISS');
 
 select * from er_elemento where DT_ACT is null;
+
+Select d.documento_id 
+from er_documento d, (Select count(documento_id) from er_documento) c
+where d.documento_id=c.documento_id AND d.documento_id>=30 AND d.documento_id<=530

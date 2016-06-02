@@ -29,29 +29,10 @@ namespace IndexDocClinicos
         protected void Application_Start()
         {
             Stopwatch stopwatch = Stopwatch.StartNew(); //REMOVE
-            //----------------------------------------
-            List<Task> tasks = new List<Task>();
-            int chunckSize = Convert.ToInt32(ConfigurationManager.AppSettings["ChunkSize"]);
-            if(connectionsWork()){
-                int[] id = getMinDocumentId();
-                for (int i = id[0]; i < id[1]; i += chunckSize)
-                {
-                    /*int index = i;
-                    tasks.Add(Task.Factory.StartNew(() =>
-                    {
-                        ReadIndexAllData("f.elemento_id>=" + index + " AND f.elemento_id<=" + (index + chunckSize-1));
-                    }));*/
-                    //ReadIndexAllData("f.elemento_id>=" + i + " AND f.elemento_id<=" + (i + chunckSize - 1));
-                }
-                //Task.WaitAll(tasks.ToArray<Task>());
-                ReadIndexAllData("d.documento_id>="+id[0]+" AND d.documento_id<="+id[1]);
-
-                lastUpdate = DateTime.Now;
-                runUpdateThread();
-            }
-            //----------------------------------------
+            init();
             stopwatch.Stop();//REMOVE
             Debug.WriteLine("[TIME] = " + stopwatch.ElapsedMilliseconds);//REMOVE
+
 
             AreaRegistration.RegisterAllAreas();
 
@@ -59,6 +40,35 @@ namespace IndexDocClinicos
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+        }
+        private void init()
+        {
+            lastUpdate = DateTime.Now;//update date
+
+            List<Task> tasks = new List<Task>();
+
+            int chunckSize = Convert.ToInt32(ConfigurationManager.AppSettings["ChunkSize"]);
+
+            //init connections to databases
+            Connection.initMySQL();
+            Connection.initOracle();
+
+            if (connectionsWork())
+            {
+                int[] id = getMinMaxDocumentId();
+                for (int i = id[0]; i < id[1]; i += chunckSize)
+                {
+                    int index = i;
+                    tasks.Add(Task.Factory.StartNew(() =>
+                    {
+                        ReadIndexAllData("d.documento_id>=" + index + " AND d.documento_id<=" + (index + chunckSize - 1));
+                    }));
+                    //ReadIndexAllData("d.documento_id>=" + i + " AND d.documento_id<=" + (i + chunckSize - 1));
+                }
+                Task.WaitAll(tasks.ToArray());
+                //ReadIndexAllData("d.documento_id>="+id[0]+" AND d.documento_id<="+id[1]);
+                runUpdateThread();
+            }
         }
 
         private bool connectionsWork()
@@ -97,28 +107,32 @@ namespace IndexDocClinicos
 
         private void ReadIndexAllData(string condition)
         {
+
             Data data = new Data();
             EhrData ehr_data = new EhrData();
 
             Debug.WriteLine("Querying eresults and saving their results...");
             data.queryingEresults(condition);//querying eresulst to get data
 
-            Debug.WriteLine("Adding patients to ehr_Data...");
-            ehr_data.setPatients(data.getPatients());
+            List<Patient> patients = data.getPatients();
+            if (patients.Count > 0) {
+                Debug.WriteLine("Adding patients to ehr_Data...");
+                ehr_data.setPatients(patients);
 
-            Debug.WriteLine("Committing patients to ehr...");
-            ehr_data.commitPersonsPatients();//commit persons to ehr
+                Debug.WriteLine("Committing patients to ehr...");
+                ehr_data.commitPersonsPatients();//commit persons to ehr
 
-            Debug.WriteLine("Initializing information to fill xml...");
-            ehr_data.fillData();//create a string with file information (xml with data)
+                Debug.WriteLine("Initializing information to fill xml...");
+                ehr_data.fillData();//create a string with file information (xml with data)
 
-            Debug.WriteLine("Filling xml...");
-            ehr_data.commitDocument();//commit xml in ehr
+                Debug.WriteLine("Filling xml...");
+                ehr_data.commitDocument();//commit xml in ehr
 
-            data.setNumContQuery(ehr_data.getPatientUids());
+                data.setNumContQuery(ehr_data.getPatientUids());
 
-            Debug.WriteLine("Indexing data in solr...");
-            data.commitDataSolr();//indexing ehr data in solr
+                Debug.WriteLine("Indexing data in solr...");
+                data.commitDataSolr();//indexing ehr data in solr
+            }
 
             ehr_data.freeMemory();
             data.freeMemory();
@@ -127,18 +141,15 @@ namespace IndexDocClinicos
 
         public bool IsServerConnected()
         {
-            using (var conn = new OracleConnection(ConfigurationManager.AppSettings["Eresults_v2_db"]))
-            {
-                try
-                {
-                    conn.Open();
-                    return true;
-                }
-                catch (OracleException)
-                {
-                    return false;
-                }
+            bool connected = false;
+            try {
+                Connection.openOracle();
+                connected = true;
+            } catch (OracleException) {
+            } finally {
+                Connection.closeOracle();
             }
+            return connected;
         }
 
         private void runUpdateThread() {
@@ -207,16 +218,13 @@ namespace IndexDocClinicos
             }
         }
 
-        private int [] getMinDocumentId()
+        private int [] getMinMaxDocumentId()
         {
-            OracleConnection connOracle = null;
             int []id = new int[2];
             try
             {
-                connOracle = new OracleConnection();
-                connOracle.ConnectionString = ConfigurationManager.AppSettings["Eresults_v2_db"];
-                connOracle.Open();
-                OracleCommand cmd = new OracleCommand("SELECT MIN(documento_id) as min_id, MAX(documento_id) as max_id from er_documento", connOracle);
+                Connection.openOracle();
+                OracleCommand cmd = new OracleCommand("SELECT MIN(documento_id) as min_id, MAX(documento_id) as max_id from er_documento", Connection.getOracleCon());
 
                 OracleDataReader dataReaderOracle = cmd.ExecuteReader();
                 while (dataReaderOracle.Read())
@@ -227,9 +235,7 @@ namespace IndexDocClinicos
                 dataReaderOracle.Close();
             } catch (OracleException) { }
             finally {
-                if (connOracle != null) {
-                    connOracle.Close();
-                }
+                Connection.closeOracle();
             }
             return id;
         }

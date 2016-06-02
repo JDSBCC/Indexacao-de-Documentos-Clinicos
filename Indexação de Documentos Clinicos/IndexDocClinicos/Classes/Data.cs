@@ -19,16 +19,12 @@ namespace IndexDocClinicos.Classes
     {
         private ISolrOperations<Contribution> solr;
 
-        private OracleConnection connOracle = null;
         private OracleDataReader dataReaderOracle = null;
-
-        private MySqlConnection connMySQL = null;
         private MySqlDataReader dataReaderMySQL = null;
 
         private List<Document> documents;//documents pdf
         private List<Patient> patients;//patients
-        
-        public static bool isConnectionFree = true;
+
         private string contQuery = "";
 
         public Data()
@@ -56,13 +52,9 @@ namespace IndexDocClinicos.Classes
 
         public void queryingEresults(string condition)
         {
-            while (!isConnectionFree) ;
-            isConnectionFree = false;
             try
             {
-                connOracle = new OracleConnection();
-                connOracle.ConnectionString = ConfigurationManager.AppSettings["Eresults_v2_db"];
-                connOracle.Open();
+                Connection.openOracle();
                 OracleCommand cmd = new OracleCommand("select d.documento_id, f.*, dl.doente, ge.*, c.*, s.codigo, s.descricao, ec.descricao as estado_civil from er_ficheiro f " +
                     "join er_elemento e on e.elemento_id=f.elemento_id and e.versao_activa='S' and e.cod_versao=f.cod_versao " +
                     "join er_documento d on d.documento_id=e.documento_id " +
@@ -73,8 +65,7 @@ namespace IndexDocClinicos.Classes
                     "join gr_doente_local dl on v.entidade_pai_id=dl.entidade_id  and dl.activo='S' " +
                     "left join er_sexo s on c.sexo_id=s.sexo_id " +
                     "left join er_estado_civil ec on ec.estado_civil_id=c.estado_civil_id " +
-                    "where " + condition, connOracle);//REMOVE restriçao de elemento_id
-                //cmd.CommandTimeout = 900;
+                    "where " + condition, Connection.getOracleCon());//REMOVE restriçao de elemento_id
                 dataReaderOracle = cmd.ExecuteReader();
                 while (dataReaderOracle.Read())
                 {
@@ -86,32 +77,11 @@ namespace IndexDocClinicos.Classes
                     saveMetadataContent();
                 }
                 dataReaderOracle.Close();
-            }
-            catch (OracleException e)
-            {
+            } catch (OracleException e) {
                 Debug.Write("Error: {0}", e.ToString());
-                if (connOracle != null) {
-                    connOracle.Close();
-                }
-                freeMemory();
-                isConnectionFree = true;
-                queryingEresults(condition);
-            }
-            catch (TimeoutException te) {
-                if (connOracle != null){
-                    connOracle.Close();
-                }
-                freeMemory();
-                isConnectionFree = true;
-                queryingEresults(condition);
-            }
-            finally
-            {
-                if (connOracle != null)
-                {
-                    connOracle.Close();
-                    isConnectionFree = true;
-                }
+            } finally {
+                Connection.closeOracle();
+                //connOracle.Dispose();
             }
         }
 
@@ -230,15 +200,11 @@ namespace IndexDocClinicos.Classes
 
         private List<Dictionary<string, object>> QueryingEHR()
         {
-            while (!isConnectionFree) ;
-            isConnectionFree = false;
-
             List<Dictionary<string, object>> docs = new List<Dictionary<string, object>>();
 
             try
             {
-                connMySQL = new MySqlConnection(ConfigurationManager.AppSettings["EHR_db"]);
-                connMySQL.Open();
+                Connection.openMySQL();
 
                 //contribution
                 List<int> id = new List<int>();
@@ -246,7 +212,7 @@ namespace IndexDocClinicos.Classes
                 MySqlCommand cmd1 = new MySqlCommand("SELECT cont.id, cont.ehr_id, v.uid, ci.id as comp_id " +
                                                     "FROM contribution cont, version v, composition_index ci, patient_proxy pp, ehr e " +
                                                     "WHERE cont.id=v.contribution_id AND v.data_id=ci.id AND ci.last_version=1 AND cont.ehr_id=e.id AND e.subject_id=pp.id "+
-                                                    contQuery, connMySQL);
+                                                    contQuery, Connection.getMySQLCon());
 
                 //cmd1.CommandTimeout = 900;
                 dataReaderMySQL = cmd1.ExecuteReader();
@@ -269,7 +235,7 @@ namespace IndexDocClinicos.Classes
                     string query = "SELECT id " +
                                 "FROM data_value_index " +
                                 "WHERE owner_id=@id";
-                    MySqlCommand cmd2 = new MySqlCommand(query, connMySQL);
+                    MySqlCommand cmd2 = new MySqlCommand(query, Connection.getMySQLCon());
                     //cmd2.CommandTimeout = 900;
                     cmd2.Prepare();
                     cmd2.Parameters.AddWithValue("@id", id[i]);
@@ -286,16 +252,13 @@ namespace IndexDocClinicos.Classes
                 {
                     docs[i].Add("value", new List<string>());
                     if (data_value_ids[id[i]].Count==0) {
-                        if (connMySQL != null) {
-                            connMySQL.Close();
-                        }
-                        isConnectionFree = true;
+                        Connection.closeMySQL();
                         return null;
                     }
                     for (int j = 0; j < data_value_ids[id[i]].Count; j++)
                     {
                         string query = "SELECT value FROM dv_text_index WHERE id=@id";
-                        MySqlCommand cmd3 = new MySqlCommand(query, connMySQL);
+                        MySqlCommand cmd3 = new MySqlCommand(query, Connection.getMySQLCon());
                         //cmd3.CommandTimeout = 900;
                         cmd3.Prepare();
                         cmd3.Parameters.AddWithValue("@id", data_value_ids[id[i]][j]);
@@ -315,7 +278,7 @@ namespace IndexDocClinicos.Classes
                     for (int j = 0; j < data_value_ids[id[i]].Count; j++)
                     {
                         string query = "SELECT value FROM dv_date_time_index WHERE id=@id";
-                        MySqlCommand cmd4 = new MySqlCommand(query, connMySQL);
+                        MySqlCommand cmd4 = new MySqlCommand(query, Connection.getMySQLCon());
                         //cmd4.CommandTimeout = 900;
                         cmd4.Prepare();
                         cmd4.Parameters.AddWithValue("@id", data_value_ids[id[i]][j]);
@@ -334,7 +297,7 @@ namespace IndexDocClinicos.Classes
                     string query = "SELECT first_name, last_name, dob " +
                                 "FROM ehr, patient_proxy pp, person p " +
                                 "WHERE ehr.subject_id=pp.id AND pp.value=p.uid AND ehr.id=@id";
-                    MySqlCommand cmd5 = new MySqlCommand(query, connMySQL);
+                    MySqlCommand cmd5 = new MySqlCommand(query, Connection.getMySQLCon());
                     //cmd5.CommandTimeout = 900;
                     cmd5.Prepare();
                     cmd5.Parameters.AddWithValue("@id", ehr_id[i]);
@@ -347,28 +310,12 @@ namespace IndexDocClinicos.Classes
                     }
                     dataReaderMySQL.Close();
                 }
-            }
-            catch (MySqlException ex)
-            {
+            } catch (MySqlException ex) {
                 Debug.Write("Error: {0}", ex.ToString());
-                if (connMySQL != null) {
-                    connMySQL.Close();
-                }
-                isConnectionFree = true;
-                return null;
-            }
-            catch (TimeoutException te) {
-                if (connMySQL != null) {
-                    connMySQL.Close();
-                }
-                isConnectionFree = true;
-                return null;
             } finally {
-                if (connMySQL != null)
-                {
-                    connMySQL.Close();
-                    isConnectionFree = true;
-                }
+                Connection.closeMySQL();
+                //connMySQL.Dispose();
+                //MySqlConnection.ClearPool(connMySQL);
             }
             return docs;
         }
