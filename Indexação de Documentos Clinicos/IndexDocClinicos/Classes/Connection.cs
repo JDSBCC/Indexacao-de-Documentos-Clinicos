@@ -4,7 +4,9 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Diagnostics;
 using System.Linq;
+using System.Threading;
 using System.Web;
 
 namespace IndexDocClinicos.Classes
@@ -13,7 +15,11 @@ namespace IndexDocClinicos.Classes
     {
         private static OracleConnection connOracle;
         private static MySqlConnection connMySQL;
-        public static bool isConnectionFree = true;
+
+        public Connection() {
+            initOracle();
+            initMySQL();
+        }
 
         public static void initOracle()
         {
@@ -25,18 +31,29 @@ namespace IndexDocClinicos.Classes
             return connOracle;
         }
 
-        public static void openOracle(){
-            while (!isConnectionFree) ;
-            isConnectionFree = false;
-            connOracle.Open();
+        public static bool openOracle(){
+            TaskControl.waitDB();
+            try {
+                if (connOracle.State != ConnectionState.Open)
+                    connOracle.Open();
+                return true;
+            } catch (Exception ex) {
+                Debug.WriteLine("Error: " + ex);
+                return false;
+            }
         }
 
-        public static void closeOracle(){
-            if (connOracle != null)
-            {
-                connOracle.Close();
+        public static bool closeOracle(){
+            try {
+                if (connOracle.State != ConnectionState.Closed) {
+                    connOracle.Close();
+                    TaskControl.releaseDB();
+                }
+                return true;
+            } catch (Exception ex) {
+                Debug.WriteLine("Error: " + ex);
+                return false;
             }
-            isConnectionFree = true;
         }
 
         //-----------------------------------------------
@@ -51,20 +68,33 @@ namespace IndexDocClinicos.Classes
             return connMySQL;
         }
 
-        public static void openMySQL()
+        public static bool openMySQL()
         {
-            while (!isConnectionFree) ;
-            isConnectionFree = false;
-            connMySQL.Open();
+            TaskControl.waitDB();
+            try {
+                if (connMySQL.State != ConnectionState.Open)
+                    connMySQL.Open();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Error: " + ex);
+                return false;
+            }
         }
 
-        public static void closeMySQL()
+        public static bool closeMySQL()
         {
-            if (connMySQL != null)
-            {
-                connMySQL.Close();
+            try {
+                if (connMySQL.State != ConnectionState.Closed){
+                    connMySQL.Close();
+                    TaskControl.releaseDB();
+                }
+                return true;
+            } catch (Exception ex) {
+                Debug.WriteLine("Error: " + ex);
+                return false;
             }
-            isConnectionFree = true;
         }
     }
 }

@@ -11,8 +11,6 @@ namespace IndexDocClinicos.Classes
 {
     public class EhrData
     {
-        private MySqlDataReader dataReaderMySQL = null;
-
         private static string token = "";
         private static Organization organization;//organization
         private List<Patient> patients;//patients
@@ -65,7 +63,7 @@ namespace IndexDocClinicos.Classes
                 Connection.openMySQL();
 
                 MySqlCommand cmd = new MySqlCommand("SELECT * FROM ehrserver.organization where number=2222", Connection.getMySQLCon());
-                dataReaderMySQL = cmd.ExecuteReader();
+                MySqlDataReader dataReaderMySQL = cmd.ExecuteReader();
                 while (dataReaderMySQL.Read())
                 {
                     uid = dataReaderMySQL["uid"]+"";
@@ -88,7 +86,7 @@ namespace IndexDocClinicos.Classes
             string tempUrl = "username=admin";
             tempUrl += "&password=admin";
             tempUrl += "&organization=2222";
-            Request.Post(ConfigurationManager.AppSettings["EHR_rest"] + "/login", tempUrl);
+            Request.Post(ConfigurationManager.AppSettings["EHR_rest"] + "/login", tempUrl, 0);
             token = Request.data["token"].ToString();
         }
 
@@ -107,7 +105,7 @@ namespace IndexDocClinicos.Classes
                 tempUrl += "&organizationUid=" + organization.Uid;
                 tempUrl += "&uid=" + patient.Uid;
                 Debug.WriteLine("------->" + tempUrl);
-                Request.Post(ConfigurationManager.AppSettings["EHR_rest"] + "/createPerson", tempUrl, token, "application/json");
+                Request.Post(ConfigurationManager.AppSettings["EHR_rest"] + "/createPerson", tempUrl, token, "application/json", 0);
             }
         }
 
@@ -159,7 +157,7 @@ namespace IndexDocClinicos.Classes
                 string tempUrl = "ehrUid=" + getEhrUidForSubject(patient["uid"]);
                 tempUrl += "&auditSystemId=popo";
                 tempUrl += "&auditCommitter=Joao";
-                Request.Post(ConfigurationManager.AppSettings["EHR_rest"] + "/commit", tempUrl, token, "application/json", text);
+                Request.Post(ConfigurationManager.AppSettings["EHR_rest"] + "/commit", tempUrl, token, "application/json", text, 0);
                 //Debug.WriteLine(Request.dataXML);
             }
         }

@@ -8,6 +8,7 @@ using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
+using System.Threading;
 using System.Web;
 
 namespace IndexDocClinicos.Classes
@@ -29,73 +30,109 @@ namespace IndexDocClinicos.Classes
             data = JObject.Parse(responseString);
         }
 
-        public static void Post(string url, string queries)
+        public static void Post(string url, string queries, int tryNum)
         {
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-
-            var content = Encoding.ASCII.GetBytes(queries);
-
-            request.Method = "POST";
-            request.ContentType = "application/x-www-form-urlencoded";
-            request.ContentLength = content.Length;
-
-            using (var stream = request.GetRequestStream())
+            int newTryNum = 0;
+            try
             {
-                stream.Write(content, 0, content.Length);
-                stream.Close();
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+
+                var content = Encoding.ASCII.GetBytes(queries);
+
+                request.Method = "POST";
+                request.ContentType = "application/x-www-form-urlencoded";
+                request.ContentLength = content.Length;
+
+                using (var stream = request.GetRequestStream())
+                {
+                    stream.Write(content, 0, content.Length);
+                    stream.Close();
+                }
+                var response = (HttpWebResponse)request.GetResponse();
+
+                string responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
+
+                data = JObject.Parse(responseString);
+            } catch (WebException ex) {
+                newTryNum = tryNum + 1;
+                if (tryNum <= 5) {
+                    Thread.Sleep(5000);
+                    Post(url, queries, newTryNum);
+                } else {
+                    Debug.WriteLine("Não foi possível executar este pedido. Erro: " + ex);
+                }
             }
-            var response = (HttpWebResponse)request.GetResponse();
-
-            string responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
-
-            data = JObject.Parse(responseString);
         }
 
-        public static void Post(string url, string queries, string token, string accept)
+        public static void Post(string url, string queries, string token, string accept, int tryNum)
         {
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-            request.Headers.Add("Authorization", "Bearer " + token);
-            request.Accept = accept;
-            
-            var content = Encoding.ASCII.GetBytes(queries);
-
-            request.Method = "POST";
-            request.ContentType = "application/x-www-form-urlencoded";
-            request.ContentLength = content.Length;
-
-            using (var stream = request.GetRequestStream())
+            int newTryNum = 0;
+            try
             {
-                stream.Write(content, 0, content.Length);
-                stream.Close();
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+                request.Headers.Add("Authorization", "Bearer " + token);
+                request.Accept = accept;
+
+                var content = Encoding.ASCII.GetBytes(queries);
+
+                request.Method = "POST";
+                request.ContentType = "application/x-www-form-urlencoded";
+                request.ContentLength = content.Length;
+
+                using (var stream = request.GetRequestStream())
+                {
+                    stream.Write(content, 0, content.Length);
+                    stream.Close();
+                }
+                var response = (HttpWebResponse)request.GetResponse();
+
+                string responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
+
+                data = JObject.Parse(responseString);
+            } catch (WebException ex) {
+                newTryNum = tryNum + 1;
+                if (tryNum <= 5) {
+                    Thread.Sleep(5000);
+                    Post(url, queries, token, accept, newTryNum);
+                } else {
+                    Debug.WriteLine("Não foi possível executar este pedido. Erro: " + ex);
+                }
             }
-            var response = (HttpWebResponse)request.GetResponse();
-
-            string responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
-
-            data = JObject.Parse(responseString);
         }
 
-        public static void Post(string url, string queries, string token, string accept, string body)
+        public static void Post(string url, string queries, string token, string accept, string body, int tryNum)
         {
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url+"?"+queries);
-            request.Headers.Add("Authorization", "Bearer " + token);
-            request.Accept = accept;
-
-            var content = Encoding.UTF8.GetBytes(body);
-            
-            request.Method = "POST";
-            request.ContentType = "text/xml";
-            request.ContentLength = content.Length;
-
-            using (var stream = request.GetRequestStream())
+            int newTryNum = 0;
+            try
             {
-                stream.Write(content, 0, content.Length);
-                stream.Close();
-            }
-            var response = (HttpWebResponse)request.GetResponse();
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url + "?" + queries);
+                request.Headers.Add("Authorization", "Bearer " + token);
+                request.Accept = accept;
 
-            string responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
-            dataXML = responseString;
+                var content = Encoding.UTF8.GetBytes(body);
+
+                request.Method = "POST";
+                request.ContentType = "text/xml";
+                request.ContentLength = content.Length;
+
+                using (var stream = request.GetRequestStream())
+                {
+                    stream.Write(content, 0, content.Length);
+                    stream.Close();
+                }
+                var response = (HttpWebResponse)request.GetResponse();
+
+                string responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
+                dataXML = responseString;
+            } catch (WebException ex) {
+                newTryNum = tryNum + 1;
+                if (tryNum <= 5) {
+                    Thread.Sleep(5000);
+                    Post(url, queries, token, accept, body, newTryNum);
+                } else {
+                    Debug.WriteLine("Não foi possível executar este pedido. Erro: " + ex);
+                }
+            }
         }
     }
 }

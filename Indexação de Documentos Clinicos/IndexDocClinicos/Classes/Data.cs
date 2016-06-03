@@ -19,13 +19,12 @@ namespace IndexDocClinicos.Classes
     {
         private ISolrOperations<Contribution> solr;
 
-        private OracleDataReader dataReaderOracle = null;
-        private MySqlDataReader dataReaderMySQL = null;
-
         private List<Document> documents;//documents pdf
         private List<Patient> patients;//patients
 
         private string contQuery = "";
+        private MySqlDataReader dataReaderMySQL;
+        private OracleDataReader dataReaderOracle;
 
         public Data()
         {
@@ -55,6 +54,7 @@ namespace IndexDocClinicos.Classes
             try
             {
                 Connection.openOracle();
+                dataReaderOracle = null;
                 OracleCommand cmd = new OracleCommand("select d.documento_id, f.*, dl.doente, ge.*, c.*, s.codigo, s.descricao, ec.descricao as estado_civil from er_ficheiro f " +
                     "join er_elemento e on e.elemento_id=f.elemento_id and e.versao_activa='S' and e.cod_versao=f.cod_versao " +
                     "join er_documento d on d.documento_id=e.documento_id " +
@@ -81,7 +81,6 @@ namespace IndexDocClinicos.Classes
                 Debug.Write("Error: {0}", e.ToString());
             } finally {
                 Connection.closeOracle();
-                //connOracle.Dispose();
             }
         }
 
@@ -215,6 +214,7 @@ namespace IndexDocClinicos.Classes
                                                     contQuery, Connection.getMySQLCon());
 
                 //cmd1.CommandTimeout = 900;
+                dataReaderMySQL = null;
                 dataReaderMySQL = cmd1.ExecuteReader();
                 while (dataReaderMySQL.Read())
                 {//for each contribution
@@ -239,6 +239,7 @@ namespace IndexDocClinicos.Classes
                     //cmd2.CommandTimeout = 900;
                     cmd2.Prepare();
                     cmd2.Parameters.AddWithValue("@id", id[i]);
+                    dataReaderMySQL = null;
                     dataReaderMySQL = cmd2.ExecuteReader();
                     while (dataReaderMySQL.Read())
                     {
@@ -252,7 +253,8 @@ namespace IndexDocClinicos.Classes
                 {
                     docs[i].Add("value", new List<string>());
                     if (data_value_ids[id[i]].Count==0) {
-                        Connection.closeMySQL();
+                        //Connection.closeMySQL();
+                        //Connection.free();
                         return null;
                     }
                     for (int j = 0; j < data_value_ids[id[i]].Count; j++)
@@ -262,6 +264,7 @@ namespace IndexDocClinicos.Classes
                         //cmd3.CommandTimeout = 900;
                         cmd3.Prepare();
                         cmd3.Parameters.AddWithValue("@id", data_value_ids[id[i]][j]);
+                        dataReaderMySQL = null;
                         dataReaderMySQL = cmd3.ExecuteReader();
                         while (dataReaderMySQL.Read())
                         {
@@ -282,6 +285,7 @@ namespace IndexDocClinicos.Classes
                         //cmd4.CommandTimeout = 900;
                         cmd4.Prepare();
                         cmd4.Parameters.AddWithValue("@id", data_value_ids[id[i]][j]);
+                        dataReaderMySQL = null;
                         dataReaderMySQL = cmd4.ExecuteReader();
                         while (dataReaderMySQL.Read())
                         {
@@ -301,6 +305,7 @@ namespace IndexDocClinicos.Classes
                     //cmd5.CommandTimeout = 900;
                     cmd5.Prepare();
                     cmd5.Parameters.AddWithValue("@id", ehr_id[i]);
+                    dataReaderMySQL = null;
                     dataReaderMySQL = cmd5.ExecuteReader();
                     while (dataReaderMySQL.Read())
                     {
@@ -314,8 +319,6 @@ namespace IndexDocClinicos.Classes
                 Debug.Write("Error: {0}", ex.ToString());
             } finally {
                 Connection.closeMySQL();
-                //connMySQL.Dispose();
-                //MySqlConnection.ClearPool(connMySQL);
             }
             return docs;
         }

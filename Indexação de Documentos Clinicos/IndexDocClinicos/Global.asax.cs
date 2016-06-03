@@ -41,6 +41,7 @@ namespace IndexDocClinicos
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
+
         private void init()
         {
             lastUpdate = DateTime.Now;//update date
@@ -49,9 +50,10 @@ namespace IndexDocClinicos
 
             int chunckSize = Convert.ToInt32(ConfigurationManager.AppSettings["ChunkSize"]);
 
+            //init semaphores-thread controlling
+            new TaskControl();
             //init connections to databases
-            Connection.initMySQL();
-            Connection.initOracle();
+            new Connection();
 
             if (connectionsWork())
             {
@@ -120,13 +122,17 @@ namespace IndexDocClinicos
                 ehr_data.setPatients(patients);
 
                 Debug.WriteLine("Committing patients to ehr...");
+                TaskControl.waitEHR();
                 ehr_data.commitPersonsPatients();//commit persons to ehr
+                TaskControl.releaseEHR();
 
                 Debug.WriteLine("Initializing information to fill xml...");
                 ehr_data.fillData();//create a string with file information (xml with data)
 
                 Debug.WriteLine("Filling xml...");
+                TaskControl.waitEHR();
                 ehr_data.commitDocument();//commit xml in ehr
+                TaskControl.releaseEHR();
 
                 data.setNumContQuery(ehr_data.getPatientUids());
 
@@ -158,7 +164,7 @@ namespace IndexDocClinicos
 
                 while(true){
                     //1200000-20min
-                    Thread.Sleep(5000);//tempo entre updates
+                    Thread.Sleep(5000);//UPDATE tempo entre updates
 
                     List<List<int>> ids = new List<List<int>>();
                     getUpdatedDocuments(ids);
@@ -200,21 +206,10 @@ namespace IndexDocClinicos
                 dataReaderOracle.Close();
             }
             catch (OracleException) {
-                if (connOracle != null) {
-                    connOracle.Close();
-                }
+                connOracle.Close();
                 getUpdatedDocuments(ids);
-            }
-            catch (TimeoutException) {
-                if (connOracle != null) {
-                    connOracle.Close();
-                }
-                getUpdatedDocuments(ids);
-            }
-            finally {
-                if (connOracle != null) {
-                    connOracle.Close();
-                }
+            } finally {
+                connOracle.Close();
             }
         }
 
