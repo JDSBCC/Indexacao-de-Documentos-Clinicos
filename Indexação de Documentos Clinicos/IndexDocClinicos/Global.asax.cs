@@ -58,7 +58,7 @@ namespace IndexDocClinicos
             if (connectionsWork())
             {
                 int[] id = getMinMaxDocumentId();
-                for (int i = id[0]; i < id[1]; i += chunckSize)
+                for (int i = id[0]; i < id[1]/*30*/; i += chunckSize)//UPDATE
                 {
                     int index = i;
                     tasks.Add(Task.Factory.StartNew(() =>
@@ -164,7 +164,7 @@ namespace IndexDocClinicos
 
                 while(true){
                     //1200000-20min
-                    Thread.Sleep(5000);//UPDATE tempo entre updates
+                    Thread.Sleep(Convert.ToInt32(ConfigurationManager.AppSettings["TimeBetweenUpdates"]));
 
                     List<List<int>> ids = new List<List<int>>();
                     getUpdatedDocuments(ids);
