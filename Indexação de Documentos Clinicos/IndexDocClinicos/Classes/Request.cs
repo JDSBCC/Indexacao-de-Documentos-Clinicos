@@ -18,16 +18,28 @@ namespace IndexDocClinicos.Classes
         public static JObject data;
         public static string dataXML;
 
-        public static void Get(string url, string queries, string token)
+        public static void Get(string url, string queries, string token, int tryNum)
         {
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url+"?"+queries);
-            request.Headers.Add("Authorization", "Bearer " + token);
+            int newTryNum = 0;
+            try
+            {
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url+"?"+queries);
+                request.Headers.Add("Authorization", "Bearer " + token);
 
-            var response = (HttpWebResponse)request.GetResponse();
+                var response = (HttpWebResponse)request.GetResponse();
 
-            string responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
+                string responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
 
-            data = JObject.Parse(responseString);
+                data = JObject.Parse(responseString);
+            } catch (WebException ex) {
+                newTryNum = tryNum + 1;
+                if (tryNum <= 5) {
+                    Thread.Sleep(5000);
+                    Get(url, queries, token, newTryNum);
+                } else {
+                    Debug.WriteLine("Não foi possível executar este pedido. Erro: " + ex);
+                }
+            }
         }
 
         public static void Post(string url, string queries, int tryNum)

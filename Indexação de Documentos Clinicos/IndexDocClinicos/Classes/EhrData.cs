@@ -50,7 +50,7 @@ namespace IndexDocClinicos.Classes
         public string getEhrUidForSubject(string patientUid){
             string tempUrl = "format=json";
             tempUrl += "&subjectUid=" + patientUid;
-            Request.Get(ConfigurationManager.AppSettings["EHR_rest"] + "/ehrForSubject", tempUrl, token);
+            Request.Get(ConfigurationManager.AppSettings["EHR_rest"] + "/ehrForSubject", tempUrl, token, 0);
             //Debug.WriteLine(Request.data["uid"]);
             return Request.data["uid"]+"";
         }

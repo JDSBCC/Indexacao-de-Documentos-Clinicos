@@ -57,13 +57,13 @@ namespace IndexDocClinicos
 
             if (connectionsWork())
             {
-                int[] id = getMinMaxDocumentId();
-                for (int i = id[0]; i < id[1]/*30*/; i += chunckSize)//UPDATE
+                int num = getTotalRows();
+                for (int i = 1; i < num; i += chunckSize)
                 {
                     int index = i;
                     tasks.Add(Task.Factory.StartNew(() =>
                     {
-                        ReadIndexAllData("d.documento_id>=" + index + " AND d.documento_id<=" + (index + chunckSize - 1));
+                        ReadIndexAllData("rn between "+index+" and " + (index + chunckSize - 1));
                     }));
                     //ReadIndexAllData("d.documento_id>=" + i + " AND d.documento_id<=" + (i + chunckSize - 1));
                 }
@@ -170,10 +170,10 @@ namespace IndexDocClinicos
                     getUpdatedDocuments(ids);
 
                     if (ids.Count > 0) {
-                        string conditions = "(e.elemento_id = " + ids[0][1] + " AND e.documento_id = " + ids[0][0] + ")";
+                        string conditions = "(elemento_id = " + ids[0][1] + " AND documento_id = " + ids[0][0] + ")";
                         foreach (var id in ids)
                         {
-                            conditions += " OR (e.elemento_id = " + id[1] + " AND e.documento_id = " + id[0] + ")";
+                            conditions += " OR (elemento_id = " + id[1] + " AND documento_id = " + id[0] + ")";
                         }
 
                         ReadIndexAllData(conditions);
@@ -213,26 +213,32 @@ namespace IndexDocClinicos
             }
         }
 
-        private int [] getMinMaxDocumentId()
+        private int getTotalRows()
         {
-            int []id = new int[2];
+            int num = 0;
             try
             {
                 Connection.openOracle();
-                OracleCommand cmd = new OracleCommand("SELECT MIN(documento_id) as min_id, MAX(documento_id) as max_id from er_documento", Connection.getOracleCon());
+                OracleCommand cmd = new OracleCommand("select count(rownum) as rn from er_ficheiro f "+
+                                            "join er_elemento e on e.elemento_id=f.elemento_id and e.versao_activa='S' and e.cod_versao=f.cod_versao "+
+                                            "join er_documento d on d.documento_id=e.documento_id "+
+                                            "join gr_visita_documento vd on d.documento_id=vd.documento_id "+
+                                            "join gr_visita v on vd.visita_id=v.visita_id "+
+                                            "join gr_entidade ge on v.entidade_pai_id=ge.entidade_id "+
+                                            "join gr_doente c on ge.entidade_id = c.entidade_id "+
+                                            "join gr_doente_local dl on v.entidade_pai_id=dl.entidade_id and dl.activo='S'", Connection.getOracleCon());
 
                 OracleDataReader dataReaderOracle = cmd.ExecuteReader();
                 while (dataReaderOracle.Read())
                 {
-                    id[0] = Convert.ToInt32(dataReaderOracle["min_id"]);
-                    id[1] = Convert.ToInt32(dataReaderOracle["max_id"]);
+                    num = Convert.ToInt32(dataReaderOracle["rn"]);
                 }
                 dataReaderOracle.Close();
             } catch (OracleException) { }
             finally {
                 Connection.closeOracle();
             }
-            return id;
+            return num;
         }
     }
 }
