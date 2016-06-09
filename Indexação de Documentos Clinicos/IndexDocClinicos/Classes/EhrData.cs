@@ -50,7 +50,7 @@ namespace IndexDocClinicos.Classes
         public string getEhrUidForSubject(string patientUid){
             string tempUrl = "format=json";
             tempUrl += "&subjectUid=" + patientUid;
-            Request.Get(ConfigurationManager.AppSettings["EHR_rest"] + "/ehrForSubject", tempUrl, token, 0);
+            Request.Get(ConfigurationManager.AppSettings["EHR_rest"] + "/ehrForSubject", tempUrl, token);
             //Debug.WriteLine(Request.data["uid"]);
             return Request.data["uid"]+"";
         }
@@ -86,7 +86,7 @@ namespace IndexDocClinicos.Classes
             string tempUrl = "username=admin";
             tempUrl += "&password=admin";
             tempUrl += "&organization=2222";
-            Request.Post(ConfigurationManager.AppSettings["EHR_rest"] + "/login", tempUrl, 0);
+            Request.Post(ConfigurationManager.AppSettings["EHR_rest"] + "/login", tempUrl);
             token = Request.data["token"].ToString();
         }
 
@@ -105,7 +105,7 @@ namespace IndexDocClinicos.Classes
                 tempUrl += "&organizationUid=" + organization.Uid;
                 tempUrl += "&uid=" + patient.Uid;
                 Debug.WriteLine("------->" + tempUrl);
-                Request.Post(ConfigurationManager.AppSettings["EHR_rest"] + "/createPerson", tempUrl, token, "application/json", 0);
+                Request.Post(ConfigurationManager.AppSettings["EHR_rest"] + "/createPerson", tempUrl, token, "application/json");
             }
         }
 
@@ -157,7 +157,7 @@ namespace IndexDocClinicos.Classes
                 string tempUrl = "ehrUid=" + getEhrUidForSubject(patient["uid"]);
                 tempUrl += "&auditSystemId=popo";
                 tempUrl += "&auditCommitter=Joao";
-                Request.Post(ConfigurationManager.AppSettings["EHR_rest"] + "/commit", tempUrl, token, "application/json", text, 0);
+                Request.Post(ConfigurationManager.AppSettings["EHR_rest"] + "/commit", tempUrl, token, "application/json", text);
                 //Debug.WriteLine(Request.dataXML);
             }
         }

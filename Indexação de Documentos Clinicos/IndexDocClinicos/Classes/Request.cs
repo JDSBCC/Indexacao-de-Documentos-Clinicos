@@ -18,9 +18,8 @@ namespace IndexDocClinicos.Classes
         public static JObject data;
         public static string dataXML;
 
-        public static void Get(string url, string queries, string token, int tryNum)
+        public static void Get(string url, string queries, string token)
         {
-            int newTryNum = 0;
             try
             {
                 HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url+"?"+queries);
@@ -32,19 +31,18 @@ namespace IndexDocClinicos.Classes
 
                 data = JObject.Parse(responseString);
             } catch (WebException ex) {
-                newTryNum = tryNum + 1;
-                if (tryNum <= 5) {
-                    Thread.Sleep(5000);
-                    Get(url, queries, token, newTryNum);
+                /*if (ex.Status == WebExceptionStatus.Timeout) {
+                    Get(url, queries, token);
                 } else {
                     Debug.WriteLine("Não foi possível executar este pedido. Erro: " + ex);
-                }
+                    Debug.WriteLine("url=" + url + "|queries=" + queries);
+                }*/
+                Get(url, queries, token);
             }
         }
 
-        public static void Post(string url, string queries, int tryNum)
+        public static void Post(string url, string queries)
         {
-            int newTryNum = 0;
             try
             {
                 HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
@@ -66,19 +64,18 @@ namespace IndexDocClinicos.Classes
 
                 data = JObject.Parse(responseString);
             } catch (WebException ex) {
-                newTryNum = tryNum + 1;
-                if (tryNum <= 5) {
-                    Thread.Sleep(5000);
-                    Post(url, queries, newTryNum);
+                /*if (ex.Status == WebExceptionStatus.Timeout) {
+                    Post(url, queries);
                 } else {
                     Debug.WriteLine("Não foi possível executar este pedido. Erro: " + ex);
-                }
+                    Debug.WriteLine("url=" + url + "|queries=" + queries);
+                }*/
+                Post(url, queries);
             }
         }
 
-        public static void Post(string url, string queries, string token, string accept, int tryNum)
+        public static void Post(string url, string queries, string token, string accept)
         {
-            int newTryNum = 0;
             try
             {
                 HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
@@ -102,19 +99,18 @@ namespace IndexDocClinicos.Classes
 
                 data = JObject.Parse(responseString);
             } catch (WebException ex) {
-                newTryNum = tryNum + 1;
-                if (tryNum <= 5) {
-                    Thread.Sleep(5000);
-                    Post(url, queries, token, accept, newTryNum);
+                /*if (ex.Status == WebExceptionStatus.Timeout) {
+                    Post(url, queries, token, accept);
                 } else {
                     Debug.WriteLine("Não foi possível executar este pedido. Erro: " + ex);
-                }
+                    Debug.WriteLine("url=" + url + "|queries=" + queries + "|accept=" + accept);
+                }*/
+                Post(url, queries, token, accept);
             }
         }
 
-        public static void Post(string url, string queries, string token, string accept, string body, int tryNum)
+        public static void Post(string url, string queries, string token, string accept, string body)
         {
-            int newTryNum = 0;
             try
             {
                 HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url + "?" + queries);
@@ -137,13 +133,13 @@ namespace IndexDocClinicos.Classes
                 string responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
                 dataXML = responseString;
             } catch (WebException ex) {
-                newTryNum = tryNum + 1;
-                if (tryNum <= 5) {
-                    Thread.Sleep(5000);
-                    Post(url, queries, token, accept, body, newTryNum);
+                /*if (ex.Status == WebExceptionStatus.Timeout) {
+                    Post(url, queries, token, accept, body);
                 } else {
                     Debug.WriteLine("Não foi possível executar este pedido. Erro: " + ex);
-                }
+                    Debug.WriteLine("url="+ url + "|queries="+queries+"|accept="+accept+"|body="+body);
+                }*/
+                Post(url, queries, token, accept, body);
             }
         }
     }
