@@ -6,12 +6,9 @@ using SolrNet;
 using SolrNet.Exceptions;
 using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace IndexDocClinicos.Classes
 {
@@ -191,7 +188,7 @@ namespace IndexDocClinicos.Classes
 
         public void setNumContQuery(List<string> patientsUids)
         {
-            contQuery = "AND (pp.value='" + patientsUids.First() + "'";
+            contQuery = "WHERE (pp.value='" + patientsUids.First() + "'";
             foreach (var uid in patientsUids.Skip(1))
             {
                 contQuery += " or pp.value='" + uid + "'";
@@ -199,7 +196,7 @@ namespace IndexDocClinicos.Classes
             contQuery += ")";
         }
 
-        private List<Dictionary<string, object>> QueryingEHR()
+        /*private List<Dictionary<string, object>> QueryingEHR()
         {
             List<Dictionary<string, object>> docs = new List<Dictionary<string, object>>();
 
@@ -322,6 +319,84 @@ namespace IndexDocClinicos.Classes
             } finally {
                 Connection.closeMySQL();
             }
+            return docs;
+        }*/
+
+        private List<Dictionary<string, object>> QueryingEHR()
+        {
+            List<Dictionary<string, object>> docs = new List<Dictionary<string, object>>();
+
+            try {
+                Connection.openMySQL();
+
+                //contribution
+                MySqlCommand cmd = new MySqlCommand("SELECT cont.uid, dti.value as dv_text, ddti.value as dv_date, first_name, last_name, dob "+
+                                                    "FROM contribution cont "+
+                                                    "JOIN version v ON cont.id=v.contribution_id "+
+                                                    "JOIN composition_index ci ON ci.id=v.data_id AND ci.last_version=1 "+
+                                                    "JOIN ehr e ON cont.ehr_id=e.id "+
+                                                    "JOIN patient_proxy pp ON e.subject_id=pp.id "+
+                                                    "JOIN data_value_index dvi ON dvi.owner_id=ci.id "+
+                                                    "LEFT JOIN dv_text_index dti ON dvi.id=dti.id "+
+                                                    "LEFT JOIN dv_date_time_index ddti ON dvi.id=ddti.id " +
+                                                    "JOIN person p ON p.uid=pp.value "+
+                                                    contQuery + " GROUP BY uid, dti.value, ddti.value", Connection.getMySQLCon());
+                dataReaderMySQL = null;
+                dataReaderMySQL = cmd.ExecuteReader();
+                while (dataReaderMySQL.Read())
+                {
+                    if (docs.Count == 0)
+                    {
+                        docs.Add(new Dictionary<string, object>());
+                        docs[docs.Count - 1].Add("uid", dataReaderMySQL["uid"]);
+                        docs[docs.Count - 1].Add("first_name", dataReaderMySQL["first_name"]);
+                        docs[docs.Count - 1].Add("last_name", dataReaderMySQL["last_name"]);
+                        docs[docs.Count - 1].Add("dob", dataReaderMySQL["dob"]);
+                        docs[docs.Count - 1].Add("value", new List<string>());
+                        docs[docs.Count - 1].Add("dates", new List<DateTime>());
+                        if (!Convert.IsDBNull(dataReaderMySQL["dv_text"]))
+                            ((List<string>)docs[docs.Count - 1]["value"]).Add(dataReaderMySQL["dv_text"] + "");
+                        if (!Convert.IsDBNull(dataReaderMySQL["dv_date"]))
+                            ((List<DateTime>)docs[docs.Count - 1]["dates"]).Add(Convert.ToDateTime(dataReaderMySQL["dv_date"]));
+                    }
+                    else
+                    {
+                        if ((dataReaderMySQL["uid"] + "").Equals(docs[docs.Count - 1]["uid"]))
+                        {
+                            if (!Convert.IsDBNull(dataReaderMySQL["dv_text"]))
+                                ((List<string>)docs[docs.Count - 1]["value"]).Add(dataReaderMySQL["dv_text"] + "");
+                            if (!Convert.IsDBNull(dataReaderMySQL["dv_date"]))
+                                ((List<DateTime>)docs[docs.Count - 1]["dates"]).Add(Convert.ToDateTime(dataReaderMySQL["dv_date"]));
+                        }
+                        else
+                        {
+                            docs.Add(new Dictionary<string, object>());
+                            docs[docs.Count - 1].Add("uid", dataReaderMySQL["uid"]);
+                            docs[docs.Count - 1].Add("first_name", dataReaderMySQL["first_name"]);
+                            docs[docs.Count - 1].Add("last_name", dataReaderMySQL["last_name"]);
+                            docs[docs.Count - 1].Add("dob", dataReaderMySQL["dob"]);
+                            docs[docs.Count - 1].Add("value", new List<string>());
+                            docs[docs.Count - 1].Add("dates", new List<DateTime>());
+                            if (!Convert.IsDBNull(dataReaderMySQL["dv_text"]))
+                                ((List<string>)docs[docs.Count - 1]["value"]).Add(dataReaderMySQL["dv_text"] + "");
+                            if (!Convert.IsDBNull(dataReaderMySQL["dv_date"]))
+                                ((List<DateTime>)docs[docs.Count - 1]["dates"]).Add(Convert.ToDateTime(dataReaderMySQL["dv_date"]));
+                        }
+                    }
+                }
+                dataReaderMySQL.Close();
+            }
+            catch (MySqlException ex)
+            {
+                Debug.Write("Error: {0}", ex.ToString());
+            }
+            finally
+            {
+                Connection.closeMySQL();
+            }
+
+            if (docs.Count == 0)
+                return null;
             return docs;
         }
     }

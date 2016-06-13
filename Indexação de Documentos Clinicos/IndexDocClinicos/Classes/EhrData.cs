@@ -1,6 +1,5 @@
 ﻿using IndexDocClinicos.Models;
 using MySql.Data.MySqlClient;
-using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
 using System.Configuration;

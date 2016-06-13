@@ -1,13 +1,9 @@
 ﻿using MySql.Data.MySqlClient;
 using Oracle.ManagedDataAccess.Client;
 using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading;
-using System.Web;
 
 namespace IndexDocClinicos.Classes
 {
