@@ -10,7 +10,7 @@ namespace IndexDocClinicos.Classes
         public TaskControl()
         {
             semaphoreDB = new Semaphore(1, 1);
-            semaphoreEHR = new Semaphore(20, 20);
+            semaphoreEHR = new Semaphore(5, 5);
         }
 
         public static void waitDB(){
