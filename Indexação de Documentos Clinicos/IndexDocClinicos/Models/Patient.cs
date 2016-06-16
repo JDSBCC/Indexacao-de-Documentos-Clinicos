@@ -6,10 +6,6 @@ namespace IndexDocClinicos.Models
     {
         public string Uid { get; set; }
 
-        public string Doente { get; set; }
-
-        public string Entidade_id { get; set; }
-
         public string Nome { get; set; }
 
         public int? N_Contribuinte { get; set; }
@@ -39,5 +35,17 @@ namespace IndexDocClinicos.Models
         public string Sexo { get; set; }
 
         public string Estado_Civil { get; set; }
+
+        public int Entidade_id { get; set; }
+
+        public int Doente { get; set; }
+
+        public int Elemento_id { get; set; }
+
+        public int Documento_id { get; set; }
+
+        public DateTime DocDate { get; set; }
+
+        public string Version_Uid { get; set; }
     }
 }

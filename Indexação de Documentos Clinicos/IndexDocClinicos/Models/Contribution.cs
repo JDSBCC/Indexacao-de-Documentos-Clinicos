@@ -34,10 +34,13 @@ namespace IndexDocClinicos.Models
         [SolrField("content")]
         public string Content { get; set; }//conteúdo do ficheiro
 
-        [SolrField("entidade_id")]
+        [SolrField("version_uid")]
+        public string Version_Uid { get; set; }//uid da ultima versao
+
+        /*[SolrField("entidade_id")]
         public int Entidade_id { get; set; }//nº do paciente
 
         [SolrField("doente")]
-        public int Doente { get; set; }//nº do doente
+        public int Doente { get; set; }//nº do doente*/
     }
 }

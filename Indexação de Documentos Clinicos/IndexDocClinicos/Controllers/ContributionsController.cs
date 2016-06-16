@@ -67,6 +67,7 @@ namespace IndexDocClinicos.Controllers
                 res[res.Count - 1].Add("dob", results[rIndex].Dob.ToString("d MMMM yyyy", ci));
                 res[res.Count - 1].Add("text", searchResults.ToString());
                 res[res.Count - 1].Add("total_num", results.NumFound + "");
+                res[res.Count - 1].Add("version", results[rIndex].Version_Uid + "");
 
                 rIndex++;
             }

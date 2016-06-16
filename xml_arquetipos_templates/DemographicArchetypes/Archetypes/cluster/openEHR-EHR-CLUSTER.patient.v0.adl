@@ -21,7 +21,7 @@ description
 	lifecycle_state = <"0">
 	other_contributors = <>
 	other_details = <
-		["MD5-CAM-1.0.1"] = <"B4DD14A08261189B4E8E4F1B056E4604">
+		["MD5-CAM-1.0.1"] = <"FA2BE9D196DF5BD5D3456DF6DA7811F5">
 	>
 
 definition
@@ -92,6 +92,36 @@ definition
 					DV_COUNT matches {*}
 				}
 			}
+			ELEMENT[at0016] occurrences matches {0..1} matches {	-- Estado civil
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0017] occurrences matches {0..1} matches {	-- Elemento_id
+				value matches {
+					DV_COUNT matches {*}
+				}
+			}
+			ELEMENT[at0018] occurrences matches {0..1} matches {	-- Documento_id
+				value matches {
+					DV_COUNT matches {*}
+				}
+			}
+			ELEMENT[at0019] occurrences matches {0..1} matches {	-- Entidade_id
+				value matches {
+					DV_COUNT matches {*}
+				}
+			}
+			ELEMENT[at0020] occurrences matches {0..1} matches {	-- Doente
+				value matches {
+					DV_COUNT matches {*}
+				}
+			}
+			ELEMENT[at0021] occurrences matches {0..1} matches {	-- DocDate
+				value matches {
+					DV_DATE_TIME matches {*}
+				}
+			}
 		}
 	}
 
@@ -153,6 +183,30 @@ ontology
 				>
 				["at0015"] = <
 					text = <"Número beneficiário">
+					description = <"*">
+				>
+				["at0016"] = <
+					text = <"Estado civil">
+					description = <"*">
+				>
+				["at0017"] = <
+					text = <"Elemento_id">
+					description = <"*">
+				>
+				["at0018"] = <
+					text = <"Documento_id">
+					description = <"*">
+				>
+				["at0019"] = <
+					text = <"Entidade_id">
+					description = <"*">
+				>
+				["at0020"] = <
+					text = <"Doente">
+					description = <"*">
+				>
+				["at0021"] = <
+					text = <"DocDate">
 					description = <"*">
 				>
 			>

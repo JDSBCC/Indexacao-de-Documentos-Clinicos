@@ -16,7 +16,7 @@ namespace IndexDocClinicos.Classes
     {
         private ISolrOperations<Contribution> solr;
 
-        private List<Document> documents;//documents pdf
+        private List<DocContent> documents;//documents pdf
         private List<Patient> patients;//patients
 
         private string contQuery = "";
@@ -26,7 +26,7 @@ namespace IndexDocClinicos.Classes
         public Data()
         {
             //initializing data lists
-            documents = new List<Document>();
+            documents = new List<DocContent>();
             patients = new List<Patient>();
         }
 
@@ -53,7 +53,7 @@ namespace IndexDocClinicos.Classes
                 dataReaderOracle = null;
                 Connection.openOracle();
                 OracleCommand cmd = new OracleCommand("Select * from " +
-                    "(select rownum as rn, d.documento_id, f.*, dl.doente, ge.*, " +
+                    "(select rownum as rn, NVL(e.DT_ACT, e.DT_CRI) as doc_date, d.documento_id, f.*, dl.doente, ge.*, " +
                     "c.n_proc, c.n_sns, c.n_benef, c.n_bi, c.data_nasc, s.codigo, s.descricao, ec.descricao as estado_civil from er_ficheiro f " +
                     "join er_elemento e on e.elemento_id=f.elemento_id and e.versao_activa='S' and e.cod_versao=f.cod_versao " +
                     "join er_documento d on d.documento_id=e.documento_id " +
@@ -100,13 +100,9 @@ namespace IndexDocClinicos.Classes
                     response = "";
                 }
 
-                Document doc = new Document
+                DocContent doc = new DocContent
                 {
-                    Elemento_id = Convert.ToInt32(dataReaderOracle["elemento_id"]),
-                    Documento_id = Convert.ToInt32(dataReaderOracle["documento_id"]),
-                    Content = response.Replace("\n", " "),
-                    Entidade_id = Convert.ToInt32(dataReaderOracle["entidade_id"]),
-                    Doente = Convert.ToInt32(dataReaderOracle["doente"])
+                    Content = response.Replace("\n", " ")
                 };
                 documents.Add(doc);
 
@@ -121,10 +117,14 @@ namespace IndexDocClinicos.Classes
 
             Patient patient = new Patient
             {
-                Doente = dataReaderOracle["DOENTE"]+"",
-                Entidade_id = dataReaderOracle["ENTIDADE_ID"]+"",
                 Nome = dataReaderOracle["NOME"] + "",
-                Uid = Guid.NewGuid().ToString()
+                Uid = Guid.NewGuid().ToString(),
+                Entidade_id = Convert.ToInt32(dataReaderOracle["entidade_id"]),
+                Doente = Convert.ToInt32(dataReaderOracle["doente"]),
+                Elemento_id = Convert.ToInt32(dataReaderOracle["elemento_id"]),
+                Documento_id = Convert.ToInt32(dataReaderOracle["documento_id"]),
+                DocDate = Convert.ToDateTime(dataReaderOracle["doc_date"]),
+                Version_Uid = Guid.NewGuid().ToString()
             };
 
             if (!Convert.IsDBNull(dataReaderOracle["MORADA"]))
@@ -175,11 +175,10 @@ namespace IndexDocClinicos.Classes
                         First_name = docs[i]["first_name"] + "",
                         Last_name = docs[i]["last_name"] + "",
                         Dob = Convert.ToDateTime(docs[i]["dob"]),
-                        Elemento_id = documents[i].Elemento_id,
-                        Documento_id = documents[i].Documento_id,
-                        Content = documents[i].Content,
-                        Entidade_id = documents[i].Entidade_id,
-                        Doente = documents[i].Doente
+                        Elemento_id = Convert.ToInt32(((List<int>)docs[i]["ids"])[0]),
+                        Documento_id = Convert.ToInt32(((List<int>)docs[i]["ids"])[1]),
+                        Version_Uid = docs[i]["version_uid"] + "",
+                        Content = documents[i].Content
                     });
                 }
                 solr.Commit();
@@ -204,7 +203,8 @@ namespace IndexDocClinicos.Classes
                 Connection.openMySQL();
 
                 //contribution
-                MySqlCommand cmd = new MySqlCommand("SELECT cont.uid, dti.value as dv_text, ddti.value as dv_date, first_name, last_name, dob "+
+                MySqlCommand cmd = new MySqlCommand("SELECT cont.uid, dti.value as dv_text, ddti.value as dv_date, magnitude as dv_count, "+
+                                                    "first_name, last_name, dob, v.uid as version_uid "+
                                                     "FROM contribution cont "+
                                                     "JOIN version v ON cont.id=v.contribution_id "+
                                                     "JOIN composition_index ci ON ci.id=v.data_id AND ci.last_version=1 "+
@@ -212,9 +212,11 @@ namespace IndexDocClinicos.Classes
                                                     "JOIN patient_proxy pp ON e.subject_id=pp.id "+
                                                     "JOIN data_value_index dvi ON dvi.owner_id=ci.id "+
                                                     "LEFT JOIN dv_text_index dti ON dvi.id=dti.id "+
-                                                    "LEFT JOIN dv_date_time_index ddti ON dvi.id=ddti.id " +
+                                                    "LEFT JOIN dv_date_time_index ddti ON dvi.id=ddti.id "+ 
+                                                    "LEFT JOIN dv_count_index dci ON dvi.id=dci.id AND "+
+                                                    "(dvi.archetype_path='/items[at0017]/value' OR dvi.archetype_path='/items[at0018]/value') "+
                                                     "JOIN person p ON p.uid=pp.value "+
-                                                    contQuery + " GROUP BY uid, dti.value, ddti.value", Connection.getMySQLCon());
+                                                    contQuery + "GROUP BY uid, dti.value, ddti.value, dci.magnitude", Connection.getMySQLCon());
                 dataReaderMySQL = null;
                 dataReaderMySQL = cmd.ExecuteReader();
                 while (dataReaderMySQL.Read()) {
@@ -224,6 +226,8 @@ namespace IndexDocClinicos.Classes
                             ((List<string>)docs[docs.Count - 1]["value"]).Add(dataReaderMySQL["dv_text"] + "");
                         if (!Convert.IsDBNull(dataReaderMySQL["dv_date"]))
                             ((List<DateTime>)docs[docs.Count - 1]["dates"]).Add(Convert.ToDateTime(dataReaderMySQL["dv_date"]));
+                        if (!Convert.IsDBNull(dataReaderMySQL["dv_count"]))
+                            ((List<int>)docs[docs.Count - 1]["ids"]).Add(Convert.ToInt32(dataReaderMySQL["dv_count"]));
                     }
                     else
                     {
@@ -232,12 +236,16 @@ namespace IndexDocClinicos.Classes
                         docs[docs.Count - 1].Add("first_name", dataReaderMySQL["first_name"]);
                         docs[docs.Count - 1].Add("last_name", dataReaderMySQL["last_name"]);
                         docs[docs.Count - 1].Add("dob", dataReaderMySQL["dob"]);
+                        docs[docs.Count - 1].Add("version_uid", dataReaderMySQL["version_uid"]);
+                        docs[docs.Count - 1].Add("ids", new List<int>());
                         docs[docs.Count - 1].Add("value", new List<string>());
                         docs[docs.Count - 1].Add("dates", new List<DateTime>());
                         if (!Convert.IsDBNull(dataReaderMySQL["dv_text"]))
                             ((List<string>)docs[docs.Count - 1]["value"]).Add(dataReaderMySQL["dv_text"] + "");
                         if (!Convert.IsDBNull(dataReaderMySQL["dv_date"]))
                             ((List<DateTime>)docs[docs.Count - 1]["dates"]).Add(Convert.ToDateTime(dataReaderMySQL["dv_date"]));
+                        if (!Convert.IsDBNull(dataReaderMySQL["dv_count"]))
+                            ((List<int>)docs[docs.Count - 1]["ids"]).Add(Convert.ToInt32(dataReaderMySQL["dv_count"]));
                     }
                 }
                 dataReaderMySQL.Close();

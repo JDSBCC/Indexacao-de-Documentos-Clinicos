@@ -58,13 +58,13 @@ namespace IndexDocClinicos
             if (connectionsWork())
             {
                 int num = getTotalRows();
-                for (int i = 1; i < num; i += chunckSize)//UPDATE
+                for (int i = 1; i < /*num*/5; i += chunckSize)//UPDATE
                 {
                     int index = i;
                     tasks.Add(Task.Factory.StartNew(() =>
                     {
                         int last = index + chunckSize - 1;
-                        ReadIndexAllData("rn between "+index+" and " + (last>num-1?num-1:last));//UPDATE
+                        ReadIndexAllData("rn between "+index+" and " + (last>/*num-1*/4?/*num-1*/4:last));//UPDATE
                     }));
                     //ReadIndexAllData("d.documento_id>=" + i + " AND d.documento_id<=" + (i + chunckSize - 1));
                 }

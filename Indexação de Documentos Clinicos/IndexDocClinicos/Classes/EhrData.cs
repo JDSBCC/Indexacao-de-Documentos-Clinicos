@@ -115,7 +115,7 @@ namespace IndexDocClinicos.Classes
                 map_list[map_list.Count-1].Add("CONTRIBUTION", Guid.NewGuid().ToString());
                 map_list[map_list.Count-1].Add("COMMITTER_NAME", "João Correia");
                 map_list[map_list.Count-1].Add("TIME_COMMITTED", DateTime.Now.ToString("yyyyMMdd"));
-                map_list[map_list.Count-1].Add("VERSION_ID", Guid.NewGuid().ToString());
+                map_list[map_list.Count-1].Add("VERSION_ID", patient.Version_Uid);
                 map_list[map_list.Count-1].Add("COMPOSITION", Guid.NewGuid().ToString());
                 map_list[map_list.Count-1].Add("COMPOSER_NAME", "João Correia");
                 map_list[map_list.Count-1].Add("COMPOSITION_DATE", DateTime.Now.ToString("yyyyMMdd"));
@@ -133,6 +133,11 @@ namespace IndexDocClinicos.Classes
                 map_list[map_list.Count-1].Add("BENEF", patient.N_Beneficiario+"");
                 map_list[map_list.Count-1].Add("SNS", patient.N_Servico_Nacional_Saude+"");
                 map_list[map_list.Count-1].Add("CIVIL", patient.Estado_Civil+"");
+                map_list[map_list.Count-1].Add("ELEMID", patient.Elemento_id+"");
+                map_list[map_list.Count-1].Add("DOCID", patient.Documento_id+"");
+                map_list[map_list.Count-1].Add("ENTID", patient.Entidade_id+"");
+                map_list[map_list.Count-1].Add("DOEID", patient.Doente+"");
+                map_list[map_list.Count-1].Add("DOCDATE", patient.DocDate.ToString("yyyyMMdd"));
                 map_list[map_list.Count-1].Add("uid", patient.Uid);
                 patientUids.Add(patient.Uid);
             }

@@ -6,6 +6,7 @@
 	<!--fields from contributions-->
 	<fields>
 		<field name="uid" type="string" indexed="true" stored="true"/>
+		<field name="version_uid" type="string" indexed="false" stored="true"/>
 		<field name="value" type="text_general" indexed="true" stored="true" multiValued="true"/>
 		<field name="dates" type="date" indexed="true" stored="true" multiValued="true"/>
 
@@ -16,8 +17,8 @@
 		<field name="elemento_id" type="int" indexed="false" stored="true" />
 		<field name="documento_id" type="int" indexed="false" stored="true" />
 		<field name="content" type="text_general" indexed="true" stored="true"/>
-		<field name="entidade_id" type="string" indexed="false" stored="true"/>
-		<field name="doente" type="string" indexed="false" stored="true"/>
+		<!--<field name="entidade_id" type="string" indexed="false" stored="true"/>
+		<field name="doente" type="string" indexed="false" stored="true"/>-->
 
 		<field name="text" type="text_general" indexed="true" stored="false" multiValued="true" />
 	</fields>
