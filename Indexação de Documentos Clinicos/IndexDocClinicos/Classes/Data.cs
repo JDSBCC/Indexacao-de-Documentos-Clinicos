@@ -78,6 +78,11 @@ namespace IndexDocClinicos.Classes
                 dataReaderOracle.Close();
             } catch (OracleException e) {
                 Debug.Write("Error: {0}", e.ToString());
+                Connection.closeOracle();
+                OracleConnection.ClearAllPools();
+                documents = new List<DocContent>();
+                patients = new List<Patient>();
+                queryingEresults(condition);
             } finally {
                 Connection.closeOracle();
             }
@@ -102,7 +107,7 @@ namespace IndexDocClinicos.Classes
 
                 DocContent doc = new DocContent
                 {
-                    Content = response.Replace("\n", " ")
+                    Content = response
                 };
                 documents.Add(doc);
 
@@ -199,28 +204,30 @@ namespace IndexDocClinicos.Classes
         {
             List<Dictionary<string, object>> docs = new List<Dictionary<string, object>>();
 
-            try {
+            try
+            {
                 Connection.openMySQL();
 
                 //contribution
-                MySqlCommand cmd = new MySqlCommand("SELECT cont.uid, dti.value as dv_text, ddti.value as dv_date, magnitude as dv_count, "+
-                                                    "first_name, last_name, dob, v.uid as version_uid "+
-                                                    "FROM contribution cont "+
-                                                    "JOIN version v ON cont.id=v.contribution_id "+
-                                                    "JOIN composition_index ci ON ci.id=v.data_id AND ci.last_version=1 "+
-                                                    "JOIN ehr e ON cont.ehr_id=e.id "+
-                                                    "JOIN patient_proxy pp ON e.subject_id=pp.id "+
-                                                    "JOIN data_value_index dvi ON dvi.owner_id=ci.id "+
-                                                    "LEFT JOIN dv_text_index dti ON dvi.id=dti.id "+
-                                                    "LEFT JOIN dv_date_time_index ddti ON dvi.id=ddti.id "+ 
-                                                    "LEFT JOIN dv_count_index dci ON dvi.id=dci.id AND "+
-                                                    "(dvi.archetype_path='/items[at0017]/value' OR dvi.archetype_path='/items[at0018]/value') "+
-                                                    "JOIN person p ON p.uid=pp.value "+
+                MySqlCommand cmd = new MySqlCommand("SELECT cont.uid, dti.value as dv_text, ddti.value as dv_date, magnitude as dv_count, " +
+                                                    "first_name, last_name, dob, v.uid as version_uid " +
+                                                    "FROM contribution cont " +
+                                                    "JOIN version v ON cont.id=v.contribution_id " +
+                                                    "JOIN composition_index ci ON ci.id=v.data_id AND ci.last_version=1 " +
+                                                    "JOIN ehr e ON cont.ehr_id=e.id " +
+                                                    "JOIN patient_proxy pp ON e.subject_id=pp.id " +
+                                                    "JOIN data_value_index dvi ON dvi.owner_id=ci.id " +
+                                                    "LEFT JOIN dv_text_index dti ON dvi.id=dti.id " +
+                                                    "LEFT JOIN dv_date_time_index ddti ON dvi.id=ddti.id " +
+                                                    "LEFT JOIN dv_count_index dci ON dvi.id=dci.id AND " +
+                                                    "(dvi.archetype_path='/items[at0017]/value' OR dvi.archetype_path='/items[at0018]/value') " +
+                                                    "JOIN person p ON p.uid=pp.value " +
                                                     contQuery + "GROUP BY uid, dti.value, ddti.value, dci.magnitude", Connection.getMySQLCon());
                 dataReaderMySQL = null;
                 dataReaderMySQL = cmd.ExecuteReader();
-                while (dataReaderMySQL.Read()) {
-                    if (docs.Count!=0 && (dataReaderMySQL["uid"] + "").Equals(docs[docs.Count - 1]["uid"]))
+                while (dataReaderMySQL.Read())
+                {
+                    if (docs.Count != 0 && (dataReaderMySQL["uid"] + "").Equals(docs[docs.Count - 1]["uid"]))
                     {
                         if (!Convert.IsDBNull(dataReaderMySQL["dv_text"]))
                             ((List<string>)docs[docs.Count - 1]["value"]).Add(dataReaderMySQL["dv_text"] + "");
@@ -253,6 +260,11 @@ namespace IndexDocClinicos.Classes
             catch (MySqlException ex)
             {
                 Debug.Write("Error: {0}", ex.ToString());
+            }
+            catch (InvalidOperationException)
+            {
+                OracleConnection.ClearAllPools();
+                return null;
             }
             finally
             {
