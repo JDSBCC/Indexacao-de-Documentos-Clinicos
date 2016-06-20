@@ -64,7 +64,7 @@ namespace IndexDocClinicos
                     tasks.Add(Task.Factory.StartNew(() =>
                     {
                         int last = index + chunckSize - 1;
-                        ReadIndexAllData("rn between "+index+" and " + (last>num-1?num-1:last));//UPDATE
+                        ReadIndexAllData("rn between "+index+" and " + (last>num?num-1:last));//UPDATE
                     }));
                     //ReadIndexAllData("d.documento_id>=" + i + " AND d.documento_id<=" + (i + chunckSize - 1));
                 }
@@ -194,7 +194,7 @@ namespace IndexDocClinicos
                 connOracle.Open();
                 OracleCommand cmd = new OracleCommand("select documento_id, elemento_id from " +//UPDATE colocar a data real
                                         "(select documento_id, elemento_id, NVL(DT_ACT, DT_CRI) as final_date from er_elemento) " +
-                                        "where final_date>to_date('" + lastUpdate.ToString("yyyyMMddHHmmss") + "', 'YYYYMMDDHHMISS')", connOracle);//to_date('20121009010000', 'YYYYMMDDHHMISS')
+                                        "where final_date>to_date('" + lastUpdate.ToString("yyyyMMddHHmmss") + "', 'YYYYMMDDHH24MISS')", connOracle);//to_date('20121009010000', 'YYYYMMDDHHMISS')
 
                 OracleDataReader dataReaderOracle = cmd.ExecuteReader();
                 while (dataReaderOracle.Read())

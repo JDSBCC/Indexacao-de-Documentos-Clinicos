@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json.Linq;
+using System.Diagnostics;
 using System.IO;
 using System.Net;
 using System.Text;
@@ -23,13 +24,13 @@ namespace IndexDocClinicos.Classes
 
                 data = JObject.Parse(responseString);
             } catch (WebException ex) {
-                /*if (ex.Status == WebExceptionStatus.Timeout) {
+                if (ex.Status == WebExceptionStatus.Timeout) {
                     Get(url, queries, token);
                 } else {
                     Debug.WriteLine("Não foi possível executar este pedido. Erro: " + ex);
                     Debug.WriteLine("url=" + url + "|queries=" + queries);
-                }*/
-                Get(url, queries, token);
+                }
+                //Get(url, queries, token);
             }
         }
 
@@ -56,13 +57,13 @@ namespace IndexDocClinicos.Classes
 
                 data = JObject.Parse(responseString);
             } catch (WebException ex) {
-                /*if (ex.Status == WebExceptionStatus.Timeout) {
+                if (ex.Status == WebExceptionStatus.Timeout) {
                     Post(url, queries);
                 } else {
                     Debug.WriteLine("Não foi possível executar este pedido. Erro: " + ex);
                     Debug.WriteLine("url=" + url + "|queries=" + queries);
-                }*/
-                Post(url, queries);
+                }
+                //Post(url, queries);
             }
         }
 
@@ -91,13 +92,13 @@ namespace IndexDocClinicos.Classes
 
                 data = JObject.Parse(responseString);
             } catch (WebException ex) {
-                /*if (ex.Status == WebExceptionStatus.Timeout) {
+                if (ex.Status == WebExceptionStatus.Timeout) {
                     Post(url, queries, token, accept);
                 } else {
                     Debug.WriteLine("Não foi possível executar este pedido. Erro: " + ex);
                     Debug.WriteLine("url=" + url + "|queries=" + queries + "|accept=" + accept);
-                }*/
-                Post(url, queries, token, accept);
+                }
+                //Post(url, queries, token, accept);
             }
         }
 
@@ -125,13 +126,13 @@ namespace IndexDocClinicos.Classes
                 string responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
                 dataXML = responseString;
             } catch (WebException ex) {
-                /*if (ex.Status == WebExceptionStatus.Timeout) {
+                if (ex.Status == WebExceptionStatus.Timeout) {
                     Post(url, queries, token, accept, body);
                 } else {
                     Debug.WriteLine("Não foi possível executar este pedido. Erro: " + ex);
                     Debug.WriteLine("url="+ url + "|queries="+queries+"|accept="+accept+"|body="+body);
-                }*/
-                Post(url, queries, token, accept, body);
+                }
+                //Post(url, queries, token, accept, body);
             }
         }
     }

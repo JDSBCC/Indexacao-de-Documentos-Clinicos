@@ -161,6 +161,7 @@ namespace IndexDocClinicos.Classes
             if (!Convert.IsDBNull(dataReaderOracle["N_BI"]))
                 patient.N_Cartao_Cidadao = Convert.ToDouble(dataReaderOracle["N_BI"]);
 
+            //Debug.WriteLine("Uid = " + patient.Uid);
             patients.Add(patient);
         }
 
@@ -222,7 +223,7 @@ namespace IndexDocClinicos.Classes
                                                     "LEFT JOIN dv_count_index dci ON dvi.id=dci.id AND " +
                                                     "(dvi.archetype_path='/items[at0017]/value' OR dvi.archetype_path='/items[at0018]/value') " +
                                                     "JOIN person p ON p.uid=pp.value " +
-                                                    contQuery + "GROUP BY uid, dti.value, ddti.value, dci.magnitude", Connection.getMySQLCon());
+                                                    contQuery + " GROUP BY uid, dti.value, ddti.value, dci.magnitude", Connection.getMySQLCon());
                 dataReaderMySQL = null;
                 dataReaderMySQL = cmd.ExecuteReader();
                 while (dataReaderMySQL.Read())

@@ -49,21 +49,17 @@
 		<analyzer type="index">
 			<tokenizer class="solr.StandardTokenizerFactory"/>
 			<filter class="solr.StopFilterFactory" ignoreCase="true" words="stopwords.txt" />
-			<!-- in this example, we will only use synonyms at query time
-        <filter class="solr.SynonymFilterFactory" synonyms="index_synonyms.txt" ignoreCase="true" expand="false"/>
-        -->
 			<filter class="solr.LowerCaseFilterFactory"/>
+			<filter class="solr.SnowballPorterFilterFactory" language="Portuguese"/>
 			<filter class="solr.RemoveDuplicatesTokenFilterFactory" />
-			<!-- remove duplicados na mesma posição, por exemplo gerados pelo stemming-->
-			<!--<filter class="solr.SnowballPorterFilterFactory" language="Spanish"/>-->
 		</analyzer>
 		<analyzer type="query">
 			<tokenizer class="solr.StandardTokenizerFactory"/>
 			<filter class="solr.StopFilterFactory" ignoreCase="true" words="stopwords.txt" />
 			<filter class="solr.SynonymFilterFactory" synonyms="synonyms.txt" ignoreCase="true" expand="true"/>
 			<filter class="solr.LowerCaseFilterFactory"/>
+			<filter class="solr.SnowballPorterFilterFactory" language="Portuguese"/>
 			<filter class="solr.RemoveDuplicatesTokenFilterFactory" />
-			<!--<filter class="solr.SnowballPorterFilterFactory" language="Spanish"/>-->
 		</analyzer>
 	</fieldType>
 </schema>
