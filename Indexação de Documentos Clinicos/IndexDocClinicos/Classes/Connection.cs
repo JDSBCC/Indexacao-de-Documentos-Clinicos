@@ -28,7 +28,7 @@ namespace IndexDocClinicos.Classes
         }
 
         public static bool openOracle(){
-            TaskControl.waitDB();
+            //TaskControl.waitDB();
             try {
                 if (connOracle.State != ConnectionState.Open)
                     connOracle.Open();
@@ -43,7 +43,7 @@ namespace IndexDocClinicos.Classes
             try {
                 if (connOracle.State != ConnectionState.Closed) {
                     connOracle.Close();
-                    TaskControl.releaseDB();
+                    //TaskControl.releaseDB();
                 }
                 return true;
             } catch (Exception ex) {
@@ -66,7 +66,7 @@ namespace IndexDocClinicos.Classes
 
         public static bool openMySQL()
         {
-            TaskControl.waitDB();
+            //TaskControl.waitDB();
             try {
                 if (connMySQL.State != ConnectionState.Open)
                     connMySQL.Open();
@@ -84,7 +84,7 @@ namespace IndexDocClinicos.Classes
             try {
                 if (connMySQL.State != ConnectionState.Closed){
                     connMySQL.Close();
-                    TaskControl.releaseDB();
+                    //TaskControl.releaseDB();
                 }
                 return true;
             } catch (Exception ex) {

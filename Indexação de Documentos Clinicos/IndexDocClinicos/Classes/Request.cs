@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Net;
 using System.Text;
+using System.Threading;
 
 namespace IndexDocClinicos.Classes
 {
@@ -24,7 +25,8 @@ namespace IndexDocClinicos.Classes
 
                 data = JObject.Parse(responseString);
             } catch (WebException ex) {
-                if (ex.Status == WebExceptionStatus.Timeout) {
+                if (ex.Status == WebExceptionStatus.Timeout || ex.Status == WebExceptionStatus.ProtocolError) {
+                    Thread.Sleep(2000);
                     Get(url, queries, token);
                 } else {
                     Debug.WriteLine("Não foi possível executar este pedido. Erro: " + ex);
@@ -57,7 +59,8 @@ namespace IndexDocClinicos.Classes
 
                 data = JObject.Parse(responseString);
             } catch (WebException ex) {
-                if (ex.Status == WebExceptionStatus.Timeout) {
+                if (ex.Status == WebExceptionStatus.Timeout || ex.Status == WebExceptionStatus.ProtocolError) {
+                    Thread.Sleep(2000);
                     Post(url, queries);
                 } else {
                     Debug.WriteLine("Não foi possível executar este pedido. Erro: " + ex);
@@ -92,7 +95,8 @@ namespace IndexDocClinicos.Classes
 
                 data = JObject.Parse(responseString);
             } catch (WebException ex) {
-                if (ex.Status == WebExceptionStatus.Timeout) {
+                if (ex.Status == WebExceptionStatus.Timeout || ex.Status == WebExceptionStatus.ProtocolError) {
+                    Thread.Sleep(2000);
                     Post(url, queries, token, accept);
                 } else {
                     Debug.WriteLine("Não foi possível executar este pedido. Erro: " + ex);
@@ -126,7 +130,8 @@ namespace IndexDocClinicos.Classes
                 string responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
                 dataXML = responseString;
             } catch (WebException ex) {
-                if (ex.Status == WebExceptionStatus.Timeout) {
+                if (ex.Status == WebExceptionStatus.Timeout || ex.Status == WebExceptionStatus.ProtocolError) {
+                    Thread.Sleep(2000);
                     Post(url, queries, token, accept, body);
                 } else {
                     Debug.WriteLine("Não foi possível executar este pedido. Erro: " + ex);

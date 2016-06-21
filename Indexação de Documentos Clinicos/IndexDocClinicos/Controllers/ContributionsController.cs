@@ -22,7 +22,8 @@ namespace IndexDocClinicos.Controllers
         public List<Dictionary<string, string>> GetContributionsByRangeDate(string id, int startPage, int rows)
         {
             string[] values = id.Split('_');
-            return Query(new SolrQueryByRange<DateTime>("dates", Convert.ToDateTime(values[1]), Convert.ToDateTime(values[2])) && new SolrQuery(values[0]), startPage, rows);
+            CultureInfo ci = new CultureInfo("pt-PT");
+            return Query(new SolrQueryByRange<DateTime>("dates", DateTime.Parse(values[1], ci), DateTime.Parse(values[2], ci)) && new SolrQuery(values[0]), startPage, rows);
         }
 
         public List<Dictionary<string, string>> GetContributions(string id, int startPage, int rows)

@@ -83,6 +83,13 @@ namespace IndexDocClinicos.Classes
                 documents = new List<DocContent>();
                 patients = new List<Patient>();
                 queryingEresults(condition);
+            } catch (InvalidOperationException e) {
+                Debug.Write("Error: {0}", e.ToString());
+                Connection.closeOracle();
+                OracleConnection.ClearAllPools();
+                documents = new List<DocContent>();
+                patients = new List<Patient>();
+                queryingEresults(condition);
             } finally {
                 Connection.closeOracle();
             }
@@ -168,7 +175,7 @@ namespace IndexDocClinicos.Classes
         public void commitDataSolr()
         {
             List<Dictionary<string, object>> docs;
-            while ((docs=QueryingEHR())==null) ;
+            while ((docs=QueryingEHR(documents.Count))==null) ;
             solr = ServiceLocator.Current.GetInstance<ISolrOperations<Contribution>>();
 
             if (documents.Count == docs.Count) {
@@ -201,7 +208,7 @@ namespace IndexDocClinicos.Classes
             contQuery += ")";
         }
 
-        private List<Dictionary<string, object>> QueryingEHR()
+        private List<Dictionary<string, object>> QueryingEHR(int size)
         {
             List<Dictionary<string, object>> docs = new List<Dictionary<string, object>>();
 
@@ -222,8 +229,8 @@ namespace IndexDocClinicos.Classes
                                                     "LEFT JOIN dv_date_time_index ddti ON dvi.id=ddti.id " +
                                                     "LEFT JOIN dv_count_index dci ON dvi.id=dci.id AND " +
                                                     "(dvi.archetype_path='/items[at0017]/value' OR dvi.archetype_path='/items[at0018]/value') " +
-                                                    "JOIN person p ON p.uid=pp.value " +
-                                                    contQuery + " GROUP BY uid, dti.value, ddti.value, dci.magnitude", Connection.getMySQLCon());
+                                                    "JOIN person p ON p.uid=pp.value " + contQuery +
+                                                    " GROUP BY cont.uid, dti.value, ddti.value, dci.magnitude", Connection.getMySQLCon());
                 dataReaderMySQL = null;
                 dataReaderMySQL = cmd.ExecuteReader();
                 while (dataReaderMySQL.Read())
@@ -272,7 +279,7 @@ namespace IndexDocClinicos.Classes
                 Connection.closeMySQL();
             }
 
-            if (docs.Count == 0)
+            if (docs.Count == 0 || docs.Count!=size)
                 return null;
             return docs;
         }

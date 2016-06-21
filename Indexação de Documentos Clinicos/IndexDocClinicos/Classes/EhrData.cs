@@ -110,11 +110,11 @@ namespace IndexDocClinicos.Classes
 
         public void fillData()
         {
-            foreach(Patient patient in patients){
+            foreach (Patient patient in patients){
                 map_list.Add(new Dictionary<string, string>());
                 map_list[map_list.Count-1].Add("CONTRIBUTION", Guid.NewGuid().ToString());
                 map_list[map_list.Count-1].Add("COMMITTER_NAME", "João Correia");
-                map_list[map_list.Count-1].Add("TIME_COMMITTED", DateTime.Now.ToString("yyyyMMdd"));
+                map_list[map_list.Count-1].Add("TIME_COMMITTED", DateTime.Now.ToString("yyyyMMddHHmmss"));
                 map_list[map_list.Count-1].Add("VERSION_ID", patient.Version_Uid);
                 map_list[map_list.Count-1].Add("COMPOSITION", Guid.NewGuid().ToString());
                 map_list[map_list.Count-1].Add("COMPOSER_NAME", "João Correia");
@@ -152,7 +152,6 @@ namespace IndexDocClinicos.Classes
                 {
                     string pattern = @"\[\[:::"+item.Key+@":::\]\]";
                     Regex rgx = new Regex(pattern);
-                    //Debug.WriteLine("[" + item.Key + "] = " + (item.Value.Equals("") ? "999999999" : item.Value));
                     string result = rgx.Replace(text, item.Value.Equals("")?"0":item.Value);
                     text = result;
                 }
