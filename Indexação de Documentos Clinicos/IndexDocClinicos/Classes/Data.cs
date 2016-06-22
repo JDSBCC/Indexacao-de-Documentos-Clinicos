@@ -196,7 +196,8 @@ namespace IndexDocClinicos.Classes
                 solr.Commit();
             }
             stopwatch.Stop();//REMOVE
-            time += stopwatch.ElapsedMilliseconds;
+            time += stopwatch.ElapsedMilliseconds;//REMOVE
+            Debug.WriteLine("[TIME_INDEX_NOT_FINAL] = " + time);//REMOVE
         }
 
         private List<Dictionary<string, object>> QueryingEHR(DateTime time_committed)
