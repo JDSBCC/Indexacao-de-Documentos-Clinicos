@@ -18,10 +18,10 @@ namespace IndexDocClinicos.Classes
 
         private List<DocContent> documents;//documents pdf
         private List<Patient> patients;//patients
-
-        private string contQuery = "";
+        
         private MySqlDataReader dataReaderMySQL;
         private OracleDataReader dataReaderOracle;
+        public static long time = 0;//REMOVE
 
         public Data()
         {
@@ -64,7 +64,7 @@ namespace IndexDocClinicos.Classes
                     "join gr_doente_local dl on v.entidade_pai_id=dl.entidade_id  and dl.activo='S' " +
                     "left join er_sexo s on c.sexo_id=s.sexo_id " +
                     "left join er_estado_civil ec on ec.estado_civil_id=c.estado_civil_id) " +
-                    "where " + condition, Connection.getOracleCon());//REMOVE restriçao de elemento_id
+                    "where " + condition, Connection.getOracleCon());
                 dataReaderOracle = cmd.ExecuteReader();
                 while (dataReaderOracle.Read())
                 {
@@ -125,8 +125,6 @@ namespace IndexDocClinicos.Classes
 
         private void saveMetadataContent()
         {
-            //Debug.Write("[PATIENT] = " + dataReaderOracle["elemento_id"] + " - " + dataReaderOracle["documento_id"] + " - " + dataReaderOracle["NOME"] + " - " + dataReaderOracle["DATA_NASC"] + " \n");
-
             Patient patient = new Patient
             {
                 Nome = dataReaderOracle["NOME"] + "",
@@ -167,17 +165,18 @@ namespace IndexDocClinicos.Classes
                 patient.Estado_Civil = dataReaderOracle["ESTADO_CIVIL"] + "";
             if (!Convert.IsDBNull(dataReaderOracle["N_BI"]))
                 patient.N_Cartao_Cidadao = Convert.ToDouble(dataReaderOracle["N_BI"]);
-
-            //Debug.WriteLine("Uid = " + patient.Uid);
+            
             patients.Add(patient);
         }
 
-        public void commitDataSolr()
+        public void commitDataSolr(DateTime time_committed)
         {
             List<Dictionary<string, object>> docs;
-            while ((docs=QueryingEHR(documents.Count))==null) ;
+            while ((docs=QueryingEHR(time_committed))==null) ;
             solr = ServiceLocator.Current.GetInstance<ISolrOperations<Contribution>>();
 
+
+            Stopwatch stopwatch = Stopwatch.StartNew(); //REMOVE
             if (documents.Count == docs.Count) {
                 for (int i = 0; i < documents.Count; i++) {
                     solr.Add(new Contribution
@@ -196,19 +195,11 @@ namespace IndexDocClinicos.Classes
                 }
                 solr.Commit();
             }
+            stopwatch.Stop();//REMOVE
+            time += stopwatch.ElapsedMilliseconds;
         }
 
-        public void setNumContQuery(List<string> patientsUids)
-        {
-            contQuery = "WHERE (pp.value='" + patientsUids.First() + "'";
-            foreach (var uid in patientsUids.Skip(1))
-            {
-                contQuery += " or pp.value='" + uid + "'";
-            }
-            contQuery += ")";
-        }
-
-        private List<Dictionary<string, object>> QueryingEHR(int size)
+        private List<Dictionary<string, object>> QueryingEHR(DateTime time_committed)
         {
             List<Dictionary<string, object>> docs = new List<Dictionary<string, object>>();
 
@@ -229,8 +220,11 @@ namespace IndexDocClinicos.Classes
                                                     "LEFT JOIN dv_date_time_index ddti ON dvi.id=ddti.id " +
                                                     "LEFT JOIN dv_count_index dci ON dvi.id=dci.id AND " +
                                                     "(dvi.archetype_path='/items[at0017]/value' OR dvi.archetype_path='/items[at0018]/value') " +
-                                                    "JOIN person p ON p.uid=pp.value " + contQuery +
-                                                    " GROUP BY cont.uid, dti.value, ddti.value, dci.magnitude", Connection.getMySQLCon());
+                                                    "JOIN person p ON p.uid=pp.value, " +
+                                                    "audit_details ad " +
+                                                    "WHERE v.commit_audit_id = ad.id " + 
+                                                    "AND ad.time_committed >= '"+time_committed.AddHours(-1).ToString("yyyyMMddHHmmss") +"' " +
+                                                    "GROUP BY cont.uid, dti.value, ddti.value, dci.magnitude", Connection.getMySQLCon());
                 dataReaderMySQL = null;
                 dataReaderMySQL = cmd.ExecuteReader();
                 while (dataReaderMySQL.Read())
@@ -279,7 +273,7 @@ namespace IndexDocClinicos.Classes
                 Connection.closeMySQL();
             }
 
-            if (docs.Count == 0 || docs.Count!=size)
+            if (docs.Count == 0 || docs.Count!= documents.Count)
                 return null;
             return docs;
         }

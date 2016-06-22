@@ -14,18 +14,18 @@ namespace IndexDocClinicos.Classes
         private static Organization organization;//organization
         private List<Patient> patients;//patients
         private List<Dictionary<string, string>> map_list;
-        private List<string> patientUids;
+        private DateTime time_committed;
 
         public EhrData()
         {
 
             patients = new List<Patient>();
             map_list = new List<Dictionary<string, string>>();
-            patientUids = new List<string>();
         }
 
-        public List<string> getPatientUids() {
-            return patientUids;
+        public DateTime getTimeCommitted()
+        {
+            return time_committed;
         }
 
         public void setOrganization()
@@ -50,7 +50,6 @@ namespace IndexDocClinicos.Classes
             string tempUrl = "format=json";
             tempUrl += "&subjectUid=" + patientUid;
             Request.Get(ConfigurationManager.AppSettings["EHR_rest"] + "/ehrForSubject", tempUrl, token);
-            //Debug.WriteLine(Request.data["uid"]);
             return Request.data["uid"]+"";
         }
 
@@ -110,6 +109,7 @@ namespace IndexDocClinicos.Classes
 
         public void fillData()
         {
+            time_committed = DateTime.Now;
             foreach (Patient patient in patients){
                 map_list.Add(new Dictionary<string, string>());
                 map_list[map_list.Count-1].Add("CONTRIBUTION", Guid.NewGuid().ToString());
@@ -139,7 +139,6 @@ namespace IndexDocClinicos.Classes
                 map_list[map_list.Count-1].Add("DOEID", patient.Doente+"");
                 map_list[map_list.Count-1].Add("DOCDATE", patient.DocDate.ToString("yyyyMMdd"));
                 map_list[map_list.Count-1].Add("uid", patient.Uid);
-                patientUids.Add(patient.Uid);
             }
         }
 
@@ -161,7 +160,6 @@ namespace IndexDocClinicos.Classes
                 tempUrl += "&auditSystemId=popo";
                 tempUrl += "&auditCommitter=Joao";
                 Request.Post(ConfigurationManager.AppSettings["EHR_rest"] + "/commit", tempUrl, token, "application/json", text);
-                //Debug.WriteLine(Request.dataXML);
             }
         }
 
@@ -169,7 +167,6 @@ namespace IndexDocClinicos.Classes
         {
             patients.Clear();
             map_list.Clear();
-            patientUids.Clear();
         }
 
     }

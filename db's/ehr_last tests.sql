@@ -10,7 +10,9 @@ LEFT JOIN dv_text_index dti ON dvi.id=dti.id
 LEFT JOIN dv_date_time_index ddti ON dvi.id=ddti.id 
 LEFT JOIN dv_count_index dci ON dvi.id=dci.id AND 
 (dvi.archetype_path='/items[at0017]/value' OR dvi.archetype_path='/items[at0018]/value') 
-JOIN person p ON p.uid=pp.value
+JOIN person p ON p.uid=pp.value,
+audit_details ad
+WHERE v.commit_audit_id=ad.id AND ad.time_committed>='20160622082801'
 GROUP BY cont.uid, dti.value, ddti.value, dci.magnitude
 
 /*,

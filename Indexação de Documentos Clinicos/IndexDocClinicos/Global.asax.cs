@@ -30,6 +30,7 @@ namespace IndexDocClinicos
             init();
             stopwatch.Stop();//REMOVE
             Debug.WriteLine("[TIME] = " + stopwatch.ElapsedMilliseconds);//REMOVE
+            Debug.WriteLine("[TIME_INDEX] = " + Data.time);//REMOVE
 
 
             AreaRegistration.RegisterAllAreas();
@@ -44,31 +45,19 @@ namespace IndexDocClinicos
         {
             lastUpdate = DateTime.Now;//update date
 
-            //List<Task> tasks = new List<Task>();
-
             int chunckSize = Convert.ToInt32(ConfigurationManager.AppSettings["ChunkSize"]);
-
-            //init semaphores-thread controlling
-            //new TaskControl();
+            
             //init connections to databases
             new Connection();
 
             if (connectionsWork())
             {
                 int num = getTotalRows();
-                for (int i = 1; i < 500; i += chunckSize)//UPDATE -- num
+                for (int i = 1; i < num; i += chunckSize)//UPDATE -- num
                 {
-                    int index = i;
-                    /*tasks.Add(Task.Factory.StartNew(() =>
-                    {
-                        int last = index + chunckSize - 1;
-                        ReadIndexAllData("rn between "+index+" and " + (last>100?100:last));//UPDATE
-                    }));*/
-                    int last = index + chunckSize - 1;
-                    ReadIndexAllData("rn between " + index + " and " + (last > 500 ? 500 : last));
+                    int last = i + chunckSize - 1;
+                    ReadIndexAllData("rn between " + i + " and " + (last > num ? num : last));
                 }
-                //Task.WaitAll(tasks.ToArray());
-                //ReadIndexAllData("d.documento_id>="+id[0]+" AND d.documento_id<="+id[1]);
                 runUpdateThread();
             }
         }
@@ -122,22 +111,16 @@ namespace IndexDocClinicos
                 ehr_data.setPatients(patients);
 
                 Debug.WriteLine("Committing patients to ehr...");
-                //TaskControl.waitEHR();
                 ehr_data.commitPersonsPatients();//commit persons to ehr
-                //TaskControl.releaseEHR();
 
                 Debug.WriteLine("Initializing information to fill xml...");
                 ehr_data.fillData();//create a string with file information (xml with data)
 
                 Debug.WriteLine("Filling xml...");
-                //TaskControl.waitEHR();
                 ehr_data.commitDocument();//commit xml in ehr
-                //TaskControl.releaseEHR();
-
-                data.setNumContQuery(ehr_data.getPatientUids());
 
                 Debug.WriteLine("Indexing data in solr...");
-                data.commitDataSolr();//indexing ehr data in solr
+                data.commitDataSolr(ehr_data.getTimeCommitted());//indexing ehr data in solr
             }
 
             ehr_data.freeMemory();
@@ -205,8 +188,8 @@ namespace IndexDocClinicos
                 dataReaderOracle.Close();
             }
             catch (OracleException ex) {
-                //connOracle.Close();
-                //getUpdatedDocuments(ids);
+                connOracle.Close();
+                getUpdatedDocuments(ids);
                 Debug.WriteLine("Error " + ex);
             } finally {
                 connOracle.Close();
