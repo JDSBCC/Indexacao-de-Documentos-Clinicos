@@ -171,12 +171,12 @@ namespace IndexDocClinicos.Classes
 
         public void commitDataSolr(DateTime time_committed)
         {
+            Stopwatch stopwatch = Stopwatch.StartNew(); //REMOVE
+
             List<Dictionary<string, object>> docs;
             while ((docs=QueryingEHR(time_committed))==null) ;
             solr = ServiceLocator.Current.GetInstance<ISolrOperations<Contribution>>();
 
-
-            Stopwatch stopwatch = Stopwatch.StartNew(); //REMOVE
             if (documents.Count == docs.Count) {
                 for (int i = 0; i < documents.Count; i++) {
                     solr.Add(new Contribution
