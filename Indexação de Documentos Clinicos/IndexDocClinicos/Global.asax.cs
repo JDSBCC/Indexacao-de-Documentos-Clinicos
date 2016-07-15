@@ -53,10 +53,10 @@ namespace IndexDocClinicos
             if (connectionsWork())
             {
                 int num = getTotalRows();
-                for (int i = 1; i < num; i += chunckSize)//UPDATE -- num
+                for (int i = 1; i < /*num*/1000; i += chunckSize)//UPDATE -- num
                 {
                     int last = i + chunckSize - 1;
-                    ReadIndexAllData("rn between " + i + " and " + (last > num ? num : last));
+                    ReadIndexAllData("rn between " + i + " and " + (last > /*num*/1000 ? /*num*/1000 : last));
                 }
                 runUpdateThread();
             }
