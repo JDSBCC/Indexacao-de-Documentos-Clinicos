@@ -1,0 +1,802 @@
+----------------------------------------
+Timestamp: 02/03/2016 18:08:26
+Message: <Exception handlingInstanceId="906ab81e-0298-450a-a8b1-279240f452b3">
+  <Description>An exception of type 'System.IO.FileNotFoundException' occurred and was caught.</Description>
+  <DateTime>2016-03-02 18:08:26Z</DateTime>
+  <ExceptionType>System.IO.FileNotFoundException, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ExceptionType>
+  <Message>Could not load file or assembly 'CPCHS.Common.Utilities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null' or one of its dependencies. The system cannot find the file specified.</Message>
+  <Source>mscorlib</Source>
+  <HelpLink />
+  <Property name="FileName">CPCHS.Common.Utilities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</Property>
+  <Property name="FusionLog">WRN: Assembly binding logging is turned OFF.
+To enable assembly bind failure logging, set the registry value [HKLM\Software\Microsoft\Fusion!EnableLog] (DWORD) to 1.
+Note: There is some performance penalty associated with assembly bind failure logging.
+To turn this feature off, remove the registry value [HKLM\Software\Microsoft\Fusion!EnableLog].
+</Property>
+  <Property name="Data">System.Collections.ListDictionaryInternal</Property>
+  <Property name="TargetSite">Void HandleReturnMessage(System.Runtime.Remoting.Messaging.IMessage, System.Runtime.Remoting.Messaging.IMessage)</Property>
+  <Property name="HResult">-2147024894</Property>
+  <StackTrace>
+Server stack trace: 
+   at Glintths.Infrastructure.Wcf.ClientMessageInspector.BeforeSendRequest(Message&amp; request, IClientChannel channel)
+   at System.ServiceModel.Dispatcher.ImmutableClientRuntime.BeforeSendRequest(ProxyRpc&amp; rpc)
+   at System.ServiceModel.Channels.ServiceChannel.PrepareCall(ProxyOperationRuntime operation, Boolean oneway, ProxyRpc&amp; rpc)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData&amp; msgData, Int32 type)
+   at Glintths.Authorization.Providers.Proxies.AuthorizationManagementWcf.IAuthorizationManagement.AddMultiplePermissionsForUsers(String companyDb, AutMemberList members, AutContext context)
+   at Glintths.Authorization.Providers.Proxies.AuthorizationManagementWcf.AuthorizationManagementClient.AddMultiplePermissionsForUsers(String companyDb, AutMemberList members, AutContext context)
+   at Glintths.Authorization.Providers.Proxies.AuthorizationManagementProxy.AddMultiplePermissionsForUsers(String companyDB, AutMemberList members, AutContext context)</StackTrace>
+  <additionalInfo>
+    <info name="MachineName" value="RPEREIRA" />
+    <info name="TimeStamp" value="02/03/2016 18:08:26" />
+    <info name="FullName" value="Microsoft.Practices.EnterpriseLibrary.ExceptionHandling, Version=4.1.0.0, Culture=neutral, PublicKeyToken=null" />
+    <info name="AppDomainName" value="/LM/W3SVC/3999980001/ROOT/Glintths.Er.Workspaces.Host-7-131014156420617124" />
+    <info name="ThreadIdentity" value="" />
+    <info name="WindowsIdentity" value="NT AUTHORITY\SYSTEM" />
+  </additionalInfo>
+</Exception>
+Category: General
+Priority: 0
+EventId: 100
+Severity: Error
+Title:Enterprise Library Exception Handling
+Machine: RPEREIRA
+Application Domain: /LM/W3SVC/3999980001/ROOT/Glintths.Er.Workspaces.Host-7-131014156420617124
+Process Id: 4156
+Process Name: C:\WINDOWS\SysWOW64\inetsrv\w3wp.exe
+Win32 Thread Id: 25124
+Thread Name: 
+Extended Properties: 
+----------------------------------------
+----------------------------------------
+Timestamp: 02/03/2016 18:12:59
+Message: <Exception handlingInstanceId="614200a9-a67a-41cb-a1d8-4a5f12f0d52b">
+  <Description>An exception of type 'System.ServiceModel.EndpointNotFoundException' occurred and was caught.</Description>
+  <DateTime>2016-03-02 18:12:59Z</DateTime>
+  <ExceptionType>System.ServiceModel.EndpointNotFoundException, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ExceptionType>
+  <Message>There was no endpoint listening at http://localhost/Glintths.Authorization.Providers.WebServices/Authorization/WebService/AuthorizationManagement.svc that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details.</Message>
+  <Source>mscorlib</Source>
+  <HelpLink />
+  <Property name="Data">System.Collections.ListDictionaryInternal</Property>
+  <Property name="TargetSite">Void HandleReturnMessage(System.Runtime.Remoting.Messaging.IMessage, System.Runtime.Remoting.Messaging.IMessage)</Property>
+  <Property name="HResult">-2146233087</Property>
+  <StackTrace>
+Server stack trace: 
+   at System.ServiceModel.Channels.HttpChannelUtilities.ProcessGetResponseWebException(WebException webException, HttpWebRequest request, HttpAbortReason abortReason)
+   at System.ServiceModel.Channels.HttpChannelFactory`1.HttpRequestChannel.HttpChannelRequest.WaitForReply(TimeSpan timeout)
+   at System.ServiceModel.Channels.RequestChannel.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Dispatcher.RequestChannelBinder.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData&amp; msgData, Int32 type)
+   at Glintths.Authorization.Providers.Proxies.AuthorizationManagementWcf.IAuthorizationManagement.AddMultiplePermissionsForUsers(String companyDb, AutMemberList members, AutContext context)
+   at Glintths.Authorization.Providers.Proxies.AuthorizationManagementWcf.AuthorizationManagementClient.AddMultiplePermissionsForUsers(String companyDb, AutMemberList members, AutContext context)
+   at Glintths.Authorization.Providers.Proxies.AuthorizationManagementProxy.AddMultiplePermissionsForUsers(String companyDB, AutMemberList members, AutContext context)</StackTrace>
+  <additionalInfo>
+    <info name="MachineName" value="RPEREIRA" />
+    <info name="TimeStamp" value="02/03/2016 18:12:59" />
+    <info name="FullName" value="Microsoft.Practices.EnterpriseLibrary.ExceptionHandling, Version=4.1.0.0, Culture=neutral, PublicKeyToken=null" />
+    <info name="AppDomainName" value="/LM/W3SVC/3999980001/ROOT/Glintths.Er.Workspaces.Host-8-131014159775009032" />
+    <info name="ThreadIdentity" value="" />
+    <info name="WindowsIdentity" value="NT AUTHORITY\SYSTEM" />
+  </additionalInfo>
+  <InnerException>
+    <ExceptionType>System.Net.WebException, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ExceptionType>
+    <Message>The remote server returned an error: (404) Not Found.</Message>
+    <Source>System</Source>
+    <HelpLink />
+    <Property name="Status">ProtocolError</Property>
+    <Property name="Response">System.Net.HttpWebResponse</Property>
+    <Property name="Data">System.Collections.ListDictionaryInternal</Property>
+    <Property name="TargetSite">System.Net.WebResponse GetResponse()</Property>
+    <Property name="HResult">-2146233079</Property>
+    <StackTrace>   at System.Net.HttpWebRequest.GetResponse()
+   at System.ServiceModel.Channels.HttpChannelFactory`1.HttpRequestChannel.HttpChannelRequest.WaitForReply(TimeSpan timeout)</StackTrace>
+  </InnerException>
+</Exception>
+Category: General
+Priority: 0
+EventId: 100
+Severity: Error
+Title:Enterprise Library Exception Handling
+Machine: RPEREIRA
+Application Domain: /LM/W3SVC/3999980001/ROOT/Glintths.Er.Workspaces.Host-8-131014159775009032
+Process Id: 4156
+Process Name: C:\WINDOWS\SysWOW64\inetsrv\w3wp.exe
+Win32 Thread Id: 2328
+Thread Name: 
+Extended Properties: 
+----------------------------------------
+----------------------------------------
+Timestamp: 02/03/2016 18:20:48
+Message: <Exception handlingInstanceId="7f5ffe46-a8d2-43de-8b2c-311c32477d46">
+  <Description>An exception of type 'System.ServiceModel.FaultException`1[[System.ServiceModel.ExceptionDetail, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]' occurred and was caught.</Description>
+  <DateTime>2016-03-02 18:20:48Z</DateTime>
+  <ExceptionType>System.ServiceModel.FaultException`1[[System.ServiceModel.ExceptionDetail, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ExceptionType>
+  <Message>ORA-00001: unique constraint (SECURITY3.PK_AUT_MEMBRO) violated
+ORA-06512: at "SECURITY3.PCK_AUTHORIZATION", line 712
+ORA-06512: at line 1
+</Message>
+  <Source>mscorlib</Source>
+  <HelpLink />
+  <Property name="Detail">An ExceptionDetail, likely created by IncludeExceptionDetailInFaults=true, whose value is:
+System.Data.OracleClient.OracleException: ORA-00001: unique constraint (SECURITY3.PK_AUT_MEMBRO) violated
+ORA-06512: at "SECURITY3.PCK_AUTHORIZATION", line 712
+ORA-06512: at line 1
+
+   at Glintths.Authorization.Providers.BusinessRules.AuthorizationManagementBr.AddMultiplePermissionsForUsers(String companyDb, AutMemberList members, AutContext context) in d:\S16R101\InfraEstructure\CPCHS.AuthenticationAuthorization\Authorization\Glintths.Authorization.Providers.BusinessRules\Authorization\BusinessRules\AuthorizationManagementBr.cs:line 132
+   at Glintths.Authorization.Providers.WebServices.AuthorizationManagement.AddMultiplePermissionsForUsers(String companyDb, AutMemberList members, AutContext context) in d:\S16R101\InfraEstructure\CPCHS.AuthenticationAuthorization\Authorization\GlintthsAuthorization.Providers.WebServices\Authorization\WebService\AuthorizationManagement.cs:line 15
+   at SyncInvokeAddMultiplePermissionsForUsers(Object , Object[] , Object[] )
+   at System.ServiceModel.Dispatcher.SyncMethodInvoker.Invoke(Object instance, Object[] inputs, Object[]&amp; outputs)
+   at System.ServiceModel.Dispatcher.DispatchOperationRuntime.InvokeBegin(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage5(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage41(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage4(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage31(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage3(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage2(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage11(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage1(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.MessageRpc.Process(Boolean isOperationContextSet)</Property>
+  <Property name="Action">&lt;undefined value&gt;</Property>
+  <Property name="Code">System.ServiceModel.FaultCode</Property>
+  <Property name="Reason">ORA-00001: unique constraint (SECURITY3.PK_AUT_MEMBRO) violated
+ORA-06512: at "SECURITY3.PCK_AUTHORIZATION", line 712
+ORA-06512: at line 1
+</Property>
+  <Property name="Data">System.Collections.ListDictionaryInternal</Property>
+  <Property name="TargetSite">Void HandleReturnMessage(System.Runtime.Remoting.Messaging.IMessage, System.Runtime.Remoting.Messaging.IMessage)</Property>
+  <Property name="HResult">-2146233087</Property>
+  <StackTrace>
+Server stack trace: 
+   at System.ServiceModel.Channels.ServiceChannel.ThrowIfFaultUnderstood(Message reply, MessageFault fault, String action, MessageVersion version, FaultConverter faultConverter)
+   at System.ServiceModel.Channels.ServiceChannel.HandleReply(ProxyOperationRuntime operation, ProxyRpc&amp; rpc)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData&amp; msgData, Int32 type)
+   at Glintths.Authorization.Providers.Proxies.AuthorizationManagementWcf.IAuthorizationManagement.AddMultiplePermissionsForUsers(String companyDb, AutMemberList members, AutContext context)
+   at Glintths.Authorization.Providers.Proxies.AuthorizationManagementWcf.AuthorizationManagementClient.AddMultiplePermissionsForUsers(String companyDb, AutMemberList members, AutContext context)
+   at Glintths.Authorization.Providers.Proxies.AuthorizationManagementProxy.AddMultiplePermissionsForUsers(String companyDB, AutMemberList members, AutContext context)</StackTrace>
+  <additionalInfo>
+    <info name="MachineName" value="RPEREIRA" />
+    <info name="TimeStamp" value="02/03/2016 18:20:48" />
+    <info name="FullName" value="Microsoft.Practices.EnterpriseLibrary.ExceptionHandling, Version=4.1.0.0, Culture=neutral, PublicKeyToken=null" />
+    <info name="AppDomainName" value="/LM/W3SVC/3999980001/ROOT/Glintths.Er.Workspaces.Host-8-131014159775009032" />
+    <info name="ThreadIdentity" value="" />
+    <info name="WindowsIdentity" value="NT AUTHORITY\SYSTEM" />
+  </additionalInfo>
+</Exception>
+Category: General
+Priority: 0
+EventId: 100
+Severity: Error
+Title:Enterprise Library Exception Handling
+Machine: RPEREIRA
+Application Domain: /LM/W3SVC/3999980001/ROOT/Glintths.Er.Workspaces.Host-8-131014159775009032
+Process Id: 4156
+Process Name: C:\WINDOWS\SysWOW64\inetsrv\w3wp.exe
+Win32 Thread Id: 22692
+Thread Name: 
+Extended Properties: 
+----------------------------------------
+----------------------------------------
+Timestamp: 02/03/2016 18:21:05
+Message: <Exception handlingInstanceId="c01cd803-908d-4eb4-88fd-7a295219dbde">
+  <Description>An exception of type 'System.ServiceModel.FaultException`1[[System.ServiceModel.ExceptionDetail, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]' occurred and was caught.</Description>
+  <DateTime>2016-03-02 18:21:05Z</DateTime>
+  <ExceptionType>System.ServiceModel.FaultException`1[[System.ServiceModel.ExceptionDetail, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ExceptionType>
+  <Message>ORA-00001: unique constraint (SECURITY3.PK_AUT_MEMBRO) violated
+ORA-06512: at "SECURITY3.PCK_AUTHORIZATION", line 712
+ORA-06512: at line 1
+</Message>
+  <Source>mscorlib</Source>
+  <HelpLink />
+  <Property name="Detail">An ExceptionDetail, likely created by IncludeExceptionDetailInFaults=true, whose value is:
+System.Data.OracleClient.OracleException: ORA-00001: unique constraint (SECURITY3.PK_AUT_MEMBRO) violated
+ORA-06512: at "SECURITY3.PCK_AUTHORIZATION", line 712
+ORA-06512: at line 1
+
+   at Glintths.Authorization.Providers.BusinessRules.AuthorizationManagementBr.AddMultiplePermissionsForUsers(String companyDb, AutMemberList members, AutContext context) in d:\S16R101\InfraEstructure\CPCHS.AuthenticationAuthorization\Authorization\Glintths.Authorization.Providers.BusinessRules\Authorization\BusinessRules\AuthorizationManagementBr.cs:line 132
+   at Glintths.Authorization.Providers.WebServices.AuthorizationManagement.AddMultiplePermissionsForUsers(String companyDb, AutMemberList members, AutContext context) in d:\S16R101\InfraEstructure\CPCHS.AuthenticationAuthorization\Authorization\GlintthsAuthorization.Providers.WebServices\Authorization\WebService\AuthorizationManagement.cs:line 15
+   at SyncInvokeAddMultiplePermissionsForUsers(Object , Object[] , Object[] )
+   at System.ServiceModel.Dispatcher.SyncMethodInvoker.Invoke(Object instance, Object[] inputs, Object[]&amp; outputs)
+   at System.ServiceModel.Dispatcher.DispatchOperationRuntime.InvokeBegin(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage5(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage41(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage4(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage31(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage3(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage2(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage11(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage1(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.MessageRpc.Process(Boolean isOperationContextSet)</Property>
+  <Property name="Action">&lt;undefined value&gt;</Property>
+  <Property name="Code">System.ServiceModel.FaultCode</Property>
+  <Property name="Reason">ORA-00001: unique constraint (SECURITY3.PK_AUT_MEMBRO) violated
+ORA-06512: at "SECURITY3.PCK_AUTHORIZATION", line 712
+ORA-06512: at line 1
+</Property>
+  <Property name="Data">System.Collections.ListDictionaryInternal</Property>
+  <Property name="TargetSite">Void HandleReturnMessage(System.Runtime.Remoting.Messaging.IMessage, System.Runtime.Remoting.Messaging.IMessage)</Property>
+  <Property name="HResult">-2146233087</Property>
+  <StackTrace>
+Server stack trace: 
+   at System.ServiceModel.Channels.ServiceChannel.ThrowIfFaultUnderstood(Message reply, MessageFault fault, String action, MessageVersion version, FaultConverter faultConverter)
+   at System.ServiceModel.Channels.ServiceChannel.HandleReply(ProxyOperationRuntime operation, ProxyRpc&amp; rpc)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData&amp; msgData, Int32 type)
+   at Glintths.Authorization.Providers.Proxies.AuthorizationManagementWcf.IAuthorizationManagement.AddMultiplePermissionsForUsers(String companyDb, AutMemberList members, AutContext context)
+   at Glintths.Authorization.Providers.Proxies.AuthorizationManagementWcf.AuthorizationManagementClient.AddMultiplePermissionsForUsers(String companyDb, AutMemberList members, AutContext context)
+   at Glintths.Authorization.Providers.Proxies.AuthorizationManagementProxy.AddMultiplePermissionsForUsers(String companyDB, AutMemberList members, AutContext context)</StackTrace>
+  <additionalInfo>
+    <info name="MachineName" value="RPEREIRA" />
+    <info name="TimeStamp" value="02/03/2016 18:21:05" />
+    <info name="FullName" value="Microsoft.Practices.EnterpriseLibrary.ExceptionHandling, Version=4.1.0.0, Culture=neutral, PublicKeyToken=null" />
+    <info name="AppDomainName" value="/LM/W3SVC/3999980001/ROOT/Glintths.Er.Workspaces.Host-8-131014159775009032" />
+    <info name="ThreadIdentity" value="" />
+    <info name="WindowsIdentity" value="NT AUTHORITY\SYSTEM" />
+  </additionalInfo>
+</Exception>
+Category: General
+Priority: 0
+EventId: 100
+Severity: Error
+Title:Enterprise Library Exception Handling
+Machine: RPEREIRA
+Application Domain: /LM/W3SVC/3999980001/ROOT/Glintths.Er.Workspaces.Host-8-131014159775009032
+Process Id: 4156
+Process Name: C:\WINDOWS\SysWOW64\inetsrv\w3wp.exe
+Win32 Thread Id: 24388
+Thread Name: 
+Extended Properties: 
+----------------------------------------
+----------------------------------------
+Timestamp: 02/03/2016 18:23:00
+Message: <Exception handlingInstanceId="78f1139e-f28b-4222-a179-152af543dd9f">
+  <Description>An exception of type 'System.ServiceModel.FaultException`1[[System.ServiceModel.ExceptionDetail, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]' occurred and was caught.</Description>
+  <DateTime>2016-03-02 18:23:00Z</DateTime>
+  <ExceptionType>System.ServiceModel.FaultException`1[[System.ServiceModel.ExceptionDetail, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ExceptionType>
+  <Message>ORA-00001: unique constraint (SECURITY3.PK_AUT_MEMBRO) violated
+ORA-06512: at "SECURITY3.PCK_AUTHORIZATION", line 712
+ORA-06512: at line 1
+</Message>
+  <Source>mscorlib</Source>
+  <HelpLink />
+  <Property name="Detail">An ExceptionDetail, likely created by IncludeExceptionDetailInFaults=true, whose value is:
+System.Data.OracleClient.OracleException: ORA-00001: unique constraint (SECURITY3.PK_AUT_MEMBRO) violated
+ORA-06512: at "SECURITY3.PCK_AUTHORIZATION", line 712
+ORA-06512: at line 1
+
+   at Glintths.Authorization.Providers.BusinessRules.AuthorizationManagementBr.AddMultiplePermissionsForUsers(String companyDb, AutMemberList members, AutContext context) in d:\S16R101\InfraEstructure\CPCHS.AuthenticationAuthorization\Authorization\Glintths.Authorization.Providers.BusinessRules\Authorization\BusinessRules\AuthorizationManagementBr.cs:line 132
+   at Glintths.Authorization.Providers.WebServices.AuthorizationManagement.AddMultiplePermissionsForUsers(String companyDb, AutMemberList members, AutContext context) in d:\S16R101\InfraEstructure\CPCHS.AuthenticationAuthorization\Authorization\GlintthsAuthorization.Providers.WebServices\Authorization\WebService\AuthorizationManagement.cs:line 15
+   at SyncInvokeAddMultiplePermissionsForUsers(Object , Object[] , Object[] )
+   at System.ServiceModel.Dispatcher.SyncMethodInvoker.Invoke(Object instance, Object[] inputs, Object[]&amp; outputs)
+   at System.ServiceModel.Dispatcher.DispatchOperationRuntime.InvokeBegin(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage5(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage41(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage4(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage31(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage3(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage2(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage11(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage1(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.MessageRpc.Process(Boolean isOperationContextSet)</Property>
+  <Property name="Action">&lt;undefined value&gt;</Property>
+  <Property name="Code">System.ServiceModel.FaultCode</Property>
+  <Property name="Reason">ORA-00001: unique constraint (SECURITY3.PK_AUT_MEMBRO) violated
+ORA-06512: at "SECURITY3.PCK_AUTHORIZATION", line 712
+ORA-06512: at line 1
+</Property>
+  <Property name="Data">System.Collections.ListDictionaryInternal</Property>
+  <Property name="TargetSite">Void HandleReturnMessage(System.Runtime.Remoting.Messaging.IMessage, System.Runtime.Remoting.Messaging.IMessage)</Property>
+  <Property name="HResult">-2146233087</Property>
+  <StackTrace>
+Server stack trace: 
+   at System.ServiceModel.Channels.ServiceChannel.ThrowIfFaultUnderstood(Message reply, MessageFault fault, String action, MessageVersion version, FaultConverter faultConverter)
+   at System.ServiceModel.Channels.ServiceChannel.HandleReply(ProxyOperationRuntime operation, ProxyRpc&amp; rpc)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData&amp; msgData, Int32 type)
+   at Glintths.Authorization.Providers.Proxies.AuthorizationManagementWcf.IAuthorizationManagement.AddMultiplePermissionsForUsers(String companyDb, AutMemberList members, AutContext context)
+   at Glintths.Authorization.Providers.Proxies.AuthorizationManagementWcf.AuthorizationManagementClient.AddMultiplePermissionsForUsers(String companyDb, AutMemberList members, AutContext context)
+   at Glintths.Authorization.Providers.Proxies.AuthorizationManagementProxy.AddMultiplePermissionsForUsers(String companyDB, AutMemberList members, AutContext context)</StackTrace>
+  <additionalInfo>
+    <info name="MachineName" value="RPEREIRA" />
+    <info name="TimeStamp" value="02/03/2016 18:23:00" />
+    <info name="FullName" value="Microsoft.Practices.EnterpriseLibrary.ExceptionHandling, Version=4.1.0.0, Culture=neutral, PublicKeyToken=null" />
+    <info name="AppDomainName" value="/LM/W3SVC/3999980001/ROOT/Glintths.Er.Workspaces.Host-8-131014159775009032" />
+    <info name="ThreadIdentity" value="" />
+    <info name="WindowsIdentity" value="NT AUTHORITY\SYSTEM" />
+  </additionalInfo>
+</Exception>
+Category: General
+Priority: 0
+EventId: 100
+Severity: Error
+Title:Enterprise Library Exception Handling
+Machine: RPEREIRA
+Application Domain: /LM/W3SVC/3999980001/ROOT/Glintths.Er.Workspaces.Host-8-131014159775009032
+Process Id: 4156
+Process Name: C:\WINDOWS\SysWOW64\inetsrv\w3wp.exe
+Win32 Thread Id: 25032
+Thread Name: 
+Extended Properties: 
+----------------------------------------
+----------------------------------------
+Timestamp: 02/03/2016 18:23:59
+Message: <Exception handlingInstanceId="ae27017f-8daa-4f42-bb90-519fb3e66d92">
+  <Description>An exception of type 'System.ServiceModel.FaultException`1[[System.ServiceModel.ExceptionDetail, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]' occurred and was caught.</Description>
+  <DateTime>2016-03-02 18:23:59Z</DateTime>
+  <ExceptionType>System.ServiceModel.FaultException`1[[System.ServiceModel.ExceptionDetail, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ExceptionType>
+  <Message>ORA-00001: unique constraint (SECURITY3.PK_AUT_MEMBRO) violated
+ORA-06512: at "SECURITY3.PCK_AUTHORIZATION", line 712
+ORA-06512: at line 1
+</Message>
+  <Source>mscorlib</Source>
+  <HelpLink />
+  <Property name="Detail">An ExceptionDetail, likely created by IncludeExceptionDetailInFaults=true, whose value is:
+System.Data.OracleClient.OracleException: ORA-00001: unique constraint (SECURITY3.PK_AUT_MEMBRO) violated
+ORA-06512: at "SECURITY3.PCK_AUTHORIZATION", line 712
+ORA-06512: at line 1
+
+   at Glintths.Authorization.Providers.BusinessRules.AuthorizationManagementBr.AddMultiplePermissionsForUsers(String companyDb, AutMemberList members, AutContext context) in d:\S16R101\InfraEstructure\CPCHS.AuthenticationAuthorization\Authorization\Glintths.Authorization.Providers.BusinessRules\Authorization\BusinessRules\AuthorizationManagementBr.cs:line 132
+   at Glintths.Authorization.Providers.WebServices.AuthorizationManagement.AddMultiplePermissionsForUsers(String companyDb, AutMemberList members, AutContext context) in d:\S16R101\InfraEstructure\CPCHS.AuthenticationAuthorization\Authorization\GlintthsAuthorization.Providers.WebServices\Authorization\WebService\AuthorizationManagement.cs:line 15
+   at SyncInvokeAddMultiplePermissionsForUsers(Object , Object[] , Object[] )
+   at System.ServiceModel.Dispatcher.SyncMethodInvoker.Invoke(Object instance, Object[] inputs, Object[]&amp; outputs)
+   at System.ServiceModel.Dispatcher.DispatchOperationRuntime.InvokeBegin(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage5(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage41(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage4(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage31(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage3(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage2(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage11(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage1(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.MessageRpc.Process(Boolean isOperationContextSet)</Property>
+  <Property name="Action">&lt;undefined value&gt;</Property>
+  <Property name="Code">System.ServiceModel.FaultCode</Property>
+  <Property name="Reason">ORA-00001: unique constraint (SECURITY3.PK_AUT_MEMBRO) violated
+ORA-06512: at "SECURITY3.PCK_AUTHORIZATION", line 712
+ORA-06512: at line 1
+</Property>
+  <Property name="Data">System.Collections.ListDictionaryInternal</Property>
+  <Property name="TargetSite">Void HandleReturnMessage(System.Runtime.Remoting.Messaging.IMessage, System.Runtime.Remoting.Messaging.IMessage)</Property>
+  <Property name="HResult">-2146233087</Property>
+  <StackTrace>
+Server stack trace: 
+   at System.ServiceModel.Channels.ServiceChannel.ThrowIfFaultUnderstood(Message reply, MessageFault fault, String action, MessageVersion version, FaultConverter faultConverter)
+   at System.ServiceModel.Channels.ServiceChannel.HandleReply(ProxyOperationRuntime operation, ProxyRpc&amp; rpc)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData&amp; msgData, Int32 type)
+   at Glintths.Authorization.Providers.Proxies.AuthorizationManagementWcf.IAuthorizationManagement.AddMultiplePermissionsForUsers(String companyDb, AutMemberList members, AutContext context)
+   at Glintths.Authorization.Providers.Proxies.AuthorizationManagementWcf.AuthorizationManagementClient.AddMultiplePermissionsForUsers(String companyDb, AutMemberList members, AutContext context)
+   at Glintths.Authorization.Providers.Proxies.AuthorizationManagementProxy.AddMultiplePermissionsForUsers(String companyDB, AutMemberList members, AutContext context)</StackTrace>
+  <additionalInfo>
+    <info name="MachineName" value="RPEREIRA" />
+    <info name="TimeStamp" value="02/03/2016 18:23:59" />
+    <info name="FullName" value="Microsoft.Practices.EnterpriseLibrary.ExceptionHandling, Version=4.1.0.0, Culture=neutral, PublicKeyToken=null" />
+    <info name="AppDomainName" value="/LM/W3SVC/3999980001/ROOT/Glintths.Er.Workspaces.Host-8-131014159775009032" />
+    <info name="ThreadIdentity" value="" />
+    <info name="WindowsIdentity" value="NT AUTHORITY\SYSTEM" />
+  </additionalInfo>
+</Exception>
+Category: General
+Priority: 0
+EventId: 100
+Severity: Error
+Title:Enterprise Library Exception Handling
+Machine: RPEREIRA
+Application Domain: /LM/W3SVC/3999980001/ROOT/Glintths.Er.Workspaces.Host-8-131014159775009032
+Process Id: 4156
+Process Name: C:\WINDOWS\SysWOW64\inetsrv\w3wp.exe
+Win32 Thread Id: 25032
+Thread Name: 
+Extended Properties: 
+----------------------------------------
+----------------------------------------
+Timestamp: 19/05/2016 15:54:17
+Message: <Exception handlingInstanceId="9151fef4-db04-4106-a08e-2fb304cf1f4e">
+  <Description>An exception of type 'System.ServiceModel.FaultException`1[[System.ServiceModel.ExceptionDetail, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]' occurred and was caught.</Description>
+  <DateTime>2016-05-19 16:54:17Z</DateTime>
+  <ExceptionType>System.ServiceModel.FaultException`1[[System.ServiceModel.ExceptionDetail, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ExceptionType>
+  <Message>ORA-00001: unique constraint (SECURITY3.PK_AUT_MEMBRO) violated
+ORA-06512: at "SECURITY3.PCK_AUTHORIZATION", line 712
+ORA-06512: at line 1
+</Message>
+  <Source>mscorlib</Source>
+  <HelpLink />
+  <Property name="Detail">An ExceptionDetail, likely created by IncludeExceptionDetailInFaults=true, whose value is:
+System.Data.OracleClient.OracleException: ORA-00001: unique constraint (SECURITY3.PK_AUT_MEMBRO) violated
+ORA-06512: at "SECURITY3.PCK_AUTHORIZATION", line 712
+ORA-06512: at line 1
+
+   at Glintths.Authorization.Providers.BusinessRules.AuthorizationManagementBr.AddMultiplePermissionsForUsers(String companyDb, AutMemberList members, AutContext context) in d:\S16R101\InfraEstructure\CPCHS.AuthenticationAuthorization\Authorization\Glintths.Authorization.Providers.BusinessRules\Authorization\BusinessRules\AuthorizationManagementBr.cs:line 132
+   at Glintths.Authorization.Providers.WebServices.AuthorizationManagement.AddMultiplePermissionsForUsers(String companyDb, AutMemberList members, AutContext context) in d:\S16R101\InfraEstructure\CPCHS.AuthenticationAuthorization\Authorization\GlintthsAuthorization.Providers.WebServices\Authorization\WebService\AuthorizationManagement.cs:line 15
+   at SyncInvokeAddMultiplePermissionsForUsers(Object , Object[] , Object[] )
+   at System.ServiceModel.Dispatcher.SyncMethodInvoker.Invoke(Object instance, Object[] inputs, Object[]&amp; outputs)
+   at System.ServiceModel.Dispatcher.DispatchOperationRuntime.InvokeBegin(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage5(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage41(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage4(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage31(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage3(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage2(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage11(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage1(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.MessageRpc.Process(Boolean isOperationContextSet)</Property>
+  <Property name="Action">&lt;undefined value&gt;</Property>
+  <Property name="Code">System.ServiceModel.FaultCode</Property>
+  <Property name="Reason">ORA-00001: unique constraint (SECURITY3.PK_AUT_MEMBRO) violated
+ORA-06512: at "SECURITY3.PCK_AUTHORIZATION", line 712
+ORA-06512: at line 1
+</Property>
+  <Property name="Data">System.Collections.ListDictionaryInternal</Property>
+  <Property name="TargetSite">Void HandleReturnMessage(System.Runtime.Remoting.Messaging.IMessage, System.Runtime.Remoting.Messaging.IMessage)</Property>
+  <Property name="HResult">-2146233087</Property>
+  <StackTrace>
+Server stack trace: 
+   at System.ServiceModel.Channels.ServiceChannel.ThrowIfFaultUnderstood(Message reply, MessageFault fault, String action, MessageVersion version, FaultConverter faultConverter)
+   at System.ServiceModel.Channels.ServiceChannel.HandleReply(ProxyOperationRuntime operation, ProxyRpc&amp; rpc)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData&amp; msgData, Int32 type)
+   at Glintths.Authorization.Providers.Proxies.AuthorizationManagementWcf.IAuthorizationManagement.AddMultiplePermissionsForUsers(String companyDb, AutMemberList members, AutContext context)
+   at Glintths.Authorization.Providers.Proxies.AuthorizationManagementWcf.AuthorizationManagementClient.AddMultiplePermissionsForUsers(String companyDb, AutMemberList members, AutContext context)
+   at Glintths.Authorization.Providers.Proxies.AuthorizationManagementProxy.AddMultiplePermissionsForUsers(String companyDB, AutMemberList members, AutContext context)</StackTrace>
+  <additionalInfo>
+    <info name="MachineName" value="RPEREIRA" />
+    <info name="TimeStamp" value="19/05/2016 15:54:17" />
+    <info name="FullName" value="Microsoft.Practices.EnterpriseLibrary.ExceptionHandling, Version=4.1.0.0, Culture=neutral, PublicKeyToken=null" />
+    <info name="AppDomainName" value="/LM/W3SVC/3999980001/ROOT/Glintths.Er.Workspaces.Host-3-131081467776206123" />
+    <info name="ThreadIdentity" value="" />
+    <info name="WindowsIdentity" value="NT AUTHORITY\SYSTEM" />
+  </additionalInfo>
+</Exception>
+Category: General
+Priority: 0
+EventId: 100
+Severity: Error
+Title:Enterprise Library Exception Handling
+Machine: RPEREIRA
+Application Domain: /LM/W3SVC/3999980001/ROOT/Glintths.Er.Workspaces.Host-3-131081467776206123
+Process Id: 10008
+Process Name: C:\WINDOWS\SysWOW64\inetsrv\w3wp.exe
+Win32 Thread Id: 5736
+Thread Name: 
+Extended Properties: 
+----------------------------------------
+----------------------------------------
+Timestamp: 19/05/2016 15:56:00
+Message: <Exception handlingInstanceId="83977327-4aad-4364-a35a-003007999676">
+  <Description>An exception of type 'System.ServiceModel.FaultException`1[[System.ServiceModel.ExceptionDetail, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]' occurred and was caught.</Description>
+  <DateTime>2016-05-19 16:56:00Z</DateTime>
+  <ExceptionType>System.ServiceModel.FaultException`1[[System.ServiceModel.ExceptionDetail, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ExceptionType>
+  <Message>ORA-00001: unique constraint (SECURITY3.PK_AUT_MEMBRO) violated
+ORA-06512: at "SECURITY3.PCK_AUTHORIZATION", line 712
+ORA-06512: at line 1
+</Message>
+  <Source>mscorlib</Source>
+  <HelpLink />
+  <Property name="Detail">An ExceptionDetail, likely created by IncludeExceptionDetailInFaults=true, whose value is:
+System.Data.OracleClient.OracleException: ORA-00001: unique constraint (SECURITY3.PK_AUT_MEMBRO) violated
+ORA-06512: at "SECURITY3.PCK_AUTHORIZATION", line 712
+ORA-06512: at line 1
+
+   at Glintths.Authorization.Providers.BusinessRules.AuthorizationManagementBr.AddMultiplePermissionsForUsers(String companyDb, AutMemberList members, AutContext context) in d:\S16R101\InfraEstructure\CPCHS.AuthenticationAuthorization\Authorization\Glintths.Authorization.Providers.BusinessRules\Authorization\BusinessRules\AuthorizationManagementBr.cs:line 132
+   at Glintths.Authorization.Providers.WebServices.AuthorizationManagement.AddMultiplePermissionsForUsers(String companyDb, AutMemberList members, AutContext context) in d:\S16R101\InfraEstructure\CPCHS.AuthenticationAuthorization\Authorization\GlintthsAuthorization.Providers.WebServices\Authorization\WebService\AuthorizationManagement.cs:line 15
+   at SyncInvokeAddMultiplePermissionsForUsers(Object , Object[] , Object[] )
+   at System.ServiceModel.Dispatcher.SyncMethodInvoker.Invoke(Object instance, Object[] inputs, Object[]&amp; outputs)
+   at System.ServiceModel.Dispatcher.DispatchOperationRuntime.InvokeBegin(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage5(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage41(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage4(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage31(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage3(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage2(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage11(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage1(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.MessageRpc.Process(Boolean isOperationContextSet)</Property>
+  <Property name="Action">&lt;undefined value&gt;</Property>
+  <Property name="Code">System.ServiceModel.FaultCode</Property>
+  <Property name="Reason">ORA-00001: unique constraint (SECURITY3.PK_AUT_MEMBRO) violated
+ORA-06512: at "SECURITY3.PCK_AUTHORIZATION", line 712
+ORA-06512: at line 1
+</Property>
+  <Property name="Data">System.Collections.ListDictionaryInternal</Property>
+  <Property name="TargetSite">Void HandleReturnMessage(System.Runtime.Remoting.Messaging.IMessage, System.Runtime.Remoting.Messaging.IMessage)</Property>
+  <Property name="HResult">-2146233087</Property>
+  <StackTrace>
+Server stack trace: 
+   at System.ServiceModel.Channels.ServiceChannel.ThrowIfFaultUnderstood(Message reply, MessageFault fault, String action, MessageVersion version, FaultConverter faultConverter)
+   at System.ServiceModel.Channels.ServiceChannel.HandleReply(ProxyOperationRuntime operation, ProxyRpc&amp; rpc)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData&amp; msgData, Int32 type)
+   at Glintths.Authorization.Providers.Proxies.AuthorizationManagementWcf.IAuthorizationManagement.AddMultiplePermissionsForUsers(String companyDb, AutMemberList members, AutContext context)
+   at Glintths.Authorization.Providers.Proxies.AuthorizationManagementWcf.AuthorizationManagementClient.AddMultiplePermissionsForUsers(String companyDb, AutMemberList members, AutContext context)
+   at Glintths.Authorization.Providers.Proxies.AuthorizationManagementProxy.AddMultiplePermissionsForUsers(String companyDB, AutMemberList members, AutContext context)</StackTrace>
+  <additionalInfo>
+    <info name="MachineName" value="RPEREIRA" />
+    <info name="TimeStamp" value="19/05/2016 15:56:00" />
+    <info name="FullName" value="Microsoft.Practices.EnterpriseLibrary.ExceptionHandling, Version=4.1.0.0, Culture=neutral, PublicKeyToken=null" />
+    <info name="AppDomainName" value="/LM/W3SVC/3999980001/ROOT/Glintths.Er.Workspaces.Host-1-131081468734907636" />
+    <info name="ThreadIdentity" value="" />
+    <info name="WindowsIdentity" value="NT AUTHORITY\SYSTEM" />
+  </additionalInfo>
+</Exception>
+Category: General
+Priority: 0
+EventId: 100
+Severity: Error
+Title:Enterprise Library Exception Handling
+Machine: RPEREIRA
+Application Domain: /LM/W3SVC/3999980001/ROOT/Glintths.Er.Workspaces.Host-1-131081468734907636
+Process Id: 1908
+Process Name: C:\WINDOWS\SysWOW64\inetsrv\w3wp.exe
+Win32 Thread Id: 39832
+Thread Name: 
+Extended Properties: 
+----------------------------------------
+----------------------------------------
+Timestamp: 19/05/2016 15:58:54
+Message: <Exception handlingInstanceId="41b3501c-10c9-4503-8d75-f2518f02e4b3">
+  <Description>An exception of type 'System.ServiceModel.FaultException`1[[System.ServiceModel.ExceptionDetail, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]' occurred and was caught.</Description>
+  <DateTime>2016-05-19 16:58:54Z</DateTime>
+  <ExceptionType>System.ServiceModel.FaultException`1[[System.ServiceModel.ExceptionDetail, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ExceptionType>
+  <Message>ORA-00001: unique constraint (SECURITY3.PK_AUT_MEMBRO) violated
+ORA-06512: at "SECURITY3.PCK_AUTHORIZATION", line 712
+ORA-06512: at line 1
+</Message>
+  <Source>mscorlib</Source>
+  <HelpLink />
+  <Property name="Detail">An ExceptionDetail, likely created by IncludeExceptionDetailInFaults=true, whose value is:
+System.Data.OracleClient.OracleException: ORA-00001: unique constraint (SECURITY3.PK_AUT_MEMBRO) violated
+ORA-06512: at "SECURITY3.PCK_AUTHORIZATION", line 712
+ORA-06512: at line 1
+
+   at Glintths.Authorization.Providers.BusinessRules.AuthorizationManagementBr.AddMultiplePermissionsForUsers(String companyDb, AutMemberList members, AutContext context) in d:\S16R101\InfraEstructure\CPCHS.AuthenticationAuthorization\Authorization\Glintths.Authorization.Providers.BusinessRules\Authorization\BusinessRules\AuthorizationManagementBr.cs:line 132
+   at Glintths.Authorization.Providers.WebServices.AuthorizationManagement.AddMultiplePermissionsForUsers(String companyDb, AutMemberList members, AutContext context) in d:\S16R101\InfraEstructure\CPCHS.AuthenticationAuthorization\Authorization\GlintthsAuthorization.Providers.WebServices\Authorization\WebService\AuthorizationManagement.cs:line 15
+   at SyncInvokeAddMultiplePermissionsForUsers(Object , Object[] , Object[] )
+   at System.ServiceModel.Dispatcher.SyncMethodInvoker.Invoke(Object instance, Object[] inputs, Object[]&amp; outputs)
+   at System.ServiceModel.Dispatcher.DispatchOperationRuntime.InvokeBegin(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage5(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage41(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage4(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage31(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage3(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage2(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage11(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage1(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.MessageRpc.Process(Boolean isOperationContextSet)</Property>
+  <Property name="Action">&lt;undefined value&gt;</Property>
+  <Property name="Code">System.ServiceModel.FaultCode</Property>
+  <Property name="Reason">ORA-00001: unique constraint (SECURITY3.PK_AUT_MEMBRO) violated
+ORA-06512: at "SECURITY3.PCK_AUTHORIZATION", line 712
+ORA-06512: at line 1
+</Property>
+  <Property name="Data">System.Collections.ListDictionaryInternal</Property>
+  <Property name="TargetSite">Void HandleReturnMessage(System.Runtime.Remoting.Messaging.IMessage, System.Runtime.Remoting.Messaging.IMessage)</Property>
+  <Property name="HResult">-2146233087</Property>
+  <StackTrace>
+Server stack trace: 
+   at System.ServiceModel.Channels.ServiceChannel.ThrowIfFaultUnderstood(Message reply, MessageFault fault, String action, MessageVersion version, FaultConverter faultConverter)
+   at System.ServiceModel.Channels.ServiceChannel.HandleReply(ProxyOperationRuntime operation, ProxyRpc&amp; rpc)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData&amp; msgData, Int32 type)
+   at Glintths.Authorization.Providers.Proxies.AuthorizationManagementWcf.IAuthorizationManagement.AddMultiplePermissionsForUsers(String companyDb, AutMemberList members, AutContext context)
+   at Glintths.Authorization.Providers.Proxies.AuthorizationManagementWcf.AuthorizationManagementClient.AddMultiplePermissionsForUsers(String companyDb, AutMemberList members, AutContext context)
+   at Glintths.Authorization.Providers.Proxies.AuthorizationManagementProxy.AddMultiplePermissionsForUsers(String companyDB, AutMemberList members, AutContext context)</StackTrace>
+  <additionalInfo>
+    <info name="MachineName" value="RPEREIRA" />
+    <info name="TimeStamp" value="19/05/2016 15:58:54" />
+    <info name="FullName" value="Microsoft.Practices.EnterpriseLibrary.ExceptionHandling, Version=4.1.0.0, Culture=neutral, PublicKeyToken=null" />
+    <info name="AppDomainName" value="/LM/W3SVC/3999980001/ROOT/Glintths.Er.Workspaces.Host-2-131081470822072381" />
+    <info name="ThreadIdentity" value="" />
+    <info name="WindowsIdentity" value="NT AUTHORITY\SYSTEM" />
+  </additionalInfo>
+</Exception>
+Category: General
+Priority: 0
+EventId: 100
+Severity: Error
+Title:Enterprise Library Exception Handling
+Machine: RPEREIRA
+Application Domain: /LM/W3SVC/3999980001/ROOT/Glintths.Er.Workspaces.Host-2-131081470822072381
+Process Id: 21140
+Process Name: C:\WINDOWS\SysWOW64\inetsrv\w3wp.exe
+Win32 Thread Id: 24176
+Thread Name: 
+Extended Properties: 
+----------------------------------------
+----------------------------------------
+Timestamp: 20/05/2016 10:51:01
+Message: <Exception handlingInstanceId="8e766084-8121-4020-992b-587844ac1b04">
+  <Description>An exception of type 'System.ServiceModel.FaultException`1[[System.ServiceModel.ExceptionDetail, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]' occurred and was caught.</Description>
+  <DateTime>2016-05-20 11:51:01Z</DateTime>
+  <ExceptionType>System.ServiceModel.FaultException`1[[System.ServiceModel.ExceptionDetail, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ExceptionType>
+  <Message>ORA-00001: unique constraint (SECURITY3.PK_AUT_MEMBRO) violated
+ORA-06512: at "SECURITY3.PCK_AUTHORIZATION", line 712
+ORA-06512: at line 1
+</Message>
+  <Source>mscorlib</Source>
+  <HelpLink />
+  <Property name="Detail">An ExceptionDetail, likely created by IncludeExceptionDetailInFaults=true, whose value is:
+System.Data.OracleClient.OracleException: ORA-00001: unique constraint (SECURITY3.PK_AUT_MEMBRO) violated
+ORA-06512: at "SECURITY3.PCK_AUTHORIZATION", line 712
+ORA-06512: at line 1
+
+   at Glintths.Authorization.Providers.BusinessRules.AuthorizationManagementBr.AddMultiplePermissionsForUsers(String companyDb, AutMemberList members, AutContext context) in d:\S16R101\InfraEstructure\CPCHS.AuthenticationAuthorization\Authorization\Glintths.Authorization.Providers.BusinessRules\Authorization\BusinessRules\AuthorizationManagementBr.cs:line 132
+   at Glintths.Authorization.Providers.WebServices.AuthorizationManagement.AddMultiplePermissionsForUsers(String companyDb, AutMemberList members, AutContext context) in d:\S16R101\InfraEstructure\CPCHS.AuthenticationAuthorization\Authorization\GlintthsAuthorization.Providers.WebServices\Authorization\WebService\AuthorizationManagement.cs:line 15
+   at SyncInvokeAddMultiplePermissionsForUsers(Object , Object[] , Object[] )
+   at System.ServiceModel.Dispatcher.SyncMethodInvoker.Invoke(Object instance, Object[] inputs, Object[]&amp; outputs)
+   at System.ServiceModel.Dispatcher.DispatchOperationRuntime.InvokeBegin(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage5(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage41(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage4(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage31(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage3(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage2(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage11(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage1(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.MessageRpc.Process(Boolean isOperationContextSet)</Property>
+  <Property name="Action">&lt;undefined value&gt;</Property>
+  <Property name="Code">System.ServiceModel.FaultCode</Property>
+  <Property name="Reason">ORA-00001: unique constraint (SECURITY3.PK_AUT_MEMBRO) violated
+ORA-06512: at "SECURITY3.PCK_AUTHORIZATION", line 712
+ORA-06512: at line 1
+</Property>
+  <Property name="Data">System.Collections.ListDictionaryInternal</Property>
+  <Property name="TargetSite">Void HandleReturnMessage(System.Runtime.Remoting.Messaging.IMessage, System.Runtime.Remoting.Messaging.IMessage)</Property>
+  <Property name="HResult">-2146233087</Property>
+  <StackTrace>
+Server stack trace: 
+   at System.ServiceModel.Channels.ServiceChannel.ThrowIfFaultUnderstood(Message reply, MessageFault fault, String action, MessageVersion version, FaultConverter faultConverter)
+   at System.ServiceModel.Channels.ServiceChannel.HandleReply(ProxyOperationRuntime operation, ProxyRpc&amp; rpc)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData&amp; msgData, Int32 type)
+   at Glintths.Authorization.Providers.Proxies.AuthorizationManagementWcf.IAuthorizationManagement.AddMultiplePermissionsForUsers(String companyDb, AutMemberList members, AutContext context)
+   at Glintths.Authorization.Providers.Proxies.AuthorizationManagementWcf.AuthorizationManagementClient.AddMultiplePermissionsForUsers(String companyDb, AutMemberList members, AutContext context)
+   at Glintths.Authorization.Providers.Proxies.AuthorizationManagementProxy.AddMultiplePermissionsForUsers(String companyDB, AutMemberList members, AutContext context)</StackTrace>
+  <additionalInfo>
+    <info name="MachineName" value="RPEREIRA" />
+    <info name="TimeStamp" value="20/05/2016 10:51:01" />
+    <info name="FullName" value="Microsoft.Practices.EnterpriseLibrary.ExceptionHandling, Version=4.1.0.0, Culture=neutral, PublicKeyToken=null" />
+    <info name="AppDomainName" value="/LM/W3SVC/3999980001/ROOT/Glintths.Er.Workspaces.Host-1-131082145299435168" />
+    <info name="ThreadIdentity" value="" />
+    <info name="WindowsIdentity" value="NT AUTHORITY\SYSTEM" />
+  </additionalInfo>
+</Exception>
+Category: General
+Priority: 0
+EventId: 100
+Severity: Error
+Title:Enterprise Library Exception Handling
+Machine: RPEREIRA
+Application Domain: /LM/W3SVC/3999980001/ROOT/Glintths.Er.Workspaces.Host-1-131082145299435168
+Process Id: 37112
+Process Name: C:\WINDOWS\SysWOW64\inetsrv\w3wp.exe
+Win32 Thread Id: 34624
+Thread Name: 
+Extended Properties: 
+----------------------------------------
+----------------------------------------
+Timestamp: 20/05/2016 10:54:40
+Message: <Exception handlingInstanceId="c5893315-432f-4905-962d-037dcb4c06d5">
+  <Description>An exception of type 'System.ServiceModel.FaultException`1[[System.ServiceModel.ExceptionDetail, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]' occurred and was caught.</Description>
+  <DateTime>2016-05-20 11:54:40Z</DateTime>
+  <ExceptionType>System.ServiceModel.FaultException`1[[System.ServiceModel.ExceptionDetail, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ExceptionType>
+  <Message>ORA-00001: unique constraint (SECURITY3.PK_AUT_MEMBRO) violated
+ORA-06512: at "SECURITY3.PCK_AUTHORIZATION", line 712
+ORA-06512: at line 1
+</Message>
+  <Source>mscorlib</Source>
+  <HelpLink />
+  <Property name="Detail">An ExceptionDetail, likely created by IncludeExceptionDetailInFaults=true, whose value is:
+System.Data.OracleClient.OracleException: ORA-00001: unique constraint (SECURITY3.PK_AUT_MEMBRO) violated
+ORA-06512: at "SECURITY3.PCK_AUTHORIZATION", line 712
+ORA-06512: at line 1
+
+   at Glintths.Authorization.Providers.BusinessRules.AuthorizationManagementBr.AddMultiplePermissionsForUsers(String companyDb, AutMemberList members, AutContext context) in d:\S16R101\InfraEstructure\CPCHS.AuthenticationAuthorization\Authorization\Glintths.Authorization.Providers.BusinessRules\Authorization\BusinessRules\AuthorizationManagementBr.cs:line 132
+   at Glintths.Authorization.Providers.WebServices.AuthorizationManagement.AddMultiplePermissionsForUsers(String companyDb, AutMemberList members, AutContext context) in d:\S16R101\InfraEstructure\CPCHS.AuthenticationAuthorization\Authorization\GlintthsAuthorization.Providers.WebServices\Authorization\WebService\AuthorizationManagement.cs:line 15
+   at SyncInvokeAddMultiplePermissionsForUsers(Object , Object[] , Object[] )
+   at System.ServiceModel.Dispatcher.SyncMethodInvoker.Invoke(Object instance, Object[] inputs, Object[]&amp; outputs)
+   at System.ServiceModel.Dispatcher.DispatchOperationRuntime.InvokeBegin(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage5(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage41(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage4(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage31(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage3(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage2(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage11(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage1(MessageRpc&amp; rpc)
+   at System.ServiceModel.Dispatcher.MessageRpc.Process(Boolean isOperationContextSet)</Property>
+  <Property name="Action">&lt;undefined value&gt;</Property>
+  <Property name="Code">System.ServiceModel.FaultCode</Property>
+  <Property name="Reason">ORA-00001: unique constraint (SECURITY3.PK_AUT_MEMBRO) violated
+ORA-06512: at "SECURITY3.PCK_AUTHORIZATION", line 712
+ORA-06512: at line 1
+</Property>
+  <Property name="Data">System.Collections.ListDictionaryInternal</Property>
+  <Property name="TargetSite">Void HandleReturnMessage(System.Runtime.Remoting.Messaging.IMessage, System.Runtime.Remoting.Messaging.IMessage)</Property>
+  <Property name="HResult">-2146233087</Property>
+  <StackTrace>
+Server stack trace: 
+   at System.ServiceModel.Channels.ServiceChannel.ThrowIfFaultUnderstood(Message reply, MessageFault fault, String action, MessageVersion version, FaultConverter faultConverter)
+   at System.ServiceModel.Channels.ServiceChannel.HandleReply(ProxyOperationRuntime operation, ProxyRpc&amp; rpc)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData&amp; msgData, Int32 type)
+   at Glintths.Authorization.Providers.Proxies.AuthorizationManagementWcf.IAuthorizationManagement.AddMultiplePermissionsForUsers(String companyDb, AutMemberList members, AutContext context)
+   at Glintths.Authorization.Providers.Proxies.AuthorizationManagementWcf.AuthorizationManagementClient.AddMultiplePermissionsForUsers(String companyDb, AutMemberList members, AutContext context)
+   at Glintths.Authorization.Providers.Proxies.AuthorizationManagementProxy.AddMultiplePermissionsForUsers(String companyDB, AutMemberList members, AutContext context)</StackTrace>
+  <additionalInfo>
+    <info name="MachineName" value="RPEREIRA" />
+    <info name="TimeStamp" value="20/05/2016 10:54:40" />
+    <info name="FullName" value="Microsoft.Practices.EnterpriseLibrary.ExceptionHandling, Version=4.1.0.0, Culture=neutral, PublicKeyToken=null" />
+    <info name="AppDomainName" value="/LM/W3SVC/3999980001/ROOT/Glintths.Er.Workspaces.Host-1-131082145299435168" />
+    <info name="ThreadIdentity" value="" />
+    <info name="WindowsIdentity" value="NT AUTHORITY\SYSTEM" />
+  </additionalInfo>
+</Exception>
+Category: General
+Priority: 0
+EventId: 100
+Severity: Error
+Title:Enterprise Library Exception Handling
+Machine: RPEREIRA
+Application Domain: /LM/W3SVC/3999980001/ROOT/Glintths.Er.Workspaces.Host-1-131082145299435168
+Process Id: 37112
+Process Name: C:\WINDOWS\SysWOW64\inetsrv\w3wp.exe
+Win32 Thread Id: 34624
+Thread Name: 
+Extended Properties: 
+----------------------------------------

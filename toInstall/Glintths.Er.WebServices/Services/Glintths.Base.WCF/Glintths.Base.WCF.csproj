@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{12416075-E31D-4F57-A7EC-0FF2E17473F0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Glintths.Base.WCF</RootNamespace>
+    <AssemblyName>Glintths.Base.WCF</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CPCHS.Common.BusinessEntities">
+      <HintPath>..\..\ExternalAssemblies\Cpchs.Common\CPCHS.Common.BusinessEntities.dll</HintPath>
+    </Reference>
+    <Reference Include="Cpchs.Modules.Logging.TraceListener">
+      <HintPath>..\..\ExternalAssemblies\Cpchs.Modules\Cpchs.Modules.Logging.TraceListener.dll</HintPath>
+    </Reference>
+    <Reference Include="EntLibContrib.Data.OdpNet">
+      <HintPath>..\..\ExternalAssemblies\EntLib\EntLibContrib.Data.OdpNet.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Logging">
+      <HintPath>..\..\ExternalAssemblies\Microsoft.Practices.EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Data\Generated\Codification.cs" />
+    <Compile Include="Data\Generated\CodificationCollection.cs" />
+    <Compile Include="Data\Generated\Codifications.cs" />
+    <Compile Include="Implementation\CodificationManagementWS.cs" />
+    <Compile Include="Implementation\Generated\CodificationManagementWS.cs" />
+    <Compile Include="Implementation\Generated\TranslateBetweenERConfigurationAndConfiguration.cs" />
+    <Compile Include="Message\Generated\GetConfigurationByAreaKeyRequest.cs" />
+    <Compile Include="Message\Generated\GetConfigurationByAreaKeyResponse.cs" />
+    <Compile Include="Message\Generated\GetConfigurationByScopeRequest.cs" />
+    <Compile Include="Message\Generated\GetConfigurationByScopeResponse.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\GeneratedCode\ICodificationManagementSC.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\BusinessLogic\Glintths.Base.WCF.BusinessLogic\Glintths.Base.WCF.BusinessLogic.csproj">
+      <Project>{7CC155D4-F8E5-4626-AA04-52940350CC78}</Project>
+      <Name>Glintths.Base.WCF.BusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Data\Glintths.Er.Common.Data\Glintths.Er.Common.Data.csproj">
+      <Project>{5D6F9E1A-DC75-4526-A7C7-90DD77672D7A}</Project>
+      <Name>Glintths.Er.Common.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

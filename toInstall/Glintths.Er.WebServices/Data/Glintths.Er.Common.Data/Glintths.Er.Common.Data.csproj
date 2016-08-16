@@ -1,0 +1,495 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5D6F9E1A-DC75-4526-A7C7-90DD77672D7A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Glintths.Er.Common.Data</RootNamespace>
+    <AssemblyName>Glintths.Er.Common.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CPCHS.Common.BusinessEntities">
+      <HintPath>..\..\ExternalAssemblies\Cpchs.Common\CPCHS.Common.BusinessEntities.dll</HintPath>
+    </Reference>
+    <Reference Include="CPCHS.Common.Database">
+      <HintPath>..\..\ExternalAssemblies\Cpchs.Common\CPCHS.Common.Database.dll</HintPath>
+    </Reference>
+    <Reference Include="EntLibContrib.Data.OdpNet">
+      <HintPath>..\..\ExternalAssemblies\EntLib\EntLibContrib.Data.OdpNet.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Caching">
+      <HintPath>..\..\ExternalAssemblies\Microsoft.Practices.EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Caching.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common">
+      <HintPath>..\..\ExternalAssemblies\Microsoft.Practices.EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data">
+      <HintPath>..\..\ExternalAssemblies\Microsoft.Practices.EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.ExceptionHandling">
+      <HintPath>..\..\ExternalAssemblies\Microsoft.Practices.EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Logging">
+      <HintPath>..\..\ExternalAssemblies\Microsoft.Practices.EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Logging">
+      <HintPath>..\..\ExternalAssemblies\Microsoft.Practices.EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ObjectBuilder2">
+      <HintPath>..\..\ExternalAssemblies\Microsoft.Practices.EnterpriseLibrary\Microsoft.Practices.ObjectBuilder2.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BusinessEntities\Activities\AnaRes\AlphanumResBE.cs" />
+    <Compile Include="BusinessEntities\Activities\AnaRes\AlphanumResBEList.cs" />
+    <Compile Include="BusinessEntities\Activities\AnaRes\AnaResBE.cs" />
+    <Compile Include="BusinessEntities\Activities\AnaRes\AnaResBEList.cs" />
+    <Compile Include="BusinessEntities\Activities\AnaRes\AnaResMgrBER.cs" />
+    <Compile Include="BusinessEntities\Activities\AnaRes\AntibResBE.cs" />
+    <Compile Include="BusinessEntities\Activities\AnaRes\AntibResBEList.cs" />
+    <Compile Include="BusinessEntities\Activities\AnaRes\AttachResBE.cs" />
+    <Compile Include="BusinessEntities\Activities\AnaRes\AttachResBEList.cs" />
+    <Compile Include="BusinessEntities\Activities\AnaRes\Generated\AlphanumResBE_GEN.cs" />
+    <Compile Include="BusinessEntities\Activities\AnaRes\Generated\AnaResBE_GEN.cs" />
+    <Compile Include="BusinessEntities\Activities\AnaRes\Generated\AnaResMgrBER_GEN.cs" />
+    <Compile Include="BusinessEntities\Activities\AnaRes\Generated\AntibResBE_GEN.cs" />
+    <Compile Include="BusinessEntities\Activities\AnaRes\Generated\AttachResBE_GEN.cs" />
+    <Compile Include="BusinessEntities\Activities\AnaRes\Generated\MicroResBE_GEN.cs" />
+    <Compile Include="BusinessEntities\Activities\AnaRes\Generated\NoteBE_GEN.cs" />
+    <Compile Include="BusinessEntities\Activities\AnaRes\MicroResBE.cs" />
+    <Compile Include="BusinessEntities\Activities\AnaRes\MicroResBEList.cs" />
+    <Compile Include="BusinessEntities\Activities\AnaRes\NoteBE.cs" />
+    <Compile Include="BusinessEntities\Activities\AnaRes\NoteBEList.cs" />
+    <Compile Include="BusinessEntities\Activities\Codification\CodifBE.cs" />
+    <Compile Include="BusinessEntities\Activities\Codification\CodifBEList.cs" />
+    <Compile Include="BusinessEntities\Activities\Codification\Generated\CodifBE_GEN.cs" />
+    <Compile Include="BusinessEntities\Activities\Episode\EpisodeManagementBER.cs" />
+    <Compile Include="BusinessEntities\Activities\Episode\EpisodeTypeBE.cs" />
+    <Compile Include="BusinessEntities\Activities\Episode\EpisodeTypeBEList.cs" />
+    <Compile Include="BusinessEntities\Activities\Episode\ExternalEpisodeBE.cs" />
+    <Compile Include="BusinessEntities\Activities\Episode\ExternalEpisodeBEList.cs" />
+    <Compile Include="BusinessEntities\Activities\Episode\Generated\EpisodeManagementBER_GEN.cs" />
+    <Compile Include="BusinessEntities\Activities\Episode\Generated\EpisodeTypeBE_GEN.cs" />
+    <Compile Include="BusinessEntities\Activities\Episode\Generated\ExternalEpisodeBE_GEN.cs" />
+    <Compile Include="BusinessEntities\Activities\Episode\Generated\VisitBE_GEN.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BusinessEntities\Activities\Episode\VisitBE.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BusinessEntities\Activities\Episode\VisitBEList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BusinessEntities\Documents\Document\DocumentManagementEPRBER.cs" />
+    <Compile Include="BusinessEntities\Documents\Document\DocHierarchyBE.cs" />
+    <Compile Include="BusinessEntities\Documents\Document\DocHierarchyBEList.cs" />
+    <Compile Include="BusinessEntities\Documents\Document\DocumentBE.cs" />
+    <Compile Include="BusinessEntities\Documents\Document\DocumentBEList.cs" />
+    <Compile Include="BusinessEntities\Documents\Document\DocumentManagementBER.cs" />
+    <Compile Include="BusinessEntities\Documents\Document\DocumentTypeBE.cs" />
+    <Compile Include="BusinessEntities\Documents\Document\DocumentTypeBEList.cs" />
+    <Compile Include="BusinessEntities\Documents\Document\DocumentWrapper.cs" />
+    <Compile Include="BusinessEntities\Documents\Document\ElementBE.cs" />
+    <Compile Include="BusinessEntities\Documents\Document\ElementBEList.cs" />
+    <Compile Include="BusinessEntities\Documents\Document\ElementTypeBE.cs" />
+    <Compile Include="BusinessEntities\Documents\Document\ElementTypeBEList.cs" />
+    <Compile Include="BusinessEntities\Documents\Document\Generated\DocHierarchyBE_GEN.cs" />
+    <Compile Include="BusinessEntities\Documents\Document\Generated\DocumentBE_GEN.cs" />
+    <Compile Include="BusinessEntities\Documents\Document\Generated\DocumentManagementBER_GEN.cs" />
+    <Compile Include="BusinessEntities\Documents\Document\Generated\DocumentTypeBE_GEN.cs" />
+    <Compile Include="BusinessEntities\Documents\Document\Generated\ElementBE_GEN.cs" />
+    <Compile Include="BusinessEntities\Documents\Document\Generated\ElementTypeBE_GEN.cs" />
+    <Compile Include="BusinessEntities\Documents\Link\Generated\LinkBE_GEN.cs" />
+    <Compile Include="BusinessEntities\Documents\Link\Generated\LinkManagementBER_GEN.cs" />
+    <Compile Include="BusinessEntities\Documents\Link\Generated\LinkParamBE_GEN.cs" />
+    <Compile Include="BusinessEntities\Documents\Link\Generated\LinkTypeArgBE_GEN.cs" />
+    <Compile Include="BusinessEntities\Documents\Link\Generated\LinkTypeBE_GEN.cs" />
+    <Compile Include="BusinessEntities\Documents\Link\LinkBE.cs" />
+    <Compile Include="BusinessEntities\Documents\Link\LinkBEList.cs" />
+    <Compile Include="BusinessEntities\Documents\Link\LinkManagementBER.cs" />
+    <Compile Include="BusinessEntities\Documents\Link\LinkParamBE.cs" />
+    <Compile Include="BusinessEntities\Documents\Link\LinkParamBEList.cs" />
+    <Compile Include="BusinessEntities\Documents\Link\LinkTypeArgBE.cs" />
+    <Compile Include="BusinessEntities\Documents\Link\LinkTypeArgBEList.cs" />
+    <Compile Include="BusinessEntities\Documents\Link\LinkTypeBE.cs" />
+    <Compile Include="BusinessEntities\Documents\Link\LinkTypeBEList.cs" />
+    <Compile Include="BusinessEntities\Documents\Monitoring\AlertBE.cs" />
+    <Compile Include="BusinessEntities\Documents\Monitoring\AlertBEList.cs" />
+    <Compile Include="BusinessEntities\Documents\Monitoring\AlertSubscriptionBE.cs" />
+    <Compile Include="BusinessEntities\Documents\Monitoring\AlertSubscriptionBEList.cs" />
+    <Compile Include="BusinessEntities\Documents\Monitoring\DocumentEpisodeLogBE.cs" />
+    <Compile Include="BusinessEntities\Documents\Monitoring\DocumentEpisodeLogBEList.cs" />
+    <Compile Include="BusinessEntities\Documents\Monitoring\DocumentIndexLogBE.cs" />
+    <Compile Include="BusinessEntities\Documents\Monitoring\DocumentIndexLogBEList.cs" />
+    <Compile Include="BusinessEntities\Documents\Monitoring\DocumentLogBE.cs" />
+    <Compile Include="BusinessEntities\Documents\Monitoring\DocumentLogBEList.cs" />
+    <Compile Include="BusinessEntities\Documents\Monitoring\Generated\AlertBE_GEN.cs" />
+    <Compile Include="BusinessEntities\Documents\Monitoring\Generated\AlertSubscriptionBE_GEN.cs" />
+    <Compile Include="BusinessEntities\Documents\Monitoring\Generated\DocumentEpisodeLogBE_GEN.cs" />
+    <Compile Include="BusinessEntities\Documents\Monitoring\Generated\DocumentIndexLogBE_GEN.cs" />
+    <Compile Include="BusinessEntities\Documents\Monitoring\Generated\DocumentLogBE_GEN.cs" />
+    <Compile Include="BusinessEntities\Documents\Monitoring\Generated\MonitoringManagementBER_GEN.cs" />
+    <Compile Include="BusinessEntities\Documents\Monitoring\MonitoringManagementBER.cs" />
+    <Compile Include="BusinessEntities\Documents\Video\Generated\VideoBE_GEN.cs" />
+    <Compile Include="BusinessEntities\Documents\Video\Generated\VideoLinkBE_GEN.cs" />
+    <Compile Include="BusinessEntities\Documents\Video\Generated\VideoManagementBER_GEN.cs" />
+    <Compile Include="BusinessEntities\Documents\Video\VideoBE.cs" />
+    <Compile Include="BusinessEntities\Documents\Video\VideoBEList.cs" />
+    <Compile Include="BusinessEntities\Documents\Video\VideoLinkBE.cs" />
+    <Compile Include="BusinessEntities\Documents\Video\VideoLinkBEList.cs" />
+    <Compile Include="BusinessEntities\Documents\Video\VideoManagementBER.cs" />
+    <Compile Include="BusinessEntities\Entities\Entity\AlertTypeBE.cs" />
+    <Compile Include="BusinessEntities\Entities\Entity\AlertTypeBEList.cs" />
+    <Compile Include="BusinessEntities\Entities\Entity\ApplicationBE.cs" />
+    <Compile Include="BusinessEntities\Entities\Entity\ApplicationBEList.cs" />
+    <Compile Include="BusinessEntities\Entities\Entity\EntityManagementBER.cs" />
+    <Compile Include="BusinessEntities\Entities\Entity\ERConfigurationBE.cs" />
+    <Compile Include="BusinessEntities\Entities\Entity\ERConfigurationBEList.cs" />
+    <Compile Include="BusinessEntities\Entities\Entity\ErEntityBE.cs" />
+    <Compile Include="BusinessEntities\Entities\Entity\ErEntityBEList.cs" />
+    <Compile Include="BusinessEntities\Entities\Entity\ExecPlaceBE.cs" />
+    <Compile Include="BusinessEntities\Entities\Entity\ExecPlaceBEList.cs" />
+    <Compile Include="BusinessEntities\Entities\Entity\ExternalPatientBE.cs" />
+    <Compile Include="BusinessEntities\Entities\Entity\ExternalPatientBEList.cs" />
+    <Compile Include="BusinessEntities\Entities\Entity\GenderBE.cs" />
+    <Compile Include="BusinessEntities\Entities\Entity\GenderBEList.cs" />
+    <Compile Include="BusinessEntities\Entities\Entity\Generated\AlertTypeBE_GEN.cs" />
+    <Compile Include="BusinessEntities\Entities\Entity\Generated\ApplicationBE_GEN.cs" />
+    <Compile Include="BusinessEntities\Entities\Entity\Generated\EntityManagementBER_GEN.cs" />
+    <Compile Include="BusinessEntities\Entities\Entity\Generated\ERConfigurationBE_GEN.cs" />
+    <Compile Include="BusinessEntities\Entities\Entity\Generated\ErEntityBE_GEN.cs" />
+    <Compile Include="BusinessEntities\Entities\Entity\Generated\ExecPlaceBE_GEN.cs" />
+    <Compile Include="BusinessEntities\Entities\Entity\Generated\ExternalPatientBE_GEN.cs" />
+    <Compile Include="BusinessEntities\Entities\Entity\Generated\GenderBE_GEN.cs" />
+    <Compile Include="BusinessEntities\Entities\Entity\Generated\GenreBE_GEN.cs" />
+    <Compile Include="BusinessEntities\Entities\Entity\Generated\InstitutionBE_GEN.cs" />
+    <Compile Include="BusinessEntities\Entities\Entity\Generated\LocalPatientBE_GEN.cs" />
+    <Compile Include="BusinessEntities\Entities\Entity\Generated\MaritalStatusBE_GEN.cs" />
+    <Compile Include="BusinessEntities\Entities\Entity\Generated\PatientBE_GEN.cs" />
+    <Compile Include="BusinessEntities\Entities\Entity\Generated\PatientLocalBE_GEN.cs" />
+    <Compile Include="BusinessEntities\Entities\Entity\Generated\PatientTypeBE_GEN.cs" />
+    <Compile Include="BusinessEntities\Entities\Entity\Generated\PlaceBE_GEN.cs" />
+    <Compile Include="BusinessEntities\Entities\Entity\Generated\ServiceBE_GEN.cs" />
+    <Compile Include="BusinessEntities\Entities\Entity\Generated\StateBE_GEN.cs" />
+    <Compile Include="BusinessEntities\Entities\Entity\Generated\TerapeuticBE_GEN.cs" />
+    <Compile Include="BusinessEntities\Entities\Entity\GenreBE.cs" />
+    <Compile Include="BusinessEntities\Entities\Entity\GenreBEList.cs" />
+    <Compile Include="BusinessEntities\Entities\Entity\InstitutionBE.cs" />
+    <Compile Include="BusinessEntities\Entities\Entity\InstitutionBEList.cs" />
+    <Compile Include="BusinessEntities\Entities\Entity\LocalPatientBE.cs" />
+    <Compile Include="BusinessEntities\Entities\Entity\LocalPatientBEList.cs" />
+    <Compile Include="BusinessEntities\Entities\Entity\MaritalStatusBE.cs" />
+    <Compile Include="BusinessEntities\Entities\Entity\MaritalStatusBEList.cs" />
+    <Compile Include="BusinessEntities\Entities\Entity\PatientBE.cs" />
+    <Compile Include="BusinessEntities\Entities\Entity\PatientBEList.cs" />
+    <Compile Include="BusinessEntities\Entities\Entity\PatientLocalBE.cs" />
+    <Compile Include="BusinessEntities\Entities\Entity\PatientLocalBEList.cs" />
+    <Compile Include="BusinessEntities\Entities\Entity\PatientTypeBE.cs" />
+    <Compile Include="BusinessEntities\Entities\Entity\PatientTypeBEList.cs" />
+    <Compile Include="BusinessEntities\Entities\Entity\PlaceBE.cs" />
+    <Compile Include="BusinessEntities\Entities\Entity\PlaceBEList.cs" />
+    <Compile Include="BusinessEntities\Entities\Entity\ServiceBE.cs" />
+    <Compile Include="BusinessEntities\Entities\Entity\ServiceBEList.cs" />
+    <Compile Include="BusinessEntities\Entities\Entity\StateBE.cs" />
+    <Compile Include="BusinessEntities\Entities\Entity\StateBEList.cs" />
+    <Compile Include="BusinessEntities\Entities\Entity\TerapeuticBE.cs" />
+    <Compile Include="BusinessEntities\Entities\Entity\TerapeuticBEList.cs" />
+    <Compile Include="BusinessEntities\Documents\File\FileBE.cs" />
+    <Compile Include="BusinessEntities\Documents\File\FileBEList.cs" />
+    <Compile Include="BusinessEntities\Documents\File\FileManagementBER.cs" />
+    <Compile Include="BusinessEntities\Documents\File\Generated\FileBE_GEN.cs" />
+    <Compile Include="BusinessEntities\Documents\File\Generated\FileManagementBER_GEN.cs" />
+    <Compile Include="BusinessEntities\Entities\HospitalStaff\EntityBE.cs" />
+    <Compile Include="BusinessEntities\Entities\HospitalStaff\EntityBEList.cs" />
+    <Compile Include="BusinessEntities\Entities\HospitalStaff\Generated\EntityBE_GEN.cs" />
+    <Compile Include="BusinessEntities\Entities\HospitalStaff\Generated\HospitalStaffBE_GEN.cs" />
+    <Compile Include="BusinessEntities\Entities\HospitalStaff\Generated\HospitalStaffManagementBER_GEN.cs" />
+    <Compile Include="BusinessEntities\Entities\HospitalStaff\HospitalStaffBE.cs" />
+    <Compile Include="BusinessEntities\Entities\HospitalStaff\HospitalStaffBEList.cs" />
+    <Compile Include="BusinessEntities\Entities\HospitalStaff\HospitalStaffManagementBER.cs" />
+    <Compile Include="BusinessEntities\ER2Indexer\Document\DocumentInfoBE.cs" />
+    <Compile Include="BusinessEntities\ER2Indexer\Document\DocumentInfoBEList.cs" />
+    <Compile Include="BusinessEntities\ER2Indexer\Document\ER2IndexerDocumentBER.cs" />
+    <Compile Include="BusinessEntities\ER2Indexer\Document\ERIndexerDocument.cs">
+      <DependentUpon>ERIndexerDocument.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessEntities\ER2Indexer\Document\ERIndexerDocument.Designer.cs">
+      <DependentUpon>ERIndexerDocument.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessEntities\ER2Indexer\Document\FileStreamInfoBE.cs" />
+    <Compile Include="BusinessEntities\ER2Indexer\Document\FileStreamInfoBEList.cs" />
+    <Compile Include="BusinessEntities\ER2Indexer\Document\Generated\DocumentInfoBE_GEN.cs" />
+    <Compile Include="BusinessEntities\ER2Indexer\Document\Generated\ER2IndexerDocumentBER_GEN.cs" />
+    <Compile Include="BusinessEntities\ER2Indexer\Document\Generated\FileStreamInfoBE_GEN.cs" />
+    <Compile Include="BusinessEntities\History\History\HistoryManagementBER.cs" />
+    <Compile Include="BusinessEntities\VideoProcessor\VideoProcessorClient\Generated\VideoProcessorClientBE_GEN.cs" />
+    <Compile Include="BusinessEntities\VideoProcessor\VideoProcessorClient\VideoProcessorClientBE.cs" />
+    <Compile Include="BusinessEntities\VideoProcessor\VideoProcessorClient\VideoProcessorClientBEList.cs" />
+    <Compile Include="BusinessEntities\VideoProcessor\VideoProcessorContext\Generated\VideoProcessorContextBE_GEN.cs" />
+    <Compile Include="BusinessEntities\VideoProcessor\VideoProcessorContext\VideoProcessorContextBE.cs" />
+    <Compile Include="BusinessEntities\VideoProcessor\VideoProcessorContext\VideoProcessorContextBEList.cs" />
+    <Compile Include="BusinessEntities\VideoProcessor\VideoProcessorJob\Generated\VideoProcessorBER_GEN.cs" />
+    <Compile Include="BusinessEntities\VideoProcessor\VideoProcessorJob\Generated\VideoProcessorJobStateBE_GEN.cs" />
+    <Compile Include="BusinessEntities\VideoProcessor\VideoProcessorJob\VideoProcessorBER.cs" />
+    <Compile Include="BusinessEntities\VideoProcessor\VideoProcessorJob\VideoProcessorJobStateBE.cs" />
+    <Compile Include="BusinessEntities\VideoProcessor\VideoProcessorJob\VideoProcessorJobStateBEList.cs" />
+    <Compile Include="BusinessEntities\VideoProcessor\VideoProcessorStatus\Generated\VideoProcessorStatusBE_GEN.cs" />
+    <Compile Include="BusinessEntities\VideoProcessor\VideoProcessorStatus\VideoProcessorStatusBE.cs" />
+    <Compile Include="BusinessEntities\VideoProcessor\VideoProcessorStatus\VideoProcessorStatusBEList.cs" />
+    <Compile Include="BusinessEntities\Workspaces\Generated\WorkspaceBE_GEN.cs" />
+    <Compile Include="BusinessEntities\Workspaces\Generated\WorkspaceDocumentBE_GEN.cs" />
+    <Compile Include="BusinessEntities\Workspaces\Generated\WorkspaceManagementBER_GEN.cs" />
+    <Compile Include="BusinessEntities\Workspaces\WorkspaceBE.cs" />
+    <Compile Include="BusinessEntities\Workspaces\WorkspaceBEList.cs" />
+    <Compile Include="BusinessEntities\Workspaces\WorkspaceDocumentBE.cs" />
+    <Compile Include="BusinessEntities\Workspaces\WorkspaceDocumentBEList.cs" />
+    <Compile Include="BusinessEntities\Workspaces\WorkspaceManagementBER.cs" />
+    <Compile Include="BusinessEntities\Workspaces\WorkspaceMemberBE.cs" />
+    <Compile Include="BusinessEntities\Workspaces\WorkspaceMemberBEList.cs" />
+    <Compile Include="DataContracts\GeneratedCode\AdverseReaction.cs" />
+    <Compile Include="DataContracts\GeneratedCode\AdverseReactionInformation.cs" />
+    <Compile Include="DataContracts\GeneratedCode\AdverseReactionInformationList.cs" />
+    <Compile Include="DataContracts\GeneratedCode\AdverseReactionList.cs" />
+    <Compile Include="DataContracts\GeneratedCode\BaseConfiguration.cs" />
+    <Compile Include="DataContracts\GeneratedCode\BenefitItem.cs" />
+    <Compile Include="DataContracts\GeneratedCode\BenefitItemList.cs" />
+    <Compile Include="DataContracts\GeneratedCode\BenefitItems.cs" />
+    <Compile Include="DataContracts\GeneratedCode\Benefits.cs" />
+    <Compile Include="DataContracts\GeneratedCode\ClientMachineInformation.cs" />
+    <Compile Include="DataContracts\GeneratedCode\CopyRequisitionEnum.cs" />
+    <Compile Include="DataContracts\GeneratedCode\CrudOperation.cs" />
+    <Compile Include="DataContracts\GeneratedCode\DesiredDateFilter.cs" />
+    <Compile Include="DataContracts\GeneratedCode\Diagnoses.cs" />
+    <Compile Include="DataContracts\GeneratedCode\Diagnosis.cs" />
+    <Compile Include="DataContracts\GeneratedCode\DiagnosisList.cs" />
+    <Compile Include="DataContracts\GeneratedCode\DynamicFormAnswer.cs" />
+    <Compile Include="DataContracts\GeneratedCode\Efr.cs" />
+    <Compile Include="DataContracts\GeneratedCode\EfrList.cs" />
+    <Compile Include="DataContracts\GeneratedCode\Efrs.cs" />
+    <Compile Include="DataContracts\GeneratedCode\Entity.cs" />
+    <Compile Include="DataContracts\GeneratedCode\EpisodeContext.cs" />
+    <Compile Include="DataContracts\GeneratedCode\EpisodeType.cs" />
+    <Compile Include="DataContracts\GeneratedCode\Exam.cs" />
+    <Compile Include="DataContracts\GeneratedCode\ExamExecPlace.cs" />
+    <Compile Include="DataContracts\GeneratedCode\ExamExecPlaceCollection.cs" />
+    <Compile Include="DataContracts\GeneratedCode\ExamList.cs" />
+    <Compile Include="DataContracts\GeneratedCode\ExamPrice.cs" />
+    <Compile Include="DataContracts\GeneratedCode\ExamPriceList.cs" />
+    <Compile Include="DataContracts\GeneratedCode\ExamPrices.cs" />
+    <Compile Include="DataContracts\GeneratedCode\ExamPriority.cs" />
+    <Compile Include="DataContracts\GeneratedCode\ExamPriorityCollection.cs" />
+    <Compile Include="DataContracts\GeneratedCode\Exams.cs" />
+    <Compile Include="DataContracts\GeneratedCode\ExamType.cs" />
+    <Compile Include="DataContracts\GeneratedCode\ExamTypeCollection.cs" />
+    <Compile Include="DataContracts\GeneratedCode\ExecutionPlace.cs" />
+    <Compile Include="DataContracts\GeneratedCode\ExecutionPlaceList.cs" />
+    <Compile Include="DataContracts\GeneratedCode\ExtractionPlace.cs" />
+    <Compile Include="DataContracts\GeneratedCode\ExtractionPlaceList.cs" />
+    <Compile Include="DataContracts\GeneratedCode\ExtraDocument.cs" />
+    <Compile Include="DataContracts\GeneratedCode\ExtraDocumentList.cs" />
+    <Compile Include="DataContracts\GeneratedCode\ExtraDocuments.cs" />
+    <Compile Include="DataContracts\GeneratedCode\ExtraDocumentSearchFields.cs" />
+    <Compile Include="DataContracts\GeneratedCode\ExtraDocumentSearchFieldsList.cs" />
+    <Compile Include="DataContracts\GeneratedCode\ExtraDocumentsSearchFields.cs" />
+    <Compile Include="DataContracts\GeneratedCode\GenericItem.cs" />
+    <Compile Include="DataContracts\GeneratedCode\GenericItemList.cs" />
+    <Compile Include="DataContracts\GeneratedCode\GenericItems.cs" />
+    <Compile Include="DataContracts\GeneratedCode\Group.cs" />
+    <Compile Include="DataContracts\GeneratedCode\GroupArea.cs" />
+    <Compile Include="DataContracts\GeneratedCode\GroupAreaList.cs" />
+    <Compile Include="DataContracts\GeneratedCode\GroupAssociation.cs" />
+    <Compile Include="DataContracts\GeneratedCode\GroupAssociationList.cs" />
+    <Compile Include="DataContracts\GeneratedCode\GroupCollection.cs" />
+    <Compile Include="DataContracts\GeneratedCode\GroupExam.cs" />
+    <Compile Include="DataContracts\GeneratedCode\GroupExamCollection.cs" />
+    <Compile Include="DataContracts\GeneratedCode\GroupExamList.cs" />
+    <Compile Include="DataContracts\GeneratedCode\GroupExams.cs" />
+    <Compile Include="DataContracts\GeneratedCode\GroupList.cs" />
+    <Compile Include="DataContracts\GeneratedCode\GroupRestriction.cs" />
+    <Compile Include="DataContracts\GeneratedCode\GroupRestrictionCollection.cs" />
+    <Compile Include="DataContracts\GeneratedCode\GroupRestrictionsList.cs" />
+    <Compile Include="DataContracts\GeneratedCode\Groups.cs" />
+    <Compile Include="DataContracts\GeneratedCode\GroupType.cs" />
+    <Compile Include="DataContracts\GeneratedCode\HaemoUnitFraction.cs" />
+    <Compile Include="DataContracts\GeneratedCode\HaemoUnitFractionList.cs" />
+    <Compile Include="DataContracts\GeneratedCode\HealthcareUnit.cs" />
+    <Compile Include="DataContracts\GeneratedCode\HealthcareUnitList.cs" />
+    <Compile Include="DataContracts\GeneratedCode\HGroup.cs" />
+    <Compile Include="DataContracts\GeneratedCode\HGroupExam.cs" />
+    <Compile Include="DataContracts\GeneratedCode\HGroupExamList.cs" />
+    <Compile Include="DataContracts\GeneratedCode\HGroupExams.cs" />
+    <Compile Include="DataContracts\GeneratedCode\HGroupList.cs" />
+    <Compile Include="DataContracts\GeneratedCode\HGroups.cs" />
+    <Compile Include="DataContracts\GeneratedCode\HospitalStaff.cs" />
+    <Compile Include="DataContracts\GeneratedCode\HospitalStaffList.cs" />
+    <Compile Include="DataContracts\GeneratedCode\ImportHeader.cs" />
+    <Compile Include="DataContracts\GeneratedCode\Label.cs" />
+    <Compile Include="DataContracts\GeneratedCode\LabelParameter.cs" />
+    <Compile Include="DataContracts\GeneratedCode\LabelParameters.cs" />
+    <Compile Include="DataContracts\GeneratedCode\Mcdt.cs" />
+    <Compile Include="DataContracts\GeneratedCode\McdtConfig.cs" />
+    <Compile Include="DataContracts\GeneratedCode\McdtConfigList.cs" />
+    <Compile Include="DataContracts\GeneratedCode\McdtList.cs" />
+    <Compile Include="DataContracts\GeneratedCode\Message.cs" />
+    <Compile Include="DataContracts\GeneratedCode\MessageList.cs" />
+    <Compile Include="DataContracts\GeneratedCode\MessageType.cs" />
+    <Compile Include="DataContracts\GeneratedCode\Observation.cs" />
+    <Compile Include="DataContracts\GeneratedCode\ObservationList.cs" />
+    <Compile Include="DataContracts\GeneratedCode\Observations.cs" />
+    <Compile Include="DataContracts\GeneratedCode\ObservationType.cs" />
+    <Compile Include="DataContracts\GeneratedCode\OperationSuccess.cs" />
+    <Compile Include="DataContracts\GeneratedCode\OrderType.cs" />
+    <Compile Include="DataContracts\GeneratedCode\PaginationRequest.cs" />
+    <Compile Include="DataContracts\GeneratedCode\PaginationResponse.cs" />
+    <Compile Include="DataContracts\GeneratedCode\Patient.cs" />
+    <Compile Include="DataContracts\GeneratedCode\PatientAction.cs" />
+    <Compile Include="DataContracts\GeneratedCode\PatientContext.cs" />
+    <Compile Include="DataContracts\GeneratedCode\PatientHaemoUnit.cs" />
+    <Compile Include="DataContracts\GeneratedCode\PatientHaemoUnitList.cs" />
+    <Compile Include="DataContracts\GeneratedCode\PatientList.cs" />
+    <Compile Include="DataContracts\GeneratedCode\Patients.cs" />
+    <Compile Include="DataContracts\GeneratedCode\PatientSearchFields.cs" />
+    <Compile Include="DataContracts\GeneratedCode\PatientType.cs" />
+    <Compile Include="DataContracts\GeneratedCode\PrescriptionPlace.cs" />
+    <Compile Include="DataContracts\GeneratedCode\PrescriptionPlaceList.cs" />
+    <Compile Include="DataContracts\GeneratedCode\PrescriptionPlaces.cs" />
+    <Compile Include="DataContracts\GeneratedCode\Price.cs" />
+    <Compile Include="DataContracts\GeneratedCode\PriceList.cs" />
+    <Compile Include="DataContracts\GeneratedCode\PrintInformation.cs" />
+    <Compile Include="DataContracts\GeneratedCode\PrintOutputType.cs" />
+    <Compile Include="DataContracts\GeneratedCode\PrintPrintingType.cs" />
+    <Compile Include="DataContracts\GeneratedCode\Priority.cs" />
+    <Compile Include="DataContracts\GeneratedCode\PriorityList.cs" />
+    <Compile Include="DataContracts\GeneratedCode\Product.cs" />
+    <Compile Include="DataContracts\GeneratedCode\ProductList.cs" />
+    <Compile Include="DataContracts\GeneratedCode\Products.cs" />
+    <Compile Include="DataContracts\GeneratedCode\Requisition.cs" />
+    <Compile Include="DataContracts\GeneratedCode\RequisitionExam.cs" />
+    <Compile Include="DataContracts\GeneratedCode\RequisitionExamList.cs" />
+    <Compile Include="DataContracts\GeneratedCode\RequisitionInfo.cs" />
+    <Compile Include="DataContracts\GeneratedCode\RequisitionInfoList.cs" />
+    <Compile Include="DataContracts\GeneratedCode\RequisitionList.cs" />
+    <Compile Include="DataContracts\GeneratedCode\RequisitionPlace.cs" />
+    <Compile Include="DataContracts\GeneratedCode\RequisitionPlaceList.cs" />
+    <Compile Include="DataContracts\GeneratedCode\Requisitions.cs" />
+    <Compile Include="DataContracts\GeneratedCode\RequisitionSearchFields.cs" />
+    <Compile Include="DataContracts\GeneratedCode\RequisitionsInfo.cs" />
+    <Compile Include="DataContracts\GeneratedCode\RequisitionType.cs" />
+    <Compile Include="DataContracts\GeneratedCode\RequisitionTypeList.cs" />
+    <Compile Include="DataContracts\GeneratedCode\RequisitonHeader.cs" />
+    <Compile Include="DataContracts\GeneratedCode\ReturnReason.cs" />
+    <Compile Include="DataContracts\GeneratedCode\ReturnReasonList.cs" />
+    <Compile Include="DataContracts\GeneratedCode\RiskFactor.cs" />
+    <Compile Include="DataContracts\GeneratedCode\RiskFactorList.cs" />
+    <Compile Include="DataContracts\GeneratedCode\RiskFactors.cs" />
+    <Compile Include="DataContracts\GeneratedCode\Rubric.cs" />
+    <Compile Include="DataContracts\GeneratedCode\RubricList.cs" />
+    <Compile Include="DataContracts\GeneratedCode\RubricSearch.cs" />
+    <Compile Include="DataContracts\GeneratedCode\Service.cs" />
+    <Compile Include="DataContracts\GeneratedCode\ServiceDynFormAnswer.cs" />
+    <Compile Include="DataContracts\GeneratedCode\ServiceDynFormAnswerList.cs" />
+    <Compile Include="DataContracts\GeneratedCode\ServiceList.cs" />
+    <Compile Include="DataContracts\GeneratedCode\ServiceObservations.cs" />
+    <Compile Include="DataContracts\GeneratedCode\ServiceObservationsList.cs" />
+    <Compile Include="DataContracts\GeneratedCode\Services.cs" />
+    <Compile Include="DataContracts\GeneratedCode\ServicesDynFormAnswer.cs" />
+    <Compile Include="DataContracts\GeneratedCode\ServiceSearch.cs" />
+    <Compile Include="DataContracts\GeneratedCode\ServicesObservations.cs" />
+    <Compile Include="DataContracts\GeneratedCode\SimpleReqId.cs" />
+    <Compile Include="DataContracts\GeneratedCode\SimpleReqIdList.cs" />
+    <Compile Include="DataContracts\GeneratedCode\SimpleReqIds.cs" />
+    <Compile Include="DataContracts\GeneratedCode\SimpleSampleId.cs" />
+    <Compile Include="DataContracts\GeneratedCode\SimpleSampleIdList.cs" />
+    <Compile Include="DataContracts\GeneratedCode\SimpleSampleIds.cs" />
+    <Compile Include="DataContracts\GeneratedCode\Status.cs" />
+    <Compile Include="DataContracts\GeneratedCode\Statuses.cs" />
+    <Compile Include="DataContracts\GeneratedCode\StatusList.cs" />
+    <Compile Include="DataContracts\GeneratedCode\StringStringAssoc.cs" />
+    <Compile Include="DataContracts\GeneratedCode\StringStringAssocList.cs" />
+    <Compile Include="DataContracts\GeneratedCode\Therapeutic.cs" />
+    <Compile Include="DataContracts\GeneratedCode\TherapeuticList.cs" />
+    <Compile Include="DataContracts\GeneratedCode\Therapeutics.cs" />
+    <Compile Include="DataContracts\GeneratedCode\Tracking.cs" />
+    <Compile Include="DataContracts\GeneratedCode\TrackingList.cs" />
+    <Compile Include="DataContracts\GeneratedCode\Trackings.cs" />
+    <Compile Include="DataContracts\GeneratedCode\URLDefinition.cs" />
+    <Compile Include="DataContracts\GeneratedCode\URLDefinitionList.cs" />
+    <Compile Include="DataContracts\GeneratedCode\URLDefinitions.cs" />
+    <Compile Include="DataContracts\GeneratedCode\VitalParameters.cs" />
+    <Compile Include="DataContracts\GeneratedCode\VitalParametersLimits.cs" />
+    <Compile Include="DataContracts\GeneratedCode\VitalParametersLimitsList.cs" />
+    <Compile Include="DataContracts\GeneratedCode\VitalParametersList.cs" />
+    <Compile Include="DataContracts\GeneratedCode\Workspace.cs" />
+    <Compile Include="DataContracts\GeneratedCode\WorkspaceList.cs" />
+    <Compile Include="DataContracts\GeneratedCode\WorkspaceMember.cs" />
+    <Compile Include="DataContracts\GeneratedCode\WorkspaceMemberList.cs" />
+    <Compile Include="DataContracts\GeneratedCode\WorkspaceMembers.cs" />
+    <Compile Include="DataContracts\GeneratedCode\WorkspacePermission.cs" />
+    <Compile Include="DataContracts\GeneratedCode\WorkspacePermissionList.cs" />
+    <Compile Include="DataContracts\GeneratedCode\WorkspacePermissions.cs" />
+    <Compile Include="DataContracts\GeneratedCode\Workspaces.cs" />
+    <Compile Include="Exceptions\OperationNotAllowedAnymore.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Providers\IER2IndexerProvider.cs" />
+    <Compile Include="Providers\ProviderManager.cs" />
+    <Compile Include="Providers\Providers.Designer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="BusinessEntities\Activities\Configuration\Cpchs.Activities.WCF.Codification.xml" />
+    <Content Include="BusinessEntities\Activities\Configuration\Cpchs.Activities.WCF.Episode.xml" />
+    <Content Include="BusinessEntities\Activities\Configuration\Cpchs.Activities.WCF.Exam.xml" />
+    <Content Include="BusinessEntities\Activities\Configuration\Cpchs.Activities.WCF.Sample.xml" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="BusinessEntities\ER2Indexer\Document\ERIndexerDocument.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

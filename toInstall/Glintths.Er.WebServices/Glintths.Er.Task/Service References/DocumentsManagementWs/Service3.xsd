@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="urn:Cpchs.Entities" elementFormDefault="qualified" targetNamespace="urn:Cpchs.Entities" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="PaginationRequest">
+    <xs:sequence>
+      <xs:element name="PageNumber" nillable="true" type="xs:long" />
+      <xs:element name="ItemsPerPage" nillable="true" type="xs:long" />
+      <xs:element name="OrderField" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrderType" type="tns:OrderTypeEnum" />
+      <xs:element minOccurs="0" name="ResultsCount" nillable="true" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PaginationRequest" nillable="true" type="tns:PaginationRequest" />
+  <xs:simpleType name="OrderTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="DESC" />
+      <xs:enumeration value="ASC" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="OrderTypeEnum" nillable="true" type="tns:OrderTypeEnum" />
+  <xs:complexType name="PaginationResponse">
+    <xs:sequence>
+      <xs:element name="TotalNumber" type="xs:long" />
+      <xs:element name="IsLastPage" type="xs:boolean" />
+      <xs:element name="PageNumber" nillable="true" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PaginationResponse" nillable="true" type="tns:PaginationResponse" />
+</xs:schema>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="urn:Cpchs.Documents" elementFormDefault="qualified" targetNamespace="urn:Cpchs.Documents" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://gsousa.glintt.com/Cpchs.Documents.WCF.Host/LinksManagementWS.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:element name="GetDocumentLinksRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CompanyDb" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DocId" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocumentLinksResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DocumentLinks" nillable="true" type="tns:LinkList" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="LinkList">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Links" nillable="true" type="tns:Links" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LinkList" nillable="true" type="tns:LinkList" />
+  <xs:complexType name="Links">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Link" nillable="true" type="tns:Link" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Links" nillable="true" type="tns:Links" />
+  <xs:complexType name="Link">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="LinkBaseUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LinkQueryUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LinkEncryption" type="xs:boolean" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="LinkExternalParams" nillable="true" type="q1:ArrayOfstring" />
+      <xs:element minOccurs="0" name="LinkSeparator" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LinkElementId" type="xs:long" />
+      <xs:element minOccurs="0" name="LinkVersionCode" type="xs:long" />
+      <xs:element name="OpenExternally" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Link" nillable="true" type="tns:Link" />
+  <xs:element name="GetLinkByElementIdRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CompanyDb" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ElementId" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLinkByElementIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Link" nillable="true" type="tns:Link" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

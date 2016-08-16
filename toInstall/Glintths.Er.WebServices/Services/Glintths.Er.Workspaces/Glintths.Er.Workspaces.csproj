@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DC991563-F0AE-4202-9DD8-2116BF4F38F8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Glintths.Er.Workspaces</RootNamespace>
+    <AssemblyName>Glintths.Er.Workspaces</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CPCHS.Common.BusinessEntities">
+      <HintPath>..\..\ExternalAssemblies\Cpchs.Common\CPCHS.Common.BusinessEntities.dll</HintPath>
+    </Reference>
+    <Reference Include="CPCHS.Common.Security">
+      <HintPath>..\..\ExternalAssemblies\Cpchs.Common\CPCHS.Common.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="CPCHS.Common.Utilities">
+      <HintPath>..\..\ExternalAssemblies\Cpchs.Common\CPCHS.Common.Utilities.dll</HintPath>
+    </Reference>
+    <Reference Include="Cpchs.Modules.Logging.TraceListener">
+      <HintPath>..\..\ExternalAssemblies\Cpchs.Modules\Cpchs.Modules.Logging.TraceListener.dll</HintPath>
+    </Reference>
+    <Reference Include="Cpchs.Security.Providers.Utilities">
+      <HintPath>..\..\ExternalAssemblies\Cpchs.Security\Cpchs.Security.Providers.Utilities.dll</HintPath>
+    </Reference>
+    <Reference Include="EntLibContrib.Data.OdpNet">
+      <HintPath>..\..\ExternalAssemblies\EntLib\EntLibContrib.Data.OdpNet.dll</HintPath>
+    </Reference>
+    <Reference Include="Glintths.Authorization.Providers.BusinessEntities">
+      <HintPath>..\..\ExternalAssemblies\Glintths.Authorization\Glintths.Authorization.Providers.BusinessEntities.dll</HintPath>
+    </Reference>
+    <Reference Include="Glintths.Authorization.Providers.Proxies">
+      <HintPath>..\..\ExternalAssemblies\Glintths.Authorization\Glintths.Authorization.Providers.Proxies.dll</HintPath>
+    </Reference>
+    <Reference Include="Glintths.Er.Common.Data">
+      <HintPath>..\..\Data\Glintths.Er.Common.Data\bin\Debug\Glintths.Er.Common.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Glintths.Infrastructure.Wcf">
+      <HintPath>..\..\ExternalAssemblies\Glintths.Infrastructure\Glintths.Infrastructure.Wcf.dll</HintPath>
+    </Reference>
+    <Reference Include="Glintths.Infrastructure.Wcf.Common">
+      <HintPath>..\..\ExternalAssemblies\Glintths.Infrastructure\Glintths.Infrastructure.Wcf.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity">
+      <HintPath>..\..\..\..\DOTNET\InfraEstructure\CPCHS.AuthenticationAuthorization\SolutionAssemblies\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Implementation\GeneratedCode\WorkspacesManagementWs.cs" />
+    <Compile Include="Implementation\TranslateWorkspaceBeDc.cs" />
+    <Compile Include="Message\GeneratedCode\ActivateWorkspaceRequest.cs" />
+    <Compile Include="Message\GeneratedCode\ActivateWorkspaceResponse.cs" />
+    <Compile Include="Message\GeneratedCode\AddChildsToWorkspaceRequest.cs" />
+    <Compile Include="Message\GeneratedCode\AddChildsToWorkspaceResponse.cs" />
+    <Compile Include="Message\GeneratedCode\AddMembersToWorkspaceRequest.cs" />
+    <Compile Include="Message\GeneratedCode\AddMembersToWorkspaceResponse.cs" />
+    <Compile Include="Message\GeneratedCode\CreateWorkspaceRequest.cs" />
+    <Compile Include="Message\GeneratedCode\CreateWorkspaceResponse.cs" />
+    <Compile Include="Message\GeneratedCode\DeactivateWorkspaceRequest.cs" />
+    <Compile Include="Message\GeneratedCode\DeactivateWorkspaceResponse.cs" />
+    <Compile Include="Message\GeneratedCode\GetWorkspaceRequest.cs" />
+    <Compile Include="Message\GeneratedCode\GetWorkspaceResponse.cs" />
+    <Compile Include="Message\GeneratedCode\GetWorkspaceTreeRequest.cs" />
+    <Compile Include="Message\GeneratedCode\GetWorkspaceTreeResponse.cs" />
+    <Compile Include="Message\GeneratedCode\RemoveMembersFromWorkspaceRequest.cs" />
+    <Compile Include="Message\GeneratedCode\RemoveMembersFromWorkspaceResponse.cs" />
+    <Compile Include="Message\GeneratedCode\RemoveWorkspaceDocumentResponse.cs" />
+    <Compile Include="Message\GeneratedCode\RemoveWorkspaceDocumentResquest.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\GeneratedCode\IWorspacesManagementSC.cs" />
+    <Compile Include="Implementation\WorkspacesManagementWs.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Data\" />
+    <Folder Include="Fault\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\BusinessLogic\Glintths.Er.Workspaces.BusinessLogic\Glintths.Er.Workspaces.BusinessLogic.csproj">
+      <Project>{bd25f07c-afc1-41e5-8c18-cec4103aff8b}</Project>
+      <Name>Glintths.Er.Workspaces.BusinessLogic</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

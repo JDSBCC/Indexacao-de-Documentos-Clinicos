@@ -1,0 +1,404 @@
+----------------------------------------
+Timestamp: 03-05-2012 15:30:45
+Message: <Exception handlingInstanceId="1a871c02-7d83-4248-a249-3068dcdd14ce">
+  <Description>An exception of type 'System.IO.FileNotFoundException' occurred and was caught.</Description>
+  <DateTime>2012-05-03 16:30:45Z</DateTime>
+  <ExceptionType>System.IO.FileNotFoundException, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ExceptionType>
+  <Message>Could not load file or assembly 'EntLibContrib.Data.OdpNet, Version=4.1.0.0, Culture=neutral, PublicKeyToken=null' or one of its dependencies. The system cannot find the file specified.</Message>
+  <Source>CPCHS.Common.BusinessEntities</Source>
+  <HelpLink />
+  <Property name="FileName">EntLibContrib.Data.OdpNet, Version=4.1.0.0, Culture=neutral, PublicKeyToken=null</Property>
+  <Property name="FusionLog">WRN: Assembly binding logging is turned OFF.
+To enable assembly bind failure logging, set the registry value [HKLM\Software\Microsoft\Fusion!EnableLog] (DWORD) to 1.
+Note: There is some performance penalty associated with assembly bind failure logging.
+To turn this feature off, remove the registry value [HKLM\Software\Microsoft\Fusion!EnableLog].
+</Property>
+  <Property name="Data">System.Collections.ListDictionaryInternal</Property>
+  <Property name="TargetSite">System.String GetDBMethod(Microsoft.Practices.EnterpriseLibrary.Data.Database, System.String, System.String)</Property>
+  <StackTrace>   at CPCHS.Common.BusinessEntities.CommonBER.GetDBMethod(Database dal, String proc, String package)
+   at Cpchs.Eresults.Common.WCF.BusinessEntities.Generated.EntityManagementBER_GEN.GetConfigurationByScopeDBMethod(String companyDB) in C:\ERESULTS\Glintths.Er.WebServices\Data\Glintths.Er.Common.Data\BusinessEntities\Entities\Entity\Generated\EntityManagementBER_GEN.cs:line 4766
+   at Cpchs.Eresults.Common.WCF.BusinessEntities.Generated.EntityManagementBER_GEN.GetConfigurationByScopeDB(String companyDB, Nullable`1 Institution, Nullable`1 Place, Nullable`1 Application, Nullable`1 DocType, String Scope) in C:\ERESULTS\Glintths.Er.WebServices\Data\Glintths.Er.Common.Data\BusinessEntities\Entities\Entity\Generated\EntityManagementBER_GEN.cs:line 4787</StackTrace>
+  <additionalInfo>
+    <info name="MachineName" value="FCORREIA" />
+    <info name="TimeStamp" value="03-05-2012 15:30:45" />
+    <info name="FullName" value="Microsoft.Practices.EnterpriseLibrary.ExceptionHandling, Version=4.1.0.0, Culture=neutral, PublicKeyToken=null" />
+    <info name="AppDomainName" value="/LM/W3SVC/25/ROOT/Glintths.Base.WCF.Host-4-129805326441658689" />
+    <info name="ThreadIdentity" value="" />
+    <info name="WindowsIdentity" value="IIS APPPOOL\ER_HTML" />
+  </additionalInfo>
+</Exception>
+Category: General
+Priority: 0
+EventId: 100
+Severity: Error
+Title:Enterprise Library Exception Handling
+Machine: FCORREIA
+Application Domain: /LM/W3SVC/25/ROOT/Glintths.Base.WCF.Host-4-129805326441658689
+Process Id: 7488
+Process Name: c:\windows\system32\inetsrv\w3wp.exe
+Win32 Thread Id: 9272
+Thread Name: 
+Extended Properties: 
+----------------------------------------
+----------------------------------------
+Timestamp: 21-06-2012 18:01:09
+Message: <Exception handlingInstanceId="9756eebf-0aba-4581-a4b8-f51cb75fd2e0">
+  <Description>An exception of type 'System.Data.OracleClient.OracleException' occurred and was caught.</Description>
+  <DateTime>2012-06-21 19:01:08Z</DateTime>
+  <ExceptionType>System.Data.OracleClient.OracleException, System.Data.OracleClient, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ExceptionType>
+  <Message>ORA-12170: TNS:Ocorrência de tempo de espera esgotado da ligação
+</Message>
+  <Source>System.Data.OracleClient</Source>
+  <HelpLink />
+  <Property name="Code">12170</Property>
+  <Property name="ErrorCode">-2146232008</Property>
+  <Property name="Data">System.Collections.ListDictionaryInternal</Property>
+  <Property name="TargetSite">Void Check(System.Data.OracleClient.OciErrorHandle, Int32)</Property>
+  <StackTrace>   at System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   at System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   at System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   at System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   at System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   at System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   at System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   at System.Data.OracleClient.OracleConnection.Open()
+   at Microsoft.Practices.EnterpriseLibrary.Data.Database.GetNewOpenConnection()
+   at Microsoft.Practices.EnterpriseLibrary.Data.Database.GetOpenConnection(Boolean disposeInnerConnection)
+   at Microsoft.Practices.EnterpriseLibrary.Data.Database.ExecuteReader(DbCommand command)
+   at Microsoft.Practices.EnterpriseLibrary.Data.Oracle.OracleDatabase.ExecuteReader(DbCommand command)
+   at Cpchs.Eresults.Common.WCF.BusinessEntities.Generated.EntityManagementBER_GEN.GetConfigurationByScopeDB(String companyDB, Nullable`1 Institution, Nullable`1 Place, Nullable`1 Application, Nullable`1 DocType, String Scope) in C:\ERESULTS\Glintths.Er.WebServices\Data\Glintths.Er.Common.Data\BusinessEntities\Entities\Entity\Generated\EntityManagementBER_GEN.cs:line 4787</StackTrace>
+  <additionalInfo>
+    <info name="MachineName" value="FCORREIA" />
+    <info name="TimeStamp" value="21-06-2012 18:01:09" />
+    <info name="FullName" value="Microsoft.Practices.EnterpriseLibrary.ExceptionHandling, Version=4.1.0.0, Culture=neutral, PublicKeyToken=null" />
+    <info name="AppDomainName" value="/LM/W3SVC/25/ROOT/Glintths.Base.WCF.Host-1-129847719246092343" />
+    <info name="ThreadIdentity" value="" />
+    <info name="WindowsIdentity" value="IIS APPPOOL\DefaultAppPool" />
+  </additionalInfo>
+</Exception>
+Category: General
+Priority: 0
+EventId: 100
+Severity: Error
+Title:Enterprise Library Exception Handling
+Machine: FCORREIA
+Application Domain: /LM/W3SVC/25/ROOT/Glintths.Base.WCF.Host-1-129847719246092343
+Process Id: 4812
+Process Name: c:\windows\system32\inetsrv\w3wp.exe
+Win32 Thread Id: 11204
+Thread Name: 
+Extended Properties: 
+----------------------------------------
+----------------------------------------
+Timestamp: 21-06-2012 18:02:53
+Message: <Exception handlingInstanceId="81399a15-4267-4035-8f6d-369b4734d591">
+  <Description>An exception of type 'System.Data.OracleClient.OracleException' occurred and was caught.</Description>
+  <DateTime>2012-06-21 19:02:53Z</DateTime>
+  <ExceptionType>System.Data.OracleClient.OracleException, System.Data.OracleClient, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ExceptionType>
+  <Message>ORA-12170: TNS:Ocorrência de tempo de espera esgotado da ligação
+</Message>
+  <Source>System.Data.OracleClient</Source>
+  <HelpLink />
+  <Property name="Code">12170</Property>
+  <Property name="ErrorCode">-2146232008</Property>
+  <Property name="Data">System.Collections.ListDictionaryInternal</Property>
+  <Property name="TargetSite">Void Check(System.Data.OracleClient.OciErrorHandle, Int32)</Property>
+  <StackTrace>   at System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   at System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   at System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   at System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   at System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   at System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   at System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   at System.Data.OracleClient.OracleConnection.Open()
+   at Microsoft.Practices.EnterpriseLibrary.Data.Database.GetNewOpenConnection()
+   at Microsoft.Practices.EnterpriseLibrary.Data.Database.GetOpenConnection(Boolean disposeInnerConnection)
+   at Microsoft.Practices.EnterpriseLibrary.Data.Database.ExecuteReader(DbCommand command)
+   at Microsoft.Practices.EnterpriseLibrary.Data.Oracle.OracleDatabase.ExecuteReader(DbCommand command)
+   at Cpchs.Eresults.Common.WCF.BusinessEntities.Generated.EntityManagementBER_GEN.GetConfigurationByScopeDB(String companyDB, Nullable`1 Institution, Nullable`1 Place, Nullable`1 Application, Nullable`1 DocType, String Scope) in C:\ERESULTS\Glintths.Er.WebServices\Data\Glintths.Er.Common.Data\BusinessEntities\Entities\Entity\Generated\EntityManagementBER_GEN.cs:line 4787</StackTrace>
+  <additionalInfo>
+    <info name="MachineName" value="FCORREIA" />
+    <info name="TimeStamp" value="21-06-2012 18:02:53" />
+    <info name="FullName" value="Microsoft.Practices.EnterpriseLibrary.ExceptionHandling, Version=4.1.0.0, Culture=neutral, PublicKeyToken=null" />
+    <info name="AppDomainName" value="/LM/W3SVC/25/ROOT/Glintths.Base.WCF.Host-1-129847719246092343" />
+    <info name="ThreadIdentity" value="" />
+    <info name="WindowsIdentity" value="IIS APPPOOL\DefaultAppPool" />
+  </additionalInfo>
+</Exception>
+Category: General
+Priority: 0
+EventId: 100
+Severity: Error
+Title:Enterprise Library Exception Handling
+Machine: FCORREIA
+Application Domain: /LM/W3SVC/25/ROOT/Glintths.Base.WCF.Host-1-129847719246092343
+Process Id: 4812
+Process Name: c:\windows\system32\inetsrv\w3wp.exe
+Win32 Thread Id: 5108
+Thread Name: 
+Extended Properties: 
+----------------------------------------
+----------------------------------------
+Timestamp: 21-06-2012 18:03:07
+Message: <Exception handlingInstanceId="43802eb0-b236-4e7e-998e-683758985db2">
+  <Description>An exception of type 'System.Data.OracleClient.OracleException' occurred and was caught.</Description>
+  <DateTime>2012-06-21 19:03:07Z</DateTime>
+  <ExceptionType>System.Data.OracleClient.OracleException, System.Data.OracleClient, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ExceptionType>
+  <Message>ORA-12170: TNS:Ocorrência de tempo de espera esgotado da ligação
+</Message>
+  <Source>System.Data.OracleClient</Source>
+  <HelpLink />
+  <Property name="Code">12170</Property>
+  <Property name="ErrorCode">-2146232008</Property>
+  <Property name="Data">System.Collections.ListDictionaryInternal</Property>
+  <Property name="TargetSite">Void Check(System.Data.OracleClient.OciErrorHandle, Int32)</Property>
+  <StackTrace>   at System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   at System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   at System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   at System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   at System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   at System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   at System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   at System.Data.OracleClient.OracleConnection.Open()
+   at Microsoft.Practices.EnterpriseLibrary.Data.Database.GetNewOpenConnection()
+   at Microsoft.Practices.EnterpriseLibrary.Data.Database.GetOpenConnection(Boolean disposeInnerConnection)
+   at Microsoft.Practices.EnterpriseLibrary.Data.Database.ExecuteReader(DbCommand command)
+   at Microsoft.Practices.EnterpriseLibrary.Data.Oracle.OracleDatabase.ExecuteReader(DbCommand command)
+   at Cpchs.Eresults.Common.WCF.BusinessEntities.Generated.EntityManagementBER_GEN.GetConfigurationByScopeDB(String companyDB, Nullable`1 Institution, Nullable`1 Place, Nullable`1 Application, Nullable`1 DocType, String Scope) in C:\ERESULTS\Glintths.Er.WebServices\Data\Glintths.Er.Common.Data\BusinessEntities\Entities\Entity\Generated\EntityManagementBER_GEN.cs:line 4787</StackTrace>
+  <additionalInfo>
+    <info name="MachineName" value="FCORREIA" />
+    <info name="TimeStamp" value="21-06-2012 18:03:07" />
+    <info name="FullName" value="Microsoft.Practices.EnterpriseLibrary.ExceptionHandling, Version=4.1.0.0, Culture=neutral, PublicKeyToken=null" />
+    <info name="AppDomainName" value="/LM/W3SVC/25/ROOT/Glintths.Base.WCF.Host-1-129847719246092343" />
+    <info name="ThreadIdentity" value="" />
+    <info name="WindowsIdentity" value="IIS APPPOOL\DefaultAppPool" />
+  </additionalInfo>
+</Exception>
+Category: General
+Priority: 0
+EventId: 100
+Severity: Error
+Title:Enterprise Library Exception Handling
+Machine: FCORREIA
+Application Domain: /LM/W3SVC/25/ROOT/Glintths.Base.WCF.Host-1-129847719246092343
+Process Id: 4812
+Process Name: c:\windows\system32\inetsrv\w3wp.exe
+Win32 Thread Id: 13392
+Thread Name: 
+Extended Properties: 
+----------------------------------------
+----------------------------------------
+Timestamp: 22-06-2012 08:22:46
+Message: <Exception handlingInstanceId="3b4b96e3-1a33-4af9-8fe7-af4f9c56205f">
+  <Description>An exception of type 'System.Data.OracleClient.OracleException' occurred and was caught.</Description>
+  <DateTime>2012-06-22 09:22:45Z</DateTime>
+  <ExceptionType>System.Data.OracleClient.OracleException, System.Data.OracleClient, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ExceptionType>
+  <Message>ORA-12170: TNS:Ocorrência de tempo de espera esgotado da ligação
+</Message>
+  <Source>System.Data.OracleClient</Source>
+  <HelpLink />
+  <Property name="Code">12170</Property>
+  <Property name="ErrorCode">-2146232008</Property>
+  <Property name="Data">System.Collections.ListDictionaryInternal</Property>
+  <Property name="TargetSite">Void Check(System.Data.OracleClient.OciErrorHandle, Int32)</Property>
+  <StackTrace>   at System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   at System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   at System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   at System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   at System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   at System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   at System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   at System.Data.OracleClient.OracleConnection.Open()
+   at Microsoft.Practices.EnterpriseLibrary.Data.Database.GetNewOpenConnection()
+   at Microsoft.Practices.EnterpriseLibrary.Data.Database.GetOpenConnection(Boolean disposeInnerConnection)
+   at Microsoft.Practices.EnterpriseLibrary.Data.Database.DiscoverParameters(DbCommand command)
+   at Microsoft.Practices.EnterpriseLibrary.Data.ParameterCache.SetParameters(DbCommand command, Database database)
+   at Microsoft.Practices.EnterpriseLibrary.Data.Database.GetStoredProcCommand(String storedProcedureName, Object[] parameterValues)
+   at Microsoft.Practices.EnterpriseLibrary.Data.Oracle.OracleDatabase.GetStoredProcCommand(String storedProcedureName, Object[] parameterValues)
+   at CPCHS.Common.BusinessEntities.CommonBER.GetStoredProcCommand(Database dal, String dbMethod, Object[] parameters)
+   at Cpchs.Eresults.Common.WCF.BusinessEntities.Generated.EntityManagementBER_GEN.GetConfigurationByScopeDB(String companyDB, Nullable`1 Institution, Nullable`1 Place, Nullable`1 Application, Nullable`1 DocType, String Scope) in C:\ERESULTS\Glintths.Er.WebServices\Data\Glintths.Er.Common.Data\BusinessEntities\Entities\Entity\Generated\EntityManagementBER_GEN.cs:line 4786</StackTrace>
+  <additionalInfo>
+    <info name="MachineName" value="FCORREIA" />
+    <info name="TimeStamp" value="22-06-2012 08:22:46" />
+    <info name="FullName" value="Microsoft.Practices.EnterpriseLibrary.ExceptionHandling, Version=4.1.0.0, Culture=neutral, PublicKeyToken=null" />
+    <info name="AppDomainName" value="/LM/W3SVC/25/ROOT/Glintths.Base.WCF.Host-1-129848269266451582" />
+    <info name="ThreadIdentity" value="" />
+    <info name="WindowsIdentity" value="IIS APPPOOL\DefaultAppPool" />
+  </additionalInfo>
+</Exception>
+Category: General
+Priority: 0
+EventId: 100
+Severity: Error
+Title:Enterprise Library Exception Handling
+Machine: FCORREIA
+Application Domain: /LM/W3SVC/25/ROOT/Glintths.Base.WCF.Host-1-129848269266451582
+Process Id: 10260
+Process Name: c:\windows\system32\inetsrv\w3wp.exe
+Win32 Thread Id: 2348
+Thread Name: 
+Extended Properties: 
+----------------------------------------
+----------------------------------------
+Timestamp: 16-07-2012 15:03:19
+Message: <Exception handlingInstanceId="9722c29d-e9c5-4964-a76e-0c9cca1a4cf7">
+  <Description>An exception of type 'System.Data.OracleClient.OracleException' occurred and was caught.</Description>
+  <DateTime>2012-07-16 16:03:18Z</DateTime>
+  <ExceptionType>System.Data.OracleClient.OracleException, System.Data.OracleClient, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ExceptionType>
+  <Message>ORA-00942: table or view does not exist
+ORA-06512: at "ERESULTS_V2_DEV.PCK_ENTITIES_ENTITY", line 1526
+ORA-06512: at line 1
+</Message>
+  <Source>System.Data.OracleClient</Source>
+  <HelpLink />
+  <Property name="Code">942</Property>
+  <Property name="ErrorCode">-2146232008</Property>
+  <Property name="Data">System.Collections.ListDictionaryInternal</Property>
+  <Property name="TargetSite">Void CheckError(System.Data.OracleClient.OciErrorHandle, Int32)</Property>
+  <StackTrace>   at System.Data.OracleClient.OracleConnection.CheckError(OciErrorHandle errorHandle, Int32 rc)
+   at System.Data.OracleClient.OracleCommand.Execute(OciStatementHandle statementHandle, CommandBehavior behavior, Boolean needRowid, OciRowidDescriptor&amp; rowidDescriptor, ArrayList&amp; resultParameterOrdinals)
+   at System.Data.OracleClient.OracleCommand.Execute(OciStatementHandle statementHandle, CommandBehavior behavior, ArrayList&amp; resultParameterOrdinals)
+   at System.Data.OracleClient.OracleCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.OracleClient.OracleCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Practices.EnterpriseLibrary.Data.Database.DoExecuteReader(DbCommand command, CommandBehavior cmdBehavior)
+   at Microsoft.Practices.EnterpriseLibrary.Data.Database.ExecuteReader(DbCommand command)
+   at Microsoft.Practices.EnterpriseLibrary.Data.Oracle.OracleDatabase.ExecuteReader(DbCommand command)
+   at Cpchs.Eresults.Common.WCF.BusinessEntities.Generated.EntityManagementBER_GEN.GetConfigurationByScopeDB(String companyDB, Nullable`1 Institution, Nullable`1 Place, Nullable`1 Application, Nullable`1 DocType, String Scope) in C:\ERESULTS\Glintths.Er.WebServices\Data\Glintths.Er.Common.Data\BusinessEntities\Entities\Entity\Generated\EntityManagementBER_GEN.cs:line 4787</StackTrace>
+  <additionalInfo>
+    <info name="MachineName" value="FCORREIA" />
+    <info name="TimeStamp" value="16-07-2012 15:03:19" />
+    <info name="FullName" value="Microsoft.Practices.EnterpriseLibrary.ExceptionHandling, Version=4.1.0.0, Culture=neutral, PublicKeyToken=null" />
+    <info name="AppDomainName" value="/LM/W3SVC/25/ROOT/Glintths.Base.WCF.Host-2-129869245891800051" />
+    <info name="ThreadIdentity" value="" />
+    <info name="WindowsIdentity" value="IIS APPPOOL\DefaultAppPool" />
+  </additionalInfo>
+</Exception>
+Category: General
+Priority: 0
+EventId: 100
+Severity: Error
+Title:Enterprise Library Exception Handling
+Machine: FCORREIA
+Application Domain: /LM/W3SVC/25/ROOT/Glintths.Base.WCF.Host-2-129869245891800051
+Process Id: 7236
+Process Name: c:\windows\system32\inetsrv\w3wp.exe
+Win32 Thread Id: 7044
+Thread Name: 
+Extended Properties: 
+----------------------------------------
+----------------------------------------
+Timestamp: 17-07-2012 08:41:28
+Message: <Exception handlingInstanceId="be0ec0eb-8566-42ac-8641-a52858f9e533">
+  <Description>An exception of type 'System.Data.OracleClient.OracleException' occurred and was caught.</Description>
+  <DateTime>2012-07-17 09:41:28Z</DateTime>
+  <ExceptionType>System.Data.OracleClient.OracleException, System.Data.OracleClient, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ExceptionType>
+  <Message>ORA-00942: table or view does not exist
+ORA-06512: at "ERESULTS_V2_DEV.PCK_ENTITIES_ENTITY", line 1527
+ORA-06512: at line 1
+</Message>
+  <Source>System.Data.OracleClient</Source>
+  <HelpLink />
+  <Property name="Code">942</Property>
+  <Property name="ErrorCode">-2146232008</Property>
+  <Property name="Data">System.Collections.ListDictionaryInternal</Property>
+  <Property name="TargetSite">Void CheckError(System.Data.OracleClient.OciErrorHandle, Int32)</Property>
+  <StackTrace>   at System.Data.OracleClient.OracleConnection.CheckError(OciErrorHandle errorHandle, Int32 rc)
+   at System.Data.OracleClient.OracleCommand.Execute(OciStatementHandle statementHandle, CommandBehavior behavior, Boolean needRowid, OciRowidDescriptor&amp; rowidDescriptor, ArrayList&amp; resultParameterOrdinals)
+   at System.Data.OracleClient.OracleCommand.Execute(OciStatementHandle statementHandle, CommandBehavior behavior, ArrayList&amp; resultParameterOrdinals)
+   at System.Data.OracleClient.OracleCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.OracleClient.OracleCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Practices.EnterpriseLibrary.Data.Database.DoExecuteReader(DbCommand command, CommandBehavior cmdBehavior)
+   at Microsoft.Practices.EnterpriseLibrary.Data.Database.ExecuteReader(DbCommand command)
+   at Microsoft.Practices.EnterpriseLibrary.Data.Oracle.OracleDatabase.ExecuteReader(DbCommand command)
+   at Cpchs.Eresults.Common.WCF.BusinessEntities.Generated.EntityManagementBER_GEN.GetConfigurationByScopeDB(String companyDB, Nullable`1 Institution, Nullable`1 Place, Nullable`1 Application, Nullable`1 DocType, String Scope) in C:\ERESULTS\Glintths.Er.WebServices\Data\Glintths.Er.Common.Data\BusinessEntities\Entities\Entity\Generated\EntityManagementBER_GEN.cs:line 4787</StackTrace>
+  <additionalInfo>
+    <info name="MachineName" value="FCORREIA" />
+    <info name="TimeStamp" value="17-07-2012 08:41:28" />
+    <info name="FullName" value="Microsoft.Practices.EnterpriseLibrary.ExceptionHandling, Version=4.1.0.0, Culture=neutral, PublicKeyToken=null" />
+    <info name="AppDomainName" value="/LM/W3SVC/25/ROOT/Glintths.Base.WCF.Host-2-129869880855613617" />
+    <info name="ThreadIdentity" value="" />
+    <info name="WindowsIdentity" value="IIS APPPOOL\DefaultAppPool" />
+  </additionalInfo>
+</Exception>
+Category: General
+Priority: 0
+EventId: 100
+Severity: Error
+Title:Enterprise Library Exception Handling
+Machine: FCORREIA
+Application Domain: /LM/W3SVC/25/ROOT/Glintths.Base.WCF.Host-2-129869880855613617
+Process Id: 2860
+Process Name: c:\windows\system32\inetsrv\w3wp.exe
+Win32 Thread Id: 6248
+Thread Name: 
+Extended Properties: 
+----------------------------------------
+----------------------------------------
+Timestamp: 23-07-2012 20:34:44
+Message: <Exception handlingInstanceId="3ddb3ced-7131-463a-905f-94bb08a9687b">
+  <Description>An exception of type 'System.Data.OracleClient.OracleException' occurred and was caught.</Description>
+  <DateTime>2012-07-23 21:34:44Z</DateTime>
+  <ExceptionType>System.Data.OracleClient.OracleException, System.Data.OracleClient, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ExceptionType>
+  <Message>ORA-12170: TNS:Ocorrência de tempo de espera esgotado da ligação
+</Message>
+  <Source>System.Data.OracleClient</Source>
+  <HelpLink />
+  <Property name="Code">12170</Property>
+  <Property name="ErrorCode">-2146232008</Property>
+  <Property name="Data">System.Collections.ListDictionaryInternal</Property>
+  <Property name="TargetSite">Void Check(System.Data.OracleClient.OciErrorHandle, Int32)</Property>
+  <StackTrace>   at System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   at System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   at System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   at System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   at System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   at System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   at System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   at System.Data.OracleClient.OracleConnection.Open()
+   at Microsoft.Practices.EnterpriseLibrary.Data.Database.GetNewOpenConnection()
+   at Microsoft.Practices.EnterpriseLibrary.Data.Database.GetOpenConnection(Boolean disposeInnerConnection)
+   at Microsoft.Practices.EnterpriseLibrary.Data.Database.DiscoverParameters(DbCommand command)
+   at Microsoft.Practices.EnterpriseLibrary.Data.ParameterCache.SetParameters(DbCommand command, Database database)
+   at Microsoft.Practices.EnterpriseLibrary.Data.Database.GetStoredProcCommand(String storedProcedureName, Object[] parameterValues)
+   at Microsoft.Practices.EnterpriseLibrary.Data.Oracle.OracleDatabase.GetStoredProcCommand(String storedProcedureName, Object[] parameterValues)
+   at CPCHS.Common.BusinessEntities.CommonBER.GetStoredProcCommand(Database dal, String dbMethod, Object[] parameters)
+   at Cpchs.Eresults.Common.WCF.BusinessEntities.Generated.EntityManagementBER_GEN.GetConfigurationByScopeDB(String companyDB, Nullable`1 Institution, Nullable`1 Place, Nullable`1 Application, Nullable`1 DocType, String Scope) in C:\ERESULTS\Glintths.Er.WebServices\Data\Glintths.Er.Common.Data\BusinessEntities\Entities\Entity\Generated\EntityManagementBER_GEN.cs:line 4786</StackTrace>
+  <additionalInfo>
+    <info name="MachineName" value="FCORREIA" />
+    <info name="TimeStamp" value="23-07-2012 20:34:44" />
+    <info name="FullName" value="Microsoft.Practices.EnterpriseLibrary.ExceptionHandling, Version=4.1.0.0, Culture=neutral, PublicKeyToken=null" />
+    <info name="AppDomainName" value="/LM/W3SVC/25/ROOT/Glintths.Base.WCF.Host-1-129875492616929871" />
+    <info name="ThreadIdentity" value="" />
+    <info name="WindowsIdentity" value="IIS APPPOOL\DefaultAppPool" />
+  </additionalInfo>
+</Exception>
+Category: General
+Priority: 0
+EventId: 100
+Severity: Error
+Title:Enterprise Library Exception Handling
+Machine: FCORREIA
+Application Domain: /LM/W3SVC/25/ROOT/Glintths.Base.WCF.Host-1-129875492616929871
+Process Id: 9268
+Process Name: c:\windows\system32\inetsrv\w3wp.exe
+Win32 Thread Id: 6076
+Thread Name: 
+Extended Properties: 
+----------------------------------------

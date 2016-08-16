@@ -1,0 +1,328 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B60C7916-A1BF-46EE-9691-940471BA88B2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Cpchs.Documents.WCF</RootNamespace>
+    <AssemblyName>Cpchs.Documents.WCF</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CPCHS.Common.BusinessEntities">
+      <HintPath>..\..\ExternalAssemblies\Cpchs.Common\CPCHS.Common.BusinessEntities.dll</HintPath>
+    </Reference>
+    <Reference Include="Cpchs.Modules.Logging.TraceListener">
+      <HintPath>..\..\ExternalAssemblies\Cpchs.Modules\Cpchs.Modules.Logging.TraceListener.dll</HintPath>
+    </Reference>
+    <Reference Include="EntLibContrib.Data.OdpNet">
+      <HintPath>..\..\ExternalAssemblies\EntLib\EntLibContrib.Data.OdpNet.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Logging">
+      <HintPath>..\..\ExternalAssemblies\Microsoft.Practices.EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Data\Generated\Alert.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Data\Generated\AlertList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Data\Generated\Alerts.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Data\Generated\ContentType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Data\Generated\Document.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Data\Generated\DocumentAccess.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Data\Generated\DocumentAccessLog.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Data\Generated\DocumentEpisodeLog.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Data\Generated\DocumentEpisodeLogs.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Data\Generated\DocumentIndexLog.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Data\Generated\DocumentIndexLogs.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Data\Generated\DocumentInfoForPublish.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Data\Generated\DocumentInfoForPublishCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Data\Generated\DocumentInfoForPublishList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Data\Generated\DocumentLog.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Data\Generated\DocumentLogList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Data\Generated\DocumentLogs.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Data\Generated\Documents.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Data\Generated\DocumentsList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Data\Generated\Element.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Data\Generated\ElementInfoForReport.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Data\Generated\ElementInfoForReportCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Data\Generated\Elements.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Data\Generated\ElementType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Data\Generated\Exam.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Data\Generated\ExtraDocument.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Data\Generated\ExtraDocumentCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Data\Generated\ExtraDocuments.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Data\FileInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Data\Generated\FileInfo.cs" />
+    <Compile Include="Data\Generated\FileInfoList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Data\Generated\FilesInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Data\Generated\Link.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Data\Generated\LinkList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Data\Generated\Links.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Data\Generated\PatientDocument.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Data\Generated\PatientDocumentList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Data\Generated\PatientDocuments.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Data\Generated\PatientEpisode.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Data\Generated\PatientEpisodeCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Data\Generated\PatientEpisodes.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Data\Generated\Product.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Data\Generated\State.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Data\Generated\Video.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Data\Generated\VideoLink.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Data\Generated\VideoLinks.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Data\Generated\VideoList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Data\Generated\Videos.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Fault\Generated\AlertsNotFound.cs" />
+    <Compile Include="Fault\Generated\DocumentNotFound.cs" />
+    <Compile Include="Implementation\DocumentsManagementWS.cs" />
+    <Compile Include="Implementation\EncryptionUtil.cs" />
+    <Compile Include="Implementation\FilesManagementWS.cs" />
+    <Compile Include="Implementation\Generated\DocumentsManagementWS.cs" />
+    <Compile Include="Implementation\Generated\FilesManagementWS.cs" />
+    <Compile Include="Implementation\Generated\LinksManagementWS.cs" />
+    <Compile Include="Implementation\Generated\MonitoringManagementWS.cs" />
+    <Compile Include="Implementation\LinksManagementWS.cs" />
+    <Compile Include="Implementation\MonitoringManagementWS.cs" />
+    <Compile Include="Implementation\TranslateBetweenAlertBeAndAlertDc.cs" />
+    <Compile Include="Implementation\TranslateBetweenDocumentBeAndDocumentDc.cs" />
+    <Compile Include="Implementation\TranslateBetweenDocumentBeAndPatientDocumentDc.cs" />
+    <Compile Include="Implementation\TranslateBetweenDocumentEpisodeLogBeAndDocumentEpisodeLogDc.cs" />
+    <Compile Include="Implementation\TranslateBetweenDocumentIndexLogBeAndDocumentIndexLogDc.cs" />
+    <Compile Include="Implementation\TranslateBetweenDocumentLogBeAndDocumentLogDc.cs" />
+    <Compile Include="Implementation\TranslateBetweenElementBeAndElementDc.cs" />
+    <Compile Include="Implementation\TranslateBetweenFileBeAndFileInfoDc.cs" />
+    <Compile Include="Implementation\TranslateBetweenLinkBeAndLinkDc.cs" />
+    <Compile Include="Implementation\TranslateBetweenVideoBeAndVideoDc.cs" />
+    <Compile Include="Implementation\TranslateBetweenVisitBeAndPatientEpisodeExamDC.cs" />
+    <Compile Include="Message\CancelDocumentLastVersionRequestV2.cs" />
+    <Compile Include="Message\CancelDocumentLastVersionResponseV2.cs" />
+    <Compile Include="Message\CancelDocumentPermanentlyRequestV2.cs" />
+    <Compile Include="Message\CancelDocumentPermanentlyResponseV2.cs" />
+    <Compile Include="Message\ConvertPdfToImagesRequest.cs" />
+    <Compile Include="Message\ConvertPdfToImagesResponse.cs" />
+    <Compile Include="Message\UpdateElementDescriptionRequest.cs" />
+    <Compile Include="Message\GetGeneralDocumentsRequest.cs" />
+    <Compile Include="Message\GetGeneralDocumentsResponse.cs" />
+    <Compile Include="Message\OpenDynamicFormRequest.cs" />
+    <Compile Include="Message\OpenDynamicFormResponse.cs" />
+    <Compile Include="Message\Generated\CancelDocumentLastVersionRequest.cs" />
+    <Compile Include="Message\Generated\CancelDocumentLastVersionResponse.cs" />
+    <Compile Include="Message\Generated\CancelDocumentPermanentlyRequest.cs" />
+    <Compile Include="Message\Generated\CancelDocumentPermanentlyResponse.cs" />
+    <Compile Include="Message\Generated\CancelDocumentRequest.cs" />
+    <Compile Include="Message\Generated\CancelDocumentResponse.cs" />
+    <Compile Include="Message\Generated\CancelElementRequest.cs" />
+    <Compile Include="Message\Generated\CancelElementResponse.cs" />
+    <Compile Include="Message\Generated\CorrectedAlertRequest.cs" />
+    <Compile Include="Message\Generated\CorrectedAlertResponse.cs" />
+    <Compile Include="Message\Generated\GetAlertsRequest.cs" />
+    <Compile Include="Message\Generated\GetAlertsResponse.cs" />
+    <Compile Include="Message\Generated\GetAlertsSubscriptionsRequest.cs" />
+    <Compile Include="Message\Generated\GetAlertsSubscriptionsResponse.cs" />
+    <Compile Include="Message\Generated\GetAllPatientDocumentsMultiRequest.cs" />
+    <Compile Include="Message\Generated\GetAllPatientDocumentsMultiResponse.cs" />
+    <Compile Include="Message\Generated\GetAllPatientDocumentsRequest.cs" />
+    <Compile Include="Message\Generated\GetAllPatientDocumentsResponse.cs" />
+    <Compile Include="Message\Generated\GetDocTypeDescRequest.cs" />
+    <Compile Include="Message\Generated\GetDocTypeDescResponse.cs" />
+    <Compile Include="Message\Generated\GetDocumentFilesRequest.cs" />
+    <Compile Include="Message\Generated\GetDocumentFilesResponse.cs" />
+    <Compile Include="Message\Generated\GetDocumentLinksRequest.cs" />
+    <Compile Include="Message\Generated\GetDocumentLinksResponse.cs" />
+    <Compile Include="Message\Generated\GetDocumentLogsByMultiCriteriaRequest.cs" />
+    <Compile Include="Message\Generated\GetDocumentLogsByMultiCriteriaResponse.cs" />
+    <Compile Include="Message\Generated\GetDocumentsByExternalIdRequest.cs" />
+    <Compile Include="Message\Generated\GetDocumentsByExternalIdResponse.cs" />
+    <Compile Include="Message\Generated\GetDocumentsByExternalIdV2Request.cs" />
+    <Compile Include="Message\Generated\GetDocumentsByExternalIdV2Response.cs" />
+    <Compile Include="Message\Generated\GetDocumentsByMultiCriteriaRequest.cs" />
+    <Compile Include="Message\Generated\GetDocumentsByMultiCriteriaResponse.cs" />
+    <Compile Include="Message\Generated\GetDocumentsByMultiCriteriaV2Request.cs" />
+    <Compile Include="Message\Generated\GetDocumentsByMultiCriteriaV2Response.cs" />
+    <Compile Include="Message\Generated\GetDocumentVideosRequest.cs" />
+    <Compile Include="Message\Generated\GetDocumentVideosResponse.cs" />
+    <Compile Include="Message\Generated\GetFileByElementIdRequest.cs" />
+    <Compile Include="Message\Generated\GetFileByElementIdResponse.cs" />
+    <Compile Include="Message\Generated\GetLinkByElementId.cs" />
+    <Compile Include="Message\Generated\GetLinkByElementIdRequest.cs" />
+    <Compile Include="Message\Generated\GetLinkByElementIdResponse.cs" />
+    <Compile Include="Message\Generated\GetPatientDocumentsRequest.cs" />
+    <Compile Include="Message\Generated\GetPatientDocumentsResponse.cs" />
+    <Compile Include="Message\Generated\GetPatientEpisodesRequest.cs" />
+    <Compile Include="Message\Generated\GetPatientEpisodesResponse.cs" />
+    <Compile Include="Message\Generated\GetPatientResponse.cs" />
+    <Compile Include="Message\Generated\IgnoredAlertRequest.cs" />
+    <Compile Include="Message\Generated\IgnoredAlertResponse.cs" />
+    <Compile Include="Message\Generated\LogDocumentAccessRequest.cs" />
+    <Compile Include="Message\Generated\LogDocumentAccessResponse.cs" />
+    <Compile Include="Message\Generated\ProcessIndexDocumentRequest.cs" />
+    <Compile Include="Message\Generated\ProcessIndexDocumentResponse.cs" />
+    <Compile Include="Message\Generated\PromoteDocumentToPublicRequest.cs" />
+    <Compile Include="Message\Generated\PromoteDocumentToPublicResponse.cs" />
+    <Compile Include="Message\Generated\RegisterDocumentAccessRequest.cs" />
+    <Compile Include="Message\Generated\UpdateAlertsSubscriptionsRequest.cs" />
+    <Compile Include="Message\Generated\UpdateAlertsSubscriptionsResponse.cs" />
+    <Compile Include="Message\Generated\UpdateElementReportInfoRequest.cs" />
+    <Compile Include="Message\Generated\UpdateElementReportInfoResponse.cs" />
+    <Compile Include="Message\GetDocumentsForEPRRequest.cs" />
+    <Compile Include="Message\GetDocumentsForEPRResponse.cs" />
+    <Compile Include="Message\UpdateElementDescriptionResponse.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\Generated\IDocumentsManagementSC.cs" />
+    <Compile Include="Service\Generated\IFilesManagementSC.cs" />
+    <Compile Include="Service\Generated\ILinksManagementSC.cs" />
+    <Compile Include="Service\Generated\IMonitoringManagementSC.cs" />
+    <Compile Include="Service\IDocumentsManagementSC.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\BusinessLogic\Glintths.Documents.WCF.BusinessLogic\Glintths.Documents.WCF.BusinessLogic.csproj">
+      <Project>{61FE2787-CD73-4DE9-921B-BEDE6C1044AD}</Project>
+      <Name>Glintths.Documents.WCF.BusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Data\Glintths.Er.Common.Data\Glintths.Er.Common.Data.csproj">
+      <Project>{5D6F9E1A-DC75-4526-A7C7-90DD77672D7A}</Project>
+      <Name>Glintths.Er.Common.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Cpchs.Entities.WCF\Cpchs.Entities.WCF.csproj">
+      <Project>{93B1ED63-EEF4-4D43-B213-1B01B619B86B}</Project>
+      <Name>Cpchs.Entities.WCF</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

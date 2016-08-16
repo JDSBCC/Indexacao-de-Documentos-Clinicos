@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="urn:Cpchs.Documents" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="LinksManagementWS" targetNamespace="urn:Cpchs.Documents" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="urn:Cpchs.Documents/Imports">
+      <xsd:import schemaLocation="http://gsousa.glintt.com/Cpchs.Documents.WCF.Host/LinksManagementWS.svc?xsd=xsd0" namespace="urn:Cpchs.Documents" />
+      <xsd:import schemaLocation="http://gsousa.glintt.com/Cpchs.Documents.WCF.Host/LinksManagementWS.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://gsousa.glintt.com/Cpchs.Documents.WCF.Host/LinksManagementWS.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="GetDocumentLinksRequest">
+    <wsdl:part name="parameters" element="tns:GetDocumentLinksRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentLinksResponse">
+    <wsdl:part name="parameters" element="tns:GetDocumentLinksResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLinkByElementIdRequest">
+    <wsdl:part name="parameters" element="tns:GetLinkByElementIdRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetLinkByElementIdResponse">
+    <wsdl:part name="parameters" element="tns:GetLinkByElementIdResponse" />
+  </wsdl:message>
+  <wsdl:portType name="LinksManagementSC">
+    <wsdl:operation name="GetDocumentLinks">
+      <wsdl:input wsaw:Action="urn:Cpchs.Documents.LinksManagementSC.GetDocumentLinks" name="GetDocumentLinksRequest" message="tns:GetDocumentLinksRequest" />
+      <wsdl:output wsaw:Action="urn:Cpchs.Documents.LinksManagementSC.GetDocumentLinks" name="GetDocumentLinksResponse" message="tns:GetDocumentLinksResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLinkByElementId">
+      <wsdl:input wsaw:Action="urn:Cpchs.Documents.LinksManagementSC.GetLinkByElementId" name="GetLinkByElementIdRequest" message="tns:GetLinkByElementIdRequest" />
+      <wsdl:output wsaw:Action="urn:Cpchs.Documents.LinksManagementSC.GetLinkByElementId" name="GetLinkByElementIdResponse" message="tns:GetLinkByElementIdResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="LinksEndpoint" type="tns:LinksManagementSC">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetDocumentLinks">
+      <soap:operation soapAction="urn:Cpchs.Documents.LinksManagementSC.GetDocumentLinks" style="document" />
+      <wsdl:input name="GetDocumentLinksRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetDocumentLinksResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLinkByElementId">
+      <soap:operation soapAction="urn:Cpchs.Documents.LinksManagementSC.GetLinkByElementId" style="document" />
+      <wsdl:input name="GetLinkByElementIdRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetLinkByElementIdResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="LinksManagementWS">
+    <wsdl:port name="LinksEndpoint" binding="tns:LinksEndpoint">
+      <soap:address location="http://gsousa.glintt.com/Cpchs.Documents.WCF.Host/LinksManagementWS.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

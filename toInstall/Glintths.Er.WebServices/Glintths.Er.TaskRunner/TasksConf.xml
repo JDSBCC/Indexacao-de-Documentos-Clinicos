@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TasksConf xmlns="http://tempuri.org/TaskConfiguration.xsd">
+  <TaskConf>
+    <id>DownloadFiles</id>
+    <taskNameSpace>Glintths.Er.Task</taskNameSpace>
+    <taskClass>DownloadFilesTask</taskClass>
+    <Companies>
+      <CompanyConf>
+        <poolingInterval>6</poolingInterval>
+        <company>CPCHS_LOCAL_HSDEV</company>
+        <DownloadFilesTaskConf xmlns="http://tempuri.org/DownloadFilesTaskConf.xsd">
+          <Configuration>
+            <ExternalDocumentsUri>http://hshost/Cpchs.Documents.WCF.Host/Service.svc</ExternalDocumentsUri>
+            <ExternalFilesUri>http://localhost/Cpchs.Documents.WCF.Host/FilesManagementWS.svc</ExternalFilesUri>
+            <LocalEResultsUri>http://localhost/GlinttHS.API.Internal.WS/Local/eResults/LocalEResultsService.svc</LocalEResultsUri>
+          </Configuration>
+        </DownloadFilesTaskConf>
+      </CompanyConf>
+    </Companies>
+  </TaskConf>
+</TasksConf>

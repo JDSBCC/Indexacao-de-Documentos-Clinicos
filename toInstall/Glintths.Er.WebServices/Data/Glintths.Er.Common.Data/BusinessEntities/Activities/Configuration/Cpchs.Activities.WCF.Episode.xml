@@ -1,0 +1,912 @@
+<?xml version="1.0"?>
+<BussinessEntity xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Output>
+    <Namespace>Cpchs.Eresults.Common.WCF</Namespace>
+    <PckName>ACTIVITIES_EPISODE</PckName>
+    <WSNamespace>EpisodeManagementWS</WSNamespace>
+    <ItemName>EpisodeManagement</ItemName>
+    <Wse>false</Wse>
+    <CreateDatabase>false</CreateDatabase>
+    <Database>C:\LOCAL\eResultsV2\Cpchs.Eresults.Services\Cpchs.Activities.WCF\Source\Resource Access\Cpchs.Activities.WCF.DataAccess\Database</Database>
+    <CreateTest>false</CreateTest>
+    <Test />
+    <CreateBussinessRules>true</CreateBussinessRules>
+    <CreateBussinessRulesInherits>false</CreateBussinessRulesInherits>
+    <BussinessRules>C:\eResults\Cpchs.Eresults.Services\Cpchs.Eresults.Common.WCF\Cpchs.Eresults.Common.WCF\BusinessEntities\Activities\Episode</BussinessRules>
+    <CreateWebService>false</CreateWebService>
+    <CreateWebServiceInherits>false</CreateWebServiceInherits>
+    <WebService />
+    <CreateProxy>false</CreateProxy>
+    <CreateProxyInherits>false</CreateProxyInherits>
+    <Proxy />
+    <FolderBase />
+    <FolderSolution />
+    <FolderBER />
+    <Module>ActivitiesWCF</Module>
+  </Output>
+  <Tables>
+    <Table>
+      <Name>ER_TIPO_EPISODIO</Name>
+      <ItemName>EpisodeType</ItemName>
+      <ConnectionString>server=hsdev;uid=eresults_v2_new;pwd=secure</ConnectionString>
+      <Owner>ERESULTS_V2_NEW</Owner>
+      <DateCreated>2009-04-03T16:29:05</DateCreated>
+      <DbType>OracleNativeSchemaProvider (using System.Data.OracleClient namespace)</DbType>
+      <IgnorePk>false</IgnorePk>
+      <LoadedProperties>false</LoadedProperties>
+      <Cache>false</Cache>
+      <CacheMode>Entidade</CacheMode>
+      <CreateData>false</CreateData>
+      <CreateDataInherits>false</CreateDataInherits>
+      <DataInherits />
+      <Data>C:\eResults\Cpchs.Eresults.Services\Cpchs.Eresults.Common.WCF\Cpchs.Eresults.Common.WCF\BusinessEntities\Activities\Episode</Data>
+      <Columns>
+        <Column ID="TIPO_EPISODIO_ID">
+          <Type>long</Type>
+          <DbType>number</DbType>
+          <Name>epiTypeId</Name>
+          <PrimaryKey>true</PrimaryKey>
+          <Sequence>false</Sequence>
+          <SequenceName />
+          <ForeignKey />
+          <Entity>true</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="CODIGO">
+          <Type>string</Type>
+          <DbType>varchar2(20)</DbType>
+          <Name>epiTypeCode</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <Sequence>false</Sequence>
+          <ForeignKey />
+          <Entity>true</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="SIGLA">
+          <Type>string</Type>
+          <DbType>varchar2(20)</DbType>
+          <Name>epiTypeAcronym</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <Sequence>false</Sequence>
+          <ForeignKey />
+          <Entity>true</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="DESCRICAO">
+          <Type>string</Type>
+          <DbType>varchar2(200)</DbType>
+          <Name>epiTypeDescription</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <Sequence>false</Sequence>
+          <ForeignKey />
+          <Entity>true</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+      </Columns>
+      <ExternalEntities />
+      <Selects>
+        <Operation>
+          <Name>GetAllEpisodeTypes</Name>
+          <Description />
+          <Protected>false</Protected>
+          <Proxy>false</Proxy>
+          <MultiEntity>true</MultiEntity>
+          <ObjectWs>false</ObjectWs>
+          <BdMethod>true</BdMethod>
+          <OutParameters>false</OutParameters>
+          <MultiDatabase>true</MultiDatabase>
+          <Params>
+            <ColumnID>TIPO_EPISODIO_ID</ColumnID>
+            <ColumnID>SIGLA</ColumnID>
+            <ColumnID>DESCRICAO</ColumnID>
+          </Params>
+          <Function>
+            <Function />
+            <Function />
+            <Function />
+          </Function>
+          <ExtraParameters />
+          <Obsolete>false</Obsolete>
+        </Operation>
+        <Operation>
+          <Name>GetEpiTypesForExternalAccess</Name>
+          <Description />
+          <Protected>false</Protected>
+          <Proxy>false</Proxy>
+          <MultiEntity>true</MultiEntity>
+          <ObjectWs>false</ObjectWs>
+          <BdMethod>true</BdMethod>
+          <OutParameters>false</OutParameters>
+          <MultiDatabase>true</MultiDatabase>
+          <Params>
+            <ColumnID>TIPO_EPISODIO_ID</ColumnID>
+            <ColumnID>CODIGO</ColumnID>
+            <ColumnID>SIGLA</ColumnID>
+            <ColumnID>DESCRICAO</ColumnID>
+          </Params>
+          <Parameters>
+            <OperationParameter>
+              <Name>entIds</Name>
+              <Type>string</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>epiTypeId</Name>
+              <Type>long?</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>epiId</Name>
+              <Type>string</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>instId</Name>
+              <Type>long?</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>placeId</Name>
+              <Type>long?</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>appId</Name>
+              <Type>long?</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>docTypeId</Name>
+              <Type>long?</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>docRef</Name>
+              <Type>string</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>elemType</Name>
+              <Type>string</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+          </Parameters>
+          <Function>
+            <Function />
+            <Function />
+            <Function />
+            <Function />
+          </Function>
+          <ExtraParameters />
+          <Obsolete>false</Obsolete>
+        </Operation>
+        <Operation>
+          <Name>GetEpisodeTypeByCode</Name>
+          <Description />
+          <Protected>false</Protected>
+          <Proxy>false</Proxy>
+          <MultiEntity>false</MultiEntity>
+          <ObjectWs>false</ObjectWs>
+          <BdMethod>true</BdMethod>
+          <OutParameters>false</OutParameters>
+          <MultiDatabase>true</MultiDatabase>
+          <Params>
+            <ColumnID>TIPO_EPISODIO_ID</ColumnID>
+            <ColumnID>CODIGO</ColumnID>
+            <ColumnID>SIGLA</ColumnID>
+            <ColumnID>DESCRICAO</ColumnID>
+          </Params>
+          <Function>
+            <Function />
+            <Function />
+            <Function />
+            <Function />
+          </Function>
+          <Filters>
+            <ColumnID>CODIGO</ColumnID>
+          </Filters>
+          <ExtraParameters />
+          <Obsolete>false</Obsolete>
+        </Operation>
+      </Selects>
+      <Inserts />
+      <Updates />
+      <Deletes />
+      <CustomOperations />
+    </Table>
+    <Table>
+      <Name>GR_VISITA</Name>
+      <ItemName>Visit</ItemName>
+      <ConnectionString>server=hsdev;uid=eresults_v2_new;pwd=secure</ConnectionString>
+      <Owner>ERESULTS_V2_NEW</Owner>
+      <DateCreated>2009-04-03T16:29:10</DateCreated>
+      <DbType>OracleNativeSchemaProvider (using System.Data.OracleClient namespace)</DbType>
+      <IgnorePk>false</IgnorePk>
+      <LoadedProperties>false</LoadedProperties>
+      <Cache>false</Cache>
+      <CacheMode>Entidade</CacheMode>
+      <CreateData>false</CreateData>
+      <CreateDataInherits>false</CreateDataInherits>
+      <DataInherits />
+      <Data>C:\eResults\Cpchs.Eresults.Services\Cpchs.Eresults.Common.WCF\Cpchs.Eresults.Common.WCF\BusinessEntities\Activities\Episode</Data>
+      <Columns>
+        <Column ID="VISITA_ID">
+          <Type>long</Type>
+          <DbType>number</DbType>
+          <Name>visitId</Name>
+          <PrimaryKey>true</PrimaryKey>
+          <Sequence>false</Sequence>
+          <SequenceName />
+          <ForeignKey />
+          <Entity>true</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="VISITA_PAI_ID">
+          <Type>long</Type>
+          <DbType>number</DbType>
+          <Name>visitParentId</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <Sequence>false</Sequence>
+          <ForeignKey>GR_VISITA.VISITA_ID</ForeignKey>
+          <Entity>true</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="TIPO_EPISODIO_ID">
+          <Type>long</Type>
+          <DbType>number</DbType>
+          <Name>visitEpiTypeId</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <Sequence>false</Sequence>
+          <ForeignKey>ER_TIPO_EPISODIO.TIPO_EPISODIO_ID</ForeignKey>
+          <Entity>true</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="EPISODIO">
+          <Type>string</Type>
+          <DbType>varchar2(20)</DbType>
+          <Name>visitEpisode</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <Sequence>false</Sequence>
+          <ForeignKey />
+          <Entity>true</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="DATA_INICIO">
+          <Type>DateTime</Type>
+          <DbType>date</DbType>
+          <Name>visitDtIni</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <Sequence>false</Sequence>
+          <ForeignKey />
+          <Entity>true</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="DATA_FIM">
+          <Type>DateTime</Type>
+          <DbType>date</DbType>
+          <Name>visitDtEnd</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <Sequence>false</Sequence>
+          <ForeignKey />
+          <Entity>true</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="ENTIDADE_ID">
+          <Type>long</Type>
+          <DbType>number</DbType>
+          <Name>visitEntId</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <Sequence>false</Sequence>
+          <ForeignKey>GR_ENTIDADE.ENTIDADE_ID</ForeignKey>
+          <Entity>true</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="INSTITUICAO_ID">
+          <Type>long</Type>
+          <DbType>number</DbType>
+          <Name>visitInstId</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <Sequence>false</Sequence>
+          <ForeignKey>ER_LOCAL.INSTITUICAO_ID</ForeignKey>
+          <Entity>true</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="LOCAL_ID">
+          <Type>long</Type>
+          <DbType>number</DbType>
+          <Name>visitLocalId</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <Sequence>false</Sequence>
+          <ForeignKey>ER_LOCAL.LOCAL_ID</ForeignKey>
+          <Entity>true</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+      </Columns>
+      <ExternalEntities>
+        <ExternalEntity>
+          <Namespace>Cpchs.Eresults.Common.WCF.BusinessEntities</Namespace>
+          <Type>EpisodeType</Type>
+          <EntityName>visitEpisodeType</EntityName>
+          <IsList>false</IsList>
+          <Instance>true</Instance>
+          <Load>false</Load>
+        </ExternalEntity>
+      </ExternalEntities>
+      <Selects>
+        <Operation>
+          <Name>GetPatientEpisodes</Name>
+          <Description />
+          <Protected>false</Protected>
+          <Proxy>false</Proxy>
+          <MultiEntity>true</MultiEntity>
+          <ObjectWs>false</ObjectWs>
+          <BdMethod>true</BdMethod>
+          <OutParameters>false</OutParameters>
+          <MultiDatabase>true</MultiDatabase>
+          <Params>
+            <ColumnID>VISITA_ID</ColumnID>
+            <ColumnID>VISITA_PAI_ID</ColumnID>
+            <ColumnID>TIPO_EPISODIO_ID</ColumnID>
+            <ColumnID>EPISODIO</ColumnID>
+            <ColumnID>DATA_INICIO</ColumnID>
+            <ColumnID>DATA_FIM</ColumnID>
+            <ColumnID>ENTIDADE_ID</ColumnID>
+            <ColumnID>INSTITUICAO_ID</ColumnID>
+            <ColumnID>LOCAL_ID</ColumnID>
+          </Params>
+          <Parameters>
+            <OperationParameter>
+              <Name>patientid</Name>
+              <Type>string</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+          </Parameters>
+          <Function>
+            <Function />
+            <Function />
+            <Function />
+            <Function />
+            <Function />
+            <Function />
+            <Function />
+            <Function />
+            <Function />
+          </Function>
+          <Filters>
+            <ColumnID>INSTITUICAO_ID</ColumnID>
+            <ColumnID>LOCAL_ID</ColumnID>
+          </Filters>
+          <ExtraParameters />
+          <Obsolete>false</Obsolete>
+        </Operation>
+        <Operation>
+          <Name>GetPatientEpisodeByIds</Name>
+          <Description />
+          <Protected>false</Protected>
+          <Proxy>false</Proxy>
+          <MultiEntity>false</MultiEntity>
+          <ObjectWs>false</ObjectWs>
+          <BdMethod>true</BdMethod>
+          <OutParameters>false</OutParameters>
+          <MultiDatabase>true</MultiDatabase>
+          <Params>
+            <ColumnID>VISITA_ID</ColumnID>
+            <ColumnID>VISITA_PAI_ID</ColumnID>
+            <ColumnID>TIPO_EPISODIO_ID</ColumnID>
+            <ColumnID>EPISODIO</ColumnID>
+            <ColumnID>DATA_INICIO</ColumnID>
+            <ColumnID>DATA_FIM</ColumnID>
+            <ColumnID>ENTIDADE_ID</ColumnID>
+            <ColumnID>INSTITUICAO_ID</ColumnID>
+            <ColumnID>LOCAL_ID</ColumnID>
+          </Params>
+          <Function>
+            <Function />
+            <Function />
+            <Function />
+            <Function />
+            <Function />
+            <Function />
+            <Function />
+            <Function />
+            <Function />
+          </Function>
+          <Filters>
+            <ColumnID>TIPO_EPISODIO_ID</ColumnID>
+            <ColumnID>EPISODIO</ColumnID>
+          </Filters>
+          <ExtraParameters />
+          <Obsolete>false</Obsolete>
+        </Operation>
+        <Operation>
+          <Name>GetOrInsertEpisode</Name>
+          <Description />
+          <Protected>false</Protected>
+          <Proxy>false</Proxy>
+          <MultiEntity>false</MultiEntity>
+          <ObjectWs>false</ObjectWs>
+          <BdMethod>true</BdMethod>
+          <OutParameters>false</OutParameters>
+          <MultiDatabase>true</MultiDatabase>
+          <Params>
+            <ColumnID>VISITA_ID</ColumnID>
+            <ColumnID>VISITA_PAI_ID</ColumnID>
+            <ColumnID>TIPO_EPISODIO_ID</ColumnID>
+            <ColumnID>EPISODIO</ColumnID>
+            <ColumnID>DATA_INICIO</ColumnID>
+            <ColumnID>DATA_FIM</ColumnID>
+            <ColumnID>ENTIDADE_ID</ColumnID>
+            <ColumnID>INSTITUICAO_ID</ColumnID>
+            <ColumnID>LOCAL_ID</ColumnID>
+          </Params>
+          <Parameters>
+            <OperationParameter>
+              <Name>Episode</Name>
+              <Type>string</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>EpisodeType</Name>
+              <Type>string</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>PatientId</Name>
+              <Type>string</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>PatientType</Name>
+              <Type>string</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>InstId</Name>
+              <Type>long</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>PlaceId</Name>
+              <Type>long</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>AppId</Name>
+              <Type>long</Type>
+              <Out>false</Out>
+              <In>false</In>
+            </OperationParameter>
+          </Parameters>
+          <Function>
+            <Function />
+            <Function />
+            <Function />
+            <Function />
+            <Function />
+            <Function />
+            <Function />
+            <Function />
+            <Function />
+          </Function>
+          <ExtraParameters />
+          <Obsolete>false</Obsolete>
+        </Operation>
+        <Operation>
+          <Name>GetPatientEpisodesBySearchData</Name>
+          <Description />
+          <Protected>false</Protected>
+          <Proxy>false</Proxy>
+          <MultiEntity>true</MultiEntity>
+          <ObjectWs>false</ObjectWs>
+          <BdMethod>true</BdMethod>
+          <OutParameters>false</OutParameters>
+          <MultiDatabase>true</MultiDatabase>
+          <Params>
+            <ColumnID>VISITA_ID</ColumnID>
+            <ColumnID>VISITA_PAI_ID</ColumnID>
+            <ColumnID>TIPO_EPISODIO_ID</ColumnID>
+            <ColumnID>EPISODIO</ColumnID>
+            <ColumnID>DATA_INICIO</ColumnID>
+            <ColumnID>DATA_FIM</ColumnID>
+            <ColumnID>ENTIDADE_ID</ColumnID>
+            <ColumnID>INSTITUICAO_ID</ColumnID>
+            <ColumnID>LOCAL_ID</ColumnID>
+          </Params>
+          <Parameters>
+            <OperationParameter>
+              <Name>Name</Name>
+              <Type>string</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>PatientNr</Name>
+              <Type>string</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>ProcessNr</Name>
+              <Type>string</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>SnsNr</Name>
+              <Type>string</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>instId</Name>
+              <Type>string</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>placeId</Name>
+              <Type>string</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>patId</Name>
+              <Type>string</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+          </Parameters>
+          <Function>
+            <Function />
+            <Function />
+            <Function />
+            <Function />
+            <Function />
+            <Function />
+            <Function />
+            <Function />
+            <Function />
+          </Function>
+          <ExtraParameters />
+          <Obsolete>false</Obsolete>
+        </Operation>
+      </Selects>
+      <Inserts />
+      <Updates />
+      <Deletes />
+      <CustomOperations />
+    </Table>
+    <Table>
+      <Name>SD_EPISODIO_TMP</Name>
+      <ItemName>ExternalEpisode</ItemName>
+      <ConnectionString>server=hsdev;uid=GH;pwd=GH</ConnectionString>
+      <Owner>GH</Owner>
+      <DateCreated>2008-08-22T15:31:35</DateCreated>
+      <DbType>OracleNativeSchemaProvider (using System.Data.OracleClient namespace)</DbType>
+      <IgnorePk>false</IgnorePk>
+      <LoadedProperties>false</LoadedProperties>
+      <Cache>false</Cache>
+      <CacheMode>Entidade</CacheMode>
+      <CreateData>true</CreateData>
+      <CreateDataInherits>false</CreateDataInherits>
+      <DataInherits />
+      <Data>C:\eResults\Cpchs.Eresults.Services\Cpchs.Eresults.Common.WCF\Cpchs.Eresults.Common.WCF\BusinessEntities\Activities\Episode</Data>
+      <Columns>
+        <Column ID="T_DOENTE">
+          <Type>string</Type>
+          <DbType>varchar2(5)</DbType>
+          <Name>pattype</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <ForeignKey />
+          <Entity>true</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="DOENTE">
+          <Type>string</Type>
+          <DbType>varchar2(12)</DbType>
+          <Name>patid</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <ForeignKey />
+          <Entity>true</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="T_EPISODIO">
+          <Type>string</Type>
+          <DbType>varchar2(14)</DbType>
+          <Name>episodetype</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <ForeignKey />
+          <Entity>true</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="EPISODIO">
+          <Type>string</Type>
+          <DbType>varchar2(15)</DbType>
+          <Name>episodeid</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <ForeignKey />
+          <Entity>true</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="T_EPISODIO_PAI">
+          <Type>string</Type>
+          <DbType>varchar2(14)</DbType>
+          <Name>T_EPISODIO_PAI</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <ForeignKey />
+          <Entity>false</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="EPISODIO_PAI">
+          <Type>string</Type>
+          <DbType>varchar2(15)</DbType>
+          <Name>EPISODIO_PAI</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <ForeignKey />
+          <Entity>false</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="DESCR">
+          <Type>string</Type>
+          <DbType>varchar2(2000)</DbType>
+          <Name>DESCR</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <ForeignKey />
+          <Entity>false</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="N_ORD">
+          <Type>string</Type>
+          <DbType>varchar2(4)</DbType>
+          <Name>N_ORD</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <ForeignKey />
+          <Entity>false</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="DT_INI">
+          <Type>DateTime</Type>
+          <DbType>date</DbType>
+          <Name>episodestartdt</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <ForeignKey />
+          <Entity>true</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="DT_FIM">
+          <Type>DateTime</Type>
+          <DbType>date</DbType>
+          <Name>episodeenddt</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <ForeignKey />
+          <Entity>true</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="CHAVE">
+          <Type>string</Type>
+          <DbType>varchar2(30)</DbType>
+          <Name>CHAVE</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <ForeignKey />
+          <Entity>false</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="PAI">
+          <Type>string</Type>
+          <DbType>varchar2(30)</DbType>
+          <Name>PAI</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <ForeignKey />
+          <Entity>false</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="SESSAO">
+          <Type>string</Type>
+          <DbType>varchar2(30)</DbType>
+          <Name>SESSAO</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <ForeignKey />
+          <Entity>false</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="DT_ORD">
+          <Type>DateTime</Type>
+          <DbType>date</DbType>
+          <Name>DT_ORD</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <ForeignKey />
+          <Entity>false</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="ORDENACAO">
+          <Type>string</Type>
+          <DbType>varchar2(2000)</DbType>
+          <Name>ORDENACAO</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <ForeignKey />
+          <Entity>false</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="NIVEL">
+          <Type>long</Type>
+          <DbType>number</DbType>
+          <Name>NIVEL</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <ForeignKey />
+          <Entity>false</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="EPIS_RAIZ">
+          <Type>string</Type>
+          <DbType>varchar2(15)</DbType>
+          <Name>EPIS_RAIZ</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <ForeignKey />
+          <Entity>false</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="PEDIDOS_ASSOC">
+          <Type>string</Type>
+          <DbType>varchar2(250)</DbType>
+          <Name>PEDIDOS_ASSOC</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <ForeignKey />
+          <Entity>false</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="PLANOS_ASSOC">
+          <Type>string</Type>
+          <DbType>varchar2(250)</DbType>
+          <Name>PLANOS_ASSOC</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <ForeignKey />
+          <Entity>false</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="PROGRAMAS_ASSOC">
+          <Type>string</Type>
+          <DbType>varchar2(250)</DbType>
+          <Name>PROGRAMAS_ASSOC</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <ForeignKey />
+          <Entity>false</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="USER_CRI">
+          <Type>string</Type>
+          <DbType>varchar2(30)</DbType>
+          <Name>USER_CRI</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <ForeignKey />
+          <Entity>false</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="DT_CRI">
+          <Type>DateTime</Type>
+          <DbType>date</DbType>
+          <Name>DT_CRI</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <ForeignKey />
+          <Entity>false</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="USER_ACT">
+          <Type>string</Type>
+          <DbType>varchar2(30)</DbType>
+          <Name>USER_ACT</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <ForeignKey />
+          <Entity>false</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="DT_ACT">
+          <Type>DateTime</Type>
+          <DbType>date</DbType>
+          <Name>DT_ACT</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <ForeignKey />
+          <Entity>false</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+      </Columns>
+      <ExternalEntities />
+      <Selects>
+        <Operation>
+          <Name>GetPatientEpisodesFromExternalProvider</Name>
+          <Description />
+          <Protected>false</Protected>
+          <Proxy>false</Proxy>
+          <MultiEntity>true</MultiEntity>
+          <ObjectWs>false</ObjectWs>
+          <BdMethod>true</BdMethod>
+          <OutParameters>false</OutParameters>
+          <MultiDatabase>true</MultiDatabase>
+          <Params>
+            <ColumnID>T_EPISODIO</ColumnID>
+            <ColumnID>EPISODIO</ColumnID>
+            <ColumnID>DT_INI</ColumnID>
+            <ColumnID>DT_FIM</ColumnID>
+          </Params>
+          <Parameters>
+            <OperationParameter>
+              <Name>userId</Name>
+              <Type>string</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+          </Parameters>
+          <Function>
+            <Function />
+            <Function />
+            <Function />
+            <Function />
+          </Function>
+          <Filters>
+            <ColumnID>T_DOENTE</ColumnID>
+            <ColumnID>DOENTE</ColumnID>
+          </Filters>
+          <ExtraParameters />
+          <Obsolete>false</Obsolete>
+        </Operation>
+      </Selects>
+      <Inserts />
+      <Updates />
+      <Deletes />
+      <CustomOperations />
+    </Table>
+  </Tables>
+  <UserDefinedTypeList />
+</BussinessEntity>

@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Glintths.Base.Internal.Entities.Local.eResults" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Glintths.Base.Internal.Entities.Local.eResults" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfLocalAccessProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LocalAccessProfile" nillable="true" type="tns:LocalAccessProfile" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLocalAccessProfile" nillable="true" type="tns:ArrayOfLocalAccessProfile" />
+  <xs:complexType name="LocalAccessProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LocalAccessProfile" nillable="true" type="tns:LocalAccessProfile" />
+  <xs:complexType name="ArrayOfLocalERFacility">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LocalERFacility" nillable="true" type="tns:LocalERFacility" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLocalERFacility" nillable="true" type="tns:ArrayOfLocalERFacility" />
+  <xs:complexType name="LocalERFacility">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Places" nillable="true" type="tns:ArrayOfLocalERPlace" />
+      <xs:element minOccurs="0" name="Tag" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LocalERFacility" nillable="true" type="tns:LocalERFacility" />
+  <xs:complexType name="ArrayOfLocalERPlace">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LocalERPlace" nillable="true" type="tns:LocalERPlace" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLocalERPlace" nillable="true" type="tns:ArrayOfLocalERPlace" />
+  <xs:complexType name="LocalERPlace">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FacilityId" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Id" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Services" nillable="true" type="tns:ArrayOfLocalERService" />
+      <xs:element minOccurs="0" name="Tag" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LocalERPlace" nillable="true" type="tns:LocalERPlace" />
+  <xs:complexType name="ArrayOfLocalERService">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LocalERService" nillable="true" type="tns:LocalERService" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLocalERService" nillable="true" type="tns:ArrayOfLocalERService" />
+  <xs:complexType name="LocalERService">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Context" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Tag" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LocalERService" nillable="true" type="tns:LocalERService" />
+  <xs:complexType name="LocalERUser">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccessPermissions" nillable="true" type="tns:ArrayOfLocalERDocumentFilter" />
+      <xs:element minOccurs="0" name="AccessProfile" nillable="true" type="tns:LocalAccessProfile" />
+      <xs:element minOccurs="0" name="DocumentFilters" nillable="true" type="tns:ArrayOfLocalERDocumentFilter" />
+      <xs:element minOccurs="0" name="ExternalId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatientType" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LocalERUser" nillable="true" type="tns:LocalERUser" />
+  <xs:complexType name="ArrayOfLocalERDocumentFilter">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LocalERDocumentFilter" nillable="true" type="tns:LocalERDocumentFilter" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLocalERDocumentFilter" nillable="true" type="tns:ArrayOfLocalERDocumentFilter" />
+  <xs:complexType name="LocalERDocumentFilter">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Application" nillable="true" type="tns:LocalERApplication" />
+      <xs:element minOccurs="0" name="DocumentType" nillable="true" type="tns:LocalERDocumentType" />
+      <xs:element minOccurs="0" name="ExecutingService" nillable="true" type="tns:LocalERService" />
+      <xs:element minOccurs="0" name="Facility" nillable="true" type="tns:LocalERFacility" />
+      <xs:element minOccurs="0" name="Place" nillable="true" type="tns:LocalERPlace" />
+      <xs:element minOccurs="0" name="RequestingService" nillable="true" type="tns:LocalERService" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LocalERDocumentFilter" nillable="true" type="tns:LocalERDocumentFilter" />
+  <xs:complexType name="LocalERApplication">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DocumentTypes" nillable="true" type="tns:ArrayOfLocalERDocumentType" />
+      <xs:element minOccurs="0" name="Id" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Tag" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LocalERApplication" nillable="true" type="tns:LocalERApplication" />
+  <xs:complexType name="ArrayOfLocalERDocumentType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LocalERDocumentType" nillable="true" type="tns:LocalERDocumentType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLocalERDocumentType" nillable="true" type="tns:ArrayOfLocalERDocumentType" />
+  <xs:complexType name="LocalERDocumentType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LocalERDocumentType" nillable="true" type="tns:LocalERDocumentType" />
+  <xs:complexType name="ArrayOfLocalERApplication">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LocalERApplication" nillable="true" type="tns:LocalERApplication" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLocalERApplication" nillable="true" type="tns:ArrayOfLocalERApplication" />
+  <xs:complexType name="ArrayOfLocalERPatientType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LocalERPatientType" nillable="true" type="tns:LocalERPatientType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLocalERPatientType" nillable="true" type="tns:ArrayOfLocalERPatientType" />
+  <xs:complexType name="LocalERPatientType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Tag" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LocalERPatientType" nillable="true" type="tns:LocalERPatientType" />
+  <xs:complexType name="ArrayOfLocalERConfig">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LocalERConfig" nillable="true" type="tns:LocalERConfig" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLocalERConfig" nillable="true" type="tns:ArrayOfLocalERConfig" />
+  <xs:complexType name="LocalERConfig">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Key" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LocalERConfig" nillable="true" type="tns:LocalERConfig" />
+  <xs:complexType name="ArrayOfLocalERJob">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LocalERJob" nillable="true" type="tns:LocalERJob" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLocalERJob" nillable="true" type="tns:ArrayOfLocalERJob" />
+  <xs:complexType name="LocalERJob">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Dt_cri" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Dt_fim" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Dt_ini" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Entity" nillable="true" type="tns:LocalEREntity" />
+      <xs:element minOccurs="0" name="JobFilter" nillable="true" type="tns:ArrayOfLocalERJobFilter" />
+      <xs:element minOccurs="0" name="JobId" type="xs:long" />
+      <xs:element minOccurs="0" name="MessageError" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatientId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatientType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="State" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Url" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LocalERJob" nillable="true" type="tns:LocalERJob" />
+  <xs:complexType name="LocalEREntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EntidadeId" type="xs:int" />
+      <xs:element minOccurs="0" name="Nome" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LocalEREntity" nillable="true" type="tns:LocalEREntity" />
+  <xs:complexType name="ArrayOfLocalERJobFilter">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LocalERJobFilter" nillable="true" type="tns:LocalERJobFilter" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLocalERJobFilter" nillable="true" type="tns:ArrayOfLocalERJobFilter" />
+  <xs:complexType name="LocalERJobFilter">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Filter" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LocalERJobFilter" nillable="true" type="tns:LocalERJobFilter" />
+</xs:schema>

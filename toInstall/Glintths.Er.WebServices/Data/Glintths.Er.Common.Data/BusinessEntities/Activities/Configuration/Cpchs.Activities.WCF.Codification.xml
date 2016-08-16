@@ -1,0 +1,541 @@
+<?xml version="1.0"?>
+<BussinessEntity xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Output>
+    <Namespace>Cpchs.Eresults.Common.WCF</Namespace>
+    <PckName>ACTIVITIES_CODIFICATION</PckName>
+    <WSNamespace>WS</WSNamespace>
+    <ItemName>CodificationManagement</ItemName>
+    <Wse>true</Wse>
+    <CreateDatabase>false</CreateDatabase>
+    <Database>C:\DOTNET.3.5\Servs\Cpchs.Activities\Cpchs.Activities.WCF\Source\Resource Access\Cpchs.Activities.WCF.DataAccess\Database</Database>
+    <CreateTest>false</CreateTest>
+    <Test />
+    <CreateBussinessRules>false</CreateBussinessRules>
+    <CreateBussinessRulesInherits>false</CreateBussinessRulesInherits>
+    <BussinessRules>C:\LOCAL\eResultsV2\Cpchs.Eresults.Services\Cpchs.Eresults.Common.WCF\Cpchs.Eresults.Common.WCF\BusinessEntities\Activities\Codification</BussinessRules>
+    <CreateWebService>false</CreateWebService>
+    <CreateWebServiceInherits>false</CreateWebServiceInherits>
+    <WebService />
+    <CreateProxy>false</CreateProxy>
+    <CreateProxyInherits>false</CreateProxyInherits>
+    <Proxy />
+    <FolderBase />
+    <FolderSolution />
+    <FolderBER />
+    <Module>ActivitiesWCF</Module>
+  </Output>
+  <Tables>
+    <Table>
+      <Name>ER_PRODUTO</Name>
+      <ItemName>Product</ItemName>
+      <ConnectionString>server=hsdev;uid=eresults_v2_new;pwd=secure;</ConnectionString>
+      <Owner>ERESULTS_V2_NEW</Owner>
+      <DateCreated>2009-04-03T16:29:02</DateCreated>
+      <DbType>OracleNativeSchemaProvider (using System.Data.OracleClient namespace)</DbType>
+      <IgnorePk>false</IgnorePk>
+      <LoadedProperties>false</LoadedProperties>
+      <Cache>false</Cache>
+      <CacheMode>Entidade</CacheMode>
+      <CreateData>true</CreateData>
+      <CreateDataInherits>true</CreateDataInherits>
+      <DataInherits />
+      <Data>C:\LOCAL\eResultsV2\Cpchs.Eresults.Services\Cpchs.Eresults.Common.WCF\Cpchs.Eresults.Common.WCF\BusinessEntities\Activities\Codification</Data>
+      <Columns>
+        <Column ID="PRODUTO_ID">
+          <Type>long</Type>
+          <DbType>number</DbType>
+          <Name>productId</Name>
+          <PrimaryKey>true</PrimaryKey>
+          <Sequence>false</Sequence>
+          <SequenceName />
+          <ForeignKey />
+          <Entity>true</Entity>
+        </Column>
+        <Column ID="CODIGO">
+          <Type>string</Type>
+          <DbType>varchar2(20)</DbType>
+          <Name>productCode</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <Sequence>false</Sequence>
+          <ForeignKey />
+          <Entity>true</Entity>
+        </Column>
+        <Column ID="SIGLA">
+          <Type>string</Type>
+          <DbType>varchar2(20)</DbType>
+          <Name>productAcronym</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <Sequence>false</Sequence>
+          <ForeignKey />
+          <Entity>true</Entity>
+        </Column>
+        <Column ID="DESCRICAO">
+          <Type>string</Type>
+          <DbType>varchar2(200)</DbType>
+          <Name>productDescription</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <Sequence>false</Sequence>
+          <ForeignKey />
+          <Entity>true</Entity>
+        </Column>
+        <Column ID="ORDEM_APRES">
+          <Type>long</Type>
+          <DbType>number</DbType>
+          <Name>productPresOrder</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <Sequence>false</Sequence>
+          <ForeignKey />
+          <Entity>true</Entity>
+        </Column>
+      </Columns>
+      <ExternalEntities />
+      <Selects>
+        <Operation>
+          <Name>GetProductById</Name>
+          <Description />
+          <Protected>false</Protected>
+          <Proxy>false</Proxy>
+          <MultiEntity>false</MultiEntity>
+          <ObjectWs>false</ObjectWs>
+          <Obsolete>false</Obsolete>
+          <BdMethod>true</BdMethod>
+          <OutParameters>false</OutParameters>
+          <MultiDatabase>true</MultiDatabase>
+          <Params>
+            <ColumnID>PRODUTO_ID</ColumnID>
+            <ColumnID>SIGLA</ColumnID>
+            <ColumnID>DESCRICAO</ColumnID>
+          </Params>
+          <Function>
+            <Function />
+            <Function />
+            <Function />
+          </Function>
+          <Filters>
+            <ColumnID>PRODUTO_ID</ColumnID>
+          </Filters>
+          <ExtraParameters />
+        </Operation>
+      </Selects>
+      <Inserts />
+      <Updates />
+      <Deletes />
+    </Table>
+    <Table>
+      <Name>ER_UNIDADE</Name>
+      <ItemName>Unit</ItemName>
+      <ConnectionString>server=hsdev;uid=eresults_v2_new;pwd=secure;</ConnectionString>
+      <Owner>ERESULTS_V2_NEW</Owner>
+      <DateCreated>2009-04-03T16:29:07</DateCreated>
+      <DbType>OracleNativeSchemaProvider (using System.Data.OracleClient namespace)</DbType>
+      <IgnorePk>false</IgnorePk>
+      <LoadedProperties>false</LoadedProperties>
+      <Cache>false</Cache>
+      <CacheMode>Entidade</CacheMode>
+      <CreateData>true</CreateData>
+      <CreateDataInherits>true</CreateDataInherits>
+      <DataInherits />
+      <Data>C:\LOCAL\eResultsV2\Cpchs.Eresults.Services\Cpchs.Eresults.Common.WCF\Cpchs.Eresults.Common.WCF\BusinessEntities\Activities\Codification</Data>
+      <Columns>
+        <Column ID="UNIDADE_ID">
+          <Type>long</Type>
+          <DbType>number</DbType>
+          <Name>unitId</Name>
+          <PrimaryKey>true</PrimaryKey>
+          <Sequence>false</Sequence>
+          <SequenceName />
+          <ForeignKey />
+          <Entity>true</Entity>
+        </Column>
+        <Column ID="CODIGO">
+          <Type>string</Type>
+          <DbType>varchar2(20)</DbType>
+          <Name>unitCode</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <Sequence>false</Sequence>
+          <ForeignKey />
+          <Entity>true</Entity>
+        </Column>
+        <Column ID="SIGLA">
+          <Type>string</Type>
+          <DbType>varchar2(20)</DbType>
+          <Name>unitAcronym</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <Sequence>false</Sequence>
+          <ForeignKey />
+          <Entity>true</Entity>
+        </Column>
+        <Column ID="DESCRICAO">
+          <Type>string</Type>
+          <DbType>varchar2(200)</DbType>
+          <Name>unitDescription</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <Sequence>false</Sequence>
+          <ForeignKey />
+          <Entity>true</Entity>
+        </Column>
+      </Columns>
+      <ExternalEntities />
+      <Selects>
+        <Operation>
+          <Name>GetUnitById</Name>
+          <Description />
+          <Protected>false</Protected>
+          <Proxy>false</Proxy>
+          <MultiEntity>false</MultiEntity>
+          <ObjectWs>false</ObjectWs>
+          <Obsolete>false</Obsolete>
+          <BdMethod>true</BdMethod>
+          <OutParameters>false</OutParameters>
+          <MultiDatabase>true</MultiDatabase>
+          <Params>
+            <ColumnID>UNIDADE_ID</ColumnID>
+            <ColumnID>SIGLA</ColumnID>
+            <ColumnID>DESCRICAO</ColumnID>
+          </Params>
+          <Function>
+            <Function />
+            <Function />
+            <Function />
+          </Function>
+          <Filters>
+            <ColumnID>UNIDADE_ID</ColumnID>
+          </Filters>
+          <ExtraParameters />
+        </Operation>
+      </Selects>
+      <Inserts />
+      <Updates />
+      <Deletes />
+    </Table>
+    <Table>
+      <Name>ER_METODO</Name>
+      <ItemName>Method</ItemName>
+      <ConnectionString>server=hsdev;uid=eresults_v2_new;pwd=secure;</ConnectionString>
+      <Owner>ERESULTS_V2_NEW</Owner>
+      <DateCreated>2009-04-03T16:29:01</DateCreated>
+      <DbType>OracleNativeSchemaProvider (using System.Data.OracleClient namespace)</DbType>
+      <IgnorePk>false</IgnorePk>
+      <LoadedProperties>false</LoadedProperties>
+      <Cache>false</Cache>
+      <CacheMode>Entidade</CacheMode>
+      <CreateData>true</CreateData>
+      <CreateDataInherits>true</CreateDataInherits>
+      <DataInherits />
+      <Data>C:\LOCAL\eResultsV2\Cpchs.Eresults.Services\Cpchs.Eresults.Common.WCF\Cpchs.Eresults.Common.WCF\BusinessEntities\Activities\Codification</Data>
+      <Columns>
+        <Column ID="METODO_ID">
+          <Type>long</Type>
+          <DbType>number</DbType>
+          <Name>methodId</Name>
+          <PrimaryKey>true</PrimaryKey>
+          <Sequence>false</Sequence>
+          <SequenceName />
+          <ForeignKey />
+          <Entity>true</Entity>
+        </Column>
+        <Column ID="CODIGO">
+          <Type>string</Type>
+          <DbType>varchar2(20)</DbType>
+          <Name>methodCode</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <Sequence>false</Sequence>
+          <ForeignKey />
+          <Entity>true</Entity>
+        </Column>
+        <Column ID="SIGLA">
+          <Type>string</Type>
+          <DbType>varchar2(20)</DbType>
+          <Name>methodAcronym</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <Sequence>false</Sequence>
+          <ForeignKey />
+          <Entity>true</Entity>
+        </Column>
+        <Column ID="DESCRICAO">
+          <Type>string</Type>
+          <DbType>varchar2(200)</DbType>
+          <Name>methodDescription</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <Sequence>false</Sequence>
+          <ForeignKey />
+          <Entity>true</Entity>
+        </Column>
+      </Columns>
+      <ExternalEntities />
+      <Selects>
+        <Operation>
+          <Name>GetMethodById</Name>
+          <Description />
+          <Protected>false</Protected>
+          <Proxy>false</Proxy>
+          <MultiEntity>false</MultiEntity>
+          <ObjectWs>false</ObjectWs>
+          <Obsolete>false</Obsolete>
+          <BdMethod>true</BdMethod>
+          <OutParameters>false</OutParameters>
+          <MultiDatabase>true</MultiDatabase>
+          <Params>
+            <ColumnID>METODO_ID</ColumnID>
+            <ColumnID>SIGLA</ColumnID>
+            <ColumnID>DESCRICAO</ColumnID>
+          </Params>
+          <Function>
+            <Function />
+            <Function />
+            <Function />
+          </Function>
+          <Filters>
+            <ColumnID>METODO_ID</ColumnID>
+          </Filters>
+          <ExtraParameters />
+        </Operation>
+      </Selects>
+      <Inserts />
+      <Updates />
+      <Deletes />
+    </Table>
+    <Table>
+      <Name>ER_GRUPO_MICRORGANISMO</Name>
+      <ItemName>MicroGroup</ItemName>
+      <ConnectionString>server=hsdev;uid=eresults_v2_new;pwd=secure;</ConnectionString>
+      <Owner>ERESULTS_V2_NEW</Owner>
+      <DateCreated>2009-04-03T16:28:58</DateCreated>
+      <DbType>OracleNativeSchemaProvider (using System.Data.OracleClient namespace)</DbType>
+      <IgnorePk>false</IgnorePk>
+      <LoadedProperties>false</LoadedProperties>
+      <Cache>false</Cache>
+      <CacheMode>Entidade</CacheMode>
+      <CreateData>true</CreateData>
+      <CreateDataInherits>true</CreateDataInherits>
+      <DataInherits />
+      <Data>C:\LOCAL\eResultsV2\Cpchs.Eresults.Services\Cpchs.Eresults.Common.WCF\Cpchs.Eresults.Common.WCF\BusinessEntities\Activities\Codification</Data>
+      <Columns>
+        <Column ID="GRUPO_MICRORGANISMO_ID">
+          <Type>long</Type>
+          <DbType>number</DbType>
+          <Name>microGroupId</Name>
+          <PrimaryKey>true</PrimaryKey>
+          <ForeignKey />
+          <Entity>true</Entity>
+        </Column>
+        <Column ID="CODIGO">
+          <Type>string</Type>
+          <DbType>varchar2(20)</DbType>
+          <Name>microGroupCode</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <Sequence>false</Sequence>
+          <ForeignKey />
+          <Entity>true</Entity>
+        </Column>
+        <Column ID="SIGLA">
+          <Type>string</Type>
+          <DbType>varchar2(20)</DbType>
+          <Name>microGroupAcronym</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <Sequence>false</Sequence>
+          <ForeignKey />
+          <Entity>true</Entity>
+        </Column>
+        <Column ID="DESCRICAO">
+          <Type>string</Type>
+          <DbType>varchar2(200)</DbType>
+          <Name>microGroupDescription</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <Sequence>false</Sequence>
+          <ForeignKey />
+          <Entity>true</Entity>
+        </Column>
+      </Columns>
+      <ExternalEntities />
+      <Selects>
+        <Operation>
+          <Name>GetMicroGroupById</Name>
+          <Description />
+          <Protected>false</Protected>
+          <Proxy>false</Proxy>
+          <MultiEntity>false</MultiEntity>
+          <ObjectWs>false</ObjectWs>
+          <Obsolete>false</Obsolete>
+          <BdMethod>true</BdMethod>
+          <OutParameters>false</OutParameters>
+          <MultiDatabase>true</MultiDatabase>
+          <Params>
+            <ColumnID>SIGLA</ColumnID>
+            <ColumnID>DESCRICAO</ColumnID>
+          </Params>
+          <Function>
+            <Function />
+            <Function />
+          </Function>
+          <ExtraParameters />
+        </Operation>
+      </Selects>
+      <Inserts />
+      <Updates />
+      <Deletes />
+    </Table>
+    <Table>
+      <Name>ER_MICRORGANISMO</Name>
+      <ItemName>MicroName</ItemName>
+      <ConnectionString>server=hsdev;uid=eresults_v2_new;pwd=secure;</ConnectionString>
+      <Owner>ERESULTS_V2_NEW</Owner>
+      <DateCreated>2009-04-03T16:29:01</DateCreated>
+      <DbType>OracleNativeSchemaProvider (using System.Data.OracleClient namespace)</DbType>
+      <IgnorePk>false</IgnorePk>
+      <LoadedProperties>false</LoadedProperties>
+      <Cache>false</Cache>
+      <CacheMode>Entidade</CacheMode>
+      <CreateData>true</CreateData>
+      <CreateDataInherits>true</CreateDataInherits>
+      <DataInherits />
+      <Data>C:\LOCAL\eResultsV2\Cpchs.Eresults.Services\Cpchs.Eresults.Common.WCF\Cpchs.Eresults.Common.WCF\BusinessEntities\Activities\Codification</Data>
+      <Columns>
+        <Column ID="MICRORGANISMO_ID">
+          <Type>long</Type>
+          <DbType>number</DbType>
+          <Name>microNameId</Name>
+          <PrimaryKey>true</PrimaryKey>
+          <Sequence>false</Sequence>
+          <SequenceName />
+          <ForeignKey />
+          <Entity>true</Entity>
+        </Column>
+        <Column ID="CODIGO">
+          <Type>string</Type>
+          <DbType>varchar2(20)</DbType>
+          <Name>microNameCode</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <Sequence>false</Sequence>
+          <ForeignKey />
+          <Entity>true</Entity>
+        </Column>
+        <Column ID="SIGLA">
+          <Type>string</Type>
+          <DbType>varchar2(20)</DbType>
+          <Name>microNameAcronym</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <Sequence>false</Sequence>
+          <ForeignKey />
+          <Entity>true</Entity>
+        </Column>
+        <Column ID="DESCRICAO">
+          <Type>string</Type>
+          <DbType>varchar2(200)</DbType>
+          <Name>microNameDescription</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <Sequence>false</Sequence>
+          <ForeignKey />
+          <Entity>true</Entity>
+        </Column>
+      </Columns>
+      <ExternalEntities />
+      <Selects>
+        <Operation>
+          <Name>GetMicroNameById</Name>
+          <Description />
+          <Protected>false</Protected>
+          <Proxy>false</Proxy>
+          <MultiEntity>false</MultiEntity>
+          <ObjectWs>false</ObjectWs>
+          <Obsolete>false</Obsolete>
+          <BdMethod>true</BdMethod>
+          <OutParameters>false</OutParameters>
+          <MultiDatabase>true</MultiDatabase>
+          <Params>
+            <ColumnID>SIGLA</ColumnID>
+            <ColumnID>DESCRICAO</ColumnID>
+          </Params>
+          <Function>
+            <Function />
+            <Function />
+          </Function>
+          <ExtraParameters />
+        </Operation>
+      </Selects>
+      <Inserts />
+      <Updates />
+      <Deletes />
+    </Table>
+    <Table>
+      <Name>ER_ANTIBIOTICO</Name>
+      <ItemName>AntibName</ItemName>
+      <ConnectionString>server=hsdev;uid=eresults_v2_new;pwd=secure;</ConnectionString>
+      <Owner>ERESULTS_V2_NEW</Owner>
+      <DateCreated>2009-04-03T16:28:53</DateCreated>
+      <DbType>OracleNativeSchemaProvider (using System.Data.OracleClient namespace)</DbType>
+      <IgnorePk>false</IgnorePk>
+      <LoadedProperties>false</LoadedProperties>
+      <Cache>false</Cache>
+      <CacheMode>Entidade</CacheMode>
+      <CreateData>true</CreateData>
+      <CreateDataInherits>true</CreateDataInherits>
+      <DataInherits />
+      <Data>C:\LOCAL\eResultsV2\Cpchs.Eresults.Services\Cpchs.Eresults.Common.WCF\Cpchs.Eresults.Common.WCF\BusinessEntities\Activities\Codification</Data>
+      <Columns>
+        <Column ID="ANTIBIOTICO_ID">
+          <Type>long</Type>
+          <DbType>number</DbType>
+          <Name>antibNameId</Name>
+          <PrimaryKey>true</PrimaryKey>
+          <ForeignKey />
+          <Entity>true</Entity>
+        </Column>
+        <Column ID="CODIGO">
+          <Type>string</Type>
+          <DbType>varchar2(20)</DbType>
+          <Name>antibNameCode</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <Sequence>false</Sequence>
+          <ForeignKey />
+          <Entity>true</Entity>
+        </Column>
+        <Column ID="SIGLA">
+          <Type>string</Type>
+          <DbType>varchar2(20)</DbType>
+          <Name>antibNameAcronym</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <Sequence>false</Sequence>
+          <ForeignKey />
+          <Entity>true</Entity>
+        </Column>
+        <Column ID="DESCRICAO">
+          <Type>string</Type>
+          <DbType>varchar2(200)</DbType>
+          <Name>antibnameDescription</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <Sequence>false</Sequence>
+          <ForeignKey />
+          <Entity>true</Entity>
+        </Column>
+      </Columns>
+      <ExternalEntities />
+      <Selects>
+        <Operation>
+          <Name>GetAntibNameById</Name>
+          <Description />
+          <Protected>false</Protected>
+          <Proxy>false</Proxy>
+          <MultiEntity>false</MultiEntity>
+          <ObjectWs>false</ObjectWs>
+          <Obsolete>false</Obsolete>
+          <BdMethod>true</BdMethod>
+          <OutParameters>false</OutParameters>
+          <MultiDatabase>true</MultiDatabase>
+          <Params>
+            <ColumnID>SIGLA</ColumnID>
+            <ColumnID>DESCRICAO</ColumnID>
+          </Params>
+          <Function>
+            <Function />
+            <Function />
+          </Function>
+          <ExtraParameters />
+        </Operation>
+      </Selects>
+      <Inserts />
+      <Updates />
+      <Deletes />
+    </Table>
+  </Tables>
+</BussinessEntity>

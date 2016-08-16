@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{889944D0-9510-4609-9DC1-BBBB5BDC00A0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Glintths.Er.Interop</RootNamespace>
+    <AssemblyName>Glintths.Er.Interop</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CPCHS.Common.BusinessEntities">
+      <HintPath>..\..\ExternalAssemblies\Cpchs.Common\CPCHS.Common.BusinessEntities.dll</HintPath>
+    </Reference>
+    <Reference Include="Cpchs.Modules.Logging.TraceListener">
+      <HintPath>..\..\ExternalAssemblies\Cpchs.Modules\Cpchs.Modules.Logging.TraceListener.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Data\Generated\Computer.cs" />
+    <Compile Include="Data\Generated\Computers.cs" />
+    <Compile Include="Data\Generated\ComputersList.cs" />
+    <Compile Include="Data\Generated\Context.cs" />
+    <Compile Include="Data\Generated\ContextList.cs" />
+    <Compile Include="Data\Generated\Contexts.cs" />
+    <Compile Include="Data\Generated\Job.cs" />
+    <Compile Include="Data\Generated\JobErrorLog.cs" />
+    <Compile Include="Data\Generated\JobInfo.cs" />
+    <Compile Include="Data\Generated\JobInfoList.cs" />
+    <Compile Include="Data\Generated\JobList.cs" />
+    <Compile Include="Data\Generated\Jobs.cs" />
+    <Compile Include="Data\Generated\JobsInfo.cs" />
+    <Compile Include="Data\Generated\Status.cs" />
+    <Compile Include="Data\Generated\StatusC.cs" />
+    <Compile Include="Data\Generated\StatusList.cs" />
+    <Compile Include="Implementation\ClinicalProcessInteropWs.cs" />
+    <Compile Include="Implementation\Generated\ClinicalProcessInteropWs.cs" />
+    <Compile Include="Implementation\Generated\McdtsInteropWs.cs" />
+    <Compile Include="Implementation\McdtsInteropWs.cs" />
+    <Compile Include="Implementation\Translators\TranslateBetweenComputerAndVideoProcessorClient.cs" />
+    <Compile Include="Implementation\Translators\TranslateBetweenVideoProcessorContextAndContext.cs" />
+    <Compile Include="Implementation\Translators\TranslateBetweenVideoProcessorJobInfoAndJobInfo.cs" />
+    <Compile Include="Implementation\Translators\TranslateBetweenVideoProcessorJobStateAndJob.cs" />
+    <Compile Include="Implementation\Translators\TranslateBetweenVideoProcessorStatusAndStatus.cs" />
+    <Compile Include="Message\Generated\ComputerRegisterRequest.cs" />
+    <Compile Include="Message\Generated\ComputerRegisterResponse.cs" />
+    <Compile Include="Message\Generated\ContestRegisterResponse.cs" />
+    <Compile Include="Message\Generated\ContextRegisterRequest.cs" />
+    <Compile Include="Message\Generated\GetAllComputersRequest.cs" />
+    <Compile Include="Message\Generated\GetAllComputersResponse.cs" />
+    <Compile Include="Message\Generated\GetAllContextsRequest.cs" />
+    <Compile Include="Message\Generated\GetAllContextsResponse.cs" />
+    <Compile Include="Message\Generated\GetAllStatusRequest.cs" />
+    <Compile Include="Message\Generated\GetAllStatusResponse.cs" />
+    <Compile Include="Message\Generated\GetComputerByIdRequest.cs" />
+    <Compile Include="Message\Generated\GetComputerByIdResponse.cs" />
+    <Compile Include="Message\Generated\GetContextByIdRequest.cs" />
+    <Compile Include="Message\Generated\GetContextByIdResponse.cs" />
+    <Compile Include="Message\Generated\GetContextByNameRequest.cs" />
+    <Compile Include="Message\Generated\GetContextByNameResponse.cs" />
+    <Compile Include="Message\Generated\GetIdByNameRequest.cs" />
+    <Compile Include="Message\Generated\GetIdByNameResponse.cs" />
+    <Compile Include="Message\Generated\GetJobInfoRequest.cs" />
+    <Compile Include="Message\Generated\GetJobInfoResponse.cs" />
+    <Compile Include="Message\Generated\GetWaitingJobsRequest.cs" />
+    <Compile Include="Message\Generated\GetWaitingJobsResponse.cs" />
+    <Compile Include="Message\Generated\JobRegisterRequest.cs" />
+    <Compile Include="Message\Generated\PerformActionsRequest.cs" />
+    <Compile Include="Message\Generated\PerformActionsResponse.cs" />
+    <Compile Include="Message\Generated\UpdateJobClientFileRequest.cs" />
+    <Compile Include="Message\Generated\UpdateJobClobRequest.cs" />
+    <Compile Include="Message\Generated\UpdateJobErrorLogRequest.cs" />
+    <Compile Include="Message\Generated\UpdateJobPercentageRequest.cs" />
+    <Compile Include="Message\Generated\UpdateJobStatusRequest.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\Generated\IClinicalProcessInteropSc.cs" />
+    <Compile Include="Service\Generated\IMcdtsInteropSc.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\BusinessLogic\Glintths.Er.Interop.BusinessLogic\Glintths.Er.Interop.BusinessLogic.csproj">
+      <Project>{5B42C954-FFC4-4469-9035-74ECECC1CAAE}</Project>
+      <Name>Glintths.Er.Interop.BusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Data\Glintths.Er.Common.Data\Glintths.Er.Common.Data.csproj">
+      <Project>{5D6F9E1A-DC75-4526-A7C7-90DD77672D7A}</Project>
+      <Name>Glintths.Er.Common.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

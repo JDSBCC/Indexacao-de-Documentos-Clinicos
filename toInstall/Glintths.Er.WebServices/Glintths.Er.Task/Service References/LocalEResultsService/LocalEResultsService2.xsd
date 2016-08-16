@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost/GlinttHS.API.Internal.WS/Local/eResults/LocalEResultsService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Glintths.Base.Internal.Entities.Common" />
+  <xs:import schemaLocation="http://localhost/GlinttHS.API.Internal.WS/Local/eResults/LocalEResultsService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Glintths.Base.Internal.Entities.Local.eResults" />
+  <xs:import schemaLocation="http://localhost/GlinttHS.API.Internal.WS/Local/eResults/LocalEResultsService.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://localhost/GlinttHS.API.Internal.WS/Local/eResults/LocalEResultsService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Glintths.Base.Internal.Entities.Local.UserManagement" />
+  <xs:element name="GetAccessProfiles">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Glintths.Base.Internal.Entities.Common" minOccurs="0" name="sessionContext" nillable="true" type="q1:SessionContext" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccessProfilesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Glintths.Base.Internal.Entities.Local.eResults" minOccurs="0" name="GetAccessProfilesResult" nillable="true" type="q2:ArrayOfLocalAccessProfile" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFacilities">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Glintths.Base.Internal.Entities.Common" minOccurs="0" name="sessionContext" nillable="true" type="q3:SessionContext" />
+        <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="deepProperties" nillable="true" type="q4:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFacilitiesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Glintths.Base.Internal.Entities.Local.eResults" minOccurs="0" name="GetFacilitiesResult" nillable="true" type="q5:ArrayOfLocalERFacility" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPlaces">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Glintths.Base.Internal.Entities.Common" minOccurs="0" name="sessionContext" nillable="true" type="q6:SessionContext" />
+        <xs:element minOccurs="0" name="facilityId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPlacesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Glintths.Base.Internal.Entities.Local.eResults" minOccurs="0" name="GetPlacesResult" nillable="true" type="q7:ArrayOfLocalERPlace" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetServices">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Glintths.Base.Internal.Entities.Common" minOccurs="0" name="sessionContext" nillable="true" type="q8:SessionContext" />
+        <xs:element minOccurs="0" name="facilityId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="placeId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetServicesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Glintths.Base.Internal.Entities.Local.eResults" minOccurs="0" name="GetServicesResult" nillable="true" type="q9:ArrayOfLocalERService" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchServices">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Glintths.Base.Internal.Entities.Common" minOccurs="0" name="sessionContext" nillable="true" type="q10:SessionContext" />
+        <xs:element minOccurs="0" name="searchString" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="facilityId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="placeId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchServicesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Glintths.Base.Internal.Entities.Local.eResults" minOccurs="0" name="SearchServicesResult" nillable="true" type="q11:ArrayOfLocalERService" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserInformation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Glintths.Base.Internal.Entities.Common" minOccurs="0" name="sessionContext" nillable="true" type="q12:SessionContext" />
+        <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserInformationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Glintths.Base.Internal.Entities.Local.eResults" minOccurs="0" name="GetUserInformationResult" nillable="true" type="q13:LocalERUser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchUsers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Glintths.Base.Internal.Entities.Common" minOccurs="0" name="sessionContext" nillable="true" type="q14:SessionContext" />
+        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="externalId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="moduleId" nillable="true" type="xs:string" />
+        <xs:element xmlns:q15="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="profileIds" nillable="true" type="q15:ArrayOfstring" />
+        <xs:element minOccurs="0" name="accessProfilesId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="facilityId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="placeId" nillable="true" type="xs:string" />
+        <xs:element xmlns:q16="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="serviceIds" nillable="true" type="q16:ArrayOfstring" />
+        <xs:element minOccurs="0" name="companyName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="moduleName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchUsersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Glintths.Base.Internal.Entities.Local.UserManagement" minOccurs="0" name="SearchUsersResult" nillable="true" type="q17:ArrayOfLocalUser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetApplications">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Glintths.Base.Internal.Entities.Common" minOccurs="0" name="sessionContext" nillable="true" type="q18:SessionContext" />
+        <xs:element xmlns:q19="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="deepProperties" nillable="true" type="q19:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetApplicationsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/Glintths.Base.Internal.Entities.Local.eResults" minOccurs="0" name="GetApplicationsResult" nillable="true" type="q20:ArrayOfLocalERApplication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPatientTypes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/Glintths.Base.Internal.Entities.Common" minOccurs="0" name="sessionContext" nillable="true" type="q21:SessionContext" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPatientTypesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/Glintths.Base.Internal.Entities.Local.eResults" minOccurs="0" name="GetPatientTypesResult" nillable="true" type="q22:ArrayOfLocalERPatientType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddNewUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/Glintths.Base.Internal.Entities.Common" minOccurs="0" name="sessionContext" nillable="true" type="q23:SessionContext" />
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/Glintths.Base.Internal.Entities.Local.UserManagement" minOccurs="0" name="user" nillable="true" type="q24:LocalUser" />
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/Glintths.Base.Internal.Entities.Local.eResults" minOccurs="0" name="erUser" nillable="true" type="q25:LocalERUser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddNewUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/Glintths.Base.Internal.Entities.Local.UserManagement" minOccurs="0" name="AddNewUserResult" nillable="true" type="q26:LocalUser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/Glintths.Base.Internal.Entities.Common" minOccurs="0" name="sessionContext" nillable="true" type="q27:SessionContext" />
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/Glintths.Base.Internal.Entities.Local.UserManagement" minOccurs="0" name="user" nillable="true" type="q28:LocalUser" />
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/Glintths.Base.Internal.Entities.Local.eResults" minOccurs="0" name="erUser" nillable="true" type="q29:LocalERUser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/Glintths.Base.Internal.Entities.Local.UserManagement" minOccurs="0" name="UpdateUserResult" nillable="true" type="q30:LocalUser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetConfigurationsByAmbit">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/Glintths.Base.Internal.Entities.Common" minOccurs="0" name="sessionContext" nillable="true" type="q31:SessionContext" />
+        <xs:element minOccurs="0" name="key" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetConfigurationsByAmbitResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/Glintths.Base.Internal.Entities.Local.eResults" minOccurs="0" name="GetConfigurationsByAmbitResult" nillable="true" type="q32:ArrayOfLocalERConfig" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ManageJobs">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/Glintths.Base.Internal.Entities.Common" minOccurs="0" name="sessionContext" nillable="true" type="q33:SessionContext" />
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/Glintths.Base.Internal.Entities.Local.eResults" minOccurs="0" name="LocalJobList" nillable="true" type="q34:ArrayOfLocalERJob" />
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/Glintths.Base.Internal.Entities.Local.eResults" minOccurs="0" name="documentList" nillable="true" type="q35:ArrayOfLocalERApplication" />
+        <xs:element minOccurs="0" name="Startdate" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="FinalDate" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="state" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ManageJobsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/Glintths.Base.Internal.Entities.Local.eResults" minOccurs="0" name="ManageJobsResult" nillable="true" type="q36:ArrayOfLocalERJob" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetJobs">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/Glintths.Base.Internal.Entities.Common" minOccurs="0" name="sessionContext" nillable="true" type="q37:SessionContext" />
+        <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetJobsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/Glintths.Base.Internal.Entities.Local.eResults" minOccurs="0" name="GetJobsResult" nillable="true" type="q38:ArrayOfLocalERJob" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetJobsByState">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/Glintths.Base.Internal.Entities.Common" minOccurs="0" name="sessionContext" nillable="true" type="q39:SessionContext" />
+        <xs:element minOccurs="0" name="StateFilter" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetJobsByStateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/Glintths.Base.Internal.Entities.Local.eResults" minOccurs="0" name="GetJobsByStateResult" nillable="true" type="q40:ArrayOfLocalERJob" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetJobState">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/Glintths.Base.Internal.Entities.Common" minOccurs="0" name="sessionContext" nillable="true" type="q41:SessionContext" />
+        <xs:element minOccurs="0" name="JobId" type="xs:long" />
+        <xs:element minOccurs="0" name="State" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetJobStateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SetJobStateResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetBatchJobState">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/Glintths.Base.Internal.Entities.Common" minOccurs="0" name="sessionContext" nillable="true" type="q42:SessionContext" />
+        <xs:element xmlns:q43="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="JobId" nillable="true" type="q43:ArrayOflong" />
+        <xs:element minOccurs="0" name="State" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetBatchJobStateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SetBatchJobStateResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetJobUrl">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/Glintths.Base.Internal.Entities.Common" minOccurs="0" name="sessionContext" nillable="true" type="q44:SessionContext" />
+        <xs:element minOccurs="0" name="JobId" type="xs:long" />
+        <xs:element minOccurs="0" name="url" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetJobUrlResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SetJobUrlResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetJobMsgError">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/Glintths.Base.Internal.Entities.Common" minOccurs="0" name="sessionContext" nillable="true" type="q45:SessionContext" />
+        <xs:element minOccurs="0" name="JobId" type="xs:long" />
+        <xs:element minOccurs="0" name="msgError" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetJobMsgErrorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SetJobMsgErrorResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

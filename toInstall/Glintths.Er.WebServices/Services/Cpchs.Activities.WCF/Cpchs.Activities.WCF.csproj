@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F56E86EE-7CD3-4054-AB48-8F02C25C1210}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Cpchs.Activities.WCF</RootNamespace>
+    <AssemblyName>Cpchs.Activities.WCF</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CPCHS.Common.BusinessEntities">
+      <HintPath>..\..\ExternalAssemblies\Cpchs.Common\CPCHS.Common.BusinessEntities.dll</HintPath>
+    </Reference>
+    <Reference Include="Cpchs.Modules.Logging.TraceListener">
+      <HintPath>..\..\ExternalAssemblies\Cpchs.Modules\Cpchs.Modules.Logging.TraceListener.dll</HintPath>
+    </Reference>
+    <Reference Include="EntLibContrib.Data.OdpNet">
+      <HintPath>..\..\ExternalAssemblies\EntLib\EntLibContrib.Data.OdpNet.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Logging">
+      <HintPath>..\..\ExternalAssemblies\Microsoft.Practices.EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Data\Generated\Alphanum.cs" />
+    <Compile Include="Data\Generated\AlphanumResults.cs" />
+    <Compile Include="Data\Generated\Antib.cs" />
+    <Compile Include="Data\Generated\AntibResults.cs" />
+    <Compile Include="Data\Generated\Exam.cs" />
+    <Compile Include="Data\Generated\ExamList.cs" />
+    <Compile Include="Data\Generated\Exams.cs" />
+    <Compile Include="Data\Generated\Attach.cs" />
+    <Compile Include="Data\Generated\AttachResults.cs" />
+    <Compile Include="Data\Generated\Micro.cs" />
+    <Compile Include="Data\Generated\MicroResults.cs" />
+    <Compile Include="Data\Generated\Note.cs" />
+    <Compile Include="Data\Generated\Notes.cs" />
+    <Compile Include="Fault\Generated\NoExam.cs" />
+    <Compile Include="Implementation\TranslateBetweenAttachResAndAttach.cs" />
+    <Compile Include="Implementation\ExamsManagementWS.cs" />
+    <Compile Include="Implementation\Generated\ExamsManagementWS.cs" />
+    <Compile Include="Implementation\TranslateBetweenAlphanumResAndAlphanum.cs" />
+    <Compile Include="Implementation\TranslateBetweenAnaResAndExam.cs" />
+    <Compile Include="Implementation\TranslateBetweenAntibResAndAntib.cs" />
+    <Compile Include="Implementation\TranslateBetweenMicroResAndMicro.cs" />
+    <Compile Include="Implementation\TranslateBetweenNoteBEAndNoteDC.cs" />
+    <Compile Include="Message\Generated\GetExamsByDocumentIdRequest.cs" />
+    <Compile Include="Message\Generated\GetExamsByDocumentIdResponse.cs" />
+    <Compile Include="Message\Generated\GetPatientExamsMultiRequest.cs" />
+    <Compile Include="Message\Generated\GetPatientExamsMultiResponse.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\Generated\IExamsManagementSC.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\BusinessLogic\Glintths.Activities.WCF.BusinessLogic\Glintths.Activities.WCF.BusinessLogic.csproj">
+      <Project>{7D7FABA8-C234-4027-8E85-BEDF975A397A}</Project>
+      <Name>Glintths.Activities.WCF.BusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Data\Glintths.Er.Common.Data\Glintths.Er.Common.Data.csproj">
+      <Project>{5D6F9E1A-DC75-4526-A7C7-90DD77672D7A}</Project>
+      <Name>Glintths.Er.Common.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

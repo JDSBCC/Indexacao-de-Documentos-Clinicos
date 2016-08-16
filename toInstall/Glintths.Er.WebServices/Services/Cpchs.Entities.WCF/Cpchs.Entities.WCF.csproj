@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{93B1ED63-EEF4-4D43-B213-1B01B619B86B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Cpchs.Entities.WCF</RootNamespace>
+    <AssemblyName>Cpchs.Entities.WCF</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CPCHS.Common.BusinessEntities">
+      <HintPath>..\..\ExternalAssemblies\Cpchs.Common\CPCHS.Common.BusinessEntities.dll</HintPath>
+    </Reference>
+    <Reference Include="Cpchs.Modules.Logging.TraceListener">
+      <HintPath>..\..\ExternalAssemblies\Cpchs.Modules\Cpchs.Modules.Logging.TraceListener.dll</HintPath>
+    </Reference>
+    <Reference Include="EntLibContrib.Data.OdpNet">
+      <HintPath>..\..\ExternalAssemblies\EntLib\EntLibContrib.Data.OdpNet.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Logging">
+      <HintPath>..\..\ExternalAssemblies\Microsoft.Practices.EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Data\Generated\AlertListSearchCriteria.cs" />
+    <Compile Include="Data\Generated\AlertType.cs" />
+    <Compile Include="Data\Generated\AlertTypeCollection.cs" />
+    <Compile Include="Data\Generated\Application.cs" />
+    <Compile Include="Data\Generated\ApplicationCollection.cs" />
+    <Compile Include="Data\Generated\Applications.cs" />
+    <Compile Include="Data\Generated\BaseConfiguration.cs" />
+    <Compile Include="Data\Generated\DocumentLogSearchCriteria.cs" />
+    <Compile Include="Data\Generated\DocumentType.cs" />
+    <Compile Include="Data\Generated\DocumentTypeCollection.cs" />
+    <Compile Include="Data\Generated\EpisodeType.cs" />
+    <Compile Include="Data\Generated\EpisodeTypeCollection.cs" />
+    <Compile Include="Data\Generated\FiltersData.cs" />
+    <Compile Include="Data\Generated\Gender.cs" />
+    <Compile Include="Data\Generated\GenderCollection.cs" />
+    <Compile Include="Data\Generated\HospitalStaff.cs" />
+    <Compile Include="Data\Generated\HospitalStaffList.cs" />
+    <Compile Include="Data\Generated\Institution.cs" />
+    <Compile Include="Data\Generated\InstitutionCollection.cs" />
+    <Compile Include="Data\Generated\InstitutionList.cs" />
+    <Compile Include="Data\Generated\LocalPatient.cs" />
+    <Compile Include="Data\Generated\LocalPatientCollection.cs" />
+    <Compile Include="Data\Generated\MaritalStatus.cs" />
+    <Compile Include="Data\Generated\MyNode.cs" />
+    <Compile Include="Data\Generated\MyNodeCollection.cs" />
+    <Compile Include="Data\Generated\MyNodes.cs" />
+    <Compile Include="Data\Generated\OrderTypeEnum.cs" />
+    <Compile Include="Data\Generated\PaginationRequest.cs" />
+    <Compile Include="Data\Generated\PaginationResponse.cs" />
+    <Compile Include="Data\Generated\Patient.cs" />
+    <Compile Include="Data\Generated\PatientCollection.cs" />
+    <Compile Include="Data\Generated\PatientEpisode.cs" />
+    <Compile Include="Data\Generated\PatientEpisodeCollection.cs" />
+    <Compile Include="Data\Generated\PatientEpisodes.cs" />
+    <Compile Include="Data\Generated\Patients.cs" />
+    <Compile Include="Data\Generated\PatientType.cs" />
+    <Compile Include="Data\Generated\PatientTypeCollection.cs" />
+    <Compile Include="Data\Generated\Place.cs" />
+    <Compile Include="Data\Generated\PlaceCollection.cs" />
+    <Compile Include="Data\Generated\Places.cs" />
+    <Compile Include="Data\Generated\Service.cs" />
+    <Compile Include="Data\Generated\ServiceCollection.cs" />
+    <Compile Include="Data\Generated\Services.cs" />
+    <Compile Include="Data\Generated\State.cs" />
+    <Compile Include="Data\Generated\StateCollection.cs" />
+    <Compile Include="Message\GetEpisodeTypeByCodeRequest.cs" />
+    <Compile Include="Message\GetEpisodeTypeByCodeResponse.cs" />
+    <Compile Include="Fault\Generated\DocTypeTreeError.cs" />
+    <Compile Include="Fault\Generated\OperationCouldNotBePerformed.cs" />
+    <Compile Include="Fault\Generated\PatientNotFound.cs" />
+    <Compile Include="Fault\Generated\SearchFiltersDataError.cs" />
+    <Compile Include="Fault\Generated\ServiceEmpty.cs" />
+    <Compile Include="Implementation\EntitiesManagementWs.cs" />
+    <Compile Include="Implementation\Generated\EntitiesManagementWs.cs" />
+    <Compile Include="Implementation\Generated\HospitalStaffManagementWs.cs" />
+    <Compile Include="Implementation\Generated\TranslateBetweenApplicationBEAndApplicationDC.cs" />
+    <Compile Include="Implementation\Generated\TranslateBetweenEpisodeTypeBEAndEpisodeTypeDC.cs" />
+    <Compile Include="Implementation\Generated\TranslateBetweenGenderBEAndGenderDC.cs" />
+    <Compile Include="Implementation\Generated\TranslateBetweenInstitutionBEAndInstitutionDC.cs" />
+    <Compile Include="Implementation\Generated\TranslateBetweenMaritalStatusBEAndMaritalStatusDC.cs" />
+    <Compile Include="Implementation\Generated\TranslateBetweenPatientTypeBEAndPatientTypeDC.cs" />
+    <Compile Include="Implementation\Generated\TranslateBetweenServiceBEAndServiceDC.cs" />
+    <Compile Include="Implementation\Generated\TranslateBetweenVisitBeAndPatientEpisodeDC.cs" />
+    <Compile Include="Implementation\HospitalStaffManagementWs.cs" />
+    <Compile Include="Implementation\TranslateBetweenAlertTypeBEAndAlertTypeDC.cs" />
+    <Compile Include="Implementation\TranslateBetweenAlertTypeListAndAlertTypeCollection.cs" />
+    <Compile Include="Implementation\TranslateBetweenApplicationBEAndMyNodeDC.cs" />
+    <Compile Include="Implementation\TranslateBetweenApplicationListAndApplicationCollection.cs" />
+    <Compile Include="Implementation\TranslateBetweenApplicationListAndMyNodeCollection.cs" />
+    <Compile Include="Implementation\TranslateBetweenDocumentListAndDocumentCollection.cs" />
+    <Compile Include="Implementation\TranslateBetweenDocumentTypeBEAndDocumentTypeDC.cs" />
+    <Compile Include="Implementation\TranslateBetweenDocumentTypeBEAndMyNodeDC.cs" />
+    <Compile Include="Implementation\TranslateBetweenDocumentTypeListAndMyNodeCollection.cs" />
+    <Compile Include="Implementation\TranslateBetweenEpisodeTypeListAndEpisodeTypeCollection.cs" />
+    <Compile Include="Implementation\TranslateBetweenExternalEpisodesListBEAndPatientEpisodesDC.cs" />
+    <Compile Include="Implementation\TranslateBetweenExternalPatientBEAndPatientDC.cs" />
+    <Compile Include="Implementation\TranslateBetweenExternalPatientListBEAndPatientListDC.cs" />
+    <Compile Include="Implementation\TranslateBetweenGenderListAndGenderCollection.cs" />
+    <Compile Include="Implementation\TranslateBetweenHospitalStaffAndHospitalStaff.cs" />
+    <Compile Include="Implementation\TranslateBetweenInstitutionBEAndMyNodeDC.cs" />
+    <Compile Include="Implementation\TranslateBetweenInstitutionListAndInstitutionCollection.cs" />
+    <Compile Include="Implementation\TranslateBetweenInstitutionListAndMyNodeCollection.cs" />
+    <Compile Include="Implementation\TranslateBetweenLocalPatientBEAndLocalPatientDC.cs" />
+    <Compile Include="Implementation\TranslateBetweenLocalPatientListAndLocalPatientCollection.cs" />
+    <Compile Include="Implementation\TranslateBetweenPatientBEAndPatientDC.cs" />
+    <Compile Include="Implementation\TranslateBetweenPatientTypeListAndPatientTypeCollection.cs" />
+    <Compile Include="Implementation\TranslateBetweenPlaceBEAndMyNodeDC.cs" />
+    <Compile Include="Implementation\TranslateBetweenPlaceBEAndPlaceDC.cs" />
+    <Compile Include="Implementation\TranslateBetweenPlaceListAndMyNodeCollection.cs" />
+    <Compile Include="Implementation\TranslateBetweenPlaceListAndPlaceCollection.cs" />
+    <Compile Include="Implementation\TranslateBetweenServiceListAndServiceCollection.cs" />
+    <Compile Include="Implementation\TranslateBetweenStateBEAndStateDC.cs" />
+    <Compile Include="Implementation\TranslateBetweenStateListAndStateCollection.cs" />
+    <Compile Include="Message\Generated\CheckUserSettingsRequest.cs" />
+    <Compile Include="Message\Generated\CheckUserSettingsResponse.cs" />
+    <Compile Include="Message\Generated\GetAllHospitalStaffRequest.cs" />
+    <Compile Include="Message\Generated\GetAllHospitalStaffResponse.cs" />
+    <Compile Include="Message\Generated\GetDocTypesTreeForFiltersRequest.cs" />
+    <Compile Include="Message\Generated\GetDocTypesTreeForFiltersResponse.cs" />
+    <Compile Include="Message\Generated\GetHospitalStaffByTypeRequest.cs" />
+    <Compile Include="Message\Generated\GetHospitalStaffByTypeResponse.cs" />
+    <Compile Include="Message\Generated\GetHospitalStaffByUsernameRequest.cs" />
+    <Compile Include="Message\Generated\GetHospitalStaffByUsernameResponse.cs" />
+    <Compile Include="Message\Generated\GetPatientEpisodesFromExternalProviderRequest.cs" />
+    <Compile Include="Message\Generated\GetPatientEpisodesFromExternalProviderResponse.cs" />
+    <Compile Include="Message\Generated\GetPatientsFromExternalProviderRequest.cs" />
+    <Compile Include="Message\Generated\GetPatientsFromExternalProviderResponse.cs" />
+    <Compile Include="Message\Generated\GetSearchFiltersDataRequest.cs" />
+    <Compile Include="Message\Generated\GetSearchFiltersDataResponse.cs" />
+    <Compile Include="Message\Generated\GetSearchFiltersDataV3Request.cs" />
+    <Compile Include="Message\Generated\GetSearchFiltersDataV3Response.cs" />
+    <Compile Include="Message\Generated\GetSearchFiltersDataV4Request.cs" />
+    <Compile Include="Message\Generated\GetSearchFiltersDataV4Response.cs" />
+    <Compile Include="Message\Generated\GetServicesForFiltersRequest.cs" />
+    <Compile Include="Message\Generated\GetServicesForFiltersResponse.cs" />
+    <Compile Include="Message\Generated\SetHospitalStaffUserRequest.cs" />
+    <Compile Include="Message\Generated\SimplePatientFindRequest.cs" />
+    <Compile Include="Message\Generated\SimplePatientFindResponse.cs" />
+    <Compile Include="Message\GetPatienstBySpecsRequest.cs" />
+    <Compile Include="Message\GetPatientsBySpecsResponse.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\Generated\IEntitiesManagementWsContract.cs" />
+    <Compile Include="Service\Generated\IHospitalStaffManagementSc.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\..\BusinessLogic\Glintths.Entities.WCF.BusinessLogic\Glintths.Entities.WCF.BusinessLogic.csproj">
+      <Project>{2C8728FA-02C6-48DA-A1D6-4CB394AE87FB}</Project>
+      <Name>Glintths.Entities.WCF.BusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Data\Glintths.Er.Common.Data\Glintths.Er.Common.Data.csproj">
+      <Project>{5D6F9E1A-DC75-4526-A7C7-90DD77672D7A}</Project>
+      <Name>Glintths.Er.Common.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

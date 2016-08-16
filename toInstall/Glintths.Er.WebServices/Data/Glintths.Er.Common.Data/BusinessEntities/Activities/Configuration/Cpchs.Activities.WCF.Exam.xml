@@ -1,0 +1,1722 @@
+<?xml version="1.0"?>
+<BussinessEntity xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Output>
+    <Namespace>Cpchs.Eresults.Common.WCF</Namespace>
+    <PckName>ER_ANA_RES</PckName>
+    <WSNamespace>AnaResMgrWS</WSNamespace>
+    <ItemName>AnaResMgr</ItemName>
+    <Wse>true</Wse>
+    <CreateDatabase>false</CreateDatabase>
+    <Database />
+    <CreateTest>false</CreateTest>
+    <Test />
+    <CreateBussinessRules>true</CreateBussinessRules>
+    <CreateBussinessRulesInherits>false</CreateBussinessRulesInherits>
+    <BussinessRules>C:\ERESULTS\12R101\Cpchs.Eresults.Services\Cpchs.Eresults.Common.WCF\Cpchs.Eresults.Common.WCF\BusinessEntities\Activities\AnaRes</BussinessRules>
+    <CreateWebService>false</CreateWebService>
+    <CreateWebServiceInherits>false</CreateWebServiceInherits>
+    <WebService />
+    <CreateProxy>false</CreateProxy>
+    <CreateProxyInherits>false</CreateProxyInherits>
+    <Proxy />
+    <FolderBase />
+    <FolderSolution />
+    <FolderBER />
+    <Module>AnaRes</Module>
+  </Output>
+  <Tables>
+    <Table>
+      <Name>ER_RES_ALFANUM</Name>
+      <ItemName>AlphanumRes</ItemName>
+      <ConnectionString>server=hsdev;uid=eresults_v2;pwd=eresults_v2</ConnectionString>
+      <Owner>ERESULTS_V2</Owner>
+      <DateCreated>2012-01-17T15:08:48</DateCreated>
+      <DbType>OracleNativeSchemaProvider (using System.Data.OracleClient namespace)</DbType>
+      <IgnorePk>false</IgnorePk>
+      <LoadedProperties>false</LoadedProperties>
+      <Cache>false</Cache>
+      <CacheMode>Entidade</CacheMode>
+      <CreateData>true</CreateData>
+      <CreateDataInherits>false</CreateDataInherits>
+      <DataInherits />
+      <Data>C:\ERESULTS\12R101\Cpchs.Eresults.Services\Cpchs.Eresults.Common.WCF\Cpchs.Eresults.Common.WCF\BusinessEntities\Activities\AnaRes</Data>
+      <Columns>
+        <Column ID="RES_ALFANUM_ID">
+          <Type>long</Type>
+          <DbType>number</DbType>
+          <Name>id</Name>
+          <PrimaryKey>true</PrimaryKey>
+          <Sequence>true</Sequence>
+          <SequenceName>ER_RES_ALFANUM</SequenceName>
+          <ForeignKey />
+          <Entity>true</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="RES_ANA_ID">
+          <Type>long</Type>
+          <DbType>number</DbType>
+          <Name>anaResId</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <Sequence>false</Sequence>
+          <ForeignKey>ER_RES_ANA.RES_ANA_ID</ForeignKey>
+          <Entity>true</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="RES">
+          <Type>string</Type>
+          <DbType>varchar2(2048)</DbType>
+          <Name>res</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <Sequence>false</Sequence>
+          <ForeignKey />
+          <Entity>true</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="UNID">
+          <Type>string</Type>
+          <DbType>varchar2(128)</DbType>
+          <Name>unid</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <Sequence>false</Sequence>
+          <ForeignKey />
+          <Entity>true</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="VR_INF">
+          <Type>long</Type>
+          <DbType>number</DbType>
+          <Name>rvInf</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <Sequence>false</Sequence>
+          <ForeignKey />
+          <Entity>true</Entity>
+          <Nullable>true</Nullable>
+          <OverrideType>double</OverrideType>
+        </Column>
+        <Column ID="VR_SUP">
+          <Type>long</Type>
+          <DbType>number</DbType>
+          <Name>rvSup</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <Sequence>false</Sequence>
+          <ForeignKey />
+          <Entity>true</Entity>
+          <Nullable>true</Nullable>
+          <OverrideType>double</OverrideType>
+        </Column>
+        <Column ID="VR_TEX">
+          <Type>string</Type>
+          <DbType>varchar2(128)</DbType>
+          <Name>rvText</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <Sequence>false</Sequence>
+          <ForeignKey />
+          <Entity>true</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="RES_ORD">
+          <Type>long</Type>
+          <DbType>number</DbType>
+          <Name>resOrder</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <Sequence>false</Sequence>
+          <ForeignKey />
+          <Entity>true</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="DT_VAL">
+          <Type>DateTime</Type>
+          <DbType>date</DbType>
+          <Name>DT_VAL</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <Sequence>false</Sequence>
+          <ForeignKey />
+          <Entity>false</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="DT_CRI">
+          <Type>DateTime</Type>
+          <DbType>date</DbType>
+          <Name>DT_CRI</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <Sequence>false</Sequence>
+          <ForeignKey />
+          <Entity>false</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="USER_CRI">
+          <Type>string</Type>
+          <DbType>varchar2(128)</DbType>
+          <Name>USER_CRI</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <Sequence>false</Sequence>
+          <ForeignKey />
+          <Entity>false</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="DT_ACT">
+          <Type>DateTime</Type>
+          <DbType>date</DbType>
+          <Name>DT_ACT</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <Sequence>false</Sequence>
+          <ForeignKey />
+          <Entity>false</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="USER_ACT">
+          <Type>string</Type>
+          <DbType>varchar2(128)</DbType>
+          <Name>USER_ACT</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <Sequence>false</Sequence>
+          <ForeignKey />
+          <Entity>false</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+      </Columns>
+      <ExternalEntities>
+        <ExternalEntity>
+          <Namespace>Cpchs.Eresults.Common.WCF</Namespace>
+          <Type>NoteList</Type>
+          <EntityName>notes</EntityName>
+          <IsList>true</IsList>
+          <Instance>true</Instance>
+          <Load>false</Load>
+        </ExternalEntity>
+      </ExternalEntities>
+      <Selects>
+        <Operation>
+          <Name>GetAlphanumResByDocId</Name>
+          <Description />
+          <Protected>false</Protected>
+          <Proxy>false</Proxy>
+          <MultiEntity>true</MultiEntity>
+          <ObjectWs>false</ObjectWs>
+          <BdMethod>true</BdMethod>
+          <OutParameters>false</OutParameters>
+          <MultiDatabase>true</MultiDatabase>
+          <Params>
+            <ColumnID>RES_ALFANUM_ID</ColumnID>
+            <ColumnID>RES_ANA_ID</ColumnID>
+            <ColumnID>RES</ColumnID>
+            <ColumnID>UNID</ColumnID>
+            <ColumnID>VR_INF</ColumnID>
+            <ColumnID>VR_SUP</ColumnID>
+            <ColumnID>VR_TEX</ColumnID>
+            <ColumnID>RES_ORD</ColumnID>
+          </Params>
+          <Parameters>
+            <OperationParameter>
+              <Name>docId</Name>
+              <Type>long</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+          </Parameters>
+          <Function>
+            <Function />
+            <Function />
+            <Function />
+            <Function />
+            <Function />
+            <Function />
+            <Function />
+            <Function />
+          </Function>
+          <ExtraParameters />
+          <Obsolete>false</Obsolete>
+        </Operation>
+        <Operation>
+          <Name>GetAlphanumResByMultiCrit</Name>
+          <Description />
+          <Protected>false</Protected>
+          <Proxy>false</Proxy>
+          <MultiEntity>true</MultiEntity>
+          <ObjectWs>false</ObjectWs>
+          <BdMethod>true</BdMethod>
+          <OutParameters>false</OutParameters>
+          <MultiDatabase>true</MultiDatabase>
+          <Params>
+            <ColumnID>RES_ALFANUM_ID</ColumnID>
+            <ColumnID>RES_ANA_ID</ColumnID>
+            <ColumnID>RES</ColumnID>
+            <ColumnID>UNID</ColumnID>
+            <ColumnID>VR_INF</ColumnID>
+            <ColumnID>VR_SUP</ColumnID>
+            <ColumnID>VR_TEX</ColumnID>
+            <ColumnID>RES_ORD</ColumnID>
+          </Params>
+          <Parameters>
+            <OperationParameter>
+              <Name>entIds</Name>
+              <Type>string</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>epiTypeId</Name>
+              <Type>long?</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>epi</Name>
+              <Type>string</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>doc</Name>
+              <Type>string</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>extId</Name>
+              <Type>string</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>epiBeginDate</Name>
+              <Type>Nullable&lt;DateTime&gt;</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>epiEndDate</Name>
+              <Type>Nullable&lt;DateTime&gt;</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>docTypeId</Name>
+              <Type>long?</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>appId</Name>
+              <Type>long?</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>placeId</Name>
+              <Type>long?</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>instId</Name>
+              <Type>long?</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>docBeginDate</Name>
+              <Type>Nullable&lt;DateTime&gt;</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>docEndDate</Name>
+              <Type>Nullable&lt;DateTime&gt;</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>valBeginDate</Name>
+              <Type>Nullable&lt;DateTime&gt;</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>valEndDate</Name>
+              <Type>Nullable&lt;DateTime&gt;</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>globalFilters</Name>
+              <Type>string</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>docsSession</Name>
+              <Type>string</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>servsSession</Name>
+              <Type>string</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>username</Name>
+              <Type>string</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+          </Parameters>
+          <Function>
+            <Function />
+            <Function />
+            <Function />
+            <Function />
+            <Function />
+            <Function />
+            <Function />
+            <Function />
+          </Function>
+          <ExtraParameters />
+          <Obsolete>false</Obsolete>
+        </Operation>
+      </Selects>
+      <Inserts />
+      <Updates />
+      <Deletes />
+      <CustomOperations />
+    </Table>
+    <Table>
+      <Name>ER_RES_MICRO</Name>
+      <ItemName>MicroRes</ItemName>
+      <ConnectionString>server=hsdev;uid=eresults_v2;pwd=eresults_v2</ConnectionString>
+      <Owner>ERESULTS_V2</Owner>
+      <DateCreated>2012-01-17T15:08:49</DateCreated>
+      <DbType>OracleNativeSchemaProvider (using System.Data.OracleClient namespace)</DbType>
+      <IgnorePk>false</IgnorePk>
+      <LoadedProperties>false</LoadedProperties>
+      <Cache>false</Cache>
+      <CacheMode>Entidade</CacheMode>
+      <CreateData>true</CreateData>
+      <CreateDataInherits>false</CreateDataInherits>
+      <DataInherits />
+      <Data>C:\ERESULTS\12R101\Cpchs.Eresults.Services\Cpchs.Eresults.Common.WCF\Cpchs.Eresults.Common.WCF\BusinessEntities\Activities\AnaRes</Data>
+      <Columns>
+        <Column ID="RES_MICRO_ID">
+          <Type>long</Type>
+          <DbType>number</DbType>
+          <Name>id</Name>
+          <PrimaryKey>true</PrimaryKey>
+          <Sequence>true</Sequence>
+          <SequenceName>SEQ_ER_RES_MICRO</SequenceName>
+          <ForeignKey />
+          <Entity>true</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="RES_ANA_ID">
+          <Type>long</Type>
+          <DbType>number</DbType>
+          <Name>anaResId</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <Sequence>false</Sequence>
+          <ForeignKey>ER_RES_ANA.RES_ANA_ID</ForeignKey>
+          <Entity>true</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="MICRO">
+          <Type>string</Type>
+          <DbType>varchar2(64)</DbType>
+          <Name>MICRO</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <Sequence>false</Sequence>
+          <ForeignKey />
+          <Entity>false</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="QUANTIF">
+          <Type>string</Type>
+          <DbType>varchar2(128)</DbType>
+          <Name>quantif</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <Sequence>false</Sequence>
+          <ForeignKey />
+          <Entity>true</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="MICRO_ORD">
+          <Type>long</Type>
+          <DbType>number</DbType>
+          <Name>microOrder</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <Sequence>false</Sequence>
+          <ForeignKey />
+          <Entity>true</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="DT_VAL">
+          <Type>DateTime</Type>
+          <DbType>date</DbType>
+          <Name>DT_VAL</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <Sequence>false</Sequence>
+          <ForeignKey />
+          <Entity>false</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="DT_CRI">
+          <Type>DateTime</Type>
+          <DbType>date</DbType>
+          <Name>DT_CRI</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <Sequence>false</Sequence>
+          <ForeignKey />
+          <Entity>false</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="USER_CRI">
+          <Type>string</Type>
+          <DbType>varchar2(128)</DbType>
+          <Name>USER_CRI</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <Sequence>false</Sequence>
+          <ForeignKey />
+          <Entity>false</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="DT_ACT">
+          <Type>DateTime</Type>
+          <DbType>date</DbType>
+          <Name>DT_ACT</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <Sequence>false</Sequence>
+          <ForeignKey />
+          <Entity>false</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="USER_ACT">
+          <Type>string</Type>
+          <DbType>varchar2(128)</DbType>
+          <Name>USER_ACT</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <Sequence>false</Sequence>
+          <ForeignKey />
+          <Entity>false</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+      </Columns>
+      <ExternalEntities>
+        <ExternalEntity>
+          <Namespace>Cpchs.Eresults.Common.WCF</Namespace>
+          <Type>Codif</Type>
+          <EntityName>micro</EntityName>
+          <IsList>false</IsList>
+          <Instance>true</Instance>
+          <Load>false</Load>
+        </ExternalEntity>
+        <ExternalEntity>
+          <Namespace>Cpchs.Eresults.Common.WCF</Namespace>
+          <Type>AntibResList</Type>
+          <EntityName>antibs</EntityName>
+          <IsList>true</IsList>
+          <Instance>true</Instance>
+          <Load>false</Load>
+        </ExternalEntity>
+        <ExternalEntity>
+          <Namespace>Cpchs.Eresults.Common.WCF</Namespace>
+          <Type>NoteList</Type>
+          <EntityName>notes</EntityName>
+          <IsList>true</IsList>
+          <Instance>true</Instance>
+          <Load>false</Load>
+        </ExternalEntity>
+      </ExternalEntities>
+      <Selects>
+        <Operation>
+          <Name>GetMicroResByDocId</Name>
+          <Description />
+          <Protected>false</Protected>
+          <Proxy>false</Proxy>
+          <MultiEntity>true</MultiEntity>
+          <ObjectWs>false</ObjectWs>
+          <BdMethod>true</BdMethod>
+          <OutParameters>false</OutParameters>
+          <MultiDatabase>true</MultiDatabase>
+          <Params>
+            <ColumnID>RES_MICRO_ID</ColumnID>
+            <ColumnID>RES_ANA_ID</ColumnID>
+            <ColumnID>QUANTIF</ColumnID>
+            <ColumnID>MICRO_ORD</ColumnID>
+          </Params>
+          <Parameters>
+            <OperationParameter>
+              <Name>docId</Name>
+              <Type>long</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+          </Parameters>
+          <Function>
+            <Function />
+            <Function />
+            <Function />
+            <Function />
+          </Function>
+          <ExtraParameters />
+          <Obsolete>false</Obsolete>
+        </Operation>
+        <Operation>
+          <Name>GetMicroResByMultiCrit</Name>
+          <Description />
+          <Protected>false</Protected>
+          <Proxy>false</Proxy>
+          <MultiEntity>true</MultiEntity>
+          <ObjectWs>false</ObjectWs>
+          <BdMethod>true</BdMethod>
+          <OutParameters>false</OutParameters>
+          <MultiDatabase>true</MultiDatabase>
+          <Params>
+            <ColumnID>RES_MICRO_ID</ColumnID>
+            <ColumnID>RES_ANA_ID</ColumnID>
+            <ColumnID>QUANTIF</ColumnID>
+            <ColumnID>MICRO_ORD</ColumnID>
+          </Params>
+          <Parameters>
+            <OperationParameter>
+              <Name>entIds</Name>
+              <Type>string</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>epiTypeId</Name>
+              <Type>long?</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>epi</Name>
+              <Type>string</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>doc</Name>
+              <Type>string</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>extId</Name>
+              <Type>string</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>epiBeginDate</Name>
+              <Type>Nullable&lt;DateTime&gt;</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>epiEndDate</Name>
+              <Type>Nullable&lt;DateTime&gt;</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>docTypeId</Name>
+              <Type>long?</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>appId</Name>
+              <Type>long?</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>placeId</Name>
+              <Type>long?</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>instId</Name>
+              <Type>long?</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>docBeginDate</Name>
+              <Type>Nullable&lt;DateTime&gt;</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>docEndDate</Name>
+              <Type>Nullable&lt;DateTime&gt;</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>valBeginDate</Name>
+              <Type>Nullable&lt;DateTime&gt;</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>valEndDate</Name>
+              <Type>Nullable&lt;DateTime&gt;</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>globalFilters</Name>
+              <Type>string</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>docsSession</Name>
+              <Type>string</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>servsSession</Name>
+              <Type>string</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>username</Name>
+              <Type>string</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+          </Parameters>
+          <Function>
+            <Function />
+            <Function />
+            <Function />
+            <Function />
+          </Function>
+          <ExtraParameters />
+          <Obsolete>false</Obsolete>
+        </Operation>
+      </Selects>
+      <Inserts />
+      <Updates />
+      <Deletes />
+      <CustomOperations />
+    </Table>
+    <Table>
+      <Name>ER_RES_ANTIB</Name>
+      <ItemName>AntibRes</ItemName>
+      <ConnectionString>server=hsdev;uid=eresults_v2;pwd=eresults_v2</ConnectionString>
+      <Owner>ERESULTS_V2</Owner>
+      <DateCreated>2012-01-17T15:08:48</DateCreated>
+      <DbType>OracleNativeSchemaProvider (using System.Data.OracleClient namespace)</DbType>
+      <IgnorePk>false</IgnorePk>
+      <LoadedProperties>false</LoadedProperties>
+      <Cache>false</Cache>
+      <CacheMode>Entidade</CacheMode>
+      <CreateData>true</CreateData>
+      <CreateDataInherits>false</CreateDataInherits>
+      <DataInherits />
+      <Data>C:\ERESULTS\12R101\Cpchs.Eresults.Services\Cpchs.Eresults.Common.WCF\Cpchs.Eresults.Common.WCF\BusinessEntities\Activities\AnaRes</Data>
+      <Columns>
+        <Column ID="RES_ANTIB_ID">
+          <Type>long</Type>
+          <DbType>number</DbType>
+          <Name>id</Name>
+          <PrimaryKey>true</PrimaryKey>
+          <Sequence>true</Sequence>
+          <SequenceName>SEQ_ER_RES_ANTIB</SequenceName>
+          <ForeignKey />
+          <Entity>true</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="RES_MICRO_ID">
+          <Type>long</Type>
+          <DbType>number</DbType>
+          <Name>microResId</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <Sequence>false</Sequence>
+          <ForeignKey>ER_RES_MICRO.RES_MICRO_ID</ForeignKey>
+          <Entity>true</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="ANTIB">
+          <Type>string</Type>
+          <DbType>varchar2(64)</DbType>
+          <Name>ANTIB</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <Sequence>false</Sequence>
+          <ForeignKey />
+          <Entity>false</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="SENSIB">
+          <Type>string</Type>
+          <DbType>varchar2(128)</DbType>
+          <Name>sens</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <Sequence>false</Sequence>
+          <ForeignKey />
+          <Entity>true</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="DT_CRI">
+          <Type>DateTime</Type>
+          <DbType>date</DbType>
+          <Name>DT_CRI</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <Sequence>false</Sequence>
+          <ForeignKey />
+          <Entity>false</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="USER_CRI">
+          <Type>string</Type>
+          <DbType>varchar2(128)</DbType>
+          <Name>USER_CRI</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <Sequence>false</Sequence>
+          <ForeignKey />
+          <Entity>false</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="DT_ACT">
+          <Type>DateTime</Type>
+          <DbType>date</DbType>
+          <Name>DT_ACT</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <Sequence>false</Sequence>
+          <ForeignKey />
+          <Entity>false</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="USER_ACT">
+          <Type>string</Type>
+          <DbType>varchar2(128)</DbType>
+          <Name>USER_ACT</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <Sequence>false</Sequence>
+          <ForeignKey />
+          <Entity>false</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+      </Columns>
+      <ExternalEntities>
+        <ExternalEntity>
+          <Namespace>Cpchs.Eresults.Common.WCF</Namespace>
+          <Type>Codif</Type>
+          <EntityName>antib</EntityName>
+          <IsList>false</IsList>
+          <Instance>true</Instance>
+          <Load>false</Load>
+        </ExternalEntity>
+      </ExternalEntities>
+      <Selects>
+        <Operation>
+          <Name>GetAntibResByDocId</Name>
+          <Description />
+          <Protected>false</Protected>
+          <Proxy>false</Proxy>
+          <MultiEntity>true</MultiEntity>
+          <ObjectWs>false</ObjectWs>
+          <BdMethod>true</BdMethod>
+          <OutParameters>false</OutParameters>
+          <MultiDatabase>true</MultiDatabase>
+          <Params>
+            <ColumnID>RES_ANTIB_ID</ColumnID>
+            <ColumnID>RES_MICRO_ID</ColumnID>
+            <ColumnID>SENSIB</ColumnID>
+          </Params>
+          <Parameters>
+            <OperationParameter>
+              <Name>docId</Name>
+              <Type>long</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+          </Parameters>
+          <Function>
+            <Function />
+            <Function />
+            <Function />
+          </Function>
+          <ExtraParameters />
+          <Obsolete>false</Obsolete>
+        </Operation>
+        <Operation>
+          <Name>GetAntibResByMultiCrit</Name>
+          <Description />
+          <Protected>false</Protected>
+          <Proxy>false</Proxy>
+          <MultiEntity>true</MultiEntity>
+          <ObjectWs>false</ObjectWs>
+          <BdMethod>true</BdMethod>
+          <OutParameters>false</OutParameters>
+          <MultiDatabase>true</MultiDatabase>
+          <Params>
+            <ColumnID>RES_ANTIB_ID</ColumnID>
+            <ColumnID>RES_MICRO_ID</ColumnID>
+            <ColumnID>SENSIB</ColumnID>
+          </Params>
+          <Parameters>
+            <OperationParameter>
+              <Name>entIds</Name>
+              <Type>string</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>epiTypeId</Name>
+              <Type>long?</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>epi</Name>
+              <Type>string</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>doc</Name>
+              <Type>string</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>extId</Name>
+              <Type>string</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>epiBeginDate</Name>
+              <Type>Nullable&lt;DateTime&gt;</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>epiEndDate</Name>
+              <Type>Nullable&lt;DateTime&gt;</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>docTypeId</Name>
+              <Type>long?</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>appId</Name>
+              <Type>long?</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>placeId</Name>
+              <Type>long?</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>instId</Name>
+              <Type>long?</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>docBeginDate</Name>
+              <Type>Nullable&lt;DateTime&gt;</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>docEndDate</Name>
+              <Type>Nullable&lt;DateTime&gt;</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>valBeginDate</Name>
+              <Type>Nullable&lt;DateTime&gt;</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>valEndDate</Name>
+              <Type>Nullable&lt;DateTime&gt;</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>globalFilters</Name>
+              <Type>string</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>docsSession</Name>
+              <Type>string</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>servsSession</Name>
+              <Type>string</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>username</Name>
+              <Type>string</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+          </Parameters>
+          <Function>
+            <Function />
+            <Function />
+            <Function />
+          </Function>
+          <ExtraParameters />
+          <Obsolete>false</Obsolete>
+        </Operation>
+      </Selects>
+      <Inserts />
+      <Updates />
+      <Deletes />
+      <CustomOperations />
+    </Table>
+    <Table>
+      <Name>ER_OBSERVACAO</Name>
+      <ItemName>Note</ItemName>
+      <ConnectionString>server=hsdev;uid=eresults_v2;pwd=eresults_v2</ConnectionString>
+      <Owner>ERESULTS_V2</Owner>
+      <DateCreated>2012-01-17T15:08:46</DateCreated>
+      <DbType>OracleNativeSchemaProvider (using System.Data.OracleClient namespace)</DbType>
+      <IgnorePk>false</IgnorePk>
+      <LoadedProperties>false</LoadedProperties>
+      <Cache>false</Cache>
+      <CacheMode>Entidade</CacheMode>
+      <CreateData>true</CreateData>
+      <CreateDataInherits>false</CreateDataInherits>
+      <DataInherits />
+      <Data>C:\ERESULTS\12R101\Cpchs.Eresults.Services\Cpchs.Eresults.Common.WCF\Cpchs.Eresults.Common.WCF\BusinessEntities\Activities\AnaRes</Data>
+      <Columns>
+        <Column ID="OBSERVACAO_ID">
+          <Type>long</Type>
+          <DbType>number</DbType>
+          <Name>id</Name>
+          <PrimaryKey>true</PrimaryKey>
+          <Sequence>true</Sequence>
+          <SequenceName>SEQ_ER_OBSERVACAO</SequenceName>
+          <ForeignKey />
+          <Entity>true</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="ID">
+          <Type>string</Type>
+          <DbType>varchar2(100)</DbType>
+          <Name>domId</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <Sequence>false</Sequence>
+          <ForeignKey />
+          <Entity>true</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="ID_DOMINIO">
+          <Type>string</Type>
+          <DbType>varchar2(100)</DbType>
+          <Name>domName</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <Sequence>false</Sequence>
+          <ForeignKey />
+          <Entity>true</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="SUB_ID">
+          <Type>string</Type>
+          <DbType>varchar2(100)</DbType>
+          <Name>subdomId</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <Sequence>false</Sequence>
+          <ForeignKey />
+          <Entity>true</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="SUB_ID_DOMINIO">
+          <Type>string</Type>
+          <DbType>varchar2(100)</DbType>
+          <Name>subdomName</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <Sequence>false</Sequence>
+          <ForeignKey />
+          <Entity>true</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="OBSERVACAO">
+          <Type>string</Type>
+          <DbType>varchar2(4000)</DbType>
+          <Name>body</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <Sequence>false</Sequence>
+          <ForeignKey />
+          <Entity>true</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="ACTIVA">
+          <Type>string</Type>
+          <DbType>varchar2(1)</DbType>
+          <Name>ACTIVA</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <Sequence>false</Sequence>
+          <ForeignKey />
+          <Entity>false</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+      </Columns>
+      <ExternalEntities />
+      <Selects>
+        <Operation>
+          <Name>GetNotesByDocId</Name>
+          <Description />
+          <Protected>false</Protected>
+          <Proxy>false</Proxy>
+          <MultiEntity>true</MultiEntity>
+          <ObjectWs>false</ObjectWs>
+          <BdMethod>true</BdMethod>
+          <OutParameters>false</OutParameters>
+          <MultiDatabase>true</MultiDatabase>
+          <Params>
+            <ColumnID>OBSERVACAO_ID</ColumnID>
+            <ColumnID>ID</ColumnID>
+            <ColumnID>ID_DOMINIO</ColumnID>
+            <ColumnID>SUB_ID</ColumnID>
+            <ColumnID>SUB_ID_DOMINIO</ColumnID>
+            <ColumnID>OBSERVACAO</ColumnID>
+          </Params>
+          <Parameters>
+            <OperationParameter>
+              <Name>docId</Name>
+              <Type>long</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+          </Parameters>
+          <Function>
+            <Function />
+            <Function />
+            <Function />
+            <Function />
+            <Function />
+            <Function />
+          </Function>
+          <ExtraParameters />
+          <Obsolete>false</Obsolete>
+        </Operation>
+        <Operation>
+          <Name>GetNotesByMultiCrit</Name>
+          <Description />
+          <Protected>false</Protected>
+          <Proxy>false</Proxy>
+          <MultiEntity>true</MultiEntity>
+          <ObjectWs>false</ObjectWs>
+          <BdMethod>true</BdMethod>
+          <OutParameters>false</OutParameters>
+          <MultiDatabase>true</MultiDatabase>
+          <Params>
+            <ColumnID>OBSERVACAO_ID</ColumnID>
+            <ColumnID>ID</ColumnID>
+            <ColumnID>ID_DOMINIO</ColumnID>
+            <ColumnID>SUB_ID</ColumnID>
+            <ColumnID>SUB_ID_DOMINIO</ColumnID>
+            <ColumnID>OBSERVACAO</ColumnID>
+          </Params>
+          <Parameters>
+            <OperationParameter>
+              <Name>entIds</Name>
+              <Type>string</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>epiTypeId</Name>
+              <Type>long?</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>epi</Name>
+              <Type>string</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>doc</Name>
+              <Type>string</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>extId</Name>
+              <Type>string</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>epiBeginDate</Name>
+              <Type>Nullable&lt;DateTime&gt;</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>epiEndDate</Name>
+              <Type>Nullable&lt;DateTime&gt;</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>docTypeId</Name>
+              <Type>long?</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>appId</Name>
+              <Type>long?</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>placeId</Name>
+              <Type>long?</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>instId</Name>
+              <Type>long?</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>docBeginDate</Name>
+              <Type>Nullable&lt;DateTime&gt;</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>docEndDate</Name>
+              <Type>Nullable&lt;DateTime&gt;</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>valBeginDate</Name>
+              <Type>Nullable&lt;DateTime&gt;</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>valEndDate</Name>
+              <Type>Nullable&lt;DateTime&gt;</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>globalFilters</Name>
+              <Type>string</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>docsSession</Name>
+              <Type>string</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>servsSession</Name>
+              <Type>string</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>username</Name>
+              <Type>string</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+          </Parameters>
+          <Function>
+            <Function />
+            <Function />
+            <Function />
+            <Function />
+            <Function />
+            <Function />
+          </Function>
+          <ExtraParameters />
+          <Obsolete>false</Obsolete>
+        </Operation>
+      </Selects>
+      <Inserts />
+      <Updates />
+      <Deletes />
+      <CustomOperations />
+    </Table>
+    <Table>
+      <Name>ER_RES_ANA</Name>
+      <ItemName>AnaRes</ItemName>
+      <ConnectionString>server=hsdev;uid=eresults_v2;pwd=eresults_v2</ConnectionString>
+      <Owner>ERESULTS_V2</Owner>
+      <DateCreated>2012-06-22T15:26:04</DateCreated>
+      <DbType>OracleNativeSchemaProvider (using System.Data.OracleClient namespace)</DbType>
+      <IgnorePk>false</IgnorePk>
+      <LoadedProperties>false</LoadedProperties>
+      <Cache>false</Cache>
+      <CacheMode>Entidade</CacheMode>
+      <CreateData>true</CreateData>
+      <CreateDataInherits>false</CreateDataInherits>
+      <DataInherits />
+      <Data>C:\ERESULTS\12R101\Cpchs.Eresults.Services\Cpchs.Eresults.Common.WCF\Cpchs.Eresults.Common.WCF\BusinessEntities\Activities\AnaRes</Data>
+      <Columns>
+        <Column ID="RES_ANA_ID">
+          <Type>long</Type>
+          <DbType>number</DbType>
+          <Name>id</Name>
+          <PrimaryKey>true</PrimaryKey>
+          <Sequence>true</Sequence>
+          <SequenceName>SEQ_ER_RES_ANA</SequenceName>
+          <ForeignKey />
+          <Entity>true</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="RES_ANA_PAI_ID">
+          <Type>long</Type>
+          <DbType>number</DbType>
+          <Name>parId</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <Sequence>false</Sequence>
+          <ForeignKey>ER_RES_ANA.RES_ANA_ID</ForeignKey>
+          <Entity>true</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="ELEM_ID">
+          <Type>long</Type>
+          <DbType>number</DbType>
+          <Name>elemId</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <Sequence>false</Sequence>
+          <ForeignKey>ER_ELEMENTO.ELEMENTO_ID</ForeignKey>
+          <Entity>true</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="VERSAO">
+          <Type>long</Type>
+          <DbType>number</DbType>
+          <Name>version</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <Sequence>false</Sequence>
+          <ForeignKey>ER_ELEMENTO.COD_VERSAO</ForeignKey>
+          <Entity>true</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="EXAME">
+          <Type>string</Type>
+          <DbType>varchar2(64)</DbType>
+          <Name>EXAME</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <Sequence>false</Sequence>
+          <ForeignKey />
+          <Entity>false</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="EXAME_ORD">
+          <Type>long</Type>
+          <DbType>number</DbType>
+          <Name>examOrder</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <Sequence>false</Sequence>
+          <ForeignKey />
+          <Entity>true</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="PROD">
+          <Type>string</Type>
+          <DbType>varchar2(64)</DbType>
+          <Name>PROD</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <Sequence>false</Sequence>
+          <ForeignKey />
+          <Entity>false</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="PROD_ORD">
+          <Type>long</Type>
+          <DbType>number</DbType>
+          <Name>PROD_ORD</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <Sequence>false</Sequence>
+          <ForeignKey />
+          <Entity>false</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="DT_CRI">
+          <Type>DateTime</Type>
+          <DbType>date</DbType>
+          <Name>DT_CRI</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <Sequence>false</Sequence>
+          <ForeignKey />
+          <Entity>false</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="USER_CRI">
+          <Type>string</Type>
+          <DbType>varchar2(128)</DbType>
+          <Name>USER_CRI</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <Sequence>false</Sequence>
+          <ForeignKey />
+          <Entity>false</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="DT_ACT">
+          <Type>DateTime</Type>
+          <DbType>date</DbType>
+          <Name>DT_ACT</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <Sequence>false</Sequence>
+          <ForeignKey />
+          <Entity>false</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+        <Column ID="USER_ACT">
+          <Type>string</Type>
+          <DbType>varchar2(128)</DbType>
+          <Name>USER_ACT</Name>
+          <PrimaryKey>false</PrimaryKey>
+          <Sequence>false</Sequence>
+          <ForeignKey />
+          <Entity>false</Entity>
+          <Nullable>false</Nullable>
+          <OverrideType />
+        </Column>
+      </Columns>
+      <ExternalEntities>
+        <ExternalEntity>
+          <Namespace>Cpchs.Eresults.Common.WCF</Namespace>
+          <Type>Codif</Type>
+          <EntityName>exam</EntityName>
+          <IsList>false</IsList>
+          <Instance>true</Instance>
+          <Load>false</Load>
+        </ExternalEntity>
+        <ExternalEntity>
+          <Namespace>Cpchs.Eresults.Common.WCF</Namespace>
+          <Type>Codif</Type>
+          <EntityName>prod</EntityName>
+          <IsList>false</IsList>
+          <Instance>true</Instance>
+          <Load>false</Load>
+        </ExternalEntity>
+        <ExternalEntity>
+          <Namespace>Cpchs.Eresults.Common.WCF</Namespace>
+          <Type>AnaResList</Type>
+          <EntityName>childs</EntityName>
+          <IsList>true</IsList>
+          <Instance>true</Instance>
+          <Load>false</Load>
+        </ExternalEntity>
+        <ExternalEntity>
+          <Namespace>Cpchs.Eresults.Common.WCF</Namespace>
+          <Type>AlphanumResList</Type>
+          <EntityName>alphanums</EntityName>
+          <IsList>true</IsList>
+          <Instance>true</Instance>
+          <Load>false</Load>
+        </ExternalEntity>
+        <ExternalEntity>
+          <Namespace>Cpchs.Eresults.Common.WCF</Namespace>
+          <Type>MicroResList</Type>
+          <EntityName>micros</EntityName>
+          <IsList>true</IsList>
+          <Instance>true</Instance>
+          <Load>false</Load>
+        </ExternalEntity>
+        <ExternalEntity>
+          <Namespace>Cpchs.Eresults.Common.WCF</Namespace>
+          <Type>NoteList</Type>
+          <EntityName>reqNotes</EntityName>
+          <IsList>true</IsList>
+          <Instance>true</Instance>
+          <Load>false</Load>
+        </ExternalEntity>
+        <ExternalEntity>
+          <Namespace>Cpchs.Eresults.Common.WCF</Namespace>
+          <Type>NoteList</Type>
+          <EntityName>resNotes</EntityName>
+          <IsList>true</IsList>
+          <Instance>true</Instance>
+          <Load>false</Load>
+        </ExternalEntity>
+      </ExternalEntities>
+      <Selects>
+        <Operation>
+          <Name>GetAnaResByDocId</Name>
+          <Description />
+          <Protected>false</Protected>
+          <Proxy>false</Proxy>
+          <MultiEntity>true</MultiEntity>
+          <ObjectWs>false</ObjectWs>
+          <BdMethod>true</BdMethod>
+          <OutParameters>false</OutParameters>
+          <MultiDatabase>true</MultiDatabase>
+          <Params>
+            <ColumnID>RES_ANA_ID</ColumnID>
+            <ColumnID>RES_ANA_PAI_ID</ColumnID>
+            <ColumnID>ELEM_ID</ColumnID>
+            <ColumnID>VERSAO</ColumnID>
+            <ColumnID>EXAME_ORD</ColumnID>
+          </Params>
+          <Parameters>
+            <OperationParameter>
+              <Name>docId</Name>
+              <Type>long</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>username</Name>
+              <Type>string</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>sessionId</Name>
+              <Type>string</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+          </Parameters>
+          <Function>
+            <Function />
+            <Function />
+            <Function />
+            <Function />
+            <Function />
+          </Function>
+          <ExtraParameters />
+          <Obsolete>false</Obsolete>
+        </Operation>
+        <Operation>
+          <Name>GetAnaResByMultiCrit</Name>
+          <Description />
+          <Protected>false</Protected>
+          <Proxy>false</Proxy>
+          <MultiEntity>true</MultiEntity>
+          <ObjectWs>false</ObjectWs>
+          <BdMethod>true</BdMethod>
+          <OutParameters>false</OutParameters>
+          <MultiDatabase>true</MultiDatabase>
+          <Params>
+            <ColumnID>RES_ANA_ID</ColumnID>
+            <ColumnID>RES_ANA_PAI_ID</ColumnID>
+            <ColumnID>ELEM_ID</ColumnID>
+            <ColumnID>VERSAO</ColumnID>
+            <ColumnID>EXAME_ORD</ColumnID>
+          </Params>
+          <Parameters>
+            <OperationParameter>
+              <Name>entIds</Name>
+              <Type>string</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>epiTypeId</Name>
+              <Type>long?</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>epi</Name>
+              <Type>string</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>doc</Name>
+              <Type>string</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>extId</Name>
+              <Type>string</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>epiBeginDate</Name>
+              <Type>Nullable&lt;DateTime&gt;</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>epiEndDate</Name>
+              <Type>Nullable&lt;DateTime&gt;</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>docTypeId</Name>
+              <Type>long?</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>appId</Name>
+              <Type>long?</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>placeId</Name>
+              <Type>long?</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>instId</Name>
+              <Type>long?</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>docBeginDate</Name>
+              <Type>Nullable&lt;DateTime&gt;</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>docEndDate</Name>
+              <Type>Nullable&lt;DateTime&gt;</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>valBeginDate</Name>
+              <Type>Nullable&lt;DateTime&gt;</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>valEndDate</Name>
+              <Type>Nullable&lt;DateTime&gt;</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>globalFilters</Name>
+              <Type>string</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>docsSession</Name>
+              <Type>string</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>servsSession</Name>
+              <Type>string</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>username</Name>
+              <Type>string</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+            <OperationParameter>
+              <Name>sessionId</Name>
+              <Type>string</Type>
+              <Out>false</Out>
+              <In>true</In>
+            </OperationParameter>
+          </Parameters>
+          <Function>
+            <Function />
+            <Function />
+            <Function />
+            <Function />
+            <Function />
+          </Function>
+          <ExtraParameters />
+          <Obsolete>false</Obsolete>
+        </Operation>
+      </Selects>
+      <Inserts />
+      <Updates />
+      <Deletes />
+      <CustomOperations />
+    </Table>
+  </Tables>
+  <UserDefinedTypeList />
+</BussinessEntity>

@@ -1,0 +1,325 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{AE711A5E-B80C-4FCE-A1DB-FF294A3A8838}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Cpchs.Documents.WCF.Proxy</RootNamespace>
+    <AssemblyName>Cpchs.Documents.WCF.Proxy</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\..\..\..\REFERENCES\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CPCHS.Common.Security">
+      <HintPath>..\..\ExternalAssemblies\Cpchs.Common\CPCHS.Common.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Cpchs.Security.Providers.Utilities">
+      <HintPath>..\..\ExternalAssemblies\Cpchs.Security\Cpchs.Security.Providers.Utilities.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DocumentsProxy.cs" />
+    <Compile Include="FilesProxy.cs" />
+    <Compile Include="LinksProxy.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\DocumentsManagementSR\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\FilesManagementSR\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\LinksManagementSR\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\DocumentsManagementSR\" />
+    <WCFMetadataStorage Include="Service References\FilesManagementSR\" />
+    <WCFMetadataStorage Include="Service References\LinksManagementSR\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\Cpchs.Documents.WCF.DataContracts.FileInfo.datasource" />
+    <None Include="Properties\DataSources\Cpchs.Documents.WCF.DataContracts.PatientDocumentList.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\Cpchs.Documents.WCF.DataContracts.FileInfoList.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\Cpchs.Documents.WCF.DataContracts.LinkList.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DocumentsManagementSR\Cpchs.Documents.WCF.Proxy.DocumentsManagementSR.CancelDocumentLastVersionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DocumentsManagementSR\Cpchs.Documents.WCF.Proxy.DocumentsManagementSR.CancelDocumentLastVersionResponseV2.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DocumentsManagementSR\Cpchs.Documents.WCF.Proxy.DocumentsManagementSR.CancelDocumentPermanentlyResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DocumentsManagementSR\Cpchs.Documents.WCF.Proxy.DocumentsManagementSR.CancelDocumentPermanentlyResponseV2.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DocumentsManagementSR\Cpchs.Documents.WCF.Proxy.DocumentsManagementSR.CancelDocumentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DocumentsManagementSR\Cpchs.Documents.WCF.Proxy.DocumentsManagementSR.CancelElementResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DocumentsManagementSR\Cpchs.Documents.WCF.Proxy.DocumentsManagementSR.ConvertPdfToImagesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DocumentsManagementSR\Cpchs.Documents.WCF.Proxy.DocumentsManagementSR.GetAllPatientDocumentsMultiResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DocumentsManagementSR\Cpchs.Documents.WCF.Proxy.DocumentsManagementSR.GetAllPatientDocumentsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DocumentsManagementSR\Cpchs.Documents.WCF.Proxy.DocumentsManagementSR.GetDocTypeDescResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DocumentsManagementSR\Cpchs.Documents.WCF.Proxy.DocumentsManagementSR.GetDocumentsByExternalIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DocumentsManagementSR\Cpchs.Documents.WCF.Proxy.DocumentsManagementSR.GetDocumentsByExternalIdV2Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DocumentsManagementSR\Cpchs.Documents.WCF.Proxy.DocumentsManagementSR.GetDocumentsByMultiCriteriaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DocumentsManagementSR\Cpchs.Documents.WCF.Proxy.DocumentsManagementSR.GetDocumentsByMultiCriteriaV2Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DocumentsManagementSR\Cpchs.Documents.WCF.Proxy.DocumentsManagementSR.GetDocumentsForEPRResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DocumentsManagementSR\Cpchs.Documents.WCF.Proxy.DocumentsManagementSR.GetDocumentsForEPRv1Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DocumentsManagementSR\Cpchs.Documents.WCF.Proxy.DocumentsManagementSR.GetDocumentVideosResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DocumentsManagementSR\Cpchs.Documents.WCF.Proxy.DocumentsManagementSR.GetGeneralDocumentsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DocumentsManagementSR\Cpchs.Documents.WCF.Proxy.DocumentsManagementSR.GetPatientDocumentsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DocumentsManagementSR\Cpchs.Documents.WCF.Proxy.DocumentsManagementSR.LogDocumentAccessResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DocumentsManagementSR\Cpchs.Documents.WCF.Proxy.DocumentsManagementSR.OpenDynamicFormResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DocumentsManagementSR\Cpchs.Documents.WCF.Proxy.DocumentsManagementSR.PromoteDocumentToPublicResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DocumentsManagementSR\Cpchs.Documents.WCF.Proxy.DocumentsManagementSR.UpdateElementReportInfoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DocumentsManagementSR\DocumentsManagementWS1.wsdl" />
+    <None Include="Service References\DocumentsManagementSR\Service3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DocumentsManagementSR\Service4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DocumentsManagementSR\Service5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DocumentsManagementSR\Service6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FilesManagementSR\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\FilesManagementSR\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\FilesManagementSR\Cpchs.Documents.WCF.Proxy.FilesManagementSR.GetDocumentFilesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FilesManagementSR\Cpchs.Documents.WCF.Proxy.FilesManagementSR.GetFileByElementIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FilesManagementSR\FilesManagementWS1.wsdl" />
+    <None Include="Service References\FilesManagementSR\FilesManagementWS2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FilesManagementSR\FilesManagementWS21.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FilesManagementSR\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\LinksManagementSR\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\LinksManagementSR\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\LinksManagementSR\Cpchs.Documents.WCF.Proxy.LinksManagementSR.GetDocumentLinksResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LinksManagementSR\Cpchs.Documents.WCF.Proxy.LinksManagementSR.GetLinkByElementIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LinksManagementSR\LinksManagementWS.wsdl" />
+    <None Include="Service References\LinksManagementSR\LinksManagementWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\LinksManagementSR\LinksManagementWS1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\LinksManagementSR\LinksManagementWS2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\LinksManagementSR\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DocumentsManagementSR\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DocumentsManagementSR\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DocumentsManagementSR\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\Cpchs.Documents.WCF.DataContracts.DocumentsList.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\Cpchs.Documents.WCF.DataContracts.Link.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\Cpchs.Documents.WCF.DataContracts.VideoList.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Services\Cpchs.Documents.WCF\Cpchs.Documents.WCF.csproj">
+      <Project>{B60C7916-A1BF-46EE-9691-940471BA88B2}</Project>
+      <Name>Cpchs.Documents.WCF</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DocumentsManagementSR\Service1.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\FilesManagementSR\FilesManagementWS1.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\LinksManagementSR\LinksManagementWS.disco" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:tns="urn:Cpchs.Documents" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" name="DocumentsManagementWS" targetNamespace="urn:Cpchs.Documents" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="urn:Cpchs.Documents/Imports">
+      <xsd:import schemaLocation="http://pmoreirap.cpchs.int/Cpchs.Documents.WCF.Host/Service.svc?xsd=xsd0" namespace="urn:Cpchs.Documents" />
+      <xsd:import schemaLocation="http://pmoreirap.cpchs.int/Cpchs.Documents.WCF.Host/Service.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://pmoreirap.cpchs.int/Cpchs.Documents.WCF.Host/Service.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="RegisterDocumentAccessRequest">
+    <wsdl:part name="parameters" element="tns:RegisterDocumentAccessRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetAllPatientDocumentsRequest">
+    <wsdl:part name="parameters" element="tns:GetAllPatientDocumentsRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetAllPatientDocumentsResponse">
+    <wsdl:part name="PatientDocumentsTree" element="tns:PatientDocumentsTree" />
+  </wsdl:message>
+  <wsdl:message name="DocumentsManagementSC_GetAllPatientDocuments_DocumentNotFoundFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:DocumentNotFound" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentsByExternalIdRequest">
+    <wsdl:part name="parameters" element="tns:GetDocumentsByExternalIdRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentsByExternalIdResponse">
+    <wsdl:part name="DocumentsTree" element="tns:DocumentsTree" />
+  </wsdl:message>
+  <wsdl:message name="DocumentsManagementSC_GetDocumentsByExternalId_DocumentNotFoundFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:DocumentNotFound" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentsByExternalIdV2Request">
+    <wsdl:part name="parameters" element="tns:GetDocumentsByExternalIdV2Request" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentsByExternalIdV2Response">
+    <wsdl:part name="DocumentsTree" element="tns:DocumentsTree" />
+  </wsdl:message>
+  <wsdl:message name="DocumentsManagementSC_GetDocumentsByExternalIdV2_DocumentNotFoundFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:DocumentNotFound" />
+  </wsdl:message>
+  <wsdl:message name="GetAllPatientDocumentsMultiRequest">
+    <wsdl:part name="parameters" element="tns:GetAllPatientDocumentsMultiRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetAllPatientDocumentsMultiResponse">
+    <wsdl:part name="PatientDocumentsTree" element="tns:PatientDocumentsTree" />
+  </wsdl:message>
+  <wsdl:message name="DocumentsManagementSC_GetAllPatientDocumentsMulti_DocumentNotFoundFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:DocumentNotFound" />
+  </wsdl:message>
+  <wsdl:portType name="DocumentsManagementSC">
+    <wsdl:operation name="RegisterDocumentAccess">
+      <wsdl:input wsaw:Action="urn:Cpchs.Documents.DocumentsManagementSC.RegisterDocumentAccess" name="RegisterDocumentAccessRequest" message="tns:RegisterDocumentAccessRequest" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPatientDocuments">
+      <wsdl:input wsaw:Action="urn:Cpchs.Documents.DocumentsManagementSC.GetAllPatientDocuments" name="GetAllPatientDocumentsRequest" message="tns:GetAllPatientDocumentsRequest" />
+      <wsdl:output wsaw:Action="urn:Cpchs.Documents.DocumentsMangaementSC.GetAllPatientDocuments" name="GetAllPatientDocumentsResponse" message="tns:GetAllPatientDocumentsResponse" />
+      <wsdl:fault wsaw:Action="urn:Cpchs.Documents/DocumentsManagementSC/GetAllPatientDocumentsDocumentNotFoundFault" name="DocumentNotFoundFault" message="tns:DocumentsManagementSC_GetAllPatientDocuments_DocumentNotFoundFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentsByExternalId">
+      <wsdl:input wsaw:Action="urn:Cpchs.Documents.DocumentsManagementSC.GetDocumentsByExternalId" name="GetDocumentsByExternalIdRequest" message="tns:GetDocumentsByExternalIdRequest" />
+      <wsdl:output wsaw:Action="urn:Cpchs.Documents.DocumentsMangaementSC.GetDocumentsByExternalId" name="GetDocumentsByExternalIdResponse" message="tns:GetDocumentsByExternalIdResponse" />
+      <wsdl:fault wsaw:Action="urn:Cpchs.Documents/DocumentsManagementSC/GetDocumentsByExternalIdDocumentNotFoundFault" name="DocumentNotFoundFault" message="tns:DocumentsManagementSC_GetDocumentsByExternalId_DocumentNotFoundFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentsByExternalIdV2">
+      <wsdl:input wsaw:Action="urn:Cpchs.Documents.DocumentsManagementSC.GetDocumentsByExternalIdV2" name="GetDocumentsByExternalIdV2Request" message="tns:GetDocumentsByExternalIdV2Request" />
+      <wsdl:output wsaw:Action="urn:Cpchs.Documents.DocumentsManagementSC.GetDocumentByExternalIdV2" name="GetDocumentsByExternalIdV2Response" message="tns:GetDocumentsByExternalIdV2Response" />
+      <wsdl:fault wsaw:Action="urn:Cpchs.Documents/DocumentsManagementSC/GetDocumentsByExternalIdV2DocumentNotFoundFault" name="DocumentNotFoundFault" message="tns:DocumentsManagementSC_GetDocumentsByExternalIdV2_DocumentNotFoundFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPatientDocumentsMulti">
+      <wsdl:input wsaw:Action="urn:Cpchs.Documents.DocumentsManagementSC.GetAllPatientDocumentsMulti" name="GetAllPatientDocumentsMultiRequest" message="tns:GetAllPatientDocumentsMultiRequest" />
+      <wsdl:output wsaw:Action="GetAllPatientDocumentsMulti" name="GetAllPatientDocumentsMultiResponse" message="tns:GetAllPatientDocumentsMultiResponse" />
+      <wsdl:fault wsaw:Action="urn:Cpchs.Documents/DocumentsManagementSC/GetAllPatientDocumentsMultiDocumentNotFoundFault" name="DocumentNotFoundFault" message="tns:DocumentsManagementSC_GetAllPatientDocumentsMulti_DocumentNotFoundFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DocumentsEndpoint" type="tns:DocumentsManagementSC">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RegisterDocumentAccess">
+      <soap:operation soapAction="urn:Cpchs.Documents.DocumentsManagementSC.RegisterDocumentAccess" style="document" />
+      <wsdl:input name="RegisterDocumentAccessRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPatientDocuments">
+      <soap:operation soapAction="urn:Cpchs.Documents.DocumentsManagementSC.GetAllPatientDocuments" style="document" />
+      <wsdl:input name="GetAllPatientDocumentsRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetAllPatientDocumentsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DocumentNotFoundFault">
+        <soap:fault use="literal" name="DocumentNotFoundFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentsByExternalId">
+      <soap:operation soapAction="urn:Cpchs.Documents.DocumentsManagementSC.GetDocumentsByExternalId" style="document" />
+      <wsdl:input name="GetDocumentsByExternalIdRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetDocumentsByExternalIdResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DocumentNotFoundFault">
+        <soap:fault use="literal" name="DocumentNotFoundFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentsByExternalIdV2">
+      <soap:operation soapAction="urn:Cpchs.Documents.DocumentsManagementSC.GetDocumentsByExternalIdV2" style="document" />
+      <wsdl:input name="GetDocumentsByExternalIdV2Request">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetDocumentsByExternalIdV2Response">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DocumentNotFoundFault">
+        <soap:fault use="literal" name="DocumentNotFoundFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPatientDocumentsMulti">
+      <soap:operation soapAction="urn:Cpchs.Documents.DocumentsManagementSC.GetAllPatientDocumentsMulti" style="document" />
+      <wsdl:input name="GetAllPatientDocumentsMultiRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetAllPatientDocumentsMultiResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DocumentNotFoundFault">
+        <soap:fault use="literal" name="DocumentNotFoundFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DocumentsManagementWS">
+    <wsdl:port name="DocumentsEndpoint" binding="tns:DocumentsEndpoint">
+      <soap:address location="http://pmoreirap.cpchs.int/Cpchs.Documents.WCF.Host/Service.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

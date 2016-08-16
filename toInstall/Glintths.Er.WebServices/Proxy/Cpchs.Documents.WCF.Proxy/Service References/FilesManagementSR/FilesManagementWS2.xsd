@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="urn:Cpchs.Documents" elementFormDefault="qualified" targetNamespace="urn:Cpchs.Documents" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="GetDocumentFilesRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CompanyDb" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DocId" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocumentFilesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DocumentFiles" nillable="true" type="tns:FileInfoList" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="FileInfoList">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FilesInfo" nillable="true" type="tns:FilesInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FileInfoList" nillable="true" type="tns:FileInfoList" />
+  <xs:complexType name="FilesInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FileInfo" nillable="true" type="tns:FileInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FilesInfo" nillable="true" type="tns:FilesInfo" />
+  <xs:complexType name="FileInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FileExtension" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FileBaseUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FileEncryption" type="xs:boolean" />
+      <xs:element minOccurs="0" name="FileQueryUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FileDocumentId" type="xs:long" />
+      <xs:element minOccurs="0" name="FileElemId" type="xs:long" />
+      <xs:element minOccurs="0" name="FileThumb" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ElementDescription" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FileInfo" nillable="true" type="tns:FileInfo" />
+  <xs:element name="GetFileByElementIdRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CompanyDb" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ElementId" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFileByElementIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="File" nillable="true" type="tns:FileInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

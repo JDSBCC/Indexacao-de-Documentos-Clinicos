@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="LocalEResultsService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost/GlinttHS.API.Internal.WS/Local/eResults/LocalEResultsService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost/GlinttHS.API.Internal.WS/Local/eResults/LocalEResultsService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost/GlinttHS.API.Internal.WS/Local/eResults/LocalEResultsService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Glintths.Base.Internal.Entities.Common" />
+      <xsd:import schemaLocation="http://localhost/GlinttHS.API.Internal.WS/Local/eResults/LocalEResultsService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Glintths.Base.Internal.Entities.Local.eResults" />
+      <xsd:import schemaLocation="http://localhost/GlinttHS.API.Internal.WS/Local/eResults/LocalEResultsService.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost/GlinttHS.API.Internal.WS/Local/eResults/LocalEResultsService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Glintths.Base.Internal.Entities.Local.UserManagement" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ILocalEResultsService_GetAccessProfiles_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccessProfiles" />
+  </wsdl:message>
+  <wsdl:message name="ILocalEResultsService_GetAccessProfiles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccessProfilesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILocalEResultsService_GetFacilities_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFacilities" />
+  </wsdl:message>
+  <wsdl:message name="ILocalEResultsService_GetFacilities_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFacilitiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILocalEResultsService_GetPlaces_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPlaces" />
+  </wsdl:message>
+  <wsdl:message name="ILocalEResultsService_GetPlaces_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPlacesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILocalEResultsService_GetServices_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetServices" />
+  </wsdl:message>
+  <wsdl:message name="ILocalEResultsService_GetServices_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetServicesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILocalEResultsService_SearchServices_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchServices" />
+  </wsdl:message>
+  <wsdl:message name="ILocalEResultsService_SearchServices_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchServicesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILocalEResultsService_GetUserInformation_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserInformation" />
+  </wsdl:message>
+  <wsdl:message name="ILocalEResultsService_GetUserInformation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserInformationResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILocalEResultsService_SearchUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchUsers" />
+  </wsdl:message>
+  <wsdl:message name="ILocalEResultsService_SearchUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILocalEResultsService_GetApplications_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetApplications" />
+  </wsdl:message>
+  <wsdl:message name="ILocalEResultsService_GetApplications_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetApplicationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILocalEResultsService_GetPatientTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPatientTypes" />
+  </wsdl:message>
+  <wsdl:message name="ILocalEResultsService_GetPatientTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPatientTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILocalEResultsService_AddNewUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddNewUser" />
+  </wsdl:message>
+  <wsdl:message name="ILocalEResultsService_AddNewUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddNewUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILocalEResultsService_UpdateUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUser" />
+  </wsdl:message>
+  <wsdl:message name="ILocalEResultsService_UpdateUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILocalEResultsService_GetConfigurationsByAmbit_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetConfigurationsByAmbit" />
+  </wsdl:message>
+  <wsdl:message name="ILocalEResultsService_GetConfigurationsByAmbit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetConfigurationsByAmbitResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILocalEResultsService_ManageJobs_InputMessage">
+    <wsdl:part name="parameters" element="tns:ManageJobs" />
+  </wsdl:message>
+  <wsdl:message name="ILocalEResultsService_ManageJobs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ManageJobsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILocalEResultsService_GetJobs_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetJobs" />
+  </wsdl:message>
+  <wsdl:message name="ILocalEResultsService_GetJobs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetJobsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILocalEResultsService_GetJobsByState_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetJobsByState" />
+  </wsdl:message>
+  <wsdl:message name="ILocalEResultsService_GetJobsByState_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetJobsByStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILocalEResultsService_SetJobState_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetJobState" />
+  </wsdl:message>
+  <wsdl:message name="ILocalEResultsService_SetJobState_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetJobStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILocalEResultsService_SetBatchJobState_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetBatchJobState" />
+  </wsdl:message>
+  <wsdl:message name="ILocalEResultsService_SetBatchJobState_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetBatchJobStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILocalEResultsService_SetJobUrl_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetJobUrl" />
+  </wsdl:message>
+  <wsdl:message name="ILocalEResultsService_SetJobUrl_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetJobUrlResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILocalEResultsService_SetJobMsgError_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetJobMsgError" />
+  </wsdl:message>
+  <wsdl:message name="ILocalEResultsService_SetJobMsgError_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetJobMsgErrorResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ILocalEResultsService">
+    <wsdl:operation name="GetAccessProfiles">
+      <wsdl:input wsam:Action="http://tempuri.org/ILocalEResultsService/GetAccessProfiles" message="tns:ILocalEResultsService_GetAccessProfiles_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/ILocalEResultsService/GetAccessProfilesResponse" message="tns:ILocalEResultsService_GetAccessProfiles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFacilities">
+      <wsdl:input wsam:Action="http://tempuri.org/ILocalEResultsService/GetFacilities" message="tns:ILocalEResultsService_GetFacilities_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/ILocalEResultsService/GetFacilitiesResponse" message="tns:ILocalEResultsService_GetFacilities_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPlaces">
+      <wsdl:input wsam:Action="http://tempuri.org/ILocalEResultsService/GetPlaces" message="tns:ILocalEResultsService_GetPlaces_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/ILocalEResultsService/GetPlacesResponse" message="tns:ILocalEResultsService_GetPlaces_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServices">
+      <wsdl:input wsam:Action="http://tempuri.org/ILocalEResultsService/GetServices" message="tns:ILocalEResultsService_GetServices_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/ILocalEResultsService/GetServicesResponse" message="tns:ILocalEResultsService_GetServices_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchServices">
+      <wsdl:input wsam:Action="http://tempuri.org/ILocalEResultsService/SearchServices" message="tns:ILocalEResultsService_SearchServices_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/ILocalEResultsService/SearchServicesResponse" message="tns:ILocalEResultsService_SearchServices_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserInformation">
+      <wsdl:input wsam:Action="http://tempuri.org/ILocalEResultsService/GetUserInformation" message="tns:ILocalEResultsService_GetUserInformation_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/ILocalEResultsService/GetUserInformationResponse" message="tns:ILocalEResultsService_GetUserInformation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchUsers">
+      <wsdl:input wsam:Action="http://tempuri.org/ILocalEResultsService/SearchUsers" message="tns:ILocalEResultsService_SearchUsers_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/ILocalEResultsService/SearchUsersResponse" message="tns:ILocalEResultsService_SearchUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetApplications">
+      <wsdl:input wsam:Action="http://tempuri.org/ILocalEResultsService/GetApplications" message="tns:ILocalEResultsService_GetApplications_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/ILocalEResultsService/GetApplicationsResponse" message="tns:ILocalEResultsService_GetApplications_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPatientTypes">
+      <wsdl:input wsam:Action="http://tempuri.org/ILocalEResultsService/GetPatientTypes" message="tns:ILocalEResultsService_GetPatientTypes_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/ILocalEResultsService/GetPatientTypesResponse" message="tns:ILocalEResultsService_GetPatientTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddNewUser">
+      <wsdl:input wsam:Action="http://tempuri.org/ILocalEResultsService/AddNewUser" message="tns:ILocalEResultsService_AddNewUser_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/ILocalEResultsService/AddNewUserResponse" message="tns:ILocalEResultsService_AddNewUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <wsdl:input wsam:Action="http://tempuri.org/ILocalEResultsService/UpdateUser" message="tns:ILocalEResultsService_UpdateUser_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/ILocalEResultsService/UpdateUserResponse" message="tns:ILocalEResultsService_UpdateUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetConfigurationsByAmbit">
+      <wsdl:input wsam:Action="http://tempuri.org/ILocalEResultsService/GetConfigurationsByAmbit" message="tns:ILocalEResultsService_GetConfigurationsByAmbit_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/ILocalEResultsService/GetConfigurationsByAmbitResponse" message="tns:ILocalEResultsService_GetConfigurationsByAmbit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ManageJobs">
+      <wsdl:input wsam:Action="http://tempuri.org/ILocalEResultsService/ManageJobs" message="tns:ILocalEResultsService_ManageJobs_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/ILocalEResultsService/ManageJobsResponse" message="tns:ILocalEResultsService_ManageJobs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetJobs">
+      <wsdl:input wsam:Action="http://tempuri.org/ILocalEResultsService/GetJobs" message="tns:ILocalEResultsService_GetJobs_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/ILocalEResultsService/GetJobsResponse" message="tns:ILocalEResultsService_GetJobs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetJobsByState">
+      <wsdl:input wsam:Action="http://tempuri.org/ILocalEResultsService/GetJobsByState" message="tns:ILocalEResultsService_GetJobsByState_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/ILocalEResultsService/GetJobsByStateResponse" message="tns:ILocalEResultsService_GetJobsByState_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetJobState">
+      <wsdl:input wsam:Action="http://tempuri.org/ILocalEResultsService/SetJobState" message="tns:ILocalEResultsService_SetJobState_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/ILocalEResultsService/SetJobStateResponse" message="tns:ILocalEResultsService_SetJobState_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetBatchJobState">
+      <wsdl:input wsam:Action="http://tempuri.org/ILocalEResultsService/SetBatchJobState" message="tns:ILocalEResultsService_SetBatchJobState_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/ILocalEResultsService/SetBatchJobStateResponse" message="tns:ILocalEResultsService_SetBatchJobState_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetJobUrl">
+      <wsdl:input wsam:Action="http://tempuri.org/ILocalEResultsService/SetJobUrl" message="tns:ILocalEResultsService_SetJobUrl_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/ILocalEResultsService/SetJobUrlResponse" message="tns:ILocalEResultsService_SetJobUrl_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetJobMsgError">
+      <wsdl:input wsam:Action="http://tempuri.org/ILocalEResultsService/SetJobMsgError" message="tns:ILocalEResultsService_SetJobMsgError_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/ILocalEResultsService/SetJobMsgErrorResponse" message="tns:ILocalEResultsService_SetJobMsgError_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ILocalEResultsService" type="tns:ILocalEResultsService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAccessProfiles">
+      <soap:operation soapAction="http://tempuri.org/ILocalEResultsService/GetAccessProfiles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFacilities">
+      <soap:operation soapAction="http://tempuri.org/ILocalEResultsService/GetFacilities" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlaces">
+      <soap:operation soapAction="http://tempuri.org/ILocalEResultsService/GetPlaces" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServices">
+      <soap:operation soapAction="http://tempuri.org/ILocalEResultsService/GetServices" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchServices">
+      <soap:operation soapAction="http://tempuri.org/ILocalEResultsService/SearchServices" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserInformation">
+      <soap:operation soapAction="http://tempuri.org/ILocalEResultsService/GetUserInformation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchUsers">
+      <soap:operation soapAction="http://tempuri.org/ILocalEResultsService/SearchUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetApplications">
+      <soap:operation soapAction="http://tempuri.org/ILocalEResultsService/GetApplications" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPatientTypes">
+      <soap:operation soapAction="http://tempuri.org/ILocalEResultsService/GetPatientTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNewUser">
+      <soap:operation soapAction="http://tempuri.org/ILocalEResultsService/AddNewUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <soap:operation soapAction="http://tempuri.org/ILocalEResultsService/UpdateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetConfigurationsByAmbit">
+      <soap:operation soapAction="http://tempuri.org/ILocalEResultsService/GetConfigurationsByAmbit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ManageJobs">
+      <soap:operation soapAction="http://tempuri.org/ILocalEResultsService/ManageJobs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJobs">
+      <soap:operation soapAction="http://tempuri.org/ILocalEResultsService/GetJobs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJobsByState">
+      <soap:operation soapAction="http://tempuri.org/ILocalEResultsService/GetJobsByState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetJobState">
+      <soap:operation soapAction="http://tempuri.org/ILocalEResultsService/SetJobState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetBatchJobState">
+      <soap:operation soapAction="http://tempuri.org/ILocalEResultsService/SetBatchJobState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetJobUrl">
+      <soap:operation soapAction="http://tempuri.org/ILocalEResultsService/SetJobUrl" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetJobMsgError">
+      <soap:operation soapAction="http://tempuri.org/ILocalEResultsService/SetJobMsgError" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="LocalEResultsService">
+    <wsdl:port name="BasicHttpBinding_ILocalEResultsService" binding="tns:BasicHttpBinding_ILocalEResultsService">
+      <soap:address location="http://localhost/GlinttHS.API.Internal.WS/Local/eResults/LocalEResultsService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

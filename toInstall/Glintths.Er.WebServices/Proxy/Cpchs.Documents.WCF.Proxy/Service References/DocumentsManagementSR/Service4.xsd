@@ -1,0 +1,764 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="urn:Cpchs.Documents" elementFormDefault="qualified" targetNamespace="urn:Cpchs.Documents" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://gsousa.glintt.com/Cpchs.Documents.WCF.Host/Service.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://gsousa.glintt.com/Cpchs.Documents.WCF.Host/Service.svc?xsd=xsd3" namespace="urn:Cpchs.Entities" />
+  <xs:element name="RegisterDocumentAccessRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CompanyDb" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DocumentAccess" nillable="true" type="tns:DocumentAccess" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="DocumentAccess">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="SessionId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ArtifactId" type="xs:long" />
+      <xs:element minOccurs="0" name="VersionId" type="xs:long" />
+      <xs:element minOccurs="0" name="AppOrigin" type="xs:long" />
+      <xs:element minOccurs="0" name="DocType" type="xs:long" />
+      <xs:element minOccurs="0" name="UserId" type="xs:long" />
+      <xs:element minOccurs="0" name="DocId" type="xs:long" />
+      <xs:element minOccurs="0" name="DocRef" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DocumentAccess" nillable="true" type="tns:DocumentAccess" />
+  <xs:element name="GetAllPatientDocumentsRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AppId" nillable="true" type="xs:long" />
+        <xs:element minOccurs="0" name="CompanyDb" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Doc" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DocDateBegin" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="DocDateEnd" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="DocType" nillable="true" type="xs:long" />
+        <xs:element minOccurs="0" name="DocsSessionFilters" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="EpiDateBegin" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="EpiDateEnd" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="EpisodeId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="EpisodeTypeId" nillable="true" type="xs:long" />
+        <xs:element minOccurs="0" name="ExtId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="GlobalFilters" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="InstId" nillable="true" type="xs:long" />
+        <xs:element minOccurs="0" name="LocalId" nillable="true" type="xs:long" />
+        <xs:element minOccurs="0" name="PatEntId" nillable="true" type="xs:long" />
+        <xs:element minOccurs="0" name="ReqService" nillable="true" type="xs:long" />
+        <xs:element minOccurs="0" name="ServsSessionFilters" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="UserAnaRes" type="xs:boolean" />
+        <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ValDateBegin" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="ValDateEnd" nillable="true" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllPatientDocumentsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PatientDocumentsTree" nillable="true" type="tns:PatientDocumentList" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="PatientDocumentList">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PatientDocuments" nillable="true" type="tns:PatientDocuments" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PatientDocumentList" nillable="true" type="tns:PatientDocumentList" />
+  <xs:complexType name="PatientDocuments">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PatientDocument" nillable="true" type="tns:PatientDocument" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PatientDocuments" nillable="true" type="tns:PatientDocuments" />
+  <xs:complexType name="PatientDocument">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DocId" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="DocInfo" nillable="true" type="q1:ArrayOfKeyValueOfstringstring" />
+      <xs:element minOccurs="0" name="DocElemType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DocChilds" nillable="true" type="tns:PatientDocuments" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PatientDocument" nillable="true" type="tns:PatientDocument" />
+  <xs:complexType name="DocumentNotFound">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DocumentNotFound" nillable="true" type="tns:DocumentNotFound" />
+  <xs:element name="GetDocumentsByExternalIdRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AppId" type="xs:long" />
+        <xs:element minOccurs="0" name="CompanyDb" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Doc" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DocChildType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DocFileType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="InstId" type="xs:long" />
+        <xs:element minOccurs="0" name="LocalId" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocumentsByExternalIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DocumentsTree" nillable="true" type="tns:PatientDocumentList" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocumentsByExternalIdV2Request">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ApplicationId" type="xs:long" />
+        <xs:element minOccurs="0" name="CompanyDb" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DocChildType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DocFileType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Document" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DocumentTypeId" type="xs:long" />
+        <xs:element minOccurs="0" name="InstitutionId" type="xs:long" />
+        <xs:element minOccurs="0" name="PlaceId" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocumentsByExternalIdV2Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DocumentsTree" nillable="true" type="tns:PatientDocumentList" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllPatientDocumentsMultiRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AppId" nillable="true" type="xs:long" />
+        <xs:element minOccurs="0" name="CompanyDb" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Doc" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DocDateBegin" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="DocDateEnd" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="DocType" nillable="true" type="xs:long" />
+        <xs:element minOccurs="0" name="DocsSessionFilters" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="EpiDateBegin" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="EpiDateEnd" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="EpisodeId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="EpisodeTypeId" nillable="true" type="xs:long" />
+        <xs:element minOccurs="0" name="ExecService" nillable="true" type="xs:long" />
+        <xs:element minOccurs="0" name="ExtId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="GlobalFilters" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="InstId" nillable="true" type="xs:long" />
+        <xs:element minOccurs="0" name="LocalId" nillable="true" type="xs:long" />
+        <xs:element minOccurs="0" name="PatEntIds" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ReqService" nillable="true" type="xs:long" />
+        <xs:element minOccurs="0" name="ServsSessionFilters" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="UserAnaRes" type="xs:boolean" />
+        <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ValDateBegin" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="ValDateEnd" nillable="true" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllPatientDocumentsMultiResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PatientDocumentsTree" nillable="true" type="tns:PatientDocumentList" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocTypeDescRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AppCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CompanyDb" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DocTypeCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="InstCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="PlaceCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocTypeDescResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DocTypeDesc" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocumentsByMultiCriteriaRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Application" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CompanyDb" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DocsSessionFilters" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DocumentId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DocumentType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="EmissionEndDate" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="EmissionStartDate" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="EntitiesIds" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="EpisodeEndDate" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="EpisodeId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="EpisodeStartDate" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="EpisodeType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ExecService" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ExecutionEndDate" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="ExecutionStartDate" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="ExternalId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="GlobalFilters" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Institution" nillable="true" type="xs:string" />
+        <xs:element xmlns:q2="urn:Cpchs.Entities" minOccurs="0" name="PaginationInfo" nillable="true" type="q2:PaginationRequest" />
+        <xs:element minOccurs="0" name="Place" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Public" nillable="true" type="xs:boolean" />
+        <xs:element minOccurs="0" name="Report" nillable="true" type="xs:boolean" />
+        <xs:element minOccurs="0" name="ReqService" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ServsSessionFilters" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ValidationEndDate" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="ValidationStartDate" nillable="true" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocumentsByMultiCriteriaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="MyDocumentsTree" nillable="true" type="tns:DocumentsList" />
+        <xs:element xmlns:q3="urn:Cpchs.Entities" minOccurs="0" name="PaginationInfo" nillable="true" type="q3:PaginationResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="DocumentsList">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Documents" nillable="true" type="tns:Documents" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DocumentsList" nillable="true" type="tns:DocumentsList" />
+  <xs:complexType name="Documents">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Document" nillable="true" type="tns:Document" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Documents" nillable="true" type="tns:Documents" />
+  <xs:complexType name="Document">
+    <xs:sequence>
+      <xs:element name="UniqueId" type="xs:long" />
+      <xs:element name="Application" nillable="true" type="xs:string" />
+      <xs:element name="DocumentType" nillable="true" type="xs:string" />
+      <xs:element name="Id" nillable="true" type="xs:string" />
+      <xs:element name="ExecutionDate" type="xs:dateTime" />
+      <xs:element name="ValidationDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EmissionDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element name="EpisodeType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReqService" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExecService" nillable="true" type="xs:string" />
+      <xs:element name="ElementType" type="tns:ElementType" />
+      <xs:element minOccurs="0" name="Childs" nillable="true" type="tns:Documents" />
+      <xs:element minOccurs="0" name="Elements" nillable="true" type="tns:Elements" />
+      <xs:element minOccurs="0" name="ThumbUrlQuery" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IntitutionCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PlaceCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ApplicationCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DocumentTypeCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Public" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ThumbClass" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DocumentURL" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DocumentURLType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ApplicationId" type="xs:long" />
+      <xs:element minOccurs="0" name="DocumentTypeId" type="xs:long" />
+      <xs:element minOccurs="0" name="HasForm" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MandatoryForm" type="xs:boolean" />
+      <xs:element minOccurs="0" name="FormDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatientId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatientType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EpisodeId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EpisodeTypeCode" nillable="true" type="xs:string" />
+      <xs:element name="PatientName" nillable="true" type="xs:string" />
+      <xs:element name="Viewed" nillable="true" type="xs:string" />
+      <xs:element name="ObsCancel" nillable="true" type="xs:string" />
+      <xs:element name="JustifCancel" nillable="true" type="xs:string" />
+      <xs:element name="JustifIdCancel" nillable="true" type="xs:string" />
+      <xs:element name="DateCancel" nillable="true" type="xs:dateTime" />
+      <xs:element name="UserCancel" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Document" nillable="true" type="tns:Document" />
+  <xs:simpleType name="ElementType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Unknown" />
+      <xs:enumeration value="AnalyticalResult" />
+      <xs:enumeration value="File" />
+      <xs:enumeration value="Link" />
+      <xs:enumeration value="Video" />
+      <xs:enumeration value="Mix" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ElementType" nillable="true" type="tns:ElementType" />
+  <xs:complexType name="Elements">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Element" nillable="true" type="tns:Element" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Elements" nillable="true" type="tns:Elements" />
+  <xs:complexType name="Element">
+    <xs:sequence>
+      <xs:element name="Id" type="xs:long" />
+      <xs:element name="Version" nillable="true" type="xs:string" />
+      <xs:element name="ExecutionDate" type="xs:dateTime" />
+      <xs:element name="ValidationDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EmissionDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ElementType" type="tns:ElementType" />
+      <xs:element name="ForReport" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ReportPresOrder" nillable="true" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Element" nillable="true" type="tns:Element" />
+  <xs:element name="CancelDocumentRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CompanyDb" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DocumentUniqueId" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CancelDocumentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Success" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CancelElementRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CompanyDb" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ElementId" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CancelElementResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Success" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateElementReportInfoRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CompanyDb" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ElementsList" nillable="true" type="tns:ElementInfoForReportCollection" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ElementInfoForReportCollection">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ElementInfoForReport" nillable="true" type="tns:ElementInfoForReport" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ElementInfoForReportCollection" nillable="true" type="tns:ElementInfoForReportCollection" />
+  <xs:complexType name="ElementInfoForReport">
+    <xs:sequence>
+      <xs:element name="ElementId" type="xs:long" />
+      <xs:element name="ForReport" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PresentationOrder" nillable="true" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ElementInfoForReport" nillable="true" type="tns:ElementInfoForReport" />
+  <xs:element name="UpdateElementReportInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Success" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogDocumentAccessRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CompanyDb" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DocumentAccess" nillable="true" type="tns:DocumentAccessLog" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="DocumentAccessLog">
+    <xs:sequence>
+      <xs:element name="UserName" nillable="true" type="xs:string" />
+      <xs:element name="SessionId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ViewingTime" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="InstitutionCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PlaceCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ApplicationCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DocumentTypeCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DocumentId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DocumentUniqueId" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="ElementUniqueId" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="ElementVersion" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DocumentAccessLog" nillable="true" type="tns:DocumentAccessLog" />
+  <xs:element name="LogDocumentAccessResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Success" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocumentVideosRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CompanyDB" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DocId" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocumentVideosResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DocumentVideos" nillable="true" type="tns:VideoList" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="VideoList">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Videos" nillable="true" type="tns:Videos" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="VideoList" nillable="true" type="tns:VideoList" />
+  <xs:complexType name="Videos">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Video" nillable="true" type="tns:Video" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Videos" nillable="true" type="tns:Videos" />
+  <xs:complexType name="Video">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="VideoDuration" type="xs:long" />
+      <xs:element minOccurs="0" name="VideoDesc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VideoElementId" type="xs:long" />
+      <xs:element minOccurs="0" name="VideoVersionCode" type="xs:long" />
+      <xs:element minOccurs="0" name="VideoLinks" nillable="true" type="tns:VideoLinks" />
+      <xs:element minOccurs="0" name="VideoThumbPreviewUri" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Video" nillable="true" type="tns:Video" />
+  <xs:complexType name="VideoLinks">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="VideoLink" nillable="true" type="tns:VideoLink" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="VideoLinks" nillable="true" type="tns:VideoLinks" />
+  <xs:complexType name="VideoLink">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="VideoLinkElementId" type="xs:long" />
+      <xs:element minOccurs="0" name="VideoLinkVersionCode" type="xs:long" />
+      <xs:element minOccurs="0" name="VideoLinkId" type="xs:long" />
+      <xs:element minOccurs="0" name="VideoLinkLink" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VideoLinkHResolution" type="xs:long" />
+      <xs:element minOccurs="0" name="VideoLinkVResolution" type="xs:long" />
+      <xs:element minOccurs="0" name="VideoLinkSize" type="xs:long" />
+      <xs:element minOccurs="0" name="VideoLinkType" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="VideoLink" nillable="true" type="tns:VideoLink" />
+  <xs:element name="GetDocumentsByMultiCriteriaV2Request">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Application" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CompanyDb" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DocsSessionFilters" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DocumentId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DocumentType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="EmissionEndDate" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="EmissionStartDate" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="EntitiesIds" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="EpisodeEndDate" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="EpisodeId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="EpisodeStartDate" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="EpisodeType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ExecService" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ExecutionEndDate" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="ExecutionStartDate" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="ExternalId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="FilterString" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="GlobalFilters" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Institution" nillable="true" type="xs:string" />
+        <xs:element xmlns:q4="urn:Cpchs.Entities" minOccurs="0" name="PaginationInfo" nillable="true" type="q4:PaginationRequest" />
+        <xs:element minOccurs="0" name="PatientId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="PatientType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Period" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Place" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Public" nillable="true" type="xs:boolean" />
+        <xs:element minOccurs="0" name="Report" nillable="true" type="xs:boolean" />
+        <xs:element minOccurs="0" name="ReqService" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ServsSessionFilters" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ValidationEndDate" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="ValidationStartDate" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="WorkspaceId" nillable="true" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocumentsByMultiCriteriaV2Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="MyDocumentsTree" nillable="true" type="tns:DocumentsList" />
+        <xs:element xmlns:q5="urn:Cpchs.Entities" minOccurs="0" name="PaginationInfo" nillable="true" type="q5:PaginationResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocumentsForEPRRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CompanyDb" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="EResultsVersion" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="EpisodeId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="EpisodeType" nillable="true" type="xs:string" />
+        <xs:element xmlns:q6="urn:Cpchs.Entities" minOccurs="0" name="PaginationInfo" nillable="true" type="q6:PaginationRequest" />
+        <xs:element minOccurs="0" name="PatientId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="PatientType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Period" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocumentsForEPRResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="MyDocumentsTree" nillable="true" type="tns:DocumentsList" />
+        <xs:element xmlns:q7="urn:Cpchs.Entities" minOccurs="0" name="PaginationInfo" nillable="true" type="q7:PaginationResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocumentsForEPRv1">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocumentsForEPRv1Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetDocumentsForEPRv1Result" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PromoteDocumentToPublicRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CompanyDB" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DocumentsInfo" nillable="true" type="tns:DocumentInfoForPublishList" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="DocumentInfoForPublishList">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Documents" nillable="true" type="tns:DocumentInfoForPublishCollection" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DocumentInfoForPublishList" nillable="true" type="tns:DocumentInfoForPublishList" />
+  <xs:complexType name="DocumentInfoForPublishCollection">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DocumentInfoForPublish" nillable="true" type="tns:DocumentInfoForPublish" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DocumentInfoForPublishCollection" nillable="true" type="tns:DocumentInfoForPublishCollection" />
+  <xs:complexType name="DocumentInfoForPublish">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DocumentUniqueId" type="xs:long" />
+      <xs:element minOccurs="0" name="Publish" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DocumentInfoForPublish" nillable="true" type="tns:DocumentInfoForPublish" />
+  <xs:element name="PromoteDocumentToPublicResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Donne" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPatientDocumentsRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Application" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CompanyDb" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DocumentType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="EpisodeId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="EpisodeType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Institution" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="PatientId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="PatientType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Place" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPatientDocumentsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="MyDocumentsTree" nillable="true" type="tns:DocumentsList" />
+        <xs:element xmlns:q8="urn:Cpchs.Entities" minOccurs="0" name="PaginationInfo" nillable="true" type="q8:PaginationResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CancelDocumentPermanentlyRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Application" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CompanyDb" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DocumentExternalId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DocumentType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Institution" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Place" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CancelDocumentPermanentlyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="OperationSuccess" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CancelDocumentLastVersionRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Application" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CompanyDb" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DocumentExternalId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DocumentType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Institution" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Place" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CancelDocumentLastVersionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="OperationSuccess" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConvertPdfToImagesRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Page" type="xs:int" />
+        <xs:element minOccurs="0" name="RequestUrl" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConvertPdfToImagesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CurrentPage" type="xs:int" />
+        <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Images" nillable="true" type="q9:ArrayOfstring" />
+        <xs:element minOccurs="0" name="TotalPages" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OpenDynamicFormRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="App" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CompanyDb" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DocType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Filter" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="User" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OpenDynamicFormResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Url" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGeneralDocumentsRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Application" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CancelDate" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="CompanyDb" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DocsSessionFilters" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DocumentId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DocumentType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="EmissionEndDate" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="EmissionStartDate" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="EntitiesIds" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="EpisodeEndDate" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="EpisodeId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="EpisodeStartDate" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="EpisodeType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ExecService" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ExecutionEndDate" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="ExecutionStartDate" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="ExternalId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="FilterString" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="GlobalFilters" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Institution" nillable="true" type="xs:string" />
+        <xs:element xmlns:q10="urn:Cpchs.Entities" minOccurs="0" name="PaginationInfo" nillable="true" type="q10:PaginationRequest" />
+        <xs:element minOccurs="0" name="PatientId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="PatientType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Period" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Place" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Public" nillable="true" type="xs:boolean" />
+        <xs:element minOccurs="0" name="Report" nillable="true" type="xs:boolean" />
+        <xs:element minOccurs="0" name="ReqService" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ServsSessionFilters" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ValidationEndDate" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="ValidationStartDate" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="WorkspaceId" nillable="true" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGeneralDocumentsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="MyDocumentsTree" nillable="true" type="tns:DocumentsList" />
+        <xs:element xmlns:q11="urn:Cpchs.Entities" minOccurs="0" name="PaginationInfo" nillable="true" type="q11:PaginationResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CancelDocumentPermanentlyRequestV2">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Application" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CompanyDb" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DocumentExternalId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DocumentType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Institution" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="JustificationId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Observations" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Place" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CancelDocumentPermanentlyResponseV2">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="OperationSuccess" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CancelDocumentLastVersionRequestV2">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Application" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CompanyDb" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DocumentExternalId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DocumentType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Institution" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="JustificationId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Observations" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Place" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CancelDocumentLastVersionResponseV2">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="OperationSuccess" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

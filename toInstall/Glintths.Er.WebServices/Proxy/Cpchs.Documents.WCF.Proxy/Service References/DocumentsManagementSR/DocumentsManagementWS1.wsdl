@@ -1,0 +1,524 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="urn:Cpchs.Documents" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="DocumentsManagementWS" targetNamespace="urn:Cpchs.Documents" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="urn:Cpchs.Documents/Imports">
+      <xsd:import schemaLocation="http://gsousa.glintt.com/Cpchs.Documents.WCF.Host/Service.svc?xsd=xsd0" namespace="urn:Cpchs.Documents" />
+      <xsd:import schemaLocation="http://gsousa.glintt.com/Cpchs.Documents.WCF.Host/Service.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://gsousa.glintt.com/Cpchs.Documents.WCF.Host/Service.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://gsousa.glintt.com/Cpchs.Documents.WCF.Host/Service.svc?xsd=xsd3" namespace="urn:Cpchs.Entities" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="RegisterDocumentAccessRequest">
+    <wsdl:part name="parameters" element="tns:RegisterDocumentAccessRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetAllPatientDocumentsRequest">
+    <wsdl:part name="parameters" element="tns:GetAllPatientDocumentsRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetAllPatientDocumentsResponse">
+    <wsdl:part name="parameters" element="tns:GetAllPatientDocumentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="DocumentsManagementSC_GetAllPatientDocuments_DocumentNotFoundFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:DocumentNotFound" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentsByExternalIdRequest">
+    <wsdl:part name="parameters" element="tns:GetDocumentsByExternalIdRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentsByExternalIdResponse">
+    <wsdl:part name="parameters" element="tns:GetDocumentsByExternalIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="DocumentsManagementSC_GetDocumentsByExternalId_DocumentNotFoundFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:DocumentNotFound" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentsByExternalIdV2Request">
+    <wsdl:part name="parameters" element="tns:GetDocumentsByExternalIdV2Request" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentsByExternalIdV2Response">
+    <wsdl:part name="parameters" element="tns:GetDocumentsByExternalIdV2Response" />
+  </wsdl:message>
+  <wsdl:message name="DocumentsManagementSC_GetDocumentsByExternalIdV2_DocumentNotFoundFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:DocumentNotFound" />
+  </wsdl:message>
+  <wsdl:message name="GetAllPatientDocumentsMultiRequest">
+    <wsdl:part name="parameters" element="tns:GetAllPatientDocumentsMultiRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetAllPatientDocumentsMultiResponse">
+    <wsdl:part name="parameters" element="tns:GetAllPatientDocumentsMultiResponse" />
+  </wsdl:message>
+  <wsdl:message name="DocumentsManagementSC_GetAllPatientDocumentsMulti_DocumentNotFoundFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:DocumentNotFound" />
+  </wsdl:message>
+  <wsdl:message name="GetDocTypeDescRequest">
+    <wsdl:part name="parameters" element="tns:GetDocTypeDescRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetDocTypeDescResponse">
+    <wsdl:part name="parameters" element="tns:GetDocTypeDescResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentsByMultiCriteriaRequest">
+    <wsdl:part name="parameters" element="tns:GetDocumentsByMultiCriteriaRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentsByMultiCriteriaResponse">
+    <wsdl:part name="parameters" element="tns:GetDocumentsByMultiCriteriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="CancelDocumentRequest">
+    <wsdl:part name="parameters" element="tns:CancelDocumentRequest" />
+  </wsdl:message>
+  <wsdl:message name="CancelDocumentResponse">
+    <wsdl:part name="parameters" element="tns:CancelDocumentResponse" />
+  </wsdl:message>
+  <wsdl:message name="CancelElementRequest">
+    <wsdl:part name="parameters" element="tns:CancelElementRequest" />
+  </wsdl:message>
+  <wsdl:message name="CancelElementResponse">
+    <wsdl:part name="parameters" element="tns:CancelElementResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateElementReportInfoRequest">
+    <wsdl:part name="parameters" element="tns:UpdateElementReportInfoRequest" />
+  </wsdl:message>
+  <wsdl:message name="UpdateElementReportInfoResponse">
+    <wsdl:part name="parameters" element="tns:UpdateElementReportInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="LogDocumentAccessRequest">
+    <wsdl:part name="parameters" element="tns:LogDocumentAccessRequest" />
+  </wsdl:message>
+  <wsdl:message name="LogDocumentAccessResponse">
+    <wsdl:part name="parameters" element="tns:LogDocumentAccessResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentVideosRequest">
+    <wsdl:part name="parameters" element="tns:GetDocumentVideosRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentVideosResponse">
+    <wsdl:part name="parameters" element="tns:GetDocumentVideosResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentsByMultiCriteriaV2Request">
+    <wsdl:part name="parameters" element="tns:GetDocumentsByMultiCriteriaV2Request" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentsByMultiCriteriaV2Response">
+    <wsdl:part name="parameters" element="tns:GetDocumentsByMultiCriteriaV2Response" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentsForEPRRequest">
+    <wsdl:part name="parameters" element="tns:GetDocumentsForEPRRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentsForEPRResponse">
+    <wsdl:part name="parameters" element="tns:GetDocumentsForEPRResponse" />
+  </wsdl:message>
+  <wsdl:message name="DocumentsManagementSC_GetDocumentsForEPRv1_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocumentsForEPRv1" />
+  </wsdl:message>
+  <wsdl:message name="DocumentsManagementSC_GetDocumentsForEPRv1_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocumentsForEPRv1Response" />
+  </wsdl:message>
+  <wsdl:message name="PromoteDocumentToPublicRequest">
+    <wsdl:part name="parameters" element="tns:PromoteDocumentToPublicRequest" />
+  </wsdl:message>
+  <wsdl:message name="PromoteDocumentToPublicResponse">
+    <wsdl:part name="parameters" element="tns:PromoteDocumentToPublicResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPatientDocumentsRequest">
+    <wsdl:part name="parameters" element="tns:GetPatientDocumentsRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetPatientDocumentsResponse">
+    <wsdl:part name="parameters" element="tns:GetPatientDocumentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CancelDocumentPermanentlyRequest">
+    <wsdl:part name="parameters" element="tns:CancelDocumentPermanentlyRequest" />
+  </wsdl:message>
+  <wsdl:message name="CancelDocumentPermanentlyResponse">
+    <wsdl:part name="parameters" element="tns:CancelDocumentPermanentlyResponse" />
+  </wsdl:message>
+  <wsdl:message name="CancelDocumentLastVersionRequest">
+    <wsdl:part name="parameters" element="tns:CancelDocumentLastVersionRequest" />
+  </wsdl:message>
+  <wsdl:message name="CancelDocumentLastVersionResponse">
+    <wsdl:part name="parameters" element="tns:CancelDocumentLastVersionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConvertPdfToImagesRequest">
+    <wsdl:part name="parameters" element="tns:ConvertPdfToImagesRequest" />
+  </wsdl:message>
+  <wsdl:message name="ConvertPdfToImagesResponse">
+    <wsdl:part name="parameters" element="tns:ConvertPdfToImagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="OpenDynamicFormRequest">
+    <wsdl:part name="parameters" element="tns:OpenDynamicFormRequest" />
+  </wsdl:message>
+  <wsdl:message name="OpenDynamicFormResponse">
+    <wsdl:part name="parameters" element="tns:OpenDynamicFormResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetGeneralDocumentsRequest">
+    <wsdl:part name="parameters" element="tns:GetGeneralDocumentsRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetGeneralDocumentsResponse">
+    <wsdl:part name="parameters" element="tns:GetGeneralDocumentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CancelDocumentPermanentlyRequestV2">
+    <wsdl:part name="parameters" element="tns:CancelDocumentPermanentlyRequestV2" />
+  </wsdl:message>
+  <wsdl:message name="CancelDocumentPermanentlyResponseV2">
+    <wsdl:part name="parameters" element="tns:CancelDocumentPermanentlyResponseV2" />
+  </wsdl:message>
+  <wsdl:message name="CancelDocumentLastVersionRequestV2">
+    <wsdl:part name="parameters" element="tns:CancelDocumentLastVersionRequestV2" />
+  </wsdl:message>
+  <wsdl:message name="CancelDocumentLastVersionResponseV2">
+    <wsdl:part name="parameters" element="tns:CancelDocumentLastVersionResponseV2" />
+  </wsdl:message>
+  <wsdl:portType name="DocumentsManagementSC">
+    <wsdl:operation name="RegisterDocumentAccess">
+      <wsdl:input wsaw:Action="urn:Cpchs.Documents.DocumentsManagementSC.RegisterDocumentAccess" name="RegisterDocumentAccessRequest" message="tns:RegisterDocumentAccessRequest" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPatientDocuments">
+      <wsdl:input wsaw:Action="urn:Cpchs.Documents.DocumentsManagementSC.GetAllPatientDocuments" name="GetAllPatientDocumentsRequest" message="tns:GetAllPatientDocumentsRequest" />
+      <wsdl:output wsaw:Action="urn:Cpchs.Documents.DocumentsMangaementSC.GetAllPatientDocuments" name="GetAllPatientDocumentsResponse" message="tns:GetAllPatientDocumentsResponse" />
+      <wsdl:fault wsaw:Action="urn:Cpchs.Documents/DocumentsManagementSC/GetAllPatientDocumentsDocumentNotFoundFault" name="DocumentNotFoundFault" message="tns:DocumentsManagementSC_GetAllPatientDocuments_DocumentNotFoundFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentsByExternalId">
+      <wsdl:input wsaw:Action="urn:Cpchs.Documents.DocumentsManagementSC.GetDocumentsByExternalId" name="GetDocumentsByExternalIdRequest" message="tns:GetDocumentsByExternalIdRequest" />
+      <wsdl:output wsaw:Action="urn:Cpchs.Documents.DocumentsMangaementSC.GetDocumentsByExternalId" name="GetDocumentsByExternalIdResponse" message="tns:GetDocumentsByExternalIdResponse" />
+      <wsdl:fault wsaw:Action="urn:Cpchs.Documents/DocumentsManagementSC/GetDocumentsByExternalIdDocumentNotFoundFault" name="DocumentNotFoundFault" message="tns:DocumentsManagementSC_GetDocumentsByExternalId_DocumentNotFoundFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentsByExternalIdV2">
+      <wsdl:input wsaw:Action="urn:Cpchs.Documents.DocumentsManagementSC.GetDocumentsByExternalIdV2" name="GetDocumentsByExternalIdV2Request" message="tns:GetDocumentsByExternalIdV2Request" />
+      <wsdl:output wsaw:Action="urn:Cpchs.Documents.DocumentsManagementSC.GetDocumentByExternalIdV2" name="GetDocumentsByExternalIdV2Response" message="tns:GetDocumentsByExternalIdV2Response" />
+      <wsdl:fault wsaw:Action="urn:Cpchs.Documents/DocumentsManagementSC/GetDocumentsByExternalIdV2DocumentNotFoundFault" name="DocumentNotFoundFault" message="tns:DocumentsManagementSC_GetDocumentsByExternalIdV2_DocumentNotFoundFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPatientDocumentsMulti">
+      <wsdl:input wsaw:Action="urn:Cpchs.Documents.DocumentsManagementSC.GetAllPatientDocumentsMulti" name="GetAllPatientDocumentsMultiRequest" message="tns:GetAllPatientDocumentsMultiRequest" />
+      <wsdl:output wsaw:Action="GetAllPatientDocumentsMulti" name="GetAllPatientDocumentsMultiResponse" message="tns:GetAllPatientDocumentsMultiResponse" />
+      <wsdl:fault wsaw:Action="urn:Cpchs.Documents/DocumentsManagementSC/GetAllPatientDocumentsMultiDocumentNotFoundFault" name="DocumentNotFoundFault" message="tns:DocumentsManagementSC_GetAllPatientDocumentsMulti_DocumentNotFoundFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocTypeDesc">
+      <wsdl:input wsaw:Action="urn:Cpchs.Documents.DocumentsManagementSC.GetDocTypeDesc" name="GetDocTypeDescRequest" message="tns:GetDocTypeDescRequest" />
+      <wsdl:output wsaw:Action="urn:Cpchs.Documents.DocumentsManagementSC.GetDocTypeDesc" name="GetDocTypeDescResponse" message="tns:GetDocTypeDescResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentsByMultiCriteria">
+      <wsdl:input wsaw:Action="urn:Cpchs.Documents.DocumentsManagementSC.GetDocumentsByMultiCriteria" name="GetDocumentsByMultiCriteriaRequest" message="tns:GetDocumentsByMultiCriteriaRequest" />
+      <wsdl:output wsaw:Action="GetDocumentsByMultiCriteria" name="GetDocumentsByMultiCriteriaResponse" message="tns:GetDocumentsByMultiCriteriaResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelDocument">
+      <wsdl:input wsaw:Action="urn:Cpchs.Documents.DocumentsManagementSC.CancelDocument" name="CancelDocumentRequest" message="tns:CancelDocumentRequest" />
+      <wsdl:output wsaw:Action="urn:Cpchs.Documents.DocumentsManagementSC.CancelDocument" name="CancelDocumentResponse" message="tns:CancelDocumentResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelElement">
+      <wsdl:input wsaw:Action="urn:Cpchs.Documents.DocumentsManagementSC.CancelElement" name="CancelElementRequest" message="tns:CancelElementRequest" />
+      <wsdl:output wsaw:Action="urn:Cpchs.Documents.DocumentsManagementSC.CancelElement" name="CancelElementResponse" message="tns:CancelElementResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateElementReportInfo">
+      <wsdl:input wsaw:Action="urn:Cpchs.Documents.DocumentsManagementSC.UpdateElementReportInfo" name="UpdateElementReportInfoRequest" message="tns:UpdateElementReportInfoRequest" />
+      <wsdl:output wsaw:Action="urn:Cpchs.Documents.DocumentsManagementSC.UpdateElementReportInfo" name="UpdateElementReportInfoResponse" message="tns:UpdateElementReportInfoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="LogDocumentAccess">
+      <wsdl:input wsaw:Action="urn:Cpchs.Documents.DocumentsManagementSC.LogDocumentAccess" name="LogDocumentAccessRequest" message="tns:LogDocumentAccessRequest" />
+      <wsdl:output wsaw:Action="urn:Cpchs.Documents.DocumentsManagementSC.LogDocumentAccess" name="LogDocumentAccessResponse" message="tns:LogDocumentAccessResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentVideos">
+      <wsdl:input wsaw:Action="urn:Cpchs.Documents.DocumentsManagementSC.GetDocumentVideos" name="GetDocumentVideosRequest" message="tns:GetDocumentVideosRequest" />
+      <wsdl:output wsaw:Action="urn:Cpchs.Documents/DocumentsManagementSC/GetDocumentVideosResponse" name="GetDocumentVideosResponse" message="tns:GetDocumentVideosResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentsByMultiCriteriaV2">
+      <wsdl:input wsaw:Action="urn:Cpchs.Documents.DocumentsManagementSC.GetDocumentsByMultiCriteriaV2" name="GetDocumentsByMultiCriteriaV2Request" message="tns:GetDocumentsByMultiCriteriaV2Request" />
+      <wsdl:output wsaw:Action="urn:Cpchs.Documents.DocumentsManagementSC.GetDocumentsByMultiCriteriaV2" name="GetDocumentsByMultiCriteriaV2Response" message="tns:GetDocumentsByMultiCriteriaV2Response" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentsForEPR">
+      <wsdl:input wsaw:Action="urn:Cpchs.Documents.DocumentsManagementSC.GetDocumentsForEPR" name="GetDocumentsForEPRRequest" message="tns:GetDocumentsForEPRRequest" />
+      <wsdl:output wsaw:Action="urn:Cpchs.Documents.DocumentsManagementSC.GetDocumentsForEPR" name="GetDocumentsForEPRResponse" message="tns:GetDocumentsForEPRResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentsForEPRv1">
+      <wsdl:input wsaw:Action="urn:Cpchs.Documents.DocumentsManagementSC.GetDocumentsForEPRv1" message="tns:DocumentsManagementSC_GetDocumentsForEPRv1_InputMessage" />
+      <wsdl:output wsaw:Action="urn:Cpchs.Documents.DocumentsManagementSC.GetDocumentsForEPRv1" message="tns:DocumentsManagementSC_GetDocumentsForEPRv1_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PromoteDocumentToPublic">
+      <wsdl:input wsaw:Action="urn:Cpchs.Documents.DocumentsManagementSC.PromoteDocumentToPublic" name="PromoteDocumentToPublicRequest" message="tns:PromoteDocumentToPublicRequest" />
+      <wsdl:output wsaw:Action="urn:Cpchs.Documents.DocumentsManagementSC.PromoteDocumentToPublic" name="PromoteDocumentToPublicResponse" message="tns:PromoteDocumentToPublicResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPatientDocuments">
+      <wsdl:input wsaw:Action="urn:Cpchs.Documents.DocumentsManagementSC.GetPatientDocuments" name="GetPatientDocumentsRequest" message="tns:GetPatientDocumentsRequest" />
+      <wsdl:output wsaw:Action="urn:Cpchs.Documents.DocumentsManagementSC.GetPatientDocuments" name="GetPatientDocumentsResponse" message="tns:GetPatientDocumentsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelDocumentPermanently">
+      <wsdl:input wsaw:Action="urn:Cpchs.Documents.DocumentsManagementSC.CancelDocumentPermanently" name="CancelDocumentPermanentlyRequest" message="tns:CancelDocumentPermanentlyRequest" />
+      <wsdl:output wsaw:Action="urn:Cpchs.Documents/DocumentsManagementSC/CancelDocumentPermanentlyResponse" name="CancelDocumentPermanentlyResponse" message="tns:CancelDocumentPermanentlyResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelDocumentLastVersion">
+      <wsdl:input wsaw:Action="urn:Cpchs.Documents.DocumentsManagementSC.CancelDocumentLastVersion" name="CancelDocumentLastVersionRequest" message="tns:CancelDocumentLastVersionRequest" />
+      <wsdl:output wsaw:Action="urn:Cpchs.Documents/DocumentsManagementSC/CancelDocumentLastVersionResponse" name="CancelDocumentLastVersionResponse" message="tns:CancelDocumentLastVersionResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ConvertPdfToImages">
+      <wsdl:input wsaw:Action="urn:Cpchs.Documents.DocumentsManagementSC.ConvertPdfToImages" name="ConvertPdfToImagesRequest" message="tns:ConvertPdfToImagesRequest" />
+      <wsdl:output wsaw:Action="urn:Cpchs.Documents/DocumentsManagementSC/ConvertPdfToImagesResponse" name="ConvertPdfToImagesResponse" message="tns:ConvertPdfToImagesResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="OpenDynamicForm">
+      <wsdl:input wsaw:Action="urn:Cpchs.Documents.DocumentsManagementSC.OpenDynamicForm" name="OpenDynamicFormRequest" message="tns:OpenDynamicFormRequest" />
+      <wsdl:output wsaw:Action="urn:Cpchs.Documents/DocumentsManagementSC/OpenDynamicFormResponse" name="OpenDynamicFormResponse" message="tns:OpenDynamicFormResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGeneralDocuments">
+      <wsdl:input wsaw:Action="urn:Cpchs.Documents.DocumentsManagementSC.GetGeneralDocuments" name="GetGeneralDocumentsRequest" message="tns:GetGeneralDocumentsRequest" />
+      <wsdl:output wsaw:Action="urn:Cpchs.Documents/DocumentsManagementSC/GetGeneralDocumentsResponse" name="GetGeneralDocumentsResponse" message="tns:GetGeneralDocumentsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCancelledDocuments">
+      <wsdl:input wsaw:Action="urn:Cpchs.Documents.DocumentsManagementSC.GetCancelledDocuments" name="GetGeneralDocumentsRequest" message="tns:GetGeneralDocumentsRequest" />
+      <wsdl:output wsaw:Action="urn:Cpchs.Documents/DocumentsManagementSC/GetCancelledDocumentsResponse" name="GetGeneralDocumentsResponse" message="tns:GetGeneralDocumentsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentsToCancel">
+      <wsdl:input wsaw:Action="urn:Cpchs.Documents.DocumentsManagementSC.GetDocumentsToCancel" name="GetDocumentsByMultiCriteriaV2Request" message="tns:GetDocumentsByMultiCriteriaV2Request" />
+      <wsdl:output wsaw:Action="urn:Cpchs.Documents/DocumentsManagementSC/GetDocumentsToCancelResponse" name="GetDocumentsByMultiCriteriaV2Response" message="tns:GetDocumentsByMultiCriteriaV2Response" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelDocumentPermanentlyV2">
+      <wsdl:input wsaw:Action="urn:Cpchs.Documents.DocumentsManagementSC.CancelDocumentPermanentlyV2" name="CancelDocumentPermanentlyRequestV2" message="tns:CancelDocumentPermanentlyRequestV2" />
+      <wsdl:output wsaw:Action="urn:Cpchs.Documents/DocumentsManagementSC/CancelDocumentPermanentlyV2Response" name="CancelDocumentPermanentlyResponseV2" message="tns:CancelDocumentPermanentlyResponseV2" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelDocumentLastVersionV2">
+      <wsdl:input wsaw:Action="urn:Cpchs.Documents.DocumentsManagementSC.CancelDocumentLastVersionV2" name="CancelDocumentLastVersionRequestV2" message="tns:CancelDocumentLastVersionRequestV2" />
+      <wsdl:output wsaw:Action="urn:Cpchs.Documents/DocumentsManagementSC/CancelDocumentLastVersionV2Response" name="CancelDocumentLastVersionResponseV2" message="tns:CancelDocumentLastVersionResponseV2" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DocumentsEndpoint" type="tns:DocumentsManagementSC">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RegisterDocumentAccess">
+      <soap:operation soapAction="urn:Cpchs.Documents.DocumentsManagementSC.RegisterDocumentAccess" style="document" />
+      <wsdl:input name="RegisterDocumentAccessRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPatientDocuments">
+      <soap:operation soapAction="urn:Cpchs.Documents.DocumentsManagementSC.GetAllPatientDocuments" style="document" />
+      <wsdl:input name="GetAllPatientDocumentsRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetAllPatientDocumentsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DocumentNotFoundFault">
+        <soap:fault use="literal" name="DocumentNotFoundFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentsByExternalId">
+      <soap:operation soapAction="urn:Cpchs.Documents.DocumentsManagementSC.GetDocumentsByExternalId" style="document" />
+      <wsdl:input name="GetDocumentsByExternalIdRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetDocumentsByExternalIdResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DocumentNotFoundFault">
+        <soap:fault use="literal" name="DocumentNotFoundFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentsByExternalIdV2">
+      <soap:operation soapAction="urn:Cpchs.Documents.DocumentsManagementSC.GetDocumentsByExternalIdV2" style="document" />
+      <wsdl:input name="GetDocumentsByExternalIdV2Request">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetDocumentsByExternalIdV2Response">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DocumentNotFoundFault">
+        <soap:fault use="literal" name="DocumentNotFoundFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPatientDocumentsMulti">
+      <soap:operation soapAction="urn:Cpchs.Documents.DocumentsManagementSC.GetAllPatientDocumentsMulti" style="document" />
+      <wsdl:input name="GetAllPatientDocumentsMultiRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetAllPatientDocumentsMultiResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DocumentNotFoundFault">
+        <soap:fault use="literal" name="DocumentNotFoundFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocTypeDesc">
+      <soap:operation soapAction="urn:Cpchs.Documents.DocumentsManagementSC.GetDocTypeDesc" style="document" />
+      <wsdl:input name="GetDocTypeDescRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetDocTypeDescResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentsByMultiCriteria">
+      <soap:operation soapAction="urn:Cpchs.Documents.DocumentsManagementSC.GetDocumentsByMultiCriteria" style="document" />
+      <wsdl:input name="GetDocumentsByMultiCriteriaRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetDocumentsByMultiCriteriaResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelDocument">
+      <soap:operation soapAction="urn:Cpchs.Documents.DocumentsManagementSC.CancelDocument" style="document" />
+      <wsdl:input name="CancelDocumentRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CancelDocumentResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelElement">
+      <soap:operation soapAction="urn:Cpchs.Documents.DocumentsManagementSC.CancelElement" style="document" />
+      <wsdl:input name="CancelElementRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CancelElementResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateElementReportInfo">
+      <soap:operation soapAction="urn:Cpchs.Documents.DocumentsManagementSC.UpdateElementReportInfo" style="document" />
+      <wsdl:input name="UpdateElementReportInfoRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="UpdateElementReportInfoResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogDocumentAccess">
+      <soap:operation soapAction="urn:Cpchs.Documents.DocumentsManagementSC.LogDocumentAccess" style="document" />
+      <wsdl:input name="LogDocumentAccessRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="LogDocumentAccessResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentVideos">
+      <soap:operation soapAction="urn:Cpchs.Documents.DocumentsManagementSC.GetDocumentVideos" style="document" />
+      <wsdl:input name="GetDocumentVideosRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetDocumentVideosResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentsByMultiCriteriaV2">
+      <soap:operation soapAction="urn:Cpchs.Documents.DocumentsManagementSC.GetDocumentsByMultiCriteriaV2" style="document" />
+      <wsdl:input name="GetDocumentsByMultiCriteriaV2Request">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetDocumentsByMultiCriteriaV2Response">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentsForEPR">
+      <soap:operation soapAction="urn:Cpchs.Documents.DocumentsManagementSC.GetDocumentsForEPR" style="document" />
+      <wsdl:input name="GetDocumentsForEPRRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetDocumentsForEPRResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentsForEPRv1">
+      <soap:operation soapAction="urn:Cpchs.Documents.DocumentsManagementSC.GetDocumentsForEPRv1" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PromoteDocumentToPublic">
+      <soap:operation soapAction="urn:Cpchs.Documents.DocumentsManagementSC.PromoteDocumentToPublic" style="document" />
+      <wsdl:input name="PromoteDocumentToPublicRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="PromoteDocumentToPublicResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPatientDocuments">
+      <soap:operation soapAction="urn:Cpchs.Documents.DocumentsManagementSC.GetPatientDocuments" style="document" />
+      <wsdl:input name="GetPatientDocumentsRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetPatientDocumentsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelDocumentPermanently">
+      <soap:operation soapAction="urn:Cpchs.Documents.DocumentsManagementSC.CancelDocumentPermanently" style="document" />
+      <wsdl:input name="CancelDocumentPermanentlyRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CancelDocumentPermanentlyResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelDocumentLastVersion">
+      <soap:operation soapAction="urn:Cpchs.Documents.DocumentsManagementSC.CancelDocumentLastVersion" style="document" />
+      <wsdl:input name="CancelDocumentLastVersionRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CancelDocumentLastVersionResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConvertPdfToImages">
+      <soap:operation soapAction="urn:Cpchs.Documents.DocumentsManagementSC.ConvertPdfToImages" style="document" />
+      <wsdl:input name="ConvertPdfToImagesRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ConvertPdfToImagesResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OpenDynamicForm">
+      <soap:operation soapAction="urn:Cpchs.Documents.DocumentsManagementSC.OpenDynamicForm" style="document" />
+      <wsdl:input name="OpenDynamicFormRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="OpenDynamicFormResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGeneralDocuments">
+      <soap:operation soapAction="urn:Cpchs.Documents.DocumentsManagementSC.GetGeneralDocuments" style="document" />
+      <wsdl:input name="GetGeneralDocumentsRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetGeneralDocumentsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCancelledDocuments">
+      <soap:operation soapAction="urn:Cpchs.Documents.DocumentsManagementSC.GetCancelledDocuments" style="document" />
+      <wsdl:input name="GetGeneralDocumentsRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetGeneralDocumentsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentsToCancel">
+      <soap:operation soapAction="urn:Cpchs.Documents.DocumentsManagementSC.GetDocumentsToCancel" style="document" />
+      <wsdl:input name="GetDocumentsByMultiCriteriaV2Request">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetDocumentsByMultiCriteriaV2Response">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelDocumentPermanentlyV2">
+      <soap:operation soapAction="urn:Cpchs.Documents.DocumentsManagementSC.CancelDocumentPermanentlyV2" style="document" />
+      <wsdl:input name="CancelDocumentPermanentlyRequestV2">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CancelDocumentPermanentlyResponseV2">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelDocumentLastVersionV2">
+      <soap:operation soapAction="urn:Cpchs.Documents.DocumentsManagementSC.CancelDocumentLastVersionV2" style="document" />
+      <wsdl:input name="CancelDocumentLastVersionRequestV2">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CancelDocumentLastVersionResponseV2">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DocumentsManagementWS">
+    <wsdl:port name="DocumentsEndpoint" binding="tns:DocumentsEndpoint">
+      <soap:address location="http://gsousa.glintt.com/Cpchs.Documents.WCF.Host/Service.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

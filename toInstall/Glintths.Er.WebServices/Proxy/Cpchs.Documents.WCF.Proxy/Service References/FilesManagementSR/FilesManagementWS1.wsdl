@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="urn:Cpchs.Documents" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="FilesManagementWS" targetNamespace="urn:Cpchs.Documents" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="urn:Cpchs.Documents/Imports">
+      <xsd:import schemaLocation="http://gsousa.glintt.com/Cpchs.Documents.WCF.Host/FilesManagementWS.svc?xsd=xsd0" namespace="urn:Cpchs.Documents" />
+      <xsd:import schemaLocation="http://gsousa.glintt.com/Cpchs.Documents.WCF.Host/FilesManagementWS.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="GetDocumentFilesRequest">
+    <wsdl:part name="parameters" element="tns:GetDocumentFilesRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentFilesResponse">
+    <wsdl:part name="parameters" element="tns:GetDocumentFilesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFileByElementIdRequest">
+    <wsdl:part name="parameters" element="tns:GetFileByElementIdRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetFileByElementIdResponse">
+    <wsdl:part name="parameters" element="tns:GetFileByElementIdResponse" />
+  </wsdl:message>
+  <wsdl:portType name="FilesManagementSC">
+    <wsdl:operation name="GetDocumentFiles">
+      <wsdl:input wsaw:Action="urn:Cpchs.Documents.FilesManagementSC.GetDocumentFiles" name="GetDocumentFilesRequest" message="tns:GetDocumentFilesRequest" />
+      <wsdl:output wsaw:Action="urn:Cpchs.Documents.FilesManagementSC.GetDocumentFiles" name="GetDocumentFilesResponse" message="tns:GetDocumentFilesResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFileByElementId">
+      <wsdl:input wsaw:Action="urn:Cpchs.Documents.FilesManagementSC.GetFileByElementId" name="GetFileByElementIdRequest" message="tns:GetFileByElementIdRequest" />
+      <wsdl:output wsaw:Action="urn:Cpchs.Documents.FilesManagementSC.GetFileByElementId" name="GetFileByElementIdResponse" message="tns:GetFileByElementIdResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="FilesEndpoint" type="tns:FilesManagementSC">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetDocumentFiles">
+      <soap:operation soapAction="urn:Cpchs.Documents.FilesManagementSC.GetDocumentFiles" style="document" />
+      <wsdl:input name="GetDocumentFilesRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetDocumentFilesResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFileByElementId">
+      <soap:operation soapAction="urn:Cpchs.Documents.FilesManagementSC.GetFileByElementId" style="document" />
+      <wsdl:input name="GetFileByElementIdRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetFileByElementIdResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="FilesManagementWS">
+    <wsdl:port name="FilesEndpoint" binding="tns:FilesEndpoint">
+      <soap:address location="http://gsousa.glintt.com/Cpchs.Documents.WCF.Host/FilesManagementWS.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
